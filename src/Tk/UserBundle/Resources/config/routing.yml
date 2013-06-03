@@ -1,0 +1,3 @@
+tk_user_homepage:
+    pattern:  /
+    defaults: { _controller: TkUserBundle:Default:index }

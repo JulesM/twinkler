@@ -1,0 +1,7 @@
+parameters:
+#    tk_welcome.example.class: Tk\WelcomeBundle\Example
+
+services:
+#    tk_welcome.example:
+#        class: %tk_welcome.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

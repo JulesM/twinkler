@@ -1,0 +1,8 @@
+tk_user:
+    resource: "@TkUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tk_welcome:
+    resource: "@TkWelcomeBundle/Resources/config/routing.yml"
+    prefix:   /
+

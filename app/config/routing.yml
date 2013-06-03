@@ -1,3 +1,7 @@
+tk_group:
+    resource: "@TkGroupBundle/Resources/config/routing.yml"
+    prefix:   /
+
 tk_user:
     resource: "@TkUserBundle/Resources/config/routing.yml"
     prefix:   /

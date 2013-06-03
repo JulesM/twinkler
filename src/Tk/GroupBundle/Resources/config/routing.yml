@@ -1,0 +1,15 @@
+tk_group_homepage:
+    pattern:  /default
+    defaults: { _controller: TkGroupBundle:Default:index }
+
+tk_group_expenses:
+    pattern:  /expenses
+    defaults: { _controller: TkGroupBundle:Expense:index }
+
+tk_group_lists:
+    pattern:  /lists
+    defaults: { _controller: TkGroupBundle:List:index }
+
+tk_group_parameters:
+    pattern:  /parameters
+    defaults: { _controller: TkGroupBundle:Parameter:index }

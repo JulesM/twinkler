@@ -1,0 +1,12 @@
+/* --- CSS applyable for all website--- */
+
+.box{
+	border: solid 1px;
+	border-radius: 5px;
+	width: 100%;
+	min-height: 200px;
+}
+
+.box h2{
+	text-align: center;
+}

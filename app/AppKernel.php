@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Tk\WelcomeBundle\TkWelcomeBundle(),
             new Tk\UserBundle\TkUserBundle(),
             new Tk\GroupBundle\TkGroupBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

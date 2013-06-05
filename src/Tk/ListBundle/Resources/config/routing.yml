@@ -1,0 +1,3 @@
+tk_list_homepage:
+    pattern:  /lists
+    defaults: { _controller: TkListBundle:List:index }

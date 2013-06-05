@@ -4,10 +4,10 @@ namespace Tk\GroupBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ListController extends Controller
+class SettingController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkGroupBundle:Lists:index.html.twig');
+        return $this->render('TkGroupBundle:Settings:index.html.twig');
     }
 }

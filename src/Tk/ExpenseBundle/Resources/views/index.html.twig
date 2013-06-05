@@ -1,0 +1,66 @@
+{% extends 'TkUserBundle::frame.html.twig' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+ <link href="{{ asset('css/expenses.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<h1>My Coloc - Expenses</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<div class="box">
+					<h2>Balances & Debts</h2>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="box">
+					<h2>Expenses I paid<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
+
+					<!-- Modal -->
+					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
+
+					<div class="well well-small">
+						You paid = 
+					</div>
+
+					<div class="box-body">
+
+						{% for expense in my_expenses %}
+
+							<p>{{ expense.name }} - {{ expense.date|date("d/m") }} - You paid {{ expense.amount }}€</p>
+
+						{% endfor %}
+						
+					</div>
+
+				</div>
+			</div>
+			<div class="span4">
+				<div class="box">
+					<h2>Paid by others<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
+
+					<div class="well well-small">
+						You owe = 
+					</div>
+
+					<div class="box-body">
+
+						{% for expense in other_expenses %}
+
+							<p>{{ expense.name }} - {{ expense.date|date("d/m") }} - {{ expense.owner }} paid {{ expense.amount }}€</p>
+
+						{% endfor %}
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

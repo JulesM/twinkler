@@ -11,8 +11,11 @@ class ExpenseController extends Controller
     public function indexAction()
     {
         return $this->render('TkExpenseBundle::index.html.twig', array(
+            'all_expenses'   => $this->getAllExpensesAction(),
             'my_expenses'    => $this->getMyExpensesAction(),
             'other_expenses' => $this->getOtherExpensesAction(),
+            'total_paid'     => $this->getTotalPaidAction(),
+            'total_owed'     => $this->getTotalOwedAction(),
             ));
     }
 
@@ -46,6 +49,12 @@ class ExpenseController extends Controller
     	));
     }
 
+    private function getAllExpensesAction()
+    {
+        $expense_repository = $this->container->get('tk_expense.expenses');
+        return $expense_repository->getAllExpenses($this->getUser());
+    }
+
     private function getMyExpensesAction()
     {
         return $this->getUser()->getMyExpenses();
@@ -55,5 +64,17 @@ class ExpenseController extends Controller
     {
         $expense_repository = $this->container->get('tk_expense.expenses');
         return $expense_repository->getOtherExpenses($this->getUser());
+    }
+
+    private function getTotalPaidAction()
+    {
+        $expense_repository = $this->container->get('tk_expense.expenses');
+        return $expense_repository->getTotalPaid($this->getUser());
+    }
+
+    private function getTotalOwedAction()
+    {
+        $expense_repository = $this->container->get('tk_expense.expenses');
+        return $expense_repository->getTotalOwed($this->getUser());
     }
 }

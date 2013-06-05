@@ -16,44 +16,29 @@
 			<div class="span4">
 				<div class="box">
 					<h2>Balances & Debts</h2>
+
+					<div class="well well-small">
+						You balance is {{ total_paid - total_owed }}€ 
+					</div>
+
 				</div>
 			</div>
-			<div class="span4">
+			<div class="span8">
 				<div class="box">
-					<h2>Expenses I paid<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
+					<h2>Expenses - all <a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
 
 					<!-- Modal -->
 					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 
 					<div class="well well-small">
-						You paid = 
+						You paid in total {{ total_paid }}€ / People paid for you in total {{ total_owed }}€
 					</div>
 
 					<div class="box-body">
 
-						{% for expense in my_expenses %}
+						{% for expense in all_expenses %}
 
-							<p>{{ expense.name }} - {{ expense.date|date("d/m") }} - You paid {{ expense.amount }}€</p>
-
-						{% endfor %}
-						
-					</div>
-
-				</div>
-			</div>
-			<div class="span4">
-				<div class="box">
-					<h2>Paid by others<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
-
-					<div class="well well-small">
-						You owe = 
-					</div>
-
-					<div class="box-body">
-
-						{% for expense in other_expenses %}
-
-							<p>{{ expense.name }} - {{ expense.date|date("d/m") }} - {{ expense.owner }} paid {{ expense.amount }}€</p>
+							<p>{{ expense[0].owner }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for user in expense[0].users %}{{ user }}, {% endfor %} - For you = {{ expense[1] }}€</p>
 
 						{% endfor %}
 						

@@ -1,0 +1,7 @@
+{% render(controller('TkListBundle:Shopping:new')) %}
+
+{% for item in all_items %}
+
+	<p>{{ item.name }} - <a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a></p>
+
+{% endfor %}

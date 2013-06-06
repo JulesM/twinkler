@@ -2,6 +2,10 @@ parameters:
 #    tk_list.example.class: Tk\ListBundle\Example
 
 services:
-#    tk_list.example:
-#        class: %tk_list.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tk_list.todos:
+        class: Tk\ListBundle\Services\Todos
+        arguments: [@doctrine.orm.entity_manager]
+
+    tk_list.shopping:
+        class: Tk\ListBundle\Services\shopping
+        arguments: [@doctrine.orm.entity_manager]

@@ -1,3 +1,19 @@
 tk_list_homepage:
     pattern:  /lists
     defaults: { _controller: TkListBundle:List:index }
+
+tk_list_todos_new:
+    pattern:  /lists/todos/new
+    defaults: { _controller: TkListBundle:Todos:new }
+
+tk_list_todos_remove:
+    pattern:  /lists/todos/remove/{id}
+    defaults: { _controller: TkListBundle:Todos:remove }
+
+tk_list_shopping_new:
+    pattern: /lists/shopping/new
+    defaults: { _controller: TkListBundle:Shopping:new }
+
+tk_list_shopping_remove:
+    pattern: /lists/shopping/remove/{id}
+    defaults: { _controller: TkListBundle:Shopping:remove }

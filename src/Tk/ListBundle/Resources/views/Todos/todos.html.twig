@@ -1,0 +1,7 @@
+{% render(controller('TkListBundle:Todos:new')) %}
+
+{% for todo in all_todos %}
+
+	<p>{{ todo.name }} - Assigned {{ todo.owner }} - <a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a></p>
+
+{% endfor %}

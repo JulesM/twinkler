@@ -11,11 +11,14 @@ class ExpenseController extends Controller
     public function indexAction()
     {
         return $this->render('TkExpenseBundle::index.html.twig', array(
-            'all_expenses'   => $this->getAllExpensesAction(),
-            'my_expenses'    => $this->getMyExpensesAction(),
-            'other_expenses' => $this->getOtherExpensesAction(),
-            'total_paid'     => $this->getTotalPaidAction(),
-            'total_owed'     => $this->getTotalOwedAction(),
+            'all_expenses'        => $this->getAllExpensesAction(),
+            'my_expenses'         => $this->getMyExpensesAction(),
+            'other_expenses'      => $this->getOtherExpensesAction(),
+            'total_paid'          => $this->getTotalPaidAction(),
+            'total_paid_by_me'    => $this->getTotalPaidByMeAction(),
+            'total_paid_supposed' => $this->getTotalSupposedPaidAction(),
+            'total_paid_for_me'   => $this->getTotalPaidForMeAction(),
+            'balances'            => $this->getBalancesAction(),
             ));
     }
 
@@ -51,8 +54,8 @@ class ExpenseController extends Controller
 
     private function getAllExpensesAction()
     {
-        $expense_repository = $this->container->get('tk_expense.expenses');
-        return $expense_repository->getAllExpenses($this->getUser());
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getAllExpenses($this->getUser());
     }
 
     private function getMyExpensesAction()
@@ -62,19 +65,43 @@ class ExpenseController extends Controller
 
     private function getOtherExpensesAction()
     {
-        $expense_repository = $this->container->get('tk_expense.expenses');
-        return $expense_repository->getOtherExpenses($this->getUser());
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getOtherExpenses($this->getUser());
     }
 
     private function getTotalPaidAction()
     {
-        $expense_repository = $this->container->get('tk_expense.expenses');
-        return $expense_repository->getTotalPaid($this->getUser());
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getTotalPaid($this->getUser());
     }
 
-    private function getTotalOwedAction()
+    private function getTotalPaidByMeAction()
     {
-        $expense_repository = $this->container->get('tk_expense.expenses');
-        return $expense_repository->getTotalOwed($this->getUser());
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getTotalPaidByMe($this->getUser());
+    }
+
+    private function getTotalSupposedPaidAction()
+    {
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getTotalSupposedPaid($this->getUser());
+    }
+
+    private function getTotalPaidForMeAction()
+    {
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getTotalPaidForMe($this->getUser());
+    }
+
+    private function getBalancesAction()
+    {
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getBalances($this->getUser());
+    }
+
+    private function getCurrentDebtsAction()
+    {
+        $expenses_service = $this->container->get('tk_expense.expenses');
+        return $expenses_service->getCurrentDebts($this->getUser());
     }
 }

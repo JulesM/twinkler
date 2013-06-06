@@ -53,15 +53,41 @@ class Expenses {
 
     public function getTotalPaid($user)
     {
+        $expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
+        $all_expenses = $expense_repository->findAll();
+
     	$sum = 0;
-    	foreach($user->getMyExpenses() as $expense){
+    	foreach($all_expenses as $expense){
     		$sum += $expense->getAmount();
     	}
 
     	return $sum;
     }
 
-    public function getTotalOwed($user)
+    public function getTotalPaidByMe($user)
+    {
+        $sum = 0;
+        foreach($user->getMyExpenses() as $expense){
+            $sum += $expense->getAmount();
+        }
+
+        return $sum;
+    }
+
+    public function getTotalSupposedPaid($user)
+    {
+        $expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
+        $all_expenses = $expense_repository->findAll();
+
+        $sum = 0;
+        foreach($all_expenses as $expense){
+            $sum += $this->forYou($user, $expense);
+        }
+
+        return $sum;
+    }
+
+    public function getTotalPaidForMe($user)
     {
     	$sum = 0;
     	$other_expenses = $this->getOtherExpenses($user);
@@ -70,5 +96,27 @@ class Expenses {
     	}
 
     	return $sum;
+    }
+
+    public function getBalances($user)
+    {
+        $user_repository = $this->em->getRepository('TkUserBundle:User');
+        $all_users = $user_repository->findAll();
+
+        $balances = array();
+        foreach($all_users as $user){
+            $balances[]=[$user, $this->getBalance($user)];
+        }
+        return $balances;
+    }
+
+    private function getBalance($user)
+    {
+        return $balance = $this->getTotalPaidByMe($user) - $this->getTotalSupposedPaid($user);
+    }
+
+    public function getCurrentDebts($user)
+    {
+
     }
 }

@@ -18,20 +18,43 @@
 					<h2>Balances & Debts</h2>
 
 					<div class="well well-small">
-						You balance is {{ total_paid - total_owed }}€ 
+						Your balance is at {{ total_paid_by_me - total_paid_supposed }}€ 
+					</div>
+
+					<div>
+						{% for balance in balances %}
+
+						<p>{{ balance[0] }} has a balance of {{ balance[1] }}€</p>
+
+						{% endfor %}
+
 					</div>
 
 				</div>
 			</div>
 			<div class="span8">
 				<div class="box">
-					<h2>Expenses - all <a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a></h2>
+					<h2>Expenses - all</h2>
+					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+					<div class="dropdown">
+						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+							<i class="icon-th-list"></i>
+						</a>
+						<!-- Link or button to toggle dropdown -->
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li><a tabindex="-1" href="#">All expenses</a></li>
+							<li><a tabindex="-1" href="#">Expenses where I am tagged</a></li>
+							<li><a tabindex="-1" href="#">Expenses I paid</a></li>
+							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
+						</ul>
+					</div>
+					
 
 					<!-- Modal -->
 					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 
 					<div class="well well-small">
-						You paid in total {{ total_paid }}€ / People paid for you in total {{ total_owed }}€
+						In total {{ total_paid }}€ was expensed / You paid {{ total_paid_by_me }}€ / You should have paid {{ total_paid_supposed }}€
 					</div>
 
 					<div class="box-body">

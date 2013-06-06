@@ -24,10 +24,17 @@
 					<div>
 						{% for balance in balances %}
 
-						<p>{{ balance[0] }} has a balance of {{ balance[1] }}€</p>
+							<p>{{ balance[0] }} has a balance of {{ balance[1] }}€</p>
 
 						{% endfor %}
+					</div>
 
+					<div>
+						{% for debt in debts %}
+
+							<p>{{ debt[0] }} owes {{ debt[1] }} to {{debt[2] }}</p>
+
+						{% endfor %}
 					</div>
 
 				</div>

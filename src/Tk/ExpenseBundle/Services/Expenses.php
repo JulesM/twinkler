@@ -117,6 +117,62 @@ class Expenses {
 
     public function getCurrentDebts($user)
     {
+        $balances = $this->getBalances($user);
 
+        $payments = array();
+        $positive = array();
+        $negative = array();
+
+        foreach($balances as $balance){
+
+            if ($balance[1] > 0){
+                $positive[$balance[0]->getUsername()] = $balance[1]; 
+            }
+            elseif ($balance[1] < 0){
+                $negative[$balance[0]->getUsername()] = $balance[1];
+            }
+            else{}
+        }
+
+        foreach($positive as $key1 => $value1){
+            foreach($negative as $key2 => $value2){
+                if ($value1 == -$value2){
+                    $payments[] = array($key2, $value1, $key1);
+                    $positive[$key1]= 0;
+                    $negative[$key2]= 0;
+                }
+            }
+        }
+
+        arsort($positive);
+        asort($negative);
+
+        if (current($positive) < 0.01) { $continue = false; } else { $continue = true; }
+
+        while ($continue){
+
+            reset($positive);
+            reset($negative);
+
+            $cp = current($positive);
+            $cn = current($negative);
+            $kp = key($positive);
+            $kn = key($negative);
+            $min = min($cp,-$cn);
+
+            $payments[] = array($kn, $min, $kp);
+
+            $positive[$kp] -= $min;
+            $negative[$kn] += $min;
+
+            arsort($positive);
+            asort($negative);
+            reset($positive);
+            reset($negative);
+
+            if (current($positive) < 0.01) { $continue = false; } else { $continue = true; }
+        }
+
+        return $payments;
     }
 }

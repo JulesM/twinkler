@@ -19,6 +19,7 @@ class ExpenseController extends Controller
             'total_paid_supposed' => $this->getTotalSupposedPaidAction(),
             'total_paid_for_me'   => $this->getTotalPaidForMeAction(),
             'balances'            => $this->getBalancesAction(),
+            'debts'               => $this->getCurrentDebtsAction(),
             ));
     }
 

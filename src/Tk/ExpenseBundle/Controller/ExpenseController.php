@@ -53,6 +53,17 @@ class ExpenseController extends Controller
     	));
     }
 
+    public function removeAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $expense = $em->getRepository('TkExpenseBundle:Expense')->find($id);
+        
+        $em->remove($expense);
+        $em->flush();
+
+        return $this->indexAction();
+    }
+
     private function getAllExpensesAction()
     {
         $expenses_service = $this->container->get('tk_expense.expenses');

@@ -41,8 +41,9 @@
 			</div>
 			<div class="span8">
 				<div class="box">
-					<h2>Expenses - all</h2>
-					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+					<h2>Expenses - all
+						<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+					</h2>
 					<div class="dropdown">
 						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
 							<i class="icon-th-list"></i>
@@ -68,7 +69,7 @@
 
 						{% for expense in all_expenses %}
 
-							<p>{{ expense[0].owner }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for user in expense[0].users %}{{ user }}, {% endfor %} - For you = {{ expense[1] }}€</p>
+							<p>{{ expense[0].owner }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for user in expense[0].users %}{{ user }}, {% endfor %} - For you = {{ expense[1] }}€ - <a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></p>
 
 						{% endfor %}
 						

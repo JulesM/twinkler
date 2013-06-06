@@ -12,9 +12,8 @@ class Shopping {
 		$this->em = $em;
 	}
 
-	public function getAllShoppingItems($user)
+	public function getAllShoppingItems($user, $group)
     {
-        $shopping_repository = $this->em->getRepository('TkListBundle:ShoppingItem');
-        return $all_items = $shopping_repository->findAll();
+        return $all_items = $group->getShoppingItems();
     }
 }

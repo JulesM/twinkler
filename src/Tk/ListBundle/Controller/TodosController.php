@@ -13,6 +13,7 @@ class TodosController extends Controller
     	$user = $this->getUser();
     	$todo = new Todo();
         $todo->setAuthor($user);
+        $todo->setGroup($user->getCurrentTGroup());
     	$todo->setDate(new \Datetime('now'));
 
     	$form = $this->createForm(new TodoType(), $todo);

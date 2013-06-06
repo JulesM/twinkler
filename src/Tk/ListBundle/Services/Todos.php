@@ -12,9 +12,8 @@ class Todos {
 		$this->em = $em;
 	}
 
-	public function getAllTodos($user)
+	public function getAllTodos($user, $group)
     {
-        $todos_repository = $this->em->getRepository('TkListBundle:Todo');
-        return $all_todos = $todos_repository->findAll();
+        return $all_todos = $group->getTodos();
     }
 }

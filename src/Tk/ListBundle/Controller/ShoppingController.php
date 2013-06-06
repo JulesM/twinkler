@@ -13,6 +13,7 @@ class ShoppingController extends Controller
     	$user = $this->getUser();
     	$item = new ShoppingItem();
     	$item->setAuthor($user);
+        $item->setGroup($user->getCurrentTGroup());
     	$item->setAddedDate(new \Datetime('now'));
     	$item->setState(true);
 

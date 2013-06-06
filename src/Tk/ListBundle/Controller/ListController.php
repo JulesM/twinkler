@@ -18,12 +18,12 @@ class ListController extends Controller
     private function getAllTodosAction()
     {
     	$todos_service = $this->container->get('tk_list.todos');
-    	return $todos_service->getAllTodos($this->getUser());
+    	return $todos_service->getAllTodos($this->getUser(), $this->getUser()->getCurrentTGroup());
     }
 
     private function getAllShoppingItemsAction()
     {
     	$shopping_service = $this->container->get('tk_list.shopping');
-    	return $shopping_service->getAllShoppingItems($this->getUser());
+    	return $shopping_service->getAllShoppingItems($this->getUser(), $this->getUser()->getCurrentTGroup());
     }
 }

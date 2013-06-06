@@ -186,10 +186,10 @@ class Todo
     /**
      * Set group
      *
-     * @param \Clc\GroupBundle\Entity\TGroup $group
+     * @param \Tk\GroupBundle\Entity\TGroup $group
      * @return Todo
      */
-    public function setGroup(\Clc\GroupBundle\Entity\TGroup $group = null)
+    public function setGroup(\Tk\GroupBundle\Entity\TGroup $group = null)
     {
         $this->group = $group;
 
@@ -199,7 +199,7 @@ class Todo
     /**
      * Get group
      *
-     * @return \Clc\GroupBundle\Entity\TGroup 
+     * @return \Tk\GroupBundle\Entity\TGroup 
      */
     public function getGroup()
     {

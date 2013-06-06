@@ -12,11 +12,10 @@ class Expenses {
 		$this->em = $em;
 	}
 
-	public function getAllExpenses($user)
+	public function getAllExpenses($user, $group)
     {
-    	$expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
-    	$all_expenses_col = $expense_repository->findAll();
-    	$all_expenses = array();
+    	$all_expenses_col = $group->getExpenses();
+        $all_expenses = array();
 
     	foreach($all_expenses_col as $expense){
     		$all_expenses[] = [$expense, $this->forYou($user, $expense)];
@@ -24,11 +23,24 @@ class Expenses {
 
     	return $all_expenses;
     }
-    
-    public function getOtherExpenses($user)
+
+    public function getMyExpenses($user, $group)
     {
-    	$expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
-    	$all_expenses = $expense_repository->findAll();
+        $all_expenses = $group->getExpenses();
+        $my_expenses = array();
+
+        foreach($all_expenses as $expense){
+            if($expense->getOwner() == $user){
+                $my_expenses[] = [$expense, $this->forYou($user, $expense)];
+            }else{}
+        }
+
+        return $my_expenses;
+    }
+    
+    public function getOtherExpenses($user, $group)
+    {
+    	$all_expenses = $group->getExpenses();
 
     	$other_expenses = array();
     	foreach($all_expenses as $expense){
@@ -51,10 +63,9 @@ class Expenses {
     	}
     }
 
-    public function getTotalPaid($user)
+    public function getTotalPaid($user, $group)
     {
-        $expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
-        $all_expenses = $expense_repository->findAll();
+        $all_expenses = $group->getExpenses();
 
     	$sum = 0;
     	foreach($all_expenses as $expense){
@@ -64,20 +75,19 @@ class Expenses {
     	return $sum;
     }
 
-    public function getTotalPaidByMe($user)
+    public function getTotalPaidByMe($user, $group)
     {
         $sum = 0;
-        foreach($user->getMyExpenses() as $expense){
-            $sum += $expense->getAmount();
+        foreach($this->getMyExpenses($user, $group) as $expense){
+            $sum += $expense[0]->getAmount();
         }
 
         return $sum;
     }
 
-    public function getTotalSupposedPaid($user)
+    public function getTotalSupposedPaid($user, $group)
     {
-        $expense_repository = $this->em->getRepository('TkExpenseBundle:Expense');
-        $all_expenses = $expense_repository->findAll();
+        $all_expenses = $group->getExpenses();
 
         $sum = 0;
         foreach($all_expenses as $expense){
@@ -87,10 +97,10 @@ class Expenses {
         return $sum;
     }
 
-    public function getTotalPaidForMe($user)
+    public function getTotalPaidForMe($user, $group)
     {
     	$sum = 0;
-    	$other_expenses = $this->getOtherExpenses($user);
+    	$other_expenses = $this->getOtherExpenses($user, $group);
     	foreach($other_expenses as $expense){
     		$sum += $expense[1];
     	}
@@ -98,26 +108,25 @@ class Expenses {
     	return $sum;
     }
 
-    public function getBalances($user)
+    public function getBalances($user, $group)
     {
-        $user_repository = $this->em->getRepository('TkUserBundle:User');
-        $all_users = $user_repository->findAll();
+        $all_users = $group->getMembers();
 
         $balances = array();
         foreach($all_users as $user){
-            $balances[]=[$user, $this->getBalance($user)];
+            $balances[]=[$user, $this->getBalance($user, $group)];
         }
         return $balances;
     }
 
-    private function getBalance($user)
+    private function getBalance($user, $group)
     {
-        return $balance = $this->getTotalPaidByMe($user) - $this->getTotalSupposedPaid($user);
+        return $balance = $this->getTotalPaidByMe($user, $group) - $this->getTotalSupposedPaid($user, $group);
     }
 
-    public function getCurrentDebts($user)
+    public function getCurrentDebts($user, $group)
     {
-        $balances = $this->getBalances($user);
+        $balances = $this->getBalances($user, $group);
 
         $payments = array();
         $positive = array();

@@ -31,15 +31,14 @@
 					    <li><a href="{{ path('tk_user_homepage') }}">Jules Marcilhacy</a></li>
 					    <li class="dropdown">
 						  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						    My Coloc
+						    {{ app.user.currentTGroup.name }}
 						    <span class="caret"></span>
 						  </a>
 						  <!-- Link or button to toggle dropdown -->
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-						    <li><a tabindex="-1" href="#">My Coloc</a></li>
-						    <li class="divider"></li>
-						    <li><a tabindex="-1" href="#">We à Carnac</a></li>
-						    <li><a tabindex="-1" href="#">Expenses start up</a></li>
+						    {% for group in app.user.tgroups %}
+						    	<li><a tabindex="-1" href="{{ path('tk_group_switch', {'id' : group.id }) }}">{{ group.name }}</a></li>
+						    {% endfor %}
 						    <li class="divider"></li>
 						    <li><a tabindex="-1" href="#">Logout</a></li>
 						  </ul>

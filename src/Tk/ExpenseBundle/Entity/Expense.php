@@ -54,7 +54,7 @@ class Expense
      *
      * @ORM\Column(name="active", type="boolean")
      */
-    private $active;
+    private $active = true;
 
     /**
      * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
@@ -71,6 +71,11 @@ class Expense
      * @ORM\JoinColumn(nullable=false)
      */
     protected $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="expenses", cascade={"persist"})
+     */
+    protected $group;
 
     /**
      * Get id
@@ -281,5 +286,28 @@ class Expense
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $group
+     * @return Expense
+     */
+    public function setGroup(\Tk\GroupBundle\Entity\TGroup $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Tk\GroupBundle\Entity\TGroup 
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

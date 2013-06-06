@@ -45,9 +45,9 @@ class ShoppingItem
     /**
      * @var boolean
      *
-     * @ORM\Column(name="state", type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
-    private $state;
+    private $active = true;
 
     /**
      * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
@@ -59,6 +59,10 @@ class ShoppingItem
      */
     protected $validator;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="shoppingItems", cascade={"persist"})
+     */
+    protected $group;
 
     /**
      * Get id
@@ -229,5 +233,51 @@ class ShoppingItem
     public function getValidator()
     {
         return $this->validator;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return ShoppingItem
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $group
+     * @return ShoppingItem
+     */
+    public function setGroup(\Tk\GroupBundle\Entity\TGroup $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Tk\GroupBundle\Entity\TGroup 
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

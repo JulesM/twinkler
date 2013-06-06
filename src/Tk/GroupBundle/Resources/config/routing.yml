@@ -2,6 +2,10 @@ tk_group_homepage:
     pattern:  /default
     defaults: { _controller: TkGroupBundle:Default:index }
 
+tk_group_switch:
+    pattern: /group/switch/{id}
+    defaults: { _controller: TkGroupBundle:Default:switch }
+
 tk_group_settings:
     pattern:  /settings
     defaults: { _controller: TkGroupBundle:Setting:index }

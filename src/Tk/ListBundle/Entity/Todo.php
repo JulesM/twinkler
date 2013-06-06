@@ -36,6 +36,13 @@ class Todo
     private $date;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active = true;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
      */
     protected $author;
@@ -44,6 +51,11 @@ class Todo
      * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
      */
     protected $owner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="todos", cascade={"persist"})
+     */
+    protected $group;
 
 
     /**
@@ -146,5 +158,51 @@ class Todo
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Todo
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \Clc\GroupBundle\Entity\TGroup $group
+     * @return Todo
+     */
+    public function setGroup(\Clc\GroupBundle\Entity\TGroup $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Clc\GroupBundle\Entity\TGroup 
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

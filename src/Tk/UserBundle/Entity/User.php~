@@ -37,6 +37,16 @@ class User extends BaseUser
     protected $lastname;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="members", cascade={"persist"})
+     */
+    protected $tgroups;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", cascade={"persist"})
+     */
+    protected $currentTGroup;
+
+    /**
      * @ORM\OneToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="owner", cascade={"persist"})
      */
     protected $myExpenses;
@@ -174,5 +184,38 @@ class User extends BaseUser
     public function getForMeExpenses()
     {
         return $this->ForMeExpenses;
+    }
+
+    /**
+     * Add tgroups
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
+     * @return User
+     */
+    public function addTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
+    {
+        $this->tgroups[] = $tgroups;
+
+        return $this;
+    }
+
+    /**
+     * Remove tgroups
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
+     */
+    public function removeTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
+    {
+        $this->tgroups->removeElement($tgroups);
+    }
+
+    /**
+     * Get tgroups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTgroups()
+    {
+        return $this->tgroups;
     }
 }

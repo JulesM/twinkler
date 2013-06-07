@@ -8,19 +8,59 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<div class="span12">
-				<h1>Parameters</h1>
+			<div class="span10 offset1">
+				<h1>{{ app.user.currentTGroup.name }} - Settings of the group</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span4">
+			<div class="span4 offset1">
 				<div class="box">
 					<h2>Members</h2>
+					{% for member in app.user.currentTGroup.members %}
+						<div>
+							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" alt="member picture" style="display: inline-block">
+							<div style="display: inline-block">
+								<p><strong>{{ member.username }}</strong> 
+									{% if member.firstname != null or member.lastname != null %}
+										({{ member.firstname }} {{ member.lastname }})
+									{% endif %}
+								</p>
+								<p><small>Joined 2 weeks ago</small></p>
+							</div>
+						</div>
+					{% endfor %}
 				</div>
 			</div>
-			<div class="span8">
+			<div class="span6">
 				<div class="box">
-					<h2>Parameters of the group</h2>
+					<h2>Settings</h2>
+					<div>
+						<h5>Change name of the group</h5>
+						<div>
+							<p><input placeholder="Name of the group" style="width: 410px;"></input></p>
+							<p><input placeholder="City (optionnal)"  style="width: 200px;"></input>
+								<input placeholder="Country (optionnal)"  style="width: 200px;"></input></p>
+							<p><button class="btn">Save Changes</button></p>
+						</div>
+					</div>
+					<div>
+						<h5>Add a member</h5>
+						<p><input placeholder="Via Facebook ..."></input><button class="btn btn-primary">Add</button></p>
+						<p><input placeholder="Via Email ..."></input><button class="btn btn-success">Add</button></p>
+						<p><input placeholder="With name ..."></input><button class="btn">Add</button></p>
+					</div>
+					<div>
+						<h5>Manage balances</h5>
+						<a class="btn" href="#"><i class="icon-envelope"></i> Send reminder to all members</a>
+						<a class="btn" href="#"><i class="icon-flag"></i> Clear expenses and settle debts</a>
+					</div>
+					<div>
+						<h5>Notifications</h5>
+						<p>Send push notifications to the app each time an item is added [yes/no]</p>
+						<p>Send email notifications each time an item is added [yes/no]</p>
+						<p>Send monthly reminders with group summary [yes/no]</p>
+						<a class="btn" href="#">Save changes</a>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -2,6 +2,6 @@ parameters:
 #    tk_user.example.class: Tk\UserBundle\Example
 
 services:
-#    tk_user.example:
-#        class: %tk_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tk_expense.expenses:
+        class: Tk\ExpenseBundle\Services\Expenses
+        arguments: [@doctrine.orm.entity_manager]

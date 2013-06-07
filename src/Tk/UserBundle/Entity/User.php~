@@ -37,6 +37,27 @@ class User extends BaseUser
     protected $lastname;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nationality", type="string", length=255, nullable=true)
+     */
+    protected $nationality;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    protected $city;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    protected $country;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="members", cascade={"persist"})
      */
     protected $tgroups;
@@ -70,6 +91,8 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
+        
         $this->myExpenses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ForMeExpenses = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -217,5 +240,28 @@ class User extends BaseUser
     public function getTgroups()
     {
         return $this->tgroups;
+    }
+
+    /**
+     * Set currentTGroup
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $currentTGroup
+     * @return User
+     */
+    public function setCurrentTGroup(\Tk\GroupBundle\Entity\TGroup $currentTGroup = null)
+    {
+        $this->currentTGroup = $currentTGroup;
+
+        return $this;
+    }
+
+    /**
+     * Get currentTGroup
+     *
+     * @return \Tk\GroupBundle\Entity\TGroup 
+     */
+    public function getCurrentTGroup()
+    {
+        return $this->currentTGroup;
     }
 }

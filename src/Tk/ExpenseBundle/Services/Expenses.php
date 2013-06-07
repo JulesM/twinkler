@@ -108,7 +108,7 @@ class Expenses {
     	return $sum;
     }
 
-    public function getBalances($user, $group)
+    public function getBalances($group)
     {
         $all_users = $group->getMembers();
 
@@ -124,9 +124,9 @@ class Expenses {
         return $balance = $this->getTotalPaidByMe($user, $group) - $this->getTotalSupposedPaid($user, $group);
     }
 
-    public function getCurrentDebts($user, $group)
+    public function getCurrentDebts($group)
     {
-        $balances = $this->getBalances($user, $group);
+        $balances = $this->getBalances($group);
 
         $payments = array();
         $positive = array();

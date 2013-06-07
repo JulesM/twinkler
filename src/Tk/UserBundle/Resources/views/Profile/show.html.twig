@@ -1,0 +1,89 @@
+{% extends 'TkUserBundle::frame.html.twig' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="span10 offset1">
+				<h1>{{ app.user.username }} - Profile</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4 offset1">
+				<div class="box">
+					<h2>{{ app.user.username }}</h2>
+					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
+					<p>{{ app.user.tgroups|length }} groups</p>
+					{% if app.user.firstname != null or app.user.lastname != null %}
+						<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
+					{% else %}
+						<p>Name: not specified ... </p>
+					{% endif %}
+					{% if app.user.nationality != null %}
+						<p>Nationality: {{ app.user.nationality }}</p>
+					{% else %}
+						<p>Nationality: not specified ... </p>
+					{% endif %}
+					{% if app.user.city != null %}
+						<p>City: {{ app.user.city }}</p>
+					{% else %}
+						<p>City: not specified ... </p>
+					{% endif %}
+					{% if app.user.country != null %}
+						<p>Country: {{ app.user.country }}</p>
+					{% else %}
+						<p>Country: not specified ... </p>
+					{% endif %}
+				</div>
+			</div>
+			<div class="span6">
+				<div class="box">
+					<h2>Summary of your groups</h2>
+					{% for group in app.user.tgroups %}
+						<div><strong>{{ group.name }}</strong> <small>opened 3 weeks ago</small></div>
+						<div class="row">
+							<div class="span2">
+								<p>Total paid: {{ group.totalPaid }}€</p>
+								<p>Your balance: {{ balances[group.id] }}€</p>
+							</div>
+							<div class="span2">
+								<p>To-do(s): {{ group.todos|length }}</p>
+								<p>Pending: {{ group.activeTodos|length }}</p>
+							</div>
+							<div class="span2">
+								<p>Shopping list: {{ group.shoppingitems|length }} item(s)</p>
+								<p>Still missing: {{ group.activeShoppingItems|length }}</p>
+							</div>
+						</div>
+					{% endfor %}
+					<div class="row">
+						<div class="span6">
+							<a href="#" class="btn btn-link">See closed groups (0)</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10 offset1">
+				<div class="box">
+					<h2>Personal reminders <small>Add here reminders that do not concern the groups you are part of</small></h2>
+					<div class="row">
+						<div class="span5">
+							<h3>Debts (-400€)</h3>
+							<p>Papa : -1000€ <small>added 9 months ago</small></p>
+							<p>Guigui : 600€ <small>added 3 weeks ago</small></p>
+						</div>
+						<div class="span5">
+							<h3>To-dos (1)</h3>
+							<p>Trouver une tente pour mariage bouvier <small>added yesterday</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

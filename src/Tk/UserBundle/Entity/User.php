@@ -37,6 +37,27 @@ class User extends BaseUser
     protected $lastname;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nationality", type="string", length=255, nullable=true)
+     */
+    protected $nationality;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    protected $city;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    protected $country;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="members", cascade={"persist"})
      */
     protected $tgroups;
@@ -70,6 +91,8 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
+        
         $this->myExpenses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ForMeExpenses = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -240,5 +263,74 @@ class User extends BaseUser
     public function getCurrentTGroup()
     {
         return $this->currentTGroup;
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
+     * @return User
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return string 
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return User
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

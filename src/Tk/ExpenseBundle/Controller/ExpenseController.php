@@ -109,12 +109,12 @@ class ExpenseController extends Controller
     private function getBalancesAction()
     {
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getBalances($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getBalances($this->getUser()->getCurrentTGroup());
     }
 
     private function getCurrentDebtsAction()
     {
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getCurrentDebts($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getCurrentDebts($this->getUser()->getCurrentTGroup());
     }
 }

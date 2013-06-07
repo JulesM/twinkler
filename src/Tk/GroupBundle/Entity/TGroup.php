@@ -278,6 +278,22 @@ class TGroup
     }
 
     /**
+     * Get total paid
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTotalPaid()
+    {
+        $all_expenses = $this->expenses;
+
+        $sum = 0;
+        foreach($all_expenses as $expense){
+            $sum += $expense->getAmount();
+        }
+        return $sum;
+    }    
+
+    /**
      * Add todos
      *
      * @param \Tk\ListBundle\Entity\Todo $todos
@@ -311,6 +327,24 @@ class TGroup
     }
 
     /**
+     * Get Active todos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getActiveTodos()
+    {
+        $all_todos = $this->todos;
+        $active_todos = new \Doctrine\Common\Collections\ArrayCollection();
+
+        foreach($all_todos as $todo){
+            if($todo->getActive() == 1){
+                $active_todos->add($todo);
+            }else{}
+        }
+        return $active_todos;
+    }
+
+    /**
      * Add shoppingItems
      *
      * @param \Tk\ListBundle\Entity\ShoppingItem $shoppingItems
@@ -341,5 +375,23 @@ class TGroup
     public function getShoppingItems()
     {
         return $this->shoppingItems;
+    }
+
+    /**
+     * Get Active shoppingItems
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getActiveShoppingItems()
+    {
+        $all_items = $this->shoppingItems;
+        $active_items = new \Doctrine\Common\Collections\ArrayCollection();
+
+        foreach($all_items as $item){
+            if($item->getActive() == 1){
+                $active_items->add($item);
+            }else{}
+        }
+        return $active_items;
     }
 }

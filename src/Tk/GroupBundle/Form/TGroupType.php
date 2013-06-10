@@ -1,34 +1,31 @@
 <?php
 
-namespace Tk\ListBundle\Form;
+namespace Tk\GroupBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class TodoType extends AbstractType
+class TGroupType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('owner', 'entity', array(
-                        'class'         => 'TkUserBundle:Member', 
-                        'property'      => 'name',
-                        'required'      => false,
-                        ))
+            ->add('city')
+            ->add('country')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Tk\ListBundle\Entity\Todo'
+            'data_class' => 'Tk\GroupBundle\Entity\TGroup'
         ));
     }
 
     public function getName()
     {
-        return 'tk_listbundle_todotype';
+        return 'tk_groupbundle_tgrouptype';
     }
 }

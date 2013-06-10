@@ -10,12 +10,12 @@ class ShoppingController extends Controller
 {
     public function newAction()
     {
-    	$user = $this->getUser();
+    	$member = $this->getUser()->getCurrentMember();
     	$item = new ShoppingItem();
-    	$item->setAuthor($user);
-        $item->setGroup($user->getCurrentTGroup());
+    	$item->setAuthor($member);
+        $item->setGroup($member->getTGroup());
     	$item->setAddedDate(new \Datetime('now'));
-    	$item->setState(true);
+    	$item->setActive(true);
 
     	$form = $this->createForm(new ShoppingItemType(), $item);
 

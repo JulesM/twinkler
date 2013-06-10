@@ -6,29 +6,31 @@
 {% endblock %}
 
 {% block content %}
+{% set group = app.user.currentMember.tgroup %}
 	<div class="container">
 		<div class="row">
 			<div class="span10 offset1">
-				<h1>{{ app.user.currentTGroup.name }} - Settings of the group</h1>
+				<h1>{{ group.name }} - Settings of the group</h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span4 offset1">
 				<div class="box">
 					<h2>Members</h2>
-					{% for member in app.user.currentTGroup.members %}
+					{% for member in group.members %}
 						<div>
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" alt="member picture" style="display: inline-block">
 							<div style="display: inline-block">
-								<p><strong>{{ member.username }}</strong> 
-									{% if member.firstname != null or member.lastname != null %}
-										({{ member.firstname }} {{ member.lastname }})
+								<p><strong>{{ member.name }}</strong> 
+									{% if member.user and (member.user.firstname != null or member.user.lastname != null) %}
+										({{ member.user.firstname }} {{ member.user.lastname }})
 									{% endif %}
 								</p>
 								<p><small>Joined 2 weeks ago</small></p>
 							</div>
 						</div>
 					{% endfor %}
+					<a class="btn" href="{{ path('tk_group_add_members') }}">+ Add members</a>
 				</div>
 			</div>
 			<div class="span6">
@@ -42,12 +44,6 @@
 								<input placeholder="Country (optionnal)"  style="width: 200px;"></input></p>
 							<p><button class="btn">Save Changes</button></p>
 						</div>
-					</div>
-					<div>
-						<h5>Add a member</h5>
-						<p><input placeholder="Via Facebook ..."></input><button class="btn btn-primary">Add</button></p>
-						<p><input placeholder="Via Email ..."></input><button class="btn btn-success">Add</button></p>
-						<p><input placeholder="With name ..."></input><button class="btn">Add</button></p>
 					</div>
 					<div>
 						<h5>Manage balances</h5>

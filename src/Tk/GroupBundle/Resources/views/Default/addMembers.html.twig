@@ -1,0 +1,36 @@
+{% extends 'TkUserBundle::frame.html.twig' %}
+
+{% block content %}
+
+	<div class="span6 offset3">
+		<div class="box">
+			<h3>Add Members to your Group <small>{{ app.user.currentMember.tgroup.name }}</small></h3>
+
+			<h5>Current Members</h5>
+			{% for member in app.user.currentMember.tgroup.members %}
+				<p>{{ member.name }} 
+					{% if member.user != null %} ( {{ member.user.fullname }} )
+					{% else %} ( virtual member )
+					{% endif %}
+				</p>
+			{% endfor %}
+			
+			<div class="well">
+				{% block invite %}
+					<h5>Add a member</h5>
+					<form action="{{ path('tk_group_add_members') }}" method="post" {{ form_enctype(form) }}>
+					    {{ form_errors(form) }}
+
+					    {{ form_row(form.name) }}
+
+					    {{ form_rest(form) }}
+
+				    	<input type="submit" />
+					</form>
+				{% endblock %}
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

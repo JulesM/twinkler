@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('TkWelcomeBundle:Default:index.html.twig');
     }
+
+    public function registerAction()
+    {
+    	return $this->render('TkWelcomeBundle:Links:register.html.twig');
+    }
 }

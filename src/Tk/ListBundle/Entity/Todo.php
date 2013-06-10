@@ -43,12 +43,12 @@ class Todo
     private $active = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $owner;
 
@@ -56,7 +56,6 @@ class Todo
      * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="todos", cascade={"persist"})
      */
     protected $group;
-
 
     /**
      * Get id
@@ -115,52 +114,6 @@ class Todo
     }
 
     /**
-     * Set author
-     *
-     * @param \Tk\UserBundle\Entity\User $author
-     * @return Todo
-     */
-    public function setAuthor(\Tk\UserBundle\Entity\User $author = null)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \Tk\UserBundle\Entity\User 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set owner
-     *
-     * @param \Tk\UserBundle\Entity\User $owner
-     * @return Todo
-     */
-    public function setOwner(\Tk\UserBundle\Entity\User $owner = null)
-    {
-        $this->owner = $owner;
-
-        return $this;
-    }
-
-    /**
-     * Get owner
-     *
-     * @return \Tk\UserBundle\Entity\User 
-     */
-    public function getOwner()
-    {
-        return $this->owner;
-    }
-
-    /**
      * Set active
      *
      * @param boolean $active
@@ -181,6 +134,52 @@ class Todo
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Tk\UserBundle\Entity\Member $author
+     * @return Todo
+     */
+    public function setAuthor(\Tk\UserBundle\Entity\Member $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set owner
+     *
+     * @param \Tk\UserBundle\Entity\Member $owner
+     * @return Todo
+     */
+    public function setOwner(\Tk\UserBundle\Entity\Member $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getOwner()
+    {
+        return $this->owner;
     }
 
     /**

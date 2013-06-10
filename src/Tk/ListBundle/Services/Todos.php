@@ -12,7 +12,7 @@ class Todos {
 		$this->em = $em;
 	}
 
-	public function getAllTodos($user, $group)
+	public function getAllTodos($group)
     {
         return $all_todos = $group->getTodos();
     }

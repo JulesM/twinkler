@@ -50,12 +50,12 @@ class ShoppingItem
     private $active = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $validator;
 
@@ -98,26 +98,26 @@ class ShoppingItem
     }
 
     /**
-     * Set date
+     * Set addedDate
      *
-     * @param \DateTime $date
+     * @param \DateTime $addedDate
      * @return ShoppingItem
      */
-    public function setDate($date)
+    public function setAddedDate($addedDate)
     {
-        $this->date = $date;
+        $this->addedDate = $addedDate;
 
         return $this;
     }
 
     /**
-     * Get date
+     * Get addedDate
      *
      * @return \DateTime 
      */
-    public function getDate()
+    public function getAddedDate()
     {
-        return $this->date;
+        return $this->addedDate;
     }
 
     /**
@@ -144,98 +144,6 @@ class ShoppingItem
     }
 
     /**
-     * Set state
-     *
-     * @param boolean $state
-     * @return ShoppingItem
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * Get state
-     *
-     * @return boolean 
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * Set addedDate
-     *
-     * @param \DateTime $addedDate
-     * @return ShoppingItem
-     */
-    public function setAddedDate($addedDate)
-    {
-        $this->addedDate = $addedDate;
-
-        return $this;
-    }
-
-    /**
-     * Get addedDate
-     *
-     * @return \DateTime 
-     */
-    public function getAddedDate()
-    {
-        return $this->addedDate;
-    }
-
-    /**
-     * Set author
-     *
-     * @param \Tk\UserBundle\Entity\User $author
-     * @return ShoppingItem
-     */
-    public function setAuthor(\Tk\UserBundle\Entity\User $author = null)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \Tk\UserBundle\Entity\User 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set validator
-     *
-     * @param \Tk\UserBundle\Entity\User $validator
-     * @return ShoppingItem
-     */
-    public function setValidator(\Tk\UserBundle\Entity\User $validator = null)
-    {
-        $this->validator = $validator;
-
-        return $this;
-    }
-
-    /**
-     * Get validator
-     *
-     * @return \Tk\UserBundle\Entity\User 
-     */
-    public function getValidator()
-    {
-        return $this->validator;
-    }
-
-    /**
      * Set active
      *
      * @param boolean $active
@@ -256,6 +164,52 @@ class ShoppingItem
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Tk\UserBundle\Entity\Member $author
+     * @return ShoppingItem
+     */
+    public function setAuthor(\Tk\UserBundle\Entity\Member $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set validator
+     *
+     * @param \Tk\UserBundle\Entity\Member $validator
+     * @return ShoppingItem
+     */
+    public function setValidator(\Tk\UserBundle\Entity\Member $validator = null)
+    {
+        $this->validator = $validator;
+
+        return $this;
+    }
+
+    /**
+     * Get validator
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getValidator()
+    {
+        return $this->validator;
     }
 
     /**

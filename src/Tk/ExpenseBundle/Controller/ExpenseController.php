@@ -42,6 +42,9 @@ class ExpenseController extends Controller
             if ($form->isValid()) {          
         
     		$em = $this->getDoctrine()->getEntityManager();
+            $member = $this->getUser()->getCurrentMember();
+            $expense->setAuthor($member);
+            $expense->setGroup($member->getTGroup());
     		$em->persist($expense);
     		$em->flush();
 
@@ -66,55 +69,64 @@ class ExpenseController extends Controller
 
     private function getAllExpensesAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getAllExpenses($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getAllExpenses($member, $member->getTGroup());
     }
 
     private function getMyExpensesAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getMyExpenses($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getMyExpenses($member, $member->getTGroup());
     }
 
     private function getOtherExpensesAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getOtherExpenses($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getOtherExpenses($member, $member->getTGroup());
     }
 
     private function getTotalPaidAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaid($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getTotalPaid($member->getTGroup());
     }
 
     private function getTotalPaidByMeAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaidByMe($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getTotalPaidByMe($member, $member->getTGroup());
     }
 
     private function getTotalSupposedPaidAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalSupposedPaid($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getTotalSupposedPaid($member, $member->getTGroup());
     }
 
     private function getTotalPaidForMeAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaidForMe($this->getUser(), $this->getUser()->getCurrentTGroup());
+        return $expenses_service->getTotalPaidForMe($member, $member->getTGroup());
     }
 
     private function getBalancesAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getBalances($this->getUser()->getCurrentTGroup());
+        return $expenses_service->getBalances($member->getTGroup());
     }
 
     private function getCurrentDebtsAction()
     {
+        $member = $this->getUser()->getCurrentMember();
         $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getCurrentDebts($this->getUser()->getCurrentTGroup());
+        return $expenses_service->getCurrentDebts($member->getTGroup());
     }
 }

@@ -57,7 +57,7 @@ class TGroup
     private $invitationToken;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tk\UserBundle\Entity\User", mappedBy="tgroups", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Tk\UserBundle\Entity\Member", mappedBy="tgroup", cascade={"persist"})
      */
     protected $members;
 
@@ -200,6 +200,25 @@ class TGroup
     {
         return $this->invitationToken;
     }
+
+    /**
+     * Generate invitationToken
+     *
+     * @return string 
+     */
+    public function generateInvitationToken()
+    {
+        $key = $this->getId();
+        $key .= 'z';
+        $keys = array_merge(range(0, 9), range('a', 'y'));
+
+        for ($i = 0; $i < 30; $i++) {
+            $key .= $keys[array_rand($keys)];
+        }
+
+    return $key;
+    }
+
     /**
      * Constructor
      */
@@ -209,39 +228,6 @@ class TGroup
         $this->expenses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->todos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->shoppingItems = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add members
-     *
-     * @param \Tk\UserBundle\Entity\User $members
-     * @return TGroup
-     */
-    public function addMember(\Tk\UserBundle\Entity\User $members)
-    {
-        $this->members[] = $members;
-
-        return $this;
-    }
-
-    /**
-     * Remove members
-     *
-     * @param \Tk\UserBundle\Entity\User $members
-     */
-    public function removeMember(\Tk\UserBundle\Entity\User $members)
-    {
-        $this->members->removeElement($members);
-    }
-
-    /**
-     * Get members
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMembers()
-    {
-        return $this->members;
     }
 
     /**
@@ -393,5 +379,38 @@ class TGroup
             }else{}
         }
         return $active_items;
+    }
+
+    /**
+     * Add members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     * @return TGroup
+     */
+    public function addMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members[] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Remove members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     */
+    public function removeMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members->removeElement($members);
+    }
+
+    /**
+     * Get members
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembers()
+    {
+        return $this->members;
     }
 }

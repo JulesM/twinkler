@@ -12,7 +12,7 @@ class Shopping {
 		$this->em = $em;
 	}
 
-	public function getAllShoppingItems($user, $group)
+	public function getAllShoppingItems($group)
     {
         return $all_items = $group->getShoppingItems();
     }

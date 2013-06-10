@@ -1,7 +1,6 @@
 <form action="{{ path('tk_expense_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
 
-    {{ form_row(form.author) }}
     {{ form_row(form.owner) }}
     {{ form_row(form.name) }}
     {{ form_row(form.amount) }}

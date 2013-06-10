@@ -12,58 +12,58 @@ class Expenses {
 		$this->em = $em;
 	}
 
-	public function getAllExpenses($user, $group)
+	public function getAllExpenses($member, $group)
     {
     	$all_expenses_col = $group->getExpenses();
         $all_expenses = array();
 
     	foreach($all_expenses_col as $expense){
-    		$all_expenses[] = [$expense, $this->forYou($user, $expense)];
+    		$all_expenses[] = [$expense, $this->forYou($member, $expense)];
     	}
 
     	return $all_expenses;
     }
 
-    public function getMyExpenses($user, $group)
+    public function getMyExpenses($member, $group)
     {
         $all_expenses = $group->getExpenses();
         $my_expenses = array();
 
         foreach($all_expenses as $expense){
-            if($expense->getOwner() == $user){
-                $my_expenses[] = [$expense, $this->forYou($user, $expense)];
+            if($expense->getOwner() == $member){
+                $my_expenses[] = [$expense, $this->forYou($member, $expense)];
             }else{}
         }
 
         return $my_expenses;
     }
     
-    public function getOtherExpenses($user, $group)
+    public function getOtherExpenses($member, $group)
     {
     	$all_expenses = $group->getExpenses();
 
     	$other_expenses = array();
     	foreach($all_expenses as $expense){
-    		if ($expense->getOwner() == $user){
+    		if ($expense->getOwner() == $member){
     		}else{
-    			$other_expenses[] = [$expense, $this->forYou($user, $expense)];
+    			$other_expenses[] = [$expense, $this->forYou($member, $expense)];
     		}
     	}
 
     	return $other_expenses;
     }
 
-    private function forYou($user, $expense)
+    private function forYou($member, $expense)
     {
-    	$users = $expense->getUsers()->toArray();
-    	if(in_array($user, $users)){
-    		return ($expense->getAmount())/(sizeof($users));
+    	$members = $expense->getUsers()->toArray();
+    	if(in_array($member, $members)){
+    		return round(($expense->getAmount())/(sizeof($members)),2);
     	}else{
     		return 0;
     	}
     }
 
-    public function getTotalPaid($user, $group)
+    public function getTotalPaid($group)
     {
         $all_expenses = $group->getExpenses();
 
@@ -75,32 +75,32 @@ class Expenses {
     	return $sum;
     }
 
-    public function getTotalPaidByMe($user, $group)
+    public function getTotalPaidByMe($member, $group)
     {
         $sum = 0;
-        foreach($this->getMyExpenses($user, $group) as $expense){
+        foreach($this->getMyExpenses($member, $group) as $expense){
             $sum += $expense[0]->getAmount();
         }
 
         return $sum;
     }
 
-    public function getTotalSupposedPaid($user, $group)
+    public function getTotalSupposedPaid($member, $group)
     {
         $all_expenses = $group->getExpenses();
 
         $sum = 0;
         foreach($all_expenses as $expense){
-            $sum += $this->forYou($user, $expense);
+            $sum += $this->forYou($member, $expense);
         }
 
         return $sum;
     }
 
-    public function getTotalPaidForMe($user, $group)
+    public function getTotalPaidForMe($member, $group)
     {
     	$sum = 0;
-    	$other_expenses = $this->getOtherExpenses($user, $group);
+    	$other_expenses = $this->getOtherExpenses($member, $group);
     	foreach($other_expenses as $expense){
     		$sum += $expense[1];
     	}
@@ -110,18 +110,18 @@ class Expenses {
 
     public function getBalances($group)
     {
-        $all_users = $group->getMembers();
+        $all_members = $group->getMembers();
 
         $balances = array();
-        foreach($all_users as $user){
-            $balances[]=[$user, $this->getBalance($user, $group)];
+        foreach($all_members as $member){
+            $balances[]=[$member, $this->getBalance($member, $group)];
         }
         return $balances;
     }
 
-    private function getBalance($user, $group)
+    private function getBalance($member, $group)
     {
-        return $balance = $this->getTotalPaidByMe($user, $group) - $this->getTotalSupposedPaid($user, $group);
+        return $balance = $this->getTotalPaidByMe($member, $group) - $this->getTotalSupposedPaid($member, $group);
     }
 
     public function getCurrentDebts($group)
@@ -135,10 +135,10 @@ class Expenses {
         foreach($balances as $balance){
 
             if ($balance[1] > 0){
-                $positive[$balance[0]->getUsername()] = $balance[1]; 
+                $positive[$balance[0]->getName()] = $balance[1]; 
             }
             elseif ($balance[1] < 0){
-                $negative[$balance[0]->getUsername()] = $balance[1];
+                $negative[$balance[0]->getName()] = $balance[1];
             }
             else{}
         }

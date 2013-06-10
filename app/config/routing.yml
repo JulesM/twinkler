@@ -8,7 +8,7 @@ tk_expense:
 
 tk_group:
     resource: "@TkGroupBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /group
 
 tk_user:
     resource: "@TkUserBundle/Resources/config/routing.yml"

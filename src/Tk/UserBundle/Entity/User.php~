@@ -58,24 +58,14 @@ class User extends BaseUser
     protected $country;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="members", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Tk\UserBundle\Entity\Member", mappedBy="user", cascade={"persist"})
      */
-    protected $tgroups;
+    protected $members;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
-    protected $currentTGroup;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="owner", cascade={"persist"})
-     */
-    protected $myExpenses;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="users", cascade={"persist"})
-     */
-    protected $ForMeExpenses;
+    protected $currentMember;
 
     /**
      * Get id
@@ -143,125 +133,144 @@ class User extends BaseUser
         return $this->lastname;
     }
 
-    /**
-     * Add myExpenses
+     /**
+     * Get fullname
      *
-     * @param \Tk\ExpenseBundle\Entity\expense $myExpenses
+     * @return string 
+     */
+    public function getFullname()
+    {
+        if($this->lastname or $this->lastname){
+            return $this->firstname.' '.$this->lastname;
+        }elseif($this->email){
+            return $this->email;
+        }else{
+            return 'no information';
+        }
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
      * @return User
      */
-    public function addMyExpense(\Tk\ExpenseBundle\Entity\expense $myExpenses)
+    public function setNationality($nationality)
     {
-        $this->myExpenses[] = $myExpenses;
+        $this->nationality = $nationality;
 
         return $this;
     }
 
     /**
-     * Remove myExpenses
+     * Get nationality
      *
-     * @param \Tk\ExpenseBundle\Entity\expense $myExpenses
+     * @return string 
      */
-    public function removeMyExpense(\Tk\ExpenseBundle\Entity\expense $myExpenses)
+    public function getNationality()
     {
-        $this->myExpenses->removeElement($myExpenses);
+        return $this->nationality;
     }
 
     /**
-     * Get myExpenses
+     * Set city
+     *
+     * @param string $city
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return User
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Add members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     * @return User
+     */
+    public function addMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members[] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Remove members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     */
+    public function removeMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members->removeElement($members);
+    }
+
+    /**
+     * Get members
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMyExpenses()
+    public function getMembers()
     {
-        return $this->myExpenses;
+        return $this->members;
     }
 
     /**
-     * Add ForMeExpenses
+     * Set currentMember
      *
-     * @param \Tk\ExpenseBundle\Entity\expense $forMeExpenses
+     * @param \Tk\UserBundle\Entity\Member $currentMember
      * @return User
      */
-    public function addForMeExpense(\Tk\ExpenseBundle\Entity\expense $forMeExpenses)
+    public function setCurrentMember(\Tk\UserBundle\Entity\Member $currentMember = null)
     {
-        $this->ForMeExpenses[] = $forMeExpenses;
+        $this->currentMember = $currentMember;
 
         return $this;
     }
 
     /**
-     * Remove ForMeExpenses
+     * Get currentMember
      *
-     * @param \Tk\ExpenseBundle\Entity\expense $forMeExpenses
+     * @return \Tk\UserBundle\Entity\Member 
      */
-    public function removeForMeExpense(\Tk\ExpenseBundle\Entity\expense $forMeExpenses)
+    public function getCurrentMember()
     {
-        $this->ForMeExpenses->removeElement($forMeExpenses);
-    }
-
-    /**
-     * Get ForMeExpenses
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getForMeExpenses()
-    {
-        return $this->ForMeExpenses;
-    }
-
-    /**
-     * Add tgroups
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
-     * @return User
-     */
-    public function addTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
-    {
-        $this->tgroups[] = $tgroups;
-
-        return $this;
-    }
-
-    /**
-     * Remove tgroups
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
-     */
-    public function removeTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
-    {
-        $this->tgroups->removeElement($tgroups);
-    }
-
-    /**
-     * Get tgroups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTgroups()
-    {
-        return $this->tgroups;
-    }
-
-    /**
-     * Set currentTGroup
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $currentTGroup
-     * @return User
-     */
-    public function setCurrentTGroup(\Tk\GroupBundle\Entity\TGroup $currentTGroup = null)
-    {
-        $this->currentTGroup = $currentTGroup;
-
-        return $this;
-    }
-
-    /**
-     * Get currentTGroup
-     *
-     * @return \Tk\GroupBundle\Entity\TGroup 
-     */
-    public function getCurrentTGroup()
-    {
-        return $this->currentTGroup;
+        return $this->currentMember;
     }
 }

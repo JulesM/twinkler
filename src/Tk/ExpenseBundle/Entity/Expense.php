@@ -57,17 +57,17 @@ class Expense
     private $active = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\User", inversedBy="myExpenses", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", inversedBy="myExpenses", cascade={"persist"})
      */
     protected $owner;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tk\UserBundle\Entity\User", inversedBy="ForMeExpenses", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Tk\UserBundle\Entity\Member", inversedBy="ForMeExpenses", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     protected $users;
@@ -76,6 +76,14 @@ class Expense
      * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="expenses", cascade={"persist"})
      */
     protected $group;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -201,21 +209,14 @@ class Expense
     {
         return $this->active;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Set author
      *
-     * @param \Tk\UserBundle\Entity\User $author
+     * @param \Tk\UserBundle\Entity\Member $author
      * @return Expense
      */
-    public function setAuthor(\Tk\UserBundle\Entity\User $author = null)
+    public function setAuthor(\Tk\UserBundle\Entity\Member $author = null)
     {
         $this->author = $author;
 
@@ -225,7 +226,7 @@ class Expense
     /**
      * Get author
      *
-     * @return \Tk\UserBundle\Entity\User 
+     * @return \Tk\UserBundle\Entity\Member 
      */
     public function getAuthor()
     {
@@ -235,10 +236,10 @@ class Expense
     /**
      * Set owner
      *
-     * @param \Tk\UserBundle\Entity\User $owner
+     * @param \Tk\UserBundle\Entity\Member $owner
      * @return Expense
      */
-    public function setOwner(\Tk\UserBundle\Entity\User $owner = null)
+    public function setOwner(\Tk\UserBundle\Entity\Member $owner = null)
     {
         $this->owner = $owner;
 
@@ -248,7 +249,7 @@ class Expense
     /**
      * Get owner
      *
-     * @return \Tk\UserBundle\Entity\User 
+     * @return \Tk\UserBundle\Entity\Member 
      */
     public function getOwner()
     {
@@ -258,10 +259,10 @@ class Expense
     /**
      * Add users
      *
-     * @param \Tk\UserBundle\Entity\User $users
+     * @param \Tk\UserBundle\Entity\Member $users
      * @return Expense
      */
-    public function addUser(\Tk\UserBundle\Entity\User $users)
+    public function addUser(\Tk\UserBundle\Entity\Member $users)
     {
         $this->users[] = $users;
 
@@ -271,9 +272,9 @@ class Expense
     /**
      * Remove users
      *
-     * @param \Tk\UserBundle\Entity\User $users
+     * @param \Tk\UserBundle\Entity\Member $users
      */
-    public function removeUser(\Tk\UserBundle\Entity\User $users)
+    public function removeUser(\Tk\UserBundle\Entity\Member $users)
     {
         $this->users->removeElement($users);
     }

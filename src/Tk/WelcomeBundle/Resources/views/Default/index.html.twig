@@ -12,6 +12,7 @@
   		<img src="#" alt="twinkler logo">
   		<a class="btn" href="#">Login with Facebook</a>
   	</header>
+  	{% block content %}
   	<section>
 	    <h1>Welcome to Twinkler</h1>
 	 
@@ -47,6 +48,7 @@
 		<p>Facebook</p>
 		<p>Twitter</p>
 	</footer>
+	{% endblock content %}
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
   </body>

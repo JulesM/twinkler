@@ -20,11 +20,11 @@ class ProfileController extends Controller
         $expenses_service = $this->container->get('tk_expense.expenses');
 
         $balances = array();
-        foreach($this->getUser()->getTGroups() as $group){
-            $all_balances = $expenses_service->getBalances($group);
+        foreach($this->getUser()->getMembers() as $member){
+            $all_balances = $expenses_service->getBalances($member->getTGroup());
             foreach($all_balances as $balance){
-                if($balance[0] == $this->getUser()){
-                    $balances[$group->getId()] = $balance[1];
+                if($balance[0]->getUser() == $this->getUser()){
+                    $balances[$member->getTGroup()->getId()] = $balance[1];
                 }
             } 
         }

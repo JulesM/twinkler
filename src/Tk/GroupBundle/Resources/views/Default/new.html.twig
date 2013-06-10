@@ -1,0 +1,20 @@
+{% extends 'TkUserBundle::frame.html.twig' %}
+
+{% block content %}
+
+	<div class="span6 offset3">
+		<div class="box">
+			<h3>Create a new group</h3>
+			<form action="{{ path('tk_group_new') }}" method="post" {{ form_enctype(form) }}>
+			    {{ form_errors(form) }}
+
+			    {{ form_row(form.name) }}
+
+			    {{ form_rest(form) }}
+
+			    <input type="submit" />
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

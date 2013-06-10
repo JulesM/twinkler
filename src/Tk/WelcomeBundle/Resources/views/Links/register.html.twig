@@ -1,0 +1,14 @@
+{% extends 'TkWelcomeBundle:Default:index.html.twig' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="span6 offset3">
+		<h3>Register here to Twinkler</h3>
+		<a class="btn btn-primary" href="">Register with facebook</a>
+		<p>or using your email</p>
+		{% render (controller("FOSUserBundle:Registration:register")) %}
+	</div>
+</div>
+
+{% endblock %}

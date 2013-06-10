@@ -31,13 +31,13 @@
 					    <li><a href="{{ path('tk_user_homepage') }}">{{ app.user.username }}</a></li>
 					    <li class="dropdown">
 						  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						    {{ app.user.currentTGroup.name }}
+						    {{ app.user.currentMember.tgroup.name }}
 						    <span class="caret"></span>
 						  </a>
 						  <!-- Link or button to toggle dropdown -->
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-						    {% for group in app.user.tgroups %}
-						    	<li><a tabindex="-1" href="{{ path('tk_group_switch', {'id' : group.id, 'route' : app.request.attributes.get('_route') }) }}">{{ group.name }}</a></li>
+						    {% for member in app.user.members %}
+						    	<li><a tabindex="-1" href="{{ path('tk_group_switch_member', {'id' : member.id, 'route' : app.request.attributes.get('_route') }) }}">{{ member.tgroup.name }}</a></li>
 						    {% endfor %}
 						    <li class="divider"></li>
 						    <li><a tabindex="-1" href="#">Logout</a></li>
@@ -48,6 +48,8 @@
 					    <li><a href="{{ path('tk_expense_homepage') }}">Expenses</a></li>
 					    <li><a href="{{ path('tk_list_homepage') }}">Lists</a></li>
 					    <li class="pull-right"><a href="{{ path('tk_group_settings') }}">Settings</a></li>
+					    <li class="divider"></li>
+					    <li><a href="{{ path('tk_group_new') }}">+ Start a new group</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

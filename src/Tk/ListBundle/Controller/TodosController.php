@@ -10,10 +10,10 @@ class TodosController extends Controller
 {
     public function newAction()
     {
-    	$user = $this->getUser();
+    	$member = $this->getUser()->getCurrentMember();
     	$todo = new Todo();
-        $todo->setAuthor($user);
-        $todo->setGroup($user->getCurrentTGroup());
+        $todo->setAuthor($member);
+        $todo->setGroup($member->getTGroup());
     	$todo->setDate(new \Datetime('now'));
 
     	$form = $this->createForm(new TodoType(), $todo);

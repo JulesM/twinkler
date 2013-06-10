@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<h1>{{ app.user.currentTGroup.name }} - Expenses</h1>
+				<h1>{{ app.user.currentMember.tgroup.name }} - Expenses</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -24,7 +24,7 @@
 					<div>
 						{% for balance in balances %}
 
-							<p>{{ balance[0] }} has a balance of {{ balance[1] }}€</p>
+							<p>{{ balance[0].name }} has a balance of {{ balance[1] }}€</p>
 
 						{% endfor %}
 					</div>
@@ -69,7 +69,7 @@
 
 						{% for expense in all_expenses %}
 
-							<p>{{ expense[0].owner }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for user in expense[0].users %}{{ user }}, {% endfor %} - For you = {{ expense[1] }}€ - <a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></p>
+							<p>{{ expense[0].owner.name }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for member in expense[0].users %}{{ member.name }}, {% endfor %} - For you = {{ expense[1] }}€ - <a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></p>
 
 						{% endfor %}
 						

@@ -58,24 +58,14 @@ class User extends BaseUser
     protected $country;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="members", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Tk\UserBundle\Entity\Member", mappedBy="user", cascade={"persist"})
      */
-    protected $tgroups;
+    protected $members;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
-    protected $currentTGroup;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="owner", cascade={"persist"})
-     */
-    protected $myExpenses;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="users", cascade={"persist"})
-     */
-    protected $ForMeExpenses;
+    protected $currentMember;
 
     /**
      * Get id
@@ -143,126 +133,20 @@ class User extends BaseUser
         return $this->lastname;
     }
 
-    /**
-     * Add myExpenses
+     /**
+     * Get fullname
      *
-     * @param \Tk\ExpenseBundle\Entity\expense $myExpenses
-     * @return User
+     * @return string 
      */
-    public function addMyExpense(\Tk\ExpenseBundle\Entity\expense $myExpenses)
+    public function getFullname()
     {
-        $this->myExpenses[] = $myExpenses;
-
-        return $this;
-    }
-
-    /**
-     * Remove myExpenses
-     *
-     * @param \Tk\ExpenseBundle\Entity\expense $myExpenses
-     */
-    public function removeMyExpense(\Tk\ExpenseBundle\Entity\expense $myExpenses)
-    {
-        $this->myExpenses->removeElement($myExpenses);
-    }
-
-    /**
-     * Get myExpenses
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMyExpenses()
-    {
-        return $this->myExpenses;
-    }
-
-    /**
-     * Add ForMeExpenses
-     *
-     * @param \Tk\ExpenseBundle\Entity\expense $forMeExpenses
-     * @return User
-     */
-    public function addForMeExpense(\Tk\ExpenseBundle\Entity\expense $forMeExpenses)
-    {
-        $this->ForMeExpenses[] = $forMeExpenses;
-
-        return $this;
-    }
-
-    /**
-     * Remove ForMeExpenses
-     *
-     * @param \Tk\ExpenseBundle\Entity\expense $forMeExpenses
-     */
-    public function removeForMeExpense(\Tk\ExpenseBundle\Entity\expense $forMeExpenses)
-    {
-        $this->ForMeExpenses->removeElement($forMeExpenses);
-    }
-
-    /**
-     * Get ForMeExpenses
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getForMeExpenses()
-    {
-        return $this->ForMeExpenses;
-    }
-
-    /**
-     * Add tgroups
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
-     * @return User
-     */
-    public function addTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
-    {
-        $this->tgroups[] = $tgroups;
-
-        return $this;
-    }
-
-    /**
-     * Remove tgroups
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $tgroups
-     */
-    public function removeTgroup(\Tk\GroupBundle\Entity\TGroup $tgroups)
-    {
-        $this->tgroups->removeElement($tgroups);
-    }
-
-    /**
-     * Get tgroups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTgroups()
-    {
-        return $this->tgroups;
-    }
-
-    /**
-     * Set currentTGroup
-     *
-     * @param \Tk\GroupBundle\Entity\TGroup $currentTGroup
-     * @return User
-     */
-    public function setCurrentTGroup(\Tk\GroupBundle\Entity\TGroup $currentTGroup = null)
-    {
-        $this->currentTGroup = $currentTGroup;
-
-        return $this;
-    }
-
-    /**
-     * Get currentTGroup
-     *
-     * @return \Tk\GroupBundle\Entity\TGroup 
-     */
-    public function getCurrentTGroup()
-    {
-        return $this->currentTGroup;
+        if($this->lastname or $this->lastname){
+            return $this->firstname.' '.$this->lastname;
+        }elseif($this->email){
+            return $this->email;
+        }else{
+            return 'no information';
+        }
     }
 
     /**
@@ -332,5 +216,61 @@ class User extends BaseUser
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Add members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     * @return User
+     */
+    public function addMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members[] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Remove members
+     *
+     * @param \Tk\UserBundle\Entity\Member $members
+     */
+    public function removeMember(\Tk\UserBundle\Entity\Member $members)
+    {
+        $this->members->removeElement($members);
+    }
+
+    /**
+     * Get members
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembers()
+    {
+        return $this->members;
+    }
+
+    /**
+     * Set currentMember
+     *
+     * @param \Tk\UserBundle\Entity\Member $currentMember
+     * @return User
+     */
+    public function setCurrentMember(\Tk\UserBundle\Entity\Member $currentMember = null)
+    {
+        $this->currentMember = $currentMember;
+
+        return $this;
+    }
+
+    /**
+     * Get currentMember
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getCurrentMember()
+    {
+        return $this->currentMember;
     }
 }

@@ -1,3 +1,11 @@
 tk_welcome_homepage:
     pattern:  /
     defaults: { _controller: TkWelcomeBundle:Default:index }
+
+tk_welcome_invitation:
+    pattern:  /invitation/{id}/{token}
+    defaults: { _controller: TkWelcomeBundle:Invitation:invitationLogin }
+
+tk_welcome_register:
+    pattern: /tk_welcome_register
+    defaults: { _controller: TkWelcomeBundle:Default:register }

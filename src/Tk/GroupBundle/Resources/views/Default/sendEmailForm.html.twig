@@ -1,0 +1,9 @@
+<form action="{{ path('tk_group_send_email', {'id' : id}) }}" method="post" {{ form_enctype(form) }}>
+	{{ form_errors(form) }}
+
+	{{ form_row(form.email) }}
+
+	{{ form_rest(form) }}
+
+	<input type="submit" />
+</form>

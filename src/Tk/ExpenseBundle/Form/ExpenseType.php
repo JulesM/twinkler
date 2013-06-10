@@ -11,22 +11,18 @@ class ExpenseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('owner', 'entity', array(
-                        'class'         => 'TkUserBundle:User', 
-                        'property'      => 'username',
-                        ))
-                ->add('author', 'entity', array(
-                        'class'         => 'TkUserBundle:User', 
-                        'property'      => 'username',
+                        'class'         => 'TkUserBundle:Member', 
+                        'property'      => 'name',
                         ))
                 ->add('name', 'text')
-                ->add('amount', 'number')
+                ->add('amount', 'number', array('precision' => 2))
                 ->add('date', 'date', array(
                         'input'    => 'datetime',
                         'widget'   => 'choice',
                         ))
                 ->add('users', 'entity', array(
-                        'class'         => 'TkUserBundle:User',
-                        'property'      => 'username',
+                        'class'         => 'TkUserBundle:Member',
+                        'property'      => 'name',
                         'multiple'      => 'true',
                         'expanded'      => 'true',
                         'required'      => 'true',

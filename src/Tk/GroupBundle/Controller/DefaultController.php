@@ -20,7 +20,7 @@ class DefaultController extends Controller
 
     	$em->flush();
 
-    	$url = $this->get('router')->generate('tk_expense_homepage');
-        return $this->redirect($url);
+        $route = $this->get('request')->get('route');
+        return $this->redirect($this->generateUrl($route));
     }
 }

@@ -37,7 +37,7 @@
 						  <!-- Link or button to toggle dropdown -->
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 						    {% for group in app.user.tgroups %}
-						    	<li><a tabindex="-1" href="{{ path('tk_group_switch', {'id' : group.id }) }}">{{ group.name }}</a></li>
+						    	<li><a tabindex="-1" href="{{ path('tk_group_switch', {'id' : group.id, 'route' : app.request.attributes.get('_route') }) }}">{{ group.name }}</a></li>
 						    {% endfor %}
 						    <li class="divider"></li>
 						    <li><a tabindex="-1" href="#">Logout</a></li>

@@ -51,6 +51,7 @@ class DefaultController extends Controller
                 $member->setUser($user);
                 $member->setName($user->getUsername());
                 $member->setTGroup($group);
+                $user->setCurrentMember($member);
                 $group->setInvitationToken($group->generateInvitationToken());
                 $em->persist($group);
                 $em->persist($member);

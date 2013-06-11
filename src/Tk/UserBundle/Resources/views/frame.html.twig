@@ -29,6 +29,9 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 					    <li><a href="{{ path('tk_user_homepage') }}">{{ app.user.username }}</a></li>
+					    
+					    {% if app.user.currentMember != null %}
+
 					    <li class="dropdown">
 						  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						    {{ app.user.currentMember.tgroup.name }}
@@ -49,6 +52,9 @@
 					    <li><a href="{{ path('tk_list_homepage') }}">Lists</a></li>
 					    <li class="pull-right"><a href="{{ path('tk_group_settings') }}">Settings</a></li>
 					    <li class="divider"></li>
+
+					    {% endif %}
+					    
 					    <li><a href="{{ path('tk_group_new') }}">+ Start a new group</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->

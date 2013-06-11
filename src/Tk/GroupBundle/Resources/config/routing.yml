@@ -15,11 +15,11 @@ tk_group_add_members:
     defaults: { _controller: TkGroupBundle:Default:addMembers }
 
 tk_group_add_members_success:
-    pattern:  /add/invite/{id}
+    pattern:  /add/invite/
     defaults: { _controller: TkGroupBundle:Default:inviteUser }
 
 tk_group_send_email:
-    pattern:  /add/invite/email/{id}
+    pattern:  /add/invite/email/
     defaults: { _controller: TkGroupBundle:Default:sendInvitationEmail }
 
 tk_group_settings:

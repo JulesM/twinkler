@@ -1,12 +1,12 @@
-Hello {{ member2.name }},
+Hello,
 
-{{ member1.name }} ( {{ member1.user.fullname }} ) sent you an invitation to join his group on Twinkler.
+{{ member.name }} ( {{ member.user.fullname }} ) sent you an invitation to join his group on Twinkler.
 
-Twinkler will help you organize your group called {{ member1.tgroup.name }} with tasks, expenses and ayments.
+Twinkler will help you organize your group called {{ member.tgroup.name }} with tasks, expenses, payments and much more.
 
 To join the group, follow this link:
 
-http://localhost:8888/web/app_dev.php/invitation/{{member2.id}}/{{member2.invitationToken}}
+http://localhost:8888/web/app_dev.php/invitation/{{member.tgroup.id}}/{{member.tgroup.invitationToken}}
 
 We are happy to welcome you,
 

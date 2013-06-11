@@ -5,3 +5,9 @@ services:
     tk_expense.expenses:
         class: Tk\ExpenseBundle\Services\Expenses
         arguments: [@doctrine.orm.entity_manager]
+
+    login_listener:
+        class: 'Tk\UserBundle\Listener\LoginListener'
+        arguments: ['@security.context', '@doctrine']
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }

@@ -208,11 +208,10 @@ class TGroup
      */
     public function generateInvitationToken()
     {
-        $key = $this->getId();
-        $key .= 'z';
-        $keys = array_merge(range(0, 9), range('a', 'y'));
+        $key = '';
+        $keys = array_merge(range(0, 9), range('a', 'Z'));
 
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 40; $i++) {
             $key .= $keys[array_rand($keys)];
         }
 

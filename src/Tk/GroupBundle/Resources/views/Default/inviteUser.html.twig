@@ -2,26 +2,12 @@
 
 {% block invite %}
 	
-	<h5>{{ member.name }} was added to the group <b>{{ member.tgroup.name }}</b></h5>
-	<p>Invite your friend to Twinkler by sending an Email or a Facbook Inbox</p>
-	<a class="btn btn-success" href="#sendEmailModal" data-toggle="modal">Send Email</a>	
+	<h5>Do you want to invite friends to join your group on Twinkler ?</h5>
+	<p>Send and email or an inbox</p>
+	{% render controller('TkGroupBundle:Default:sendInvitationEmail') %}	
+	<p>or</p>
 	<a class="btn btn-primary" href="#">Send Facebook Message</a>
-	<a class="btn" href="{{ path('tk_group_add_members') }}">Don't send invitation</a>
-
-	<!-- Send email Modal -->
-	<div id="sendEmailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	        <h3 id="myModalLabel">Enter the email of your friend</h3>
-	    </div>
-	    <div class="modal-body">
-	        
-	    	{% render controller('TkGroupBundle:Default:sendInvitationEmail', { 'id': member.id }) %}
-
-	    </div>
-	    <div class="modal-footer">
-	        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	    </div>
-	</div>
+	<p>or</p>
+	<a class="btn" href="{{ path('tk_group_settings') }}">No thank you</a>
 
 {% endblock %}

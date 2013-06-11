@@ -1,0 +1,20 @@
+{% extends 'TkWelcomeBundle:Default:index.html.twig' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="span6 offset3">
+		<h3>You have been invited to join the group "{{ group.name }}"</h3>
+		<p>Please identify yourself</p>
+		{% for member in group.members %}
+			{% if member.user != null %}
+			{% else %}
+				<div class="box">
+					<p><a href="{{ path('tk_welcome_chosen_member', { 'id' : member.id, 'token' : member.invitationToken }) }}">{{ member.name}}</a></p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

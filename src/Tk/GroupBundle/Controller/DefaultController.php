@@ -83,13 +83,14 @@ class DefaultController extends Controller
             $data = $form->getData();
             $member = new Member();
             $member->setName($data['name']);
+            $member->setInvitationToken($member->generateInvitationToken());
             $member->setTGroup($this->getUser()->getCurrentMember()->getTGroup());
 
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($member);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tk_group_add_members_success', array( 'id' => $member->getId())));
+            return $this->redirect($this->generateUrl('tk_group_add_members'));
         }}
 
         return $this->render('TkGroupBundle:Default:addMembers.html.twig', array(
@@ -97,23 +98,18 @@ class DefaultController extends Controller
             ));        
     }
 
-    public function inviteUserAction($id)
+    public function inviteUserAction()
     {
-        $member = $this->getDoctrine()->getRepository('TkUserBundle:Member')->find($id);
-        return $this->render('TkGroupBundle:Default:inviteUser.html.twig', array(
-                        'member' => $member,
-                    ));
+        return $this->render('TkGroupBundle:Default:inviteUser.html.twig');
     }
 
-    public function sendInvitationEmailAction($id)
+    public function sendInvitationEmailAction()
     {
-        $member1 = $this->getUser()->getCurrentMember();
-        $member2 = $this->getDoctrine()->getRepository('TkUserBundle:Member')->find($id);
-        $member2->setInvitationToken($member2->generateInvitationToken());
+        $member = $this->getUser()->getCurrentMember();
 
         $defaultData = array('email' => '');
         $form = $this->createFormBuilder($defaultData)
-            ->add('email', 'email')
+            ->add('email', 'email', array('attr' => array('placeholder' => 'Email',)))
             ->getForm();
 
         $request = $this->get('request');
@@ -130,16 +126,15 @@ class DefaultController extends Controller
                         ->setSubject('You received an invitation to join Twinkler !')
                         ->setFrom('jules@twinkler.co')
                         ->setTo($data['email'])
-                        ->setBody($this->renderView('TkGroupBundle:Default:invitationEmail.html.twig', array('member1' => $member1, 'member2' => $member2, 'email' => $data['email'])))
+                        ->setBody($this->renderView('TkGroupBundle:Default:invitationEmail.html.twig', array('member' => $member, 'email' => $data['email'])))
                     ;
             $this->get('mailer')->send($message);
 
-            return $this->redirect($this->generateUrl('tk_group_add_members'));
+            return $this->redirect($this->generateUrl('tk_group_add_members_success'));
         }}
 
         return $this->render('TkGroupBundle:Default:sendEmailForm.html.twig', array(
             'form' => $form->createView(),
-            'id'   => $id,
             ));
     }
 }

@@ -77,6 +77,33 @@ class DefaultController extends Controller
             ));        
     }
 
+    public function editAction()
+    {
+        $group = $this->getUser()->getCurrentMember()->getTGroup();
+
+        $form = $this->createForm(new TGroupType(), $group);
+
+        $request = $this->get('request');
+
+        if ($request->isMethod('POST')) {
+
+            $form->bind($request);
+
+            if ($form->isValid()) {
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($group);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('tk_group_homepage'));
+            }
+        }
+
+        return $this->render('TkGroupBundle:Default:edit.html.twig', array(
+            'form' => $form->createView(),
+            ));        
+    }
+
     public function addMembersAction()
     {   
         $defaultData = array('name' => '');

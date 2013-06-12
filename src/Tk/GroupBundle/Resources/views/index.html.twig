@@ -21,13 +21,22 @@
 						<div>
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" alt="member picture" style="display: inline-block">
 							<div style="display: inline-block">
-								<p><strong>{{ member.name }}</strong> 
-									{% if member.user %} 
-										( {{ member.user.fullname}} )
-									{% else %}
-										( <a href="#">Send invitation</a> )
-									{% endif %}
-								</p>
+								{% if member.user %} 
+								<p><strong>{{ member.name }}</strong> ({{ member.user.fullname}})</p> 		
+								{% else %}
+								<p style="display: inline-block"><strong>{{ member.name }}</strong></p>
+								<div class="btn-group" style="display: inline-block">
+								  <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">
+								    <small>Send invitation</small>	
+								  </a>
+								  <ul class="dropdown-menu">
+								    <!-- dropdown menu links -->
+								    {% render controller('TkGroupBundle:Default:sendInvitationEmail') %}
+									<a class="btn btn-primary" href="#">Send Facebook Message</a>
+								  </ul>
+								</div>
+								{% endif %}
+								
 							</div>
 						</div>
 					{% endfor %}
@@ -39,6 +48,7 @@
 					<h2>Settings</h2>
 					<div>
 						<h5>Group information</h5>
+						{% block groupinformation %}
 						<div>
 							<p>Name of the group : {{ group.name }}</p>
 							{% if group.city == null %} <p>No city specified</p>
@@ -46,7 +56,8 @@
 							{% if group.country == null %} <p>No country specified</p>
 							{% else %} <p>Country : {{ group.country }}</p> {% endif %}
 						</div>
-						<a href="#">Edit information</a>
+						<a href="{{ path('tk_group_edit') }}">Edit information</a>
+						{% endblock %}
 					</div>
 					<div>
 						<h5>Historic</h5>

@@ -1,5 +1,5 @@
 tk_group_homepage:
-    pattern:  /default
+    pattern:  /settings
     defaults: { _controller: TkGroupBundle:Default:index }
 
 tk_group_switch_member:

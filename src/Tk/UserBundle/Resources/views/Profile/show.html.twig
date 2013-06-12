@@ -47,7 +47,12 @@
 				<div class="box">
 					<h2>Summary of your groups</h2>
 					{% for member in app.user.members %}
-						<div><strong>{{ member.tgroup.name }}</strong> <small>opened 3 weeks ago</small></div>
+						<div>
+							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+								<strong>{{ member.tgroup.name }}</strong>
+							</a>
+							<small>opened 3 weeks ago</small>
+						</div>
 						<div class="row">
 							<div class="span2">
 								<p>Total paid: {{ member.tgroup.totalPaid }}€</p>

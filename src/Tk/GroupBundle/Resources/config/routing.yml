@@ -3,8 +3,12 @@ tk_group_homepage:
     defaults: { _controller: TkGroupBundle:Default:index }
 
 tk_group_switch_member:
-    pattern: /switch/{id}
+    pattern:  /switch/{id}
     defaults: { _controller: TkGroupBundle:Default:switch }
+
+tk_group_goto_member:
+    pattern:  /goto/{id}
+    defaults: { _controller: TkGroupBundle:Default:goTo }
 
 tk_group_new:
     pattern:  /new

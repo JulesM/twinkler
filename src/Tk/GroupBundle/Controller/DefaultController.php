@@ -18,15 +18,26 @@ class DefaultController extends Controller
 
     public function switchAction($id)
     {
-    	$em = $this->getDoctrine()->getEntityManager();
-    	$member = $em->getRepository('TkUserBundle:Member')->find($id);
-    	$user = $this->getUser();
-    	$user->setCurrentMember($member);
-
-    	$em->flush();
+    	$this->changeCurrentMemberAction($id);
 
         $route = $this->get('request')->get('route');
         return $this->redirect($this->generateUrl($route));
+    }
+
+    public function goToAction($id)
+    {
+        $this->changeCurrentMemberAction($id);
+
+        return $this->indexAction();
+    }
+
+    private function changeCurrentMemberAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $member = $em->getRepository('TkUserBundle:Member')->find($id);
+        $user = $this->getUser();
+        $user->setCurrentMember($member);
+        $em->flush();
     }
 
     public function newAction()

@@ -31,7 +31,6 @@ class ExpenseController extends Controller
     	$expense->setActive(true);
 
         $form = $this->createForm(new ExpenseType(), $expense);
-    	
 
         $request = $this->get('request');
 
@@ -54,6 +53,38 @@ class ExpenseController extends Controller
     	return $this->render('TkExpenseBundle::new.html.twig', array(
     		'form' => $form->createView(),
     	));
+    }
+
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $expense = $em->getRepository('TkExpenseBundle:Expense')->find($id);
+        
+        $form = $this->createForm(new ExpenseType(), $expense);
+
+        $request = $this->get('request');
+
+        if ($request->isMethod('POST')) {
+            
+            $form->bind($request);
+
+            if ($form->isValid()) { 
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($expense);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('tk_expense_homepage'));
+        }}
+
+        return $this->render('TkExpenseBundle::edit.html.twig', array(
+            'id'                  => $id,
+            'form'                => $form->createView(),
+            'total_paid_by_me'    => $this->getTotalPaidByMeAction(),
+            'total_paid_supposed' => $this->getTotalSupposedPaidAction(),
+            'balances'            => $this->getBalancesAction(),
+            'debts'               => $this->getCurrentDebtsAction(),
+        ));
     }
 
     public function removeAction($id)

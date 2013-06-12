@@ -2,6 +2,10 @@ tk_user_homepage:
     pattern:  /user
     defaults: { _controller: TkUserBundle:Profile:index }
 
+tk_user_profile_edit:
+    pattern:  /user/profile/edit/{id}
+    defaults: { _controller: TkUserBundle:Profile:edit }
+
 root:
     pattern: /register/confirmed
     defaults:

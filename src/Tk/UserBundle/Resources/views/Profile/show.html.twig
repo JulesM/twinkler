@@ -14,29 +14,33 @@
 		<div class="row">
 			<div class="span4 offset1">
 				<div class="box">
-					<h2>{{ app.user.username }}</h2>
-					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
-					<p>{{ app.user.members|length }} groups</p>
-					{% if app.user.firstname != null or app.user.lastname != null %}
-						<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
-					{% else %}
-						<p>Name: not specified ... </p>
-					{% endif %}
-					{% if app.user.nationality != null %}
-						<p>Nationality: {{ app.user.nationality }}</p>
-					{% else %}
-						<p>Nationality: not specified ... </p>
-					{% endif %}
-					{% if app.user.city != null %}
-						<p>City: {{ app.user.city }}</p>
-					{% else %}
-						<p>City: not specified ... </p>
-					{% endif %}
-					{% if app.user.country != null %}
-						<p>Country: {{ app.user.country }}</p>
-					{% else %}
-						<p>Country: not specified ... </p>
-					{% endif %}
+					{% block profile %}
+						<h2>{{ app.user.username }}</h2>
+						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
+						<p>{{ app.user.members|length }} groups</p>
+						{% if app.user.firstname != null or app.user.lastname != null %}
+							<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
+						{% else %}
+							<p>Name: not specified ... </p>
+						{% endif %}
+						<p>Email : {{ app.user.email }}</p>
+						{% if app.user.nationality != null %}
+							<p>Nationality: {{ app.user.nationality }}</p>
+						{% else %}
+							<p>Nationality: not specified ... </p>
+						{% endif %}
+						{% if app.user.city != null %}
+							<p>City: {{ app.user.city }}</p>
+						{% else %}
+							<p>City: not specified ... </p>
+						{% endif %}
+						{% if app.user.country != null %}
+							<p>Country: {{ app.user.country }}</p>
+						{% else %}
+							<p>Country: not specified ... </p>
+						{% endif %}
+						<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">Edit profile information</a>
+					{% endblock profile %}
 				</div>
 			</div>
 			<div class="span6">

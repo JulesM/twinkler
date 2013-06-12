@@ -31,4 +31,35 @@ class ProfileController extends Controller
 
         return $balances;
     }
+
+    public function editAction($id)
+    {
+        $user = $this->getUser();
+
+        if($user->getId() != $id) {
+            throw new AccessDeniedException('You do not have access to this page');
+        }
+
+        $form = $this->createForm(new UserType(), $user);
+        
+        $request = $this->get('request');
+
+        if ($request->isMethod('POST')) {
+            
+            $form->bind($request);
+
+            if ($form->isValid()) {
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('tk_user_homepage'));
+        }}
+
+        return $this->render('TkUserBundle:Profile:edit.html.twig', array(
+            'form' => $form->createView(),
+            'balances' => $this->getBalancesAction(),
+            )); 
+    }
 }

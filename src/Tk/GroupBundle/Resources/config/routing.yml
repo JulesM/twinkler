@@ -21,7 +21,3 @@ tk_group_add_members_success:
 tk_group_send_email:
     pattern:  /add/invite/email/
     defaults: { _controller: TkGroupBundle:Default:sendInvitationEmail }
-
-tk_group_settings:
-    pattern:  /settings
-    defaults: { _controller: TkGroupBundle:Setting:index }

@@ -60,13 +60,34 @@
 
 						<div class="box-body">
 
+							<table class="table">
+							<!-- <caption>Caption</caption> -->
+							<thead>
+								<tr>
+									<th style="width:10%">Who</th>
+									<th style="width:10%">How much</th>
+									<th style="width:20%">What</th>
+									<th style="width:10%">When</th>
+									<th style="width:30%">For who</th>
+									<th style="width:10%">For you</th>
+									<th style="width:10%">Edit</th>
+								</tr>
+							</thead>
+							<tbody>
 							{% for expense in all_expenses %}
-
-								<p>{{ expense[0].owner.name }} - {{ expense[0].amount }}€ - {{ expense[0].name }} - {{ expense[0].date|date("d/m") }} - Concerns {% for member in expense[0].users %}{{ member.name }}, {% endfor %} - For you = {{ expense[1] }}€ - 
-								<a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a></p>
-								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></p>
+								<tr>
+								<td>{{ expense[0].owner.name }}</td>
+								<td>{{ expense[0].amount }}€</td>
+								<td>{{ expense[0].name }}</td>
+								<td>{{ expense[0].date|date("d/m") }}</td>
+								<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>
+								<td>{{ expense[1] }}€
+								<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
+								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
+								</tr>
 
 							{% endfor %}
+						</tbody>
 							
 						</div>
 					{% endblock expenses %}

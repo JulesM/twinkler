@@ -22,11 +22,12 @@
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" alt="member picture" style="display: inline-block">
 							<div style="display: inline-block">
 								<p><strong>{{ member.name }}</strong> 
-									{% if member.user and (member.user.firstname != null or member.user.lastname != null) %}
-										({{ member.user.firstname }} {{ member.user.lastname }})
+									{% if member.user %} 
+										( {{ member.user.fullname}} )
+									{% else %}
+										( <a href="#">Send invitation</a> )
 									{% endif %}
 								</p>
-								<p><small>Joined 2 weeks ago</small></p>
 							</div>
 						</div>
 					{% endfor %}

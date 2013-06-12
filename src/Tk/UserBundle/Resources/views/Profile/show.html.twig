@@ -51,7 +51,7 @@
 							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
 								<strong>{{ member.tgroup.name }}</strong>
 							</a>
-							<small>opened 3 weeks ago</small>
+							<small>opened on {{ member.tgroup.date| date('d/m/y') }}</small>
 						</div>
 						<div class="row">
 							<div class="span2">

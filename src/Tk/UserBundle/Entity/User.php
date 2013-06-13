@@ -4,12 +4,14 @@ namespace Tk\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="Tk\UserBundle\Entity\UserRepository")
+ * @UniqueEntity(fields="username", message="This username is already taken")
  */
 class User extends BaseUser
 {
@@ -25,9 +27,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="facebookId", type="string", length=255)
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
      */
     protected $facebookId;
+
+    /**
+     * @var string
+     */
+    protected $username;
 
     /**
      * @var string

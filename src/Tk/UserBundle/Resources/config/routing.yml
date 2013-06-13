@@ -6,9 +6,8 @@ tk_user_profile_edit:
     pattern:  /user/profile/edit/{id}
     defaults: { _controller: TkUserBundle:Profile:edit }
 
-root:
-    pattern: /register/confirmed
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /login
-        permanent: true
+tk_user_username_edit:
+    pattern:  /user/username/edit/{id}
+    defaults: { _controller: TkUserBundle:Profile:editUsername }
+
+

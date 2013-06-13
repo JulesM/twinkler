@@ -39,6 +39,7 @@ class InvitationController extends Controller
                 }
 
                 $member->setUser($user);
+                $member->setName($user->getUsername());
                 $member->setInvitationToken(null);
                 $user->setCurrentMember($member);
                 $em = $this->getDoctrine()->getEntityManager();

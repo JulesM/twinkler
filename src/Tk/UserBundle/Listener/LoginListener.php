@@ -57,7 +57,6 @@ class LoginListener
 	        foreach($user->getMembers() as $user_member){
 	            if ($user_member->getTGroup() == $member->getTGroup()){ 
 	            	$add = false;
-	            	print($add);
 	            }else{}
 	        }
 
@@ -65,6 +64,7 @@ class LoginListener
 
 	        if ($add){
 		        $member->setUser($user);
+		        $member->setName($user->getUsername());
 				$member->setInvitationToken(null);
 		        $user->setCurrentMember($member);
 				$this->em->flush();

@@ -14,10 +14,12 @@
 		<div class="row">
 			<div class="span4 offset1">
 				<div class="box">
+					{% block username %}
+						<h2>{{ app.user.username }} <small><a href="{{ path('tk_user_username_edit', { 'id' : app.user.id }) }}">edit</a></small></h2>
+					{% endblock %}
+					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
+					<p>{{ app.user.members|length }} groups</p>
 					{% block profile %}
-						<h2>{{ app.user.username }}</h2>
-						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
-						<p>{{ app.user.members|length }} groups</p>
 						{% if app.user.firstname != null or app.user.lastname != null %}
 							<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
 						{% else %}

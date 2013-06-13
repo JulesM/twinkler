@@ -9,6 +9,7 @@
             {% if app.session.get('invitation_id') != null %} Hello {{ app.session.get('invitation_member') }},</br> in order to join the group you need to login/register to Twinkler {% endif %}
         </h5>
         <div>
+            <p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">

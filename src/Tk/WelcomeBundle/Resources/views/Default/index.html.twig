@@ -3,50 +3,89 @@
 {% block head %}  
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" media="screen">
 {% endblock %}
 {% block body %}
   	<header>
   		<a href="{{ path('tk_welcome_homepage') }}">
   			<img src="{{ asset('img/logo/twinkler_logo.png') }}" width="200px" alt="twinkler logo">
   		</a>
-  		<a href="{{ path('fos_user_security_login') }}">Login</a> or
-  		<a href="{{ path('fos_user_registration_register') }}">Register</a>
+  		<div class="pull-right" id="login-register">
+	  		<a href="{{ path('fos_user_security_login') }}">Login</a> or
+	  		<a href="{{ path('fos_user_registration_register') }}">Register</a>
+  		</div>
   	</header>
   	{% block content %}
   	<section>
-	    <h1>Welcome to Twinkler</h1>
-	 	{{ facebook_login_button({'autologoutlink': false}) }}
-	    <p>Twinkler is a web service aiming at simplifying social events with your friends (life in flatshares, weekends with friends, ...)</p>
-
+  		<div id="section1">
+  			<div class="row">
+  			<div class="span10 offset1" id="catchphrase">
+			    <h1>Welcome to Twinkler</h1>
+			    <h5>Twinkler symplifies social events with your friends (life in flatshares, weekends with friends, ...) with a clear tool available all the time and everywhere</h5>
+			    <a class="btn btn-large btn-danger" href="{{ path('fos_user_registration_register') }}">Start sharing with friends now</a>
+			</div>
+			</div>
+		</div>
 	</section>
 	<section>
-	    <h1>How it works</h1>
-	 
-	    <p>With Twinkler you add your friends to your groups or events and manage common things with them. Report expenses, set to-dos, share shopping lists.</p>
+		<div class="row">
+			<div class="span8 offset2">
+		    	<h1>How it works</h1>
+		    	<p>With Twinkler you add your friends to your groups or events and manage common things with them. Report expenses, set to-dos, share shopping lists.</p>
+			</div>
+		</div>
+	    <div class="row">
+	    	<div class="span2 offset2">
+	    	<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
+	    	</div>
+	    	<div class="span6">
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="span6 offset2">
+	    	</div>
+	    	<div class="span2">
+	    	<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="span2 offset2">
+	    	<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
+	    	</div>
+	    	<div class="span7">
+	    	</div>
+	    </div>
 	</section>
 	<section>
-	    <h1>Apps</h1>
-	 
-	    <p>Bring Twinkler with you all the time with our coming mobile apps</p>
+		<div class="row">
+			<div class="span8 offset2">
+	    		<h1>Apps</h1>
+	    		<p>Bring Twinkler with you all the time with our coming mobile apps</p>
+			</div>
+		</div>
 	</section>
 	<section>
-	    <h1>The Team/About us</h1>
-	 
-	    <p>The founding team is composed of Arnaud Drizard and Jules Marcilhacy</p>
+		<div class="row">
+			<div class="span8 offset2">
+			    <h1>Mosaique</h1>
+			    <p>Plein de belles photos qui donnent envie de partir en vacances avec ses potes</p>
+			</div>
+		</div>
 	</section>
 	<footer>
-		<p>footer</p>
-		<p>Copyright © 2013 Twinkler, Inc. All rights reserved.</p>
-		<ul>
-			<li>About</li>
-			<li>Newsletter</li>
-			<li>Press</li>
-			<li>Contact</li>
-		</ul>
-		<p>Facebook</p>
-		<p>Twitter</p>
+		<div class="row">
+			<div class="span8 offset2">
+				<p>Copyright © 2013 Twinkler, Inc. All rights reserved.</p>
+				<ul>
+					<li>About</li>
+					<li>Newsletter</li>
+					<li>Press</li>
+					<li>Contact</li>
+				</ul>
+				<p>Facebook</p>
+				<p>Twitter</p>
+			</div>
+		</div>
 	</footer>
 	{% endblock content %}
 {% endblock body %}

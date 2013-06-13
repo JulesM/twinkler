@@ -1,0 +1,29 @@
+/* --- CSS of expense part of GroupBundle only--- */
+
+header{
+	box-shadow: 0px 0px 1px;
+}
+
+#login-register{
+	margin-top: 20px;
+	margin-right: 40px;
+}
+
+#section1{
+	height: 580px;
+	width: 100%;
+	background-color: grey;
+	background-image: url(' ../img/landing-page/group.jpg');
+	padding-top: 10px;
+	border-bottom: solid 1px grey;
+}
+
+#catchphrase{
+	margin-top: 310px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+footer{
+	border-top: solid 1px grey;
+}

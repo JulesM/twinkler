@@ -3,11 +3,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" rel="stylesheet" media="screen">
         {% block head %}
         {% endblock %}
     </head>
     <body>
-        {{ facebook_initialize({'xfbml': true, 'culture': 'fr_FR', 'fbAsyncInit': 'onFbInit();'}) }}
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
         <script type="text/javascript" > // Script for FOSFacebookBundle
         function goLogIn(){
             window.location = "{{ path('_security_check') }}";

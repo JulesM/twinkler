@@ -24,6 +24,7 @@ return array(
     'JMS\\AopBundle' => $vendorDir . '/jms/aop-bundle',
     'JMS\\' => $vendorDir . '/jms/parser-lib/src',
     'FOS\\UserBundle' => $vendorDir . '/friendsofsymfony/user-bundle',
+    'FOS\\FacebookBundle' => $vendorDir . '/friendsofsymfony/facebook-bundle',
     'Doctrine\\ORM\\' => $vendorDir . '/doctrine/orm/lib',
     'Doctrine\\DBAL\\' => $vendorDir . '/doctrine/dbal/lib',
     'Doctrine\\Common\\Lexer\\' => $vendorDir . '/doctrine/lexer/lib',

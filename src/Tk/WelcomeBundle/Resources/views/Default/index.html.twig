@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% extends '::base.html.twig' %}
+
+{% block head %}  
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" rel="stylesheet" media="screen">
-  </head>
-  <body>
+{% endblock %}
+{% block body %}
   	<header>
   		<img src="{{ asset('img/logo/twinkler_logo.png') }}" width="200px" alt="twinkler logo">
   	</header>
   	{% block content %}
   	<section>
 	    <h1>Welcome to Twinkler</h1>
-	 
+	 	{{ facebook_login_button({'autologoutlink': false}) }}
 	    <p>Twinkler is a web service aiming at simplifying social events with your friends (life in flatshares, weekends with friends, ...)</p>
 
 	    {% render (controller("FOSUserBundle:Registration:register")) %}
@@ -48,7 +47,8 @@
 		<p>Twitter</p>
 	</footer>
 	{% endblock content %}
+{% endblock body %}
+{% block javascripts %}
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-  </body>
-</html>
+{% endblock %}

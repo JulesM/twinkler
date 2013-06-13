@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% extends '::base.html.twig' %}
+
+{% block head %}
+	{% block title %}  	
     <title>Twinkler - Manage social events</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
     {% block stylesheets %}
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
     <style>
@@ -13,9 +13,10 @@
     </style>
     <link href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" rel="stylesheet" media="screen">
 	<link href="{{ asset('css/frame.css') }}" rel="stylesheet" type="text/css">
-    {% endblock  %}
-  </head>
-  <body>
+{% endblock stylesheets %}
+{% endblock %}
+
+{% block body %}
   	<header>
   		<div class="navbar navbar-inverse navbar-fixed-top">
 	      <div class="navbar-inner">
@@ -75,7 +76,8 @@
 
 	<footer>
 	</footer>
+{% endblock %}
+{% block javascripts %}
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-  </body>
-</html>
+{% endblock %}

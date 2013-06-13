@@ -12,13 +12,10 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         fos_userbundle:
             id: fos_user.user_provider.username
+        my_facebook_provider:
+            id: my_user.facebook_provider # Notre provider, nous y viendrons par la suite.
 
     firewalls:
         dev:
@@ -41,6 +38,12 @@ security:
                 csrf_provider: form.csrf_provider
             remember_me:
                 key: %secret%
+            fos_facebook:
+                app_url: "%api_facebook_name%"
+                server_url: "%api_facebook_server%"
+                check_path: /login_facebook_check   # Pour éviter toute confusion avec le formulaire de base, j'ai spécifié une route pour Facebook
+                default_target_path: /user
+                provider: my_facebook_provider
             logout:
                 path:   fos_user_security_logout
                 target: fos_user_security_login

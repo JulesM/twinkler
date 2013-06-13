@@ -50,10 +50,10 @@ class InvitationController extends Controller
 
             }else{
 
-                $this->get('session')->set('invitation_id', $id);
-                return $this->render('TkWelcomeBundle:Invitation:login-invitation.html.twig', array(
-                	'member' => $member
-                	));
+                $session = $this->get('session');
+                $session->set('invitation_id', $id);
+                $session->set('invitation_member', $member->getName());
+                return $this->redirect($this->generateUrl('fos_user_security_login'));
 
             }
         }

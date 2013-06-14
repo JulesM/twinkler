@@ -159,7 +159,7 @@ class Expenses {
         arsort($positive);
         asort($negative);
 
-        if (current($positive) < 0.01) { $continue = false; } else { $continue = true; }
+        if (current($positive) <= 0.02) { $continue = false; } else { $continue = true; }
 
         while ($continue){
 
@@ -182,7 +182,7 @@ class Expenses {
             reset($positive);
             reset($negative);
 
-            if (current($positive) < 0.01) { $continue = false; } else { $continue = true; }
+            if (current($positive) <= 0.02) { $continue = false; } else { $continue = true; }
         }
 
         return $payments;

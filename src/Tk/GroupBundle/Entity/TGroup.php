@@ -19,42 +19,47 @@ class TGroup
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetimetz")
      */
-    private $date;
+    protected $date;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
-    private $country;
+    protected $country;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\Currency", cascade={"persist"})
+     */
+    protected $currency;
 
     /**
      * @var string
      *
      * @ORM\Column(name="invitationToken", type="string", length=255)
      */
-    private $invitationToken;
+    protected $invitationToken;
 
     /**
      * @ORM\OneToMany(targetEntity="Tk\UserBundle\Entity\Member", mappedBy="tgroup", cascade={"persist"})
@@ -411,5 +416,28 @@ class TGroup
     public function getMembers()
     {
         return $this->members;
+    }
+
+    /**
+     * Set currency
+     *
+     * @param \Tk\GroupBundle\Entity\Currency $currency
+     * @return TGroup
+     */
+    public function setCurrency(\Tk\GroupBundle\Entity\Currency $currency = null)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return \Tk\GroupBundle\Entity\Currency 
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
     }
 }

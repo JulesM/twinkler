@@ -5,6 +5,8 @@
  <link href="{{ asset('css/expenses.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
+{% set currency = app.user.currentMember.tgroup.currency.symbol %}
+
 {% block content %}
 	<div class="container">
 		<div class="row">
@@ -17,16 +19,16 @@
 				<div class="box">
 					<h2>Balances & Debts</h2>
 					<div class="well well-small">
-						Your balance is at {{ total_paid_by_me - total_paid_supposed }}€ 
+						Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
 					</div>
 					<div>
 						{% for balance in balances %}
-							<p>{{ balance[0].name }} has a balance of {{ balance[1] }}€</p>
+							<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
 						{% endfor %}
 					</div>
 					<div>
 						{% for debt in debts %}
-							<p>{{ debt[0] }} owes {{ debt[1] }} to {{debt[2] }}</p>
+							<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
 						{% endfor %}
 					</div>
 				</div>
@@ -55,7 +57,7 @@
 						{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 
 						<div class="well well-small">
-							In total {{ total_paid }}€ was expensed / You paid {{ total_paid_by_me }}€ / You should have paid {{ total_paid_supposed }}€
+							In total {{ total_paid }} {{ currency }} was expensed / You paid {{ total_paid_by_me }} {{ currency }} / You should have paid {{ total_paid_supposed }} {{ currency }}
 						</div>
 
 						<div class="box-body">
@@ -77,11 +79,11 @@
 							{% for expense in all_expenses %}
 								<tr>
 								<td>{{ expense[0].owner.name }}</td>
-								<td>{{ expense[0].amount }}€</td>
+								<td>{{ expense[0].amount }} {{ currency }}</td>
 								<td>{{ expense[0].name }}</td>
 								<td>{{ expense[0].date|date("d/m") }}</td>
 								<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>
-								<td>{{ expense[1] }}€
+								<td>{{ expense[1] }} {{ currency }}
 								<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
 								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
 								</tr>

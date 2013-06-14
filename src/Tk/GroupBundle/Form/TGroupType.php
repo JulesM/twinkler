@@ -14,6 +14,10 @@ class TGroupType extends AbstractType
             ->add('name')
             ->add('city')
             ->add('country')
+            ->add('currency','entity', array(
+                            'class'         => 'TkGroupBundle:Currency',
+                            'property'      => 'name',
+                            ))
         ;
     }
 

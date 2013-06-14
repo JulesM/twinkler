@@ -57,8 +57,8 @@
 						</div>
 						<div class="row">
 							<div class="span2">
-								<p>Total paid: {{ member.tgroup.totalPaid }}€</p>
-								<p>Your balance: {{ balances[member.tgroup.id] }}€</p>
+								<p>Total paid: {{ member.tgroup.totalPaid }} {{member.tgroup.currency.symbol}}</p>
+								<p>Your balance: {{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</p>
 							</div>
 							<div class="span2">
 								<p>To-do(s): {{ member.tgroup.todos|length }}</p>

@@ -1,17 +1,17 @@
 tk_user_homepage:
-    pattern:  /user
+    pattern:  /
     defaults: { _controller: TkUserBundle:Profile:index }
 
 tk_user_profile_edit:
-    pattern:  /user/profile/edit/{id}
+    pattern:  /profile/edit/{id}
     defaults: { _controller: TkUserBundle:Profile:edit }
 
 tk_user_username_edit:
-    pattern:  /user/username/edit/{id}
+    pattern:  /username/edit/{id}
     defaults: { _controller: TkUserBundle:Profile:editUsername }
 
 tk_user_profilepicture_edit:
-    pattern:  /user/picture/upload
+    pattern:  /picture/upload
     defaults: { _controller: TkUserBundle:Profile:editProfilePicture }
 
 

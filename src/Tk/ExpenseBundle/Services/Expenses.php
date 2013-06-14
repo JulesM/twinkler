@@ -153,6 +153,9 @@ class Expenses {
             }
         }
 
+        reset($positive);
+        reset($negative);
+
         arsort($positive);
         asort($negative);
 

@@ -30,7 +30,14 @@ class ExpenseController extends Controller
         $expense->setDate(new \Datetime('today'));
     	$expense->setActive(true);
 
-        $form = $this->createForm(new ExpenseType(), $expense);
+        $member = $this->getUser()->getCurrentMember();
+        $expense->setAuthor($member);
+        $expense->setGroup($member->getTGroup());
+
+        $group = $member->getTGroup();
+
+        $form = $this->createForm(new ExpenseType($group), $expense);
+                     
 
         $request = $this->get('request');
 
@@ -41,9 +48,6 @@ class ExpenseController extends Controller
             if ($form->isValid()) {          
         
     		$em = $this->getDoctrine()->getEntityManager();
-            $member = $this->getUser()->getCurrentMember();
-            $expense->setAuthor($member);
-            $expense->setGroup($member->getTGroup());
     		$em->persist($expense);
     		$em->flush();
 

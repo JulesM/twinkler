@@ -16,7 +16,9 @@ class TodosController extends Controller
         $todo->setGroup($member->getTGroup());
     	$todo->setDate(new \Datetime('now'));
 
-    	$form = $this->createForm(new TodoType(), $todo);
+        $group = $member->getTGroup();
+
+    	$form = $this->createForm(new TodoType($group), $todo);
 
     	$request = $this->get('request');
 

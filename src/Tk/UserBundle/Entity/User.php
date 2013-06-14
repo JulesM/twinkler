@@ -72,6 +72,11 @@ class User extends BaseUser
     protected $country;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\ProfilePicture", cascade={"all"})
+     */
+    protected $picture;
+
+    /**
      * @ORM\OneToMany(targetEntity="Tk\UserBundle\Entity\Member", mappedBy="user", cascade={"persist"})
      */
     protected $members;
@@ -325,5 +330,28 @@ class User extends BaseUser
         if (isset($fbdata['email'])) {
             $this->setEmail($fbdata['email']);
         }
+    }
+
+    /**
+     * Set picture
+     *
+     * @param \Tk\UserBundle\Entity\ProfilePicture $picture
+     * @return User
+     */
+    public function setPicture(\Tk\UserBundle\Entity\ProfilePicture $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \Tk\UserBundle\Entity\ProfilePicture 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

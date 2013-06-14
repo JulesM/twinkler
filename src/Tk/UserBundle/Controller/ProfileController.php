@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Tk\UserBundle\Entity\User;
 use Tk\UserBundle\Form\UserType;
 use Tk\UserBundle\Form\UsernameType;
+use Tk\UserBundle\Entity\ProfilePicture;
 
 class ProfileController extends Controller
 {
@@ -97,5 +98,39 @@ class ProfileController extends Controller
             'form' => $form->createView(),
             'balances' => $this->getBalancesAction(),
             )); 
+    }
+
+    public function editProfilePictureAction()
+    {
+        $profilepicture = new ProfilePicture();
+        $form = $this->createFormBuilder($profilepicture)
+                     ->add('file')
+                     ->getForm()
+        ;
+
+        if ($this->getRequest()->isMethod('POST')) {
+            $form->bind($this->getRequest());
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                
+                $user = $this->getUser();
+                $currentpicture = $user->getPicture();
+                $profilepicture->upload($user);
+                $user->setPicture($profilepicture);
+                
+                if ($currentpicture->getId() !== 1) {
+                $em->remove($currentpicture);
+                }
+                
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('tk_user_homepage'));
+            }
+        }
+
+        return $this->render('TkUserBundle:Profile:picture-form.html.twig', array(
+            'form' => $form->createView(),
+                ));
     }
 }

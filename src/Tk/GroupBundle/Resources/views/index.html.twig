@@ -19,11 +19,13 @@
 					<h2>Members</h2>
 					{% for member in group.members %}
 						<div>
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" alt="member picture" style="display: inline-block">
-							<div style="display: inline-block">
-								{% if member.user %} 
-								<p><strong>{{ member.name }}</strong> ({{ member.user.fullname}})</p> 		
-								{% else %}
+							{% if member.user %} 
+								<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" alt="member picture" style="display: inline-block; margin-left: 5px;">
+								<div style="display: inline-block">								
+								<p><strong>{{ member.name }}</strong> ({{ member.user.fullname}})</p>
+								</div> 		
+							{% else %}
+								<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="member picture" style="display: inline-block; margin-left: 5px;">
 								<p style="display: inline-block"><strong>{{ member.name }}</strong></p>
 								<div class="btn-group" style="display: inline-block">
 								  <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">
@@ -35,9 +37,8 @@
 									<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=197132947110296&name=Please%20join%20me%20on%20Twinkler&link=http://localhost:8888/twinkler/web/app_dev.php/group/settings">Send Facebook Message</a>
 								  </ul>
 								</div>
-								{% endif %}
+							{% endif %}
 								
-							</div>
 						</div>
 					{% endfor %}
 					<a class="btn" href="{{ path('tk_group_add_members') }}">+ Add members</a>

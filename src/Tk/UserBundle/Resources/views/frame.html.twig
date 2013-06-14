@@ -28,7 +28,7 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="divider-vertical	"></li>
-					    <li><a href="{{ path('tk_user_homepage') }}">{{ app.user.username }}</a></li>
+					    <li><a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="25px" style="margin-right: 10px;" alt="profile picture">{{ app.user.username }}</a></li>
 					    <li class="divider-vertical	"></li>
 					    {% if app.user.currentMember != null %}
 					    <li><a href="{{ path('tk_group_homepage') }}">{{ app.user.currentMember.tgroup.name }}</a></li>

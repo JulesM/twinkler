@@ -10,4 +10,8 @@ tk_user_username_edit:
     pattern:  /user/username/edit/{id}
     defaults: { _controller: TkUserBundle:Profile:editUsername }
 
+tk_user_profilepicture_edit:
+    pattern:  /user/picture/upload
+    defaults: { _controller: TkUserBundle:Profile:editProfilePicture }
+
 

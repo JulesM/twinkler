@@ -17,7 +17,9 @@
 					{% block username %}
 						<h2>{{ app.user.username }} <small><a href="{{ path('tk_user_username_edit', { 'id' : app.user.id }) }}">edit</a></small></h2>
 					{% endblock %}
-					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}">
+					<img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="100px"; margin="auto" alt="profile picture">
+					<small><a href="#uploadPictureModal" role="button"	 data-toggle="modal">Edit</a></small>
+					{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
 					<p>{{ app.user.members|length }} groups</p>
 					{% block profile %}
 						{% if app.user.firstname != null or app.user.lastname != null %}

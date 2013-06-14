@@ -60,8 +60,6 @@ class LoginListener
 	            }else{}
 	        }
 
-	        print($add);
-
 	        if ($add){
 		        $member->setUser($user);
 		        $member->setName($user->getUsername());
@@ -69,6 +67,14 @@ class LoginListener
 		        $user->setCurrentMember($member);
 				$this->em->flush();
 			}
+		}
+
+		if ( $user->getPicture() == null ) {
+	        $picture = $this->em ->getRepository('TkUserBundle:ProfilePicture')->find(1);
+	        
+	        $user->setPicture($picture);
+	        $this->em->persist($user);
+	        $this->em->flush();	
 		}
 	}
 }

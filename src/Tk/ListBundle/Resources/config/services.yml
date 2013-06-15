@@ -7,5 +7,5 @@ services:
         arguments: [@doctrine.orm.entity_manager]
 
     tk_list.shopping:
-        class: Tk\ListBundle\Services\shopping
+        class: Tk\ListBundle\Services\Shopping
         arguments: [@doctrine.orm.entity_manager]

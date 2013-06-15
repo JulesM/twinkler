@@ -33,8 +33,7 @@ class ExpenseController extends Controller
         $member = $this->getUser()->getCurrentMember();
         $expense->setAuthor($member);
         $expense->setGroup($member->getTGroup());
-
-        $group = $member->getTGroup();
+        $group = $member->getTGroup();               
 
         $form = $this->createForm(new ExpenseType($group), $expense);
                      
@@ -63,8 +62,9 @@ class ExpenseController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $expense = $em->getRepository('TkExpenseBundle:Expense')->find($id);
+        $group = $expense->getGroup();
         
-        $form = $this->createForm(new ExpenseType(), $expense);
+        $form = $this->createForm(new ExpenseType($group), $expense);
 
         $request = $this->get('request');
 

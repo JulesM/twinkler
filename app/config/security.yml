@@ -42,7 +42,7 @@ security:
                 app_url: "%api_facebook_name%"
                 server_url: "%api_facebook_server%"
                 check_path: /login_facebook_check   # Pour éviter toute confusion avec le formulaire de base, j'ai spécifié une route pour Facebook
-                default_target_path: /user
+                default_target_path: tk_user_homepage
                 provider: my_facebook_provider
             logout:
                 path:   fos_user_security_logout

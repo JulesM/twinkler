@@ -18,7 +18,7 @@ class Expenses {
         $all_expenses = array();
 
     	foreach($all_expenses_col as $expense){
-    		$all_expenses[] = [$expense, $this->forYou($member, $expense)];
+    		$all_expenses[] = array($expense, $this->forYou($member, $expense));
     	}
 
     	return $all_expenses;
@@ -31,7 +31,7 @@ class Expenses {
 
         foreach($all_expenses as $expense){
             if($expense->getOwner() == $member){
-                $my_expenses[] = [$expense, $this->forYou($member, $expense)];
+                $my_expenses[] = array($expense, $this->forYou($member, $expense));
             }else{}
         }
 
@@ -46,7 +46,7 @@ class Expenses {
     	foreach($all_expenses as $expense){
     		if ($expense->getOwner() == $member){
     		}else{
-    			$other_expenses[] = [$expense, $this->forYou($member, $expense)];
+    			$other_expenses[] = array($expense, $this->forYou($member, $expense));
     		}
     	}
 
@@ -114,7 +114,7 @@ class Expenses {
 
         $balances = array();
         foreach($all_members as $member){
-            $balances[]=[$member, $this->getBalance($member, $group)];
+            $balances[] = array($member, $this->getBalance($member, $group));
         }
         return $balances;
     }

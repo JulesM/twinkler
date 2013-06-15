@@ -31,7 +31,7 @@ class Todo
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -56,4 +56,152 @@ class Todo
      * @ORM\ManyToOne(targetEntity="Tk\GroupBundle\Entity\TGroup", inversedBy="todos", cascade={"persist"})
      */
     protected $group;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Todo
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Todo
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Todo
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Tk\UserBundle\Entity\Member $author
+     * @return Todo
+     */
+    public function setAuthor(\Tk\UserBundle\Entity\Member $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set owner
+     *
+     * @param \Tk\UserBundle\Entity\Member $owner
+     * @return Todo
+     */
+    public function setOwner(\Tk\UserBundle\Entity\Member $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \Tk\UserBundle\Entity\Member 
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \Tk\GroupBundle\Entity\TGroup $group
+     * @return Todo
+     */
+    public function setGroup(\Tk\GroupBundle\Entity\TGroup $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Tk\GroupBundle\Entity\TGroup 
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 }

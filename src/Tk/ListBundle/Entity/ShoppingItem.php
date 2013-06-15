@@ -31,14 +31,14 @@ class ShoppingItem
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="addedDate", type="datetimetz")
+     * @ORM\Column(name="addedDate", type="datetime")
      */
     private $addedDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="doneDate", type="datetimetz", nullable=true)
+     * @ORM\Column(name="doneDate", type="datetime", nullable=true)
      */
     private $doneDate;
 

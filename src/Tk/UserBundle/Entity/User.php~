@@ -331,4 +331,27 @@ class User extends BaseUser
             $this->setEmail($fbdata['email']);
         }
     }
+
+    /**
+     * Set picture
+     *
+     * @param \Tk\UserBundle\Entity\ProfilePicture $picture
+     * @return User
+     */
+    public function setPicture(\Tk\UserBundle\Entity\ProfilePicture $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \Tk\UserBundle\Entity\ProfilePicture 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }

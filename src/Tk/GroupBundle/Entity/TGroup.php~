@@ -31,7 +31,7 @@ class TGroup
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     protected $date;
 
@@ -416,5 +416,28 @@ class TGroup
     public function getMembers()
     {
         return $this->members;
+    }
+
+    /**
+     * Set currency
+     *
+     * @param \Tk\GroupBundle\Entity\Currency $currency
+     * @return TGroup
+     */
+    public function setCurrency(\Tk\GroupBundle\Entity\Currency $currency = null)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return \Tk\GroupBundle\Entity\Currency 
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
     }
 }

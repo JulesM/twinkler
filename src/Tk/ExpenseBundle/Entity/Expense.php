@@ -38,14 +38,14 @@ class Expense
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="addedDate", type="datetimetz")
+     * @ORM\Column(name="addedDate", type="datetime")
      */
     private $addedDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 

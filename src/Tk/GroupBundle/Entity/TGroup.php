@@ -31,7 +31,7 @@ class TGroup
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     protected $date;
 
@@ -214,7 +214,7 @@ class TGroup
     public function generateInvitationToken()
     {
         $key = '';
-        $keys = array_merge(range(0, 9), range('a', 'Z'));
+        $keys = array_merge(range(0, 9), range('a', 'z'));
 
         for ($i = 0; $i < 40; $i++) {
             $key .= $keys[array_rand($keys)];

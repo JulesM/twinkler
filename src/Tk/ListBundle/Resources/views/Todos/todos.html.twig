@@ -2,8 +2,25 @@
 	{% render(controller('TkListBundle:Todos:new')) %}
 </div>
 
-{% for todo in all_todos %}
+<table class="table">
+	<thead>
+		<tr>
+			<th style="width:50%">Task</th>
+			<th style="width:20%">Assigned</th>
+			<th style="width:20%">Since</th>
+			<th style="width:10%">Check/Delete</th>
+		</tr>
+	</thead>
 
-	<p>{{ todo.name }} - Assigned to {% if todo.owner == null %} Anyone {% else %} {{ todo.owner.name }} {% endif %} - <a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a></p>
+	<tbody>
+		{% for todo in all_todos %}
+			<tr>
+				<td>{{ todo.name }}</td>
+				<td>{% if todo.owner == null %} Anyone {% else %} {{ todo.owner.name }} {% endif %}</td>
+				<td>{{ todo.date|date('d/m')}}</td>
+				<td><a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a></td>	
+			</tr>
 
-{% endfor %}
+		{% endfor %}
+	</tbody>
+</table>

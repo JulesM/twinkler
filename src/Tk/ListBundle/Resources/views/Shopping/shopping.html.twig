@@ -2,8 +2,24 @@
 	{% render(controller('TkListBundle:Shopping:new')) %}
 </div>
 
-{% for item in all_items %}
-
-	<p>{{ item.name }} - <a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a></p>
-
-{% endfor %}
+<table class="table">
+	<thead>
+		<tr>
+			<th style="width:50%">Item</th>
+			<th style="width:20%">Added by</th>
+			<th style="width:20%">When</th>
+			<th style="width:10%">Check/Delete</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		{% for item in all_items %}
+			<tr>
+				<td>{{ item.name }}</td>
+				<td>{{ item.author.name }}</td>
+				<td>{{ item.addedDate|date('d/m') }}</td>
+				<td><a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a></td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

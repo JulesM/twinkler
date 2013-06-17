@@ -14,8 +14,11 @@
 
 	    {{ form_rest(form) }}
 
-	    <input type="submit" />
-	    <a href="{{ path('tk_user_homepage') }}">Cancel</a>
+	    </div>
+	    <div class="button">
+			<input type="submit" class="btn-orange"/>
+			<a class="btn" href="{{ path('tk_user_homepage') }}">Cancel</a>
+		</div>    
 	</form>
 
 {% endblock %}

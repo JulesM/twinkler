@@ -2,26 +2,47 @@
 
 {% block stylesheets %}
  {{ parent() }}
+ <link href="{{ asset('css/twitter-widget.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}
 	<div class="container">
 		<div class="row">
 			<div class="span10 offset1">
-				<h1>{{ app.user.username }} - Profile</h1>
+				<h1>Your Profile</h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span4 offset1">
-				<div class="box">
-					{% block username %}
-						<h2>{{ app.user.username }} <small><a href="{{ path('tk_user_username_edit', { 'id' : app.user.id }) }}">edit</a></small></h2>
-					{% endblock %}
-					<img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="100px"; margin="auto" alt="profile picture">
-					<small><a href="#uploadPictureModal" role="button"	 data-toggle="modal">Edit</a></small>
-					{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
-					<p>{{ app.user.members|length }} groups</p>
-					{% block profile %}
+				<div id="twitter-widget">
+					<div class="user">
+						<div class="avatar">
+							<a href="#uploadPictureModal" role="button"	 data-toggle="modal"><img src="{{ asset(app.user.picture.path) }}" width="70px" alt="profile picture"/></a>
+						</div>
+						{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
+						<div class="data">
+							<span class="username">{{app.user}}</span>
+							<span class="name">{{app.user.firstname}} {{app.user.lastname}}</span>
+						</div>
+					</div>
+					<div class="details">
+						<ul>
+							<li>
+								<span class="number">{{ app.user.members|length }}</span>
+								Groups
+							</li>
+							<li>
+								<span class="number">557</span>
+								Following
+							</li>
+							<li>
+								<span class="number">4446</span>
+								Followers
+							</li>
+						</ul>
+					</div>
+					<div class="details">
+						{% block profile %}
 						{% if app.user.firstname != null or app.user.lastname != null %}
 							<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
 						{% else %}
@@ -43,10 +64,14 @@
 						{% else %}
 							<p>Country: not specified ... </p>
 						{% endif %}
-						<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">Edit profile information</a>
-					{% endblock profile %}
+					</div>
+					<div class="button">
+						<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}"><span class="btn-orange">Edit information</span></a>
+					</div>
+						{% endblock profile %}
 				</div>
 			</div>
+				
 			<div class="span6">
 				<div class="box">
 					<h2>Summary of your groups</h2>
@@ -78,11 +103,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span2 offset7">
-				<a class="btn" href="{{ path('tk_group_new') }}">+ Start a new group</a>
 			</div>
 		</div>
 	</div>

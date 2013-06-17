@@ -1,0 +1,205 @@
+/*
+ * @freebie: twitter-widget
+ * @author: Francisco Neves
+ */
+
+#twitter-widget
+{
+	display: table;
+	overflow: hidden;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+#twitter-widget > .user
+{
+	display: table;
+	width: 100%;
+	background-color: #2bb5dc;
+	padding: 15px;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+#twitter-widget > .user > .avatar
+{	display: table;
+	float: left;
+	border: 1px solid #FFF;
+
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	padding: 10px;
+}
+#twitter-widget > .user > .avatar > a > img
+{
+	display: block;
+	margin: 0 auto;
+
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+}
+
+#twitter-widget > .user > .data
+{
+	width: 60%;
+	float: right;
+	margin-right: 20px;
+	color: white;
+	font-size: 12px;
+}
+
+#twitter-widget > .user > .data > span.name
+{
+	margin-top:5px;
+	display: block;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 20px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+#twitter-widget > .user > .data > span.username
+{
+	margin-top: 15px;
+	display: block;
+	text-transform: uppercase;
+	line-height: 36px;
+	margin-bottom: 10px;
+	font-size: 36px;
+}
+
+
+#twitter-widget > .details
+{
+	display: table;
+	width: 100%;
+	background-color: #fff;
+	padding: 15px;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+#twitter-widget > .details > ul
+{
+	margin: 0 auto;
+}
+
+#twitter-widget > .details > ul li
+{
+	list-style: none;
+	width: 33%;
+	border-right: 1px solid #fff;
+	background-color: #f8f3f0;
+	float: left;
+	font-size: 8px;
+	padding: 13px;
+	text-align: center;
+	color: #8d8070;
+	text-transform: uppercase;
+	overflow: hidden;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+#twitter-widget > .details > ul li:first-child
+{
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#twitter-widget > .details > ul li:last-child
+{
+	border: 0;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+#twitter-widget > .details > ul li > span.number
+{
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
+
+#twitter-widget > .button
+{
+	width: 100%;
+	padding: 15px;
+	background-color: #f8f3f0;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+#twitter-widget > .button
+{
+	width: 100%;
+	padding: 15px;
+	background-color: #f8f3f0;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+.btn-orange
+{
+	display: block;
+	border: 1px solid #d24c25;
+	font-size: 12px;
+	color: white;
+	background: rgba(237,137,107,1);
+	background: -moz-linear-gradient(top, rgba(237,137,107,1) 0%, rgba(228,89,54,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,137,107,1)), color-stop(100%, rgba(228,89,54,1)));
+	background: -webkit-linear-gradient(top, rgba(237,137,107,1) 0%, rgba(228,89,54,1) 100%);
+	background: -o-linear-gradient(top, rgba(237,137,107,1) 0%, rgba(228,89,54,1) 100%);
+	background: -ms-linear-gradient(top, rgba(237,137,107,1) 0%, rgba(228,89,54,1) 100%);
+	background: linear-gradient(to bottom, rgba(237,137,107,1) 0%, rgba(228,89,54,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed896b', endColorstr='#e45936', GradientType=0 );
+	text-align: center;
+	padding: 7px 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.3), 0px 3px 5px -3px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.3), 0px 3px 5px -3px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.3), 0px 3px 5px -3px rgba(0,0,0,0.3);
+	font-weight: bold;
+}
+
+.btn-orange:hover
+{
+	background: rgba(228,89,54,1);
+}
+
+.btn-orange:active
+{
+	background: rgba(228,89,54,1);
+	-webkit-box-shadow: inset 0px 3px 5px -3px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 3px 5px -3px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 3px 5px -3px rgba(0,0,0,0.3);
+}
+
+.btn-orange > .text
+{
+	padding-left: 25px;
+	background: no-repeat left center;
+}

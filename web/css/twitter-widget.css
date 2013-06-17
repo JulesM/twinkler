@@ -46,11 +46,11 @@
 
 #twitter-widget > .user > .data
 {
-	width: 60%;
 	float: right;
 	margin-right: 20px;
 	color: white;
 	font-size: 12px;
+	text-align: right;
 }
 
 #twitter-widget > .user > .data > span.name

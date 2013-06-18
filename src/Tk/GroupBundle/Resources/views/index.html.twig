@@ -33,8 +33,8 @@
 								  </a>
 								  <ul class="dropdown-menu">
 								    <!-- dropdown menu links -->
-								    {% render controller('TkGroupBundle:Default:sendInvitationEmail') %}
-									<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=197132947110296&name=Please%20join%20me%20on%20Twinkler&link=http://localhost:8888/twinkler/web/app_dev.php/group/settings">Send Facebook Message</a>
+								    {% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
+									<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
 								  </ul>
 								</div>
 							{% endif %}

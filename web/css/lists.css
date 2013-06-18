@@ -2,13 +2,18 @@
 
 /* To-dos */
 
+.well{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 #to-dos > .well > form {
 	margin-bottom: 0;
 }
 
 #to-dos  > .well > form > div {
 	display: inline-block;
-	width: 40%;
+	width: 35%;
 }
 
 #to-dos > .well > form > input {

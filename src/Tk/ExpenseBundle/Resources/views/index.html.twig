@@ -14,25 +14,7 @@
 				<h1>{{ app.user.currentMember.tgroup.name }} - Expenses</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="span4">
-				<div class="box">
-					<h2>Balances & Debts</h2>
-					<div class="well well-small">
-						Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
-					</div>
-					<div>
-						{% for balance in balances %}
-							<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
-						{% endfor %}
-					</div>
-					<div>
-						{% for debt in debts %}
-							<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
-						{% endfor %}
-					</div>
-				</div>
-			</div>
+		<div class="row">	
 			<div class="span8">
 				<div class="box">
 					{% block expenses %}
@@ -89,12 +71,33 @@
 								</tr>
 
 							{% endfor %}
-						</tbody>
+							</tbody>
+							</table>
 							
 						</div>
 					{% endblock expenses %}
 				</div>
 			</div>
+			<div class="span4">
+				<div class="box">
+					<h2>Balances & Debts</h2>
+					<div class="well well-small">
+						Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
+					</div>
+					<div>
+						{% for balance in balances %}
+							<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
+						{% endfor %}
+					</div>
+					<div>
+						{% for debt in debts %}
+							<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 {% endblock %}

@@ -42,6 +42,8 @@
 						</ul>
 					</div>
 					<div class="details">
+						<ul>
+						<li style="width: 100%; font-size: 14px;">	
 						{% block profile %}
 						{% if app.user.firstname != null or app.user.lastname != null %}
 							<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
@@ -64,6 +66,8 @@
 						{% else %}
 							<p>Country: not specified ... </p>
 						{% endif %}
+						</li>
+						</ul>
 					</div>
 					<div class="button">
 						<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}"><span class="btn-orange">Edit information</span></a>

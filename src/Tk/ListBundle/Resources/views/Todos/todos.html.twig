@@ -5,22 +5,35 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th style="width:50%">Task</th>
+			<th style="width:50%">Pending Task</th>
 			<th style="width:20%">Assigned</th>
 			<th style="width:20%">Since</th>
-			<th style="width:10%">Check/Delete</th>
+			<th style="width:10%">Action</th>
 		</tr>
 	</thead>
 
 	<tbody>
-		{% for todo in all_todos %}
+		{% for todo in app.user.currentMember.tgroup.activeTodos %}
 			<tr>
-				<td>{{ todo.name }}</td>
-				<td>{% if todo.owner == null %} Anyone {% else %} {{ todo.owner.name }} {% endif %}</td>
+				<td>{{ todo.name }}{{todo.active}}</td>
+				<td>{% if todo.owner == null %} <span style="color: grey;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
 				<td>{{ todo.date|date('d/m')}}</td>
-				<td><a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a></td>	
+				<td style="text-align: center">
+					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><i class="icon-ok"></i></a>
+					<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a>
+				</td>	
 			</tr>
-
+		{% endfor %}
+	
+		{% for todo in app.user.currentMember.tgroup.inactiveTodos %}
+			<tr style="background-color: rgb(126,248,255); color: grey;">
+				<td>{{ todo.name }}{{todo.active}}</td>
+				<td>{% if todo.owner == null %} <span style="color: grey;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
+				<td>{{ todo.date|date('d/m')}}</td>
+				<td style="text-align: center">
+					<i class="icon-star"></i>
+				</td>	
+			</tr>
 		{% endfor %}
 	</tbody>
 </table>

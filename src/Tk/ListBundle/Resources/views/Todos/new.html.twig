@@ -1,16 +1,24 @@
 <form action="{{ path('tk_list_todos_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
 
-    <div style="display: inline-block;">
-    	{{ form_row(form.name) }}
+    <div>
+    	{{ form_errors(form.name) }}
+        {{ form_widget(form.name, 
+            { 'attr': { 'style' : 'width: 90%',  'placeholder' : 'Add a task ...'}})  
+    }}
     </div>
-    <div style="display: inline-block;">
-    	{{ form_row(form.owner) }}
+
+    <div>
+    	{{ form_errors(form.owner) }}
+        {{ form_widget(form.owner, 
+            { 'attr': { 'style' : 'width: 90%'}})   
+    }}
     </div>   
 
     {{ form_rest(form) }}
-    <div>
-    	<input type="submit" />
-    </div>
+
+
+    <input class="btn btn-success" type="submit" value="Add To-do"/>
+
     
 </form>

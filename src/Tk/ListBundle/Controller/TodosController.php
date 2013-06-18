@@ -40,6 +40,17 @@ class TodosController extends Controller
     	));
     }
 
+    public function checkAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $todo = $em->getRepository('TkListBundle:Todo')->find($id);
+
+        $todo->setActive(false);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('tk_list_homepage'));
+    }
+
     public function removeAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();

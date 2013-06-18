@@ -1,9 +1,14 @@
 <form action="{{ path('tk_list_shopping_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
 
-    {{ form_row(form.name) }}
+    <div>
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, 
+            { 'attr': { 'style' : 'width: 90%',  'placeholder' : 'What is missing ?'}}) 
+        }}
+    </div>
 
     {{ form_rest(form) }}
 
-    <input type="submit" />
+    <input class="btn btn-success" type="submit" value="Add Item"/>
 </form>

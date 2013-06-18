@@ -13,13 +13,29 @@
 	</thead>
 	
 	<tbody>
-		{% for item in all_items %}
+
+		{% for item in app.user.currentMember.tgroup.activeShoppingItems  %}
 			<tr>
 				<td>{{ item.name }}</td>
 				<td>{{ item.author.name }}</td>
 				<td>{{ item.addedDate|date('d/m') }}</td>
-				<td><a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a></td>
+				<td style="text-align: center;">
+					<a href="{{ path('tk_list_shopping_check', { 'id' : item.id }) }}"><i class="icon-ok"></i></a>
+					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a>
+				</td>
 			</tr>
 		{% endfor %}
+
+		{% for item in app.user.currentMember.tgroup.inactiveShoppingItems %}
+			<tr style="background-color: rgb(126,248,255); color: grey;">
+				<td>{{ item.name }}</td>
+				<td>{{ item.author.name }}</td>
+				<td>{{ item.addedDate|date('d/m') }}</td>
+				<td style="text-align: center;">
+					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><small>re-add</small></a>
+				</td>
+			</tr>
+		{% endfor %}
+
 	</tbody>
 </table>

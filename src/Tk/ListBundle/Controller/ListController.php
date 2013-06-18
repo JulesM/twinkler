@@ -9,10 +9,7 @@ class ListController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkListBundle::index.html.twig', array(
-        	'all_todos' => $this->getAllTodosAction(),
-        	'all_items' => $this->getAllShoppingItemsAction(),
-        	));
+        return $this->render('TkListBundle::index.html.twig');
     }
 
     private function getAllTodosAction()

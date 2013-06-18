@@ -39,6 +39,17 @@ class ShoppingController extends Controller
     	));
     }
 
+    public function checkAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $item = $em->getRepository('TkListBundle:ShoppingItem')->find($id);
+
+        $item->setActive(false);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('tk_list_homepage'));
+    }
+
     public function removeAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();

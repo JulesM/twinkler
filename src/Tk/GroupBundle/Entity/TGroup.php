@@ -335,6 +335,24 @@ class TGroup
     }
 
     /**
+     * Get Inactive todos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInactiveTodos()
+    {
+        $all_todos = $this->todos;
+        $inactive_todos = new \Doctrine\Common\Collections\ArrayCollection();
+
+        foreach($all_todos as $todo){
+            if($todo->getActive() == 0){
+                $inactive_todos->add($todo);
+            }else{}
+        }
+        return $inactive_todos;
+    }
+
+    /**
      * Add shoppingItems
      *
      * @param \Tk\ListBundle\Entity\ShoppingItem $shoppingItems
@@ -385,6 +403,23 @@ class TGroup
         return $active_items;
     }
 
+    /**
+     * Get Inactive shoppingItems
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInactiveShoppingItems()
+    {
+        $all_items = $this->shoppingItems;
+        $inactive_items = new \Doctrine\Common\Collections\ArrayCollection();
+
+        foreach($all_items as $item){
+            if($item->getActive() == 0){
+                $inactive_items->add($item);
+            }else{}
+        }
+        return $inactive_items;
+    }
     /**
      * Add members
      *

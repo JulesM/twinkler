@@ -6,6 +6,10 @@ tk_list_todos_new:
     pattern:  /lists/todos/new
     defaults: { _controller: TkListBundle:Todos:new }
 
+tk_list_todos_check:
+    pattern:  /lists/todos/check/{id}
+    defaults: { _controller: TkListBundle:Todos:check }
+
 tk_list_todos_remove:
     pattern:  /lists/todos/remove/{id}
     defaults: { _controller: TkListBundle:Todos:remove }
@@ -13,6 +17,10 @@ tk_list_todos_remove:
 tk_list_shopping_new:
     pattern: /lists/shopping/new
     defaults: { _controller: TkListBundle:Shopping:new }
+
+tk_list_shopping_check:
+    pattern: /lists/shopping/check/{id}
+    defaults: { _controller: TkListBundle:Shopping:check }
 
 tk_list_shopping_remove:
     pattern: /lists/shopping/remove/{id}

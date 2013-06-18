@@ -1,8 +1,15 @@
 /* --- CSS applyable for all website when user is connected--- */
 
-.frame{
-	background-image: url('../img/frame/Background.jpg');
-	min-height: 620px;
+
+.frame{	
+	background-image: url('../img/Frame/Background.jpg');
+	min-height: 620px;		
+	margin-top: -20px;
+	margin-right: -20px;
+	margin-left: -20px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 .box{

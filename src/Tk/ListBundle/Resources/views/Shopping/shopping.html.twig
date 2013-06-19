@@ -32,7 +32,7 @@
 				<td>{{ item.author.name }}</td>
 				<td>{{ item.addedDate|date('d/m') }}</td>
 				<td style="text-align: center;">
-					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><small>re-add</small></a>
+					<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}"><small>re-add</small></a>
 				</td>
 			</tr>
 		{% endfor %}

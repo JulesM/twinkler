@@ -25,3 +25,7 @@ tk_list_shopping_check:
 tk_list_shopping_remove:
     pattern: /lists/shopping/remove/{id}
     defaults: { _controller: TkListBundle:Shopping:remove }
+
+tk_list_shopping_readd:
+    pattern: /lists/shopping/re_add/{id}
+    defaults: { _controller: TkListBundle:Shopping:reAdd }

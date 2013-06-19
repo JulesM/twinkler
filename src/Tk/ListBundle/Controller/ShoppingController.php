@@ -60,4 +60,22 @@ class ShoppingController extends Controller
 
         return $this->redirect($this->generateUrl('tk_list_homepage'));
     }
+
+    public function reAddAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $item = $em->getRepository('TkListBundle:ShoppingItem')->find($id);
+
+        $item2 = new ShoppingItem();
+        $item2->setName($item->getName());
+        $item2->setAuthor($this->getUser()->getCurrentMember());
+        $item2->setGroup($item->getGroup());
+        $item2->setAddedDate(new \Datetime('now'));
+        $item2->setActive(true);
+
+        $em->persist($item2);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('tk_list_homepage'));
+    }
 }

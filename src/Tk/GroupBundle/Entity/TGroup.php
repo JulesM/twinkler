@@ -73,11 +73,13 @@ class TGroup
 
     /**
      * @ORM\OneToMany(targetEntity="Tk\ListBundle\Entity\Todo", mappedBy="group", cascade={"persist"})
+     * @ORM\OrderBy({"date" = "DESC"})
      */
     protected $todos;
 
     /**
      * @ORM\OneToMany(targetEntity="Tk\ListBundle\Entity\ShoppingItem", mappedBy="group", cascade={"persist"})
+     * @ORM\OrderBy({"addedDate" = "DESC"})
      */
     protected $shoppingItems;
 

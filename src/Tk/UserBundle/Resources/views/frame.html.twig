@@ -12,7 +12,7 @@
 {% block body %}
 
     <div class="navbar navbar-fixed-top">
-          <div class="navbar-inner">
+        <div class="navbar-inner">
             <div class="container">
                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
@@ -28,46 +28,47 @@
                         {% if app.user.currentMember != null %}
                         <li><a href="{{ path('tk_group_homepage') }}">{{ app.user.currentMember.tgroup.name }}</a></li>
                         <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret" style="zoom:1.5; margin-top: 5px;"></span>
-                          </a>
-                          <!-- Link or button to toggle dropdown -->
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret" style="zoom:1.5; margin-top: 5px;"></span>
+                            </a>
+                            <!-- Link or button to toggle dropdown -->
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             {% for member in app.user.members %}
                                 <li><a tabindex="-1" href="{{ path('tk_group_switch_member', {'id' : member.id, 'route' : app.request.attributes.get('_route') }) }}">{{ member.tgroup.name }}</a></li>
                             {% endfor %}
-                          </ul>
+                            </ul>
                         </li>
                         <!-- il faudrait rajouter un divider qui soit responsive ou mettre la suite à droite -->
                         <li class="divider-vertical "></li>
                         <li><a href="{{ path('tk_expense_homepage') }}">Expenses</a></li>
                         <li><a href="{{ path('tk_list_homepage') }}">Lists</a></li>
                         {% endif %}
-                        </ul>
+                    </ul>
 
-                        <ul class="nav pull-right">
-                            <li class="divider-vertical "></li>
-                            <li><a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="20px" style="margin-right: 10px;" alt="profile picture">{{ app.user.username }}</a></li>
-                            <li class="divider-vertical "></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                        </ul>
-                    
+                    <ul class="nav pull-right">
+                        <li class="divider-vertical "></li>
+                        <li><a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="20px" style="margin-right: 10px;" alt="profile picture">{{ app.user.username }}</a></li>
+                        <li class="divider-vertical "></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                    </ul>
+
                 </div><!--/.nav-collapse -->
             </div>
-          </div>
         </div>
+    </div>
+
     <div class="frame">
+        <div class="container">
 
-    <div class="container">
+            {% block content %}
+            {% endblock %}
 
-    	{% block content %}
-    	{% endblock %}
-
-	</div> <!-- /container -->
-	</div>
+        </div> <!-- /container -->
+    </div>
 {% endblock %}
+
 {% block javascripts %}
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-  </body>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    </body>
 {% endblock %}

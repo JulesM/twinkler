@@ -1,0 +1,11 @@
+Hello {{ user }},
+
+You requested the shopping list of your group {{ user.currentMember.tgroup.name }}, find it below:
+
+{% for item in shopping_list %}
+- {{ item.name }}
+{% endfor %}
+
+Enjoy your shopping ;)
+
+The Twinkler team

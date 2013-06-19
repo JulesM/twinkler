@@ -11,4 +11,12 @@
     {{ form_rest(form) }}
 
     <input class="btn btn-success" type="submit" value="Add Item"/>
+	<span class="btn-group" style="vertical-align: top;">
+		<a class="btn btn-info dropdown-toggle square-button" data-toggle="dropdown" href="#">
+			<i class="icon-envelope icon-white"></i>
+		</a>
+		<ul class="dropdown-menu pull-right" style="padding: 10px;">
+			<a href="{{ path('tk_list_shopping_receive_by_email') }}">Receive shopping list by email</a>
+		</ul>
+	</span>
 </form>

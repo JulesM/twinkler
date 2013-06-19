@@ -78,4 +78,22 @@ class ShoppingController extends Controller
 
         return $this->redirect($this->generateUrl('tk_list_homepage'));
     }
+
+    public function receiveEmailAction()
+    {
+        $user = $this->getUser();
+        $group = $user->getCurrentMember()->getTGroup();
+        $shopping_list = $group->getActiveShoppingItems();
+        
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Your Shopping List from Twinkler !')
+            ->setFrom('webmaster@twinkler.co')
+            ->setTo($user->getEmail())
+            ->setBody($this->renderView('TkListBundle:Shopping:shoppingListEmail.html.twig', array('user' => $user, 'shopping_list' => $shopping_list)))
+        ;
+        $this->get('mailer')->send($message);
+
+        $url = $this->getRequest()->headers->get("referer");
+        return $this->redirect($url);
+    }
 }

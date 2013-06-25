@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
     	return $this->render('TkWelcomeBundle:Links:register.html.twig');
     }
+
+    public function testAction()
+    {
+    	return $this->render('::test.html.twig');
+    }
 }

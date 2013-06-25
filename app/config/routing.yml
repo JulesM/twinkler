@@ -1,3 +1,7 @@
+tk_test:
+    pattern:  /test
+    defaults: { _controller: TkWelcomeBundle:Default:test }
+
 tk_list:
     resource: "@TkListBundle/Resources/config/routing.yml"
     prefix:   /

@@ -6,6 +6,10 @@ tk_list_todos_new:
     pattern:  /lists/todos/new
     defaults: { _controller: TkListBundle:Todos:new }
 
+tk_list_todos_edit:
+    pattern:  /lists/todos/edit/{id}
+    defaults: { _controller: TkListBundle:Todos:edit }
+
 tk_list_todos_check:
     pattern:  /lists/todos/check/{id}
     defaults: { _controller: TkListBundle:Todos:check }

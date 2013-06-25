@@ -29,6 +29,12 @@ header{
 	padding-right: 50px;
 }
 
+.feature{
+	background-image: url(' ../img/landing-page/feature-gradient-bck.png');
+	background-position:50% 100%;
+  	background-repeat:no-repeat no-repeat;
+}
+
 footer{
 	border-top: solid 1px grey;
 }

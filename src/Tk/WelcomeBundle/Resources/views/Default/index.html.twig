@@ -4,6 +4,8 @@
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" media="screen">
+ 
+
 {% endblock %}
 {% block body %}
   	<header>
@@ -12,6 +14,9 @@
 	  			<img src="{{ asset('img/logo/twinkler_logo.png') }}" width="200px" alt="twinkler logo">
 	  		</a>
 	  		<div class="pull-right" id="login-register">
+	  			<a href="">Features</a>		
+	  			<a href="">Get the App</a>		
+	  			<a href="">Don't click here</a>		
 		  		<a href="{{ path('fos_user_security_login') }}">Login</a> or
 		  		<a href="{{ path('fos_user_registration_register') }}">Register</a>
 	  		</div>
@@ -31,44 +36,94 @@
 			</div>
 		</div>
 	</section>
+
+	<section >
+		<div id="core-features" class="row">
+			<div class="span3 offset1">
+				<img src="{{ asset('img/landing-page/payback.png') }}" alt="twinkler app mockup" class="img-circle" width="200px">
+				<h3>Split your Bills</h3>
+				<p>Don't worry about who pays what, Twinkler does it for you!<br> Just enjoy your moments with your friends</p>
+			</div>
+			<div class="span3 offset1">
+				<img src="{{ asset('img/landing-page/payback.png') }}" alt="twinkler app mockup" class="img-circle" width="200px">
+				<h3>Payback your friends</h3>
+				<p>Stop chasing your friends for money! <br> Don't you think in 2013 it's time to use your smartphone to get your money back?</p>
+			</div>
+			<div class="span3 offset1">
+				<img src="{{ asset('img/landing-page/payback.png') }}" alt="twinkler app mockup" class="img-circle" width="200px">
+				<h3>Communicate</h3>
+				<p>Organize your week-ends, holidays or even flatshare with Twinkler! <br> Use our shared lists and beautiful chat to talk to your friends!</p>
+			</div>
+		</div>
+		<div id="late-login" class="row">
+			  <button class="btn btn-large btn-primary" type="button">Start using Twinkler</button>
+			  <p>already registered? log in here</p>
+		</div>
+	</section>
 	<section>
 		<div id="section2">
-			<div class="row">
-				<div class="span8 offset2">
-			    	<h1>How it works</h1>
-			    	<p>With Twinkler you add your friends to your groups or events and manage common things with them. Report expenses, set to-dos, share shopping lists.</p>
-				</div>
-			</div>
-		    <div class="row feature">
-		    	<div class="span2 offset2">
-		    		<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
-		    	</div>
-		    	<div class="span6">
-		    	</div>
-		    </div>
-		    <div class="row feature">
-		    	<div class="span6 offset2">
-		    	</div>
-		    	<div class="span2">
-		    		<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
-		    	</div>
-		    </div>
-		    <div class="row feature">
-		    	<div class="span2 offset2">
-		    		<img src="{{ asset('img/landing-page/app-mockup.png') }}" width="200px" alt="twinkler app mockup">
+		    <div id="samsung-expenses"class="row feature">
+		    	<div class="span12 feature-container">
+				    	<div class="row feature-container">
+				    		<div class="span4 feature-container offset1" style="position:relative">
+				    		<img src="{{ asset('img/landing-page/samsung-overview.png') }}" alt="twinkler app mockup">
+				    		</div>
+				    		<div class="span6 feature-description offset1">
+				    		<h1>Friendly Notifications</h1>
+			    			<h2>Share more than moments</h2>
+				    		<p>Send e-mail notification to payback your friends in a twinkling!</p>
+				    		<p>Include Pictures of your event with dropbox in your reminders!</p>
+				    		</div>
+				    	</div>
 		    	</div>
 		    	<div class="span7">
 		    	</div>
 		    </div>
+		    <div class="row feature">
+		    	<div class="span12 feature-container">
+				    	<div class="row feature-container">
+				    		<div id="iphone-payback"  class="span5 offset1 feature-description">
+				    		<h1>Payback your friends!</h1>
+			    			<h2>Don't chase your friends</h2>
+				    		<p>Twinkler integrates Google Wallet features so you can move your money for free</p>
+				    		<p>Unlimited payback so you stop worrying about who pays the bill!</p>
+				    		</div>
+				    		<div class="span6 feature-container" style="position:relative">
+				    		<img src="{{ asset('img/landing-page/iphone_payback.png') }}" alt="twinkler app mockup">
+				    		</div>
+				    	</div>
+		    	</div>
+		    </div>
+		    <section>
+		    <div class="row feature">
+		    	<div class="span12 feature-container">
+				    	<div class="row feature-container">
+				    		<div class="span6 feature-container" style="position:relative">
+				    		<img src="{{ asset('img/landing-page/Macbook_Air_Payback_email.png') }}" alt="twinkler app mockup">
+				    		</div>
+				    		<div class="span6 feature-description">
+				    		<h1>Friendly Notifications</h1>
+			    			<h2>Share more than moments</h2>
+				    		<p>Send e-mail notification to payback your friends in a twinkling!</p>
+				    		<p>Include Pictures of your event with dropbox in your reminders!</p>
+				    		</div>
+				    	</div>
+		    	</div>
+		    	<div class="span7">
+		    	</div>
+		    </div>
+		    </section>
 		</div>
 	</section>
+
 	<section>
 		<div id="section3">
+			<div  id="section-transition" class="row">
+			    <h5>Bring Twinkler with you all the time with our coming mobile apps</h5>
+			</div>
 			<div class="row">
-				<div class="span8 offset2">
-		    		<h1>Apps</h1>
-		    		<p>Bring Twinkler with you all the time with our coming mobile apps</p>
-				</div>
+				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!">
+				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!">
 			</div>
 		</div>
 	</section>
@@ -81,10 +136,53 @@
 				</div>
 			</div>
 		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		$(".links a").eq(0).addClass("selected");
+		$(".code .show").click(function (e) {
+			e.preventDefault();
+			$(".syntaxhighlighter").slideToggle();
+		});
+	    SyntaxHighlighter.all()
+	</script>
+	</section>
+
+	<section>
+		<div id="made-with-love" class="row">
+			Made with love
+		</div>
+	</section>
+
+	<section id="pre-footer">
+		<div class="row repeat-bck">
+			<div class="span3 offset1 footer-box footer-box-right">
+				<p>Get our Apps </p><br>
+				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!" width="120px"><br>
+				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!" width="120px">
+			</div>
+			<div class="span3 footer-box offset1">
+				<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
+				<form>
+				  <fieldset>
+				    <input type="text" placeholder="Enter your e-mail address">
+				    <button type="submit" class="btn btn-success">Subscribe</button>
+				  </fieldset>
+				</form>
+			</div>
+			<div class="span3 footer-box offset1 footer-box-left">
+				<p>Thanks for your help!<br>
+				Keep following us here:</p><br>
+
+				<i class="icon-facebook-sign icon-3x"></i>
+				<i class="icon-twitter-sign icon-3x"></i>
+				<i class="icon-rss-sign icon-3x"></i>
+			</div>
+		</div>
 	</section>
 	<footer>
 		<div class="row">
-			<div class="span8 offset2">
 				<p>Copyright © 2013 Twinkler, Inc. All rights reserved.</p>
 				<ul>
 					<li>About</li>
@@ -92,9 +190,6 @@
 					<li>Press</li>
 					<li>Contact</li>
 				</ul>
-				<p>Facebook</p>
-				<p>Twitter</p>
-			</div>
 		</div>
 	</footer>
 	{% endblock content %}

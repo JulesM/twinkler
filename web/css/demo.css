@@ -1,0 +1,78 @@
+html {background:#111 url(../img/bg.png); color:#fff; font-family: 'Dosis', sans-serif; }
+#page {
+	margin:auto;
+	width:800px;
+}
+h1 {
+	text-shadow:2px 2px 2px #000;
+	margin:20px 0 0 -30px;
+}
+h2 {
+	font-size:16px;
+	margin-bottom:5px;
+}
+p.intro {
+	color:#ccc;
+	margin-bottom: 20px;
+}
+p.intro i {
+	font-weight:bold;
+	color:yellow;
+	padding-right:3px;
+}
+p {margin:0; padding:0; text-align:left}
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+.controls {
+	float:left;
+	width:200px;
+	margin:0 50px 0 0;
+}
+* {
+	border:0;
+	text-decoration:none;
+}
+.controls li {
+	list-style-type: none;
+	margin:0 0 10px 0;
+}
+.controls li span {
+	color:#f00;
+	font-weight:600;
+}
+.ui-slider-horizontal {
+	margin:5px 0 0 0;
+}
+.tiles {
+	float:left;
+}
+.controls button {
+	margin:20px 0 0 70px;
+}
+.links {
+	margin:0 0 20px 0;
+}
+.links a {
+	margin:0 20px 0 0;
+	color:#ccc;
+}
+.links a.selected {
+	color:#4387B6;
+	font-weight:bold;
+	border-bottom:1px dotted #fff;
+}
+.links a:hover {
+	color:#fff;
+}
+img { -ms-interpolation-mode: bicubic; }
+.syntaxhighlighter, pre {
+	display: none;
+}
+.code a {
+	color:#4387B6;
+	margin-right:10px;
+}
+.code {
+	margin-bottom:10px;
+}

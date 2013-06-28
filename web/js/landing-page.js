@@ -11,5 +11,4 @@ $(document).scroll(function() {
     $('#login-mosaic').fadeOut(500);
     }
 
-
 });

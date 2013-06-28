@@ -174,7 +174,9 @@ header li{
 }
 
 #section4{
-	height: 600px;
+	height: 700px;
+	padding-top: 30px;
+	padding-left: 30px;
 }
 
 #login-mosaic{
@@ -189,6 +191,19 @@ header li{
 	width: 400px;
 	height: 60px;
 	font-size: 30px;
+}
+
+.mosa-row1{
+	height:200px;
+	margin-top:10px;
+	display: inline-block;
+}
+
+.mosa-row1 img{
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+	height:200px;
 }
 
 #pre-footer{

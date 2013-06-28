@@ -1,23 +1,22 @@
 @font-face {
     font-family: "Proxima-black";
-    src: url({{ asset('css/font/ProximaNova-Black.otf') }}) format("truetype");
+    src: url('font/ProximaNova-Black.otf') format("opentype");
 }
 
 @font-face {
     font-family: 'Proxima-regular';
-    src: url({{ asset('css/font/proximanovaregular.ttf') }}) format("truetype");
+    src: url('font/proximanovaregular.ttf') format("truetype");
 }
-
-
 
 @font-face {
-    font-family: "Proxima-condensed-regular";
-    src: url({{ asset('css/font/ProximaNovaCond-Regular.otf') }}) format("truetype");
+    font-family: 'Proxima-condensed-regular';
+    src: url('font/ProximaNovaCond-Regular.ttf') format("truetype");
 }
+
 
 @font-face {
     font-family: "Proxima-condensend-light";
-    src: url({{ asset('css/font/ProximaNovaCond-Light.otf') }}) format("truetype");
+    src: url('font/ProximaNovaCond-Light.otf') format("opentype");
 }
 
 @font-face {

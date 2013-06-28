@@ -1,5 +1,7 @@
 /* --- CSS applyable for all website when user is connected--- */
-
+body{
+	padding-top: 60px;/* --- comes from boostrap for topbar--- */
+}
 
 .frame{	
 	background-image: url('../img/Frame/Background.jpg');

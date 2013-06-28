@@ -1,4 +1,6 @@
 /* --- CSS of landing page only--- */
+
+
 h1, h2{
 	font-family:HelveticaNeueMdCn, 'HelveticaNeueW01-67MdCn 692710', Helvetica, sans-serif;
 	font-weight:normal;
@@ -17,6 +19,7 @@ header{
 	padding-bottom: 5px;
 	background-color: rgba(255, 255, 255, 0.9);
 	font-family: 'Proxima-regular';
+	font-size: 16px;
 }
 
 header img{
@@ -36,16 +39,27 @@ header a:hover{
 	color:#767676;
 }
 
+header li{
+	display: inline;
+	list-style-type: none;
+	padding-right: 30px;
+}
+
 #login-register{
-	margin-top: 5px;
+	padding-top: 5px;
 	margin-right: 40px;
 
 }
 
+.brand{
+	padding: 0px;
+}
+
+
+
 #section1{
 	min-height: 660px;
 	width: 100%;
-	background-color: grey;
 	background-image: url(' ../img/landing-page/group.jpg');
 	background-size: cover;
 	padding-top: 10px;
@@ -161,6 +175,20 @@ header a:hover{
 
 #section4{
 	height: 600px;
+}
+
+#login-mosaic{
+	text-align: center;
+	padding-top: 50px;
+	display: none;
+	width: 100%;
+}
+
+#login-mosaic button{
+	margin-top: 40px;
+	width: 400px;
+	height: 60px;
+	font-size: 30px;
 }
 
 #pre-footer{

@@ -193,16 +193,26 @@ header li{
 	font-size: 30px;
 }
 
-.mosa-row1{
-	height:200px;
+.mosa-row{
 	margin-top:10px;
 	display: inline-block;
 }
 
-.mosa-row1 img{
+.mosa-row img{
 	display: inline-block;
-	margin-left: 4px;
-	margin-right: 4px;
+
+	height:200px;
+}
+
+#row1{
+	height:200px;
+}
+
+#row2{
+	height:200px;
+}
+
+#row3{
 	height:200px;
 }
 

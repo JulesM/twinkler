@@ -60,7 +60,7 @@ header li{
 #section1{
 	min-height: 660px;
 	width: 100%;
-	background-image: url(' ../img/landing-page/group.jpg');
+	background-image: url(' ../img/landing-page/8.jpg');
 	background-size: cover;
 	padding-top: 10px;
 	border-bottom: solid 1px grey;
@@ -201,8 +201,8 @@ header li{
 
 .mosa-row1 img{
 	display: inline-block;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 4px;
+	margin-right: 4px;
 	height:200px;
 }
 

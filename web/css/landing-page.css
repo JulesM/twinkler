@@ -196,17 +196,19 @@ header li{
 .mosa-row{
 	margin-top:10px;
 	display: inline-block;
+	padding-left: 8px;
 }
 
 .mosa-row img{
 	display: inline-block;
-
+	margin-left: 4px;
 	height:200px;
 }
 
 #row1{
 	height:200px;
 }
+
 
 #row2{
 	height:200px;
@@ -215,6 +217,7 @@ header li{
 #row3{
 	height:200px;
 }
+
 
 #pre-footer{
 	background-image: url(' ../img/landing-page/footer_bckgd_repeat.gif');  
@@ -230,7 +233,6 @@ header li{
 }
 
 .repeat-bck{
-  
 	background-image: url(' ../img/landing-page/footer_bckgd_top.gif');   
 	background-position:50% 0;
   	background-repeat:repeat-x;
@@ -286,3 +288,6 @@ footer li{
 	list-style-type: none;
 	padding-right: 30px;
 }
+
+
+

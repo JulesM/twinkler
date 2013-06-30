@@ -4,9 +4,10 @@
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" media="screen">
-    <script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
+
+
     <script type='text/javascript' src="{{ asset('js/landing-page.js') }}"></script>
+
  
 
 {% endblock %}
@@ -130,7 +131,9 @@
 			    <h5>Bring Twinkler with you all the time with our coming mobile apps</h5>
 			</div>
 			<div class="row">
+				<a id="go" rel="leanModal" name="test" href="#test">
 				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!">
+				</a>
 				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!">
 			</div>
 		</div>
@@ -211,6 +214,9 @@
 				</ul>
 		</div>
 	</footer>
+
+
+
 	{% endblock content %}
 {% endblock body %}
 {% block javascripts %}

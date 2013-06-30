@@ -1,5 +1,11 @@
 /* --- CSS of landing page only--- */
 
+@media only screen and (max-width: 760px) {
+	body{
+		margin-left: -20px;
+		width: 105%;
+	}
+}
 
 h1, h2{
 	font-family:HelveticaNeueMdCn, 'HelveticaNeueW01-67MdCn 692710', Helvetica, sans-serif;
@@ -8,11 +14,11 @@ h1, h2{
   	font-size:42px;
 }
 
-
 header{
+	margin-left: -20px;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: 105%;
   	box-shadow:rgba(0, 0, 0, 0.15) 0 1px 2px, rgba(0, 0, 0, 0.0470588) 0 0 8px inset;
 	z-index: 9999;
 	padding-top: 5px;
@@ -54,8 +60,6 @@ header li{
 .brand{
 	padding: 0px;
 }
-
-
 
 #section1{
 	min-height: 660px;
@@ -108,8 +112,6 @@ header li{
 	padding-top: 20px;
 }
 
-
-
 #core-features p{
 	width: 250px;
 	margin-left: auto;
@@ -126,8 +128,6 @@ header li{
 	text-align: center;
 	vertical-align: middle;
 }
-
-
 
 .learn-more-hover {
 	display: block;
@@ -146,7 +146,6 @@ header li{
 	opacity: 1;	
 	text-decoration: none;
 }
-
 
 .features-short{
 	height: 150px;
@@ -182,8 +181,6 @@ header li{
 	color:#B7B7B7;
 }
 
-
-
 .feature-container{
 	height:100%;
 }
@@ -218,7 +215,6 @@ header li{
 	color: black;
 	text-align: center;
 }
-
 
 #section3{
 	background-image: url(' ../img/landing-page/get-the-app.jpg');
@@ -272,7 +268,6 @@ header li{
 	height:200px;
 }
 
-
 #row2{
 	height:200px;
 }
@@ -280,7 +275,6 @@ header li{
 #row3{
 	height:200px;
 }
-
 
 #pre-footer{
 	background-image: url(' ../img/landing-page/footer_bckgd_repeat.gif');  
@@ -351,6 +345,3 @@ footer li{
 	list-style-type: none;
 	padding-right: 30px;
 }
-
-
-

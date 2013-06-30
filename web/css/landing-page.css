@@ -90,6 +90,43 @@ header li{
 	color:#B7B7B7;
 }
 
+.learn-more{
+	width: 180px;
+	height: 180px;
+	background-image: url(' ../img/landing-page/payback.png');
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+.learn-more-hover {
+	display: block;
+	background-color: rgba(255,255,255,0.6);
+	width: 100%;
+	height:100%;
+	cursor: pointer;
+	vertical-align: middle;
+	opacity: 0;
+    -webkit-transition:all 0.5s ease;
+    -moz-transition:all 0.6s ease;
+    text-decoration: none;
+}
+
+
+
+.learn-more:hover .learn-more-hover{
+	opacity: 1;	
+	text-decoration: none;
+}
+
+
+.features-short{
+	height: 150px;
+}
+
 #late-login{
 	text-align: center;
 	margin-left: auto;

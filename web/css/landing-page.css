@@ -158,6 +158,7 @@ header li{
 	margin-right: auto;
 	margin-top:80px;
 	height:150px;
+	margin-bottom: 50px;
 }
 
 #late-login p{
@@ -207,7 +208,7 @@ header li{
 }
 
 #samsung-expenses{
-	height: 450px;
+	height: 350px;
 }
 
 #section-transition{

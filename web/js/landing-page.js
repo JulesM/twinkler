@@ -44,11 +44,14 @@ $('#pic3-4').css('height',$('#pic3-4').height()*h);
 }
 
 $(document).ready(function() {
-ScaleMosaic();
     $('.carousel').carousel({
     interval: 2000
     })
 });
+
+window.onload = function () {
+ScaleMosaic();
+}
 
 window.onresize = function() {
 ScaleMosaic();

@@ -26,5 +26,5 @@
 
 @font-face {
     font-family: "Proxima-bold";
-    src: url({{ asset('css/font/ProximaNova-Bold.otf') }}) format("truetype");
+    src: url('font/ProximaNova-Bold.otf') }}) format("truetype");
 }

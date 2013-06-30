@@ -36,12 +36,22 @@
   				<div class="span5 offset1" id="iphone-view">
 					<img src="{{ asset('img/landing-page/handiphone.png') }}" alt="twinkler app mockup">
 				</div>
-	  			<div class="span4 offset1" id="catchphrase">
-				    <h1>Welcome to Twinkler</h1>
-				    <h5>Twinkler symplifies social events with your friends (life in flatshares, weekends with friends, ...) with a clear tool available all the time and everywhere</h5>
-				    <h5>- Make life in your flatshare easier</h5>
-				    <h5>- Enjoy holidays to the fullest</h5>
-				    <a class="btn btn-large btn-danger" href="{{ path('fos_user_registration_register') }}">Start sharing with friends now</a>
+	  			<div class="span5" id="catchphrase">
+				    <h1>Sharing made easy</h1>
+					    <div id="myCarousel" class="carousel slide">
+					    <div class="carousel-inner">
+					    <div class="active item">#EVENTS</div>
+					    <div class="item">#WEEK-ENDS</div>
+					    <div class="item">#TRIPS</div>
+					    <div class="item">#FLATSHARE</div>
+					    </div>
+					    </div>
+				    <h5>Twinkler is the most beautiful, simple and convenient platform to share moments with your friends</h5>
+				    
+				    <h5>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</h5>
+				    <h5>Share more with the people you love</h5>
+				    <br>
+				    <a id="signup-button" class="btn btn-large btn-primary" href="{{ path('fos_user_registration_register') }}">Start sharing with friends now</a>
 				</div>
 
 			</div>

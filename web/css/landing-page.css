@@ -345,3 +345,9 @@ footer li{
 	list-style-type: none;
 	padding-right: 30px;
 }
+
+/* --- Login and register parts --- */
+
+#user-layout{
+	margin-top: 100px;
+}

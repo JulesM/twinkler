@@ -3,8 +3,8 @@
 {% block content %}
 
 
-<div class="row">
-    <div class="span4 offset4">
+<div id="user-layout" class="row">
+    <div class="span6 offset3">
         <h5>
             {% if app.session.get('invitation_id') != null %} Hello {{ app.session.get('invitation_member') }},</br> in order to join the group you need to login/register to Twinkler {% endif %}
         </h5>

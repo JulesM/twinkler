@@ -1,4 +1,4 @@
-{% extends 'TkUserBundle::frame.html.twig' %}
+{% extends 'TkGroupBundle::index.html.twig' %}
 
 {% block stylesheets %}
  {{ parent() }}
@@ -8,96 +8,89 @@
 {% set currency = app.user.currentMember.tgroup.currency.symbol %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<h1>{{ app.user.currentMember.tgroup.name }} - Expenses</h1>
+
+	<div class="row">	
+		<div class="span8">
+			<div class="box">
+				{% block expenses %}
+					<h2>Expenses - all
+						<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+					</h2>
+					<div class="dropdown">
+						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+							<i class="icon-th-list"></i>
+						</a>
+						<!-- Link or button to toggle dropdown -->
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li><a tabindex="-1" href="#">All expenses</a></li>
+							<li><a tabindex="-1" href="#">Expenses where I am tagged</a></li>
+							<li><a tabindex="-1" href="#">Expenses I paid</a></li>
+							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
+						</ul>
+					</div>
+					
+
+					<!-- Modal -->
+					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
+
+					<div class="well well-small">
+						In total {{ total_paid }} {{ currency }} was expensed / You paid {{ total_paid_by_me }} {{ currency }} / You should have paid {{ total_paid_supposed }} {{ currency }}
+					</div>
+
+					<div class="box-body">
+
+						<table class="table">
+						<!-- <caption>Caption</caption> -->
+						<thead>
+							<tr>
+								<th style="width:10%">Who</th>
+								<th style="width:10%">How much</th>
+								<th style="width:20%">What</th>
+								<th style="width:10%">When</th>
+								<th style="width:30%">For who</th>
+								<th style="width:10%">For you</th>
+								<th style="width:10%">Edit</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for expense in all_expenses %}
+							<tr>
+							<td>{{ expense[0].owner.name }}</td>
+							<td>{{ expense[0].amount }} {{ currency }}</td>
+							<td>{{ expense[0].name }}</td>
+							<td>{{ expense[0].date|date("d/m") }}</td>
+							<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>
+							<td>{{ expense[1] }} {{ currency }}
+							<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
+							<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
+							</tr>
+
+						{% endfor %}
+						</tbody>
+						</table>
+						
+					</div>
+				{% endblock expenses %}
 			</div>
 		</div>
-		<div class="row">	
-			<div class="span8">
-				<div class="box">
-					{% block expenses %}
-						<h2>Expenses - all
-							<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
-						</h2>
-						<div class="dropdown">
-							<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
-								<i class="icon-th-list"></i>
-							</a>
-							<!-- Link or button to toggle dropdown -->
-							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-								<li><a tabindex="-1" href="#">All expenses</a></li>
-								<li><a tabindex="-1" href="#">Expenses where I am tagged</a></li>
-								<li><a tabindex="-1" href="#">Expenses I paid</a></li>
-								<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
-							</ul>
-						</div>
-						
-
-						<!-- Modal -->
-						{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
-
-						<div class="well well-small">
-							In total {{ total_paid }} {{ currency }} was expensed / You paid {{ total_paid_by_me }} {{ currency }} / You should have paid {{ total_paid_supposed }} {{ currency }}
-						</div>
-
-						<div class="box-body">
-
-							<table class="table">
-							<!-- <caption>Caption</caption> -->
-							<thead>
-								<tr>
-									<th style="width:10%">Who</th>
-									<th style="width:10%">How much</th>
-									<th style="width:20%">What</th>
-									<th style="width:10%">When</th>
-									<th style="width:30%">For who</th>
-									<th style="width:10%">For you</th>
-									<th style="width:10%">Edit</th>
-								</tr>
-							</thead>
-							<tbody>
-							{% for expense in all_expenses %}
-								<tr>
-								<td>{{ expense[0].owner.name }}</td>
-								<td>{{ expense[0].amount }} {{ currency }}</td>
-								<td>{{ expense[0].name }}</td>
-								<td>{{ expense[0].date|date("d/m") }}</td>
-								<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>
-								<td>{{ expense[1] }} {{ currency }}
-								<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
-								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
-								</tr>
-
-							{% endfor %}
-							</tbody>
-							</table>
-							
-						</div>
-					{% endblock expenses %}
+		<div class="span4">
+			<div class="box">
+				<h2>Balances & Debts</h2>
+				<div class="well well-small">
+					Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
 				</div>
-			</div>
-			<div class="span4">
-				<div class="box">
-					<h2>Balances & Debts</h2>
-					<div class="well well-small">
-						Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
-					</div>
-					<div>
-						{% for balance in balances %}
-							<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
-						{% endfor %}
-					</div>
-					<div>
-						{% for debt in debts %}
-							<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
-						{% endfor %}
-					</div>
+				<div>
+					{% for balance in balances %}
+						<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
+					{% endfor %}
+				</div>
+				<div>
+					{% for debt in debts %}
+						<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 {% endblock %}

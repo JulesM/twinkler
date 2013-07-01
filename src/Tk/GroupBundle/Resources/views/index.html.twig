@@ -5,84 +5,54 @@
  <link href="{{ asset('css/parameters.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
-{% block content %}
 {% set group = app.user.currentMember.tgroup %}
 
+{% block header %}
+<div class="container">
 	<div class="row">
-		<div class="span10 offset1">
-			<h1>{{ group.name }} - Summary</h1>
+		<div class="span2">
+		</div>
+		<div class="span8" style="text-align: center;">
+			<h1>{{ group.name }}</h1>
+			<div>
+				{% for member in group.members %}
+					{% if member.user %}
+						<div style="display: inline-block; margin-left: 30px;">
+							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" alt="member picture">
+							<p>{{ member.name }}</p>
+						</div> 
+					{% else %}
+						<div style="display: inline-block; margin-left: 30px;">
+							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="member picture">
+							<p>{{ member.name }}</p>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="span2">
+			<a href="{{ path('tk_group_add_members') }}">+ Add members</a>
+			<div class="btn-group" style="display: inline-block">
+				<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">Send invitation</a>
+				<ul class="dropdown-menu">
+					<!-- dropdown menu links -->
+					{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
+					<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
+				</ul>
+			</div>
+			<a href="{{ path('tk_group_homepage') }}">Settings</a>
 		</div>
 	</div>
-	
-	<div class="row">
-		<div class="span4 offset1">
-			<div class="box">
-				<h2>Members</h2>
-				{% for member in group.members %}
-					<div>
-						{% if member.user %} 
-							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" alt="member picture" style="display: inline-block; margin-left: 5px;">
-							<div style="display: inline-block">								
-							<p><strong>{{ member.name }}</strong> ({{ member.user.fullname}})</p>
-							</div> 		
-						{% else %}
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="member picture" style="display: inline-block; margin-left: 5px;">
-							<p style="display: inline-block"><strong>{{ member.name }}</strong></p>
-							<div class="btn-group" style="display: inline-block">
-							  <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">
-							    <small>Send invitation</small>	
-							  </a>
-							  <ul class="dropdown-menu">
-							    <!-- dropdown menu links -->
-							    {% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
-								<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
-							  </ul>
-							</div>
-						{% endif %}
-							
-					</div>
-				{% endfor %}
-				<a class="btn" href="{{ path('tk_group_add_members') }}">+ Add members</a>
-			</div>
-		</div>
-		<div class="span6">
-			<div class="box">
-				<h2>Settings</h2>
-				<div>
-					<h5>Group information</h5>
-					{% block groupinformation %}
-					<div>
-						<p>Name of the group : {{ group.name }}</p>
-						{% if group.city == null %} <p>No city specified</p>
-						{% else %} <p>City : {{ group.city }}</p> {% endif %}
-						{% if group.country == null %} <p>No country specified</p>
-						{% else %} <p>Country : {{ group.country }}</p> {% endif %}
-					</div>
-					<a href="{{ path('tk_group_edit') }}">Edit information</a>
-					{% endblock %}
-				</div>
-				<div>
-					<h5>Historic</h5>
-					<p>
-						<a href="{{path('tk_expense_homepage') }}">{{ group.expenses|length }} expenses</a> //
-						<a href="{{path('tk_list_homepage') }}">{{ group.todos|length }} to-dos</a> 	// 
-						<a href="{{path('tk_list_homepage') }}">{{ group.shoppingItems|length }} shopping items</a>
-					</p>
-				</div>
-				<div>
-					<h5>Manage balances</h5>
-					<a class="btn" href="#"><i class="icon-envelope"></i> Send reminder to all members</a>
-					<a class="btn" href="#"><i class="icon-flag"></i> Clear expenses and settle debts</a>
-				</div>
-				<div>
-					<h5>Preferences</h5>
-					<p>Send push notifications to the app each time an item is added [yes/no]</p>
-					<p>Send email notifications each time an item is added [yes/no]</p>
-					<p>Send monthly reminders with group summary [yes/no]</p>
-					<a href="#">Edit preferences</a>
-				</div>
-			</div>
-		</div>
-	</div>	
 
+	<div class="row" style="border-top: solid 1px">
+		<div class="span12">
+			<div class="span2 offset4" style="text-align: center">
+				<a href="{{ path('tk_expense_homepage') }}">Expenses</a>
+			</div>
+			<div class="span2" style="text-align: center">
+				<a href="{{ path('tk_list_homepage') }}">Lists</a>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

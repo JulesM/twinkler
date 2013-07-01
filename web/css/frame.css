@@ -1,22 +1,6 @@
 /* --- CSS applyable for all website when user is connected--- */
-body{
-	padding-top: 60px;/* --- comes from boostrap for topbar--- */
-}
-
-.frame{	
-	background-color: white;
-	min-height: 655px;		
-	margin-top: -20px;
-	margin-right: -20px;
-	margin-left: -20px;
-	padding-top: 20px;
-	padding-right: 20px;
-	padding-left: 20px;
-}
 
 .box{
-	background-color: white;	
-	border-radius: 5px;
 	width: 100%;
 	min-height: 200px;
 }

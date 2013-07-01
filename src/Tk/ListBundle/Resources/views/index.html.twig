@@ -1,4 +1,4 @@
-{% extends 'TkUserBundle::frame.html.twig' %}
+{% extends 'TkGroupBundle::index.html.twig' %}
 
 {% block stylesheets %}
  {{ parent() }}
@@ -6,25 +6,20 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<h1>{{ app.user.currentMember.TGroup.name }} - To-do & Shopping lists</h1>
+
+	<div class="row">
+		<div class="span6">
+			<div class="box" id="to-dos">
+				<h2>To-dos</h2>
+				{% include 'TkListBundle:Todos:todos.html.twig' %}
 			</div>
 		</div>
-		<div class="row">
-			<div class="span6">
-				<div class="box" id="to-dos">
-					<h2>To-dos</h2>
-					{% include 'TkListBundle:Todos:todos.html.twig' %}
-				</div>
-			</div>
-			<div class="span6">
-				<div class="box" id="shopping-list">
-					<h2>Shopping list</h2>
-					{% include 'TkListBundle:Shopping:shopping.html.twig' %}
-				</div>
+		<div class="span6">
+			<div class="box" id="shopping-list">
+				<h2>Shopping list</h2>
+				{% include 'TkListBundle:Shopping:shopping.html.twig' %}
 			</div>
 		</div>
 	</div>
+
 {% endblock %}

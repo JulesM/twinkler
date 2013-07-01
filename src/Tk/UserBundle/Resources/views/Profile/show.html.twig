@@ -5,104 +5,97 @@
  <link href="{{ asset('css/twitter-widget.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
+{% block header %}
+<div class="container">
+	<div class="row">
+		<div class="span4">
+		</div>
+		<div class="span4" style="text-align: center">
+			<div>
+				<a href="#uploadPictureModal" role="button"	 data-toggle="modal"><img src="{{ asset(app.user.picture.path) }}" width="70px" alt="profile picture"/></a>
+			</div>
+			{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
+			<div>
+				<div>{{app.user}}</div>
+				<div>{{app.user.firstname}} {{app.user.lastname}}</div>
+			</div>
+		</div>
+		<div class="span4">
+		</div>
+	</div>
+</div>
+{% endblock %}
+
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="span10 offset1">
-				<h1>Your Profile</h1>
+	<div class="row">
+		<div class="span4 offset1">
+			<h3>Your information</h3>
+			<ul>
+				<li>{{ app.user.members|length }}Groups</li>
+				<li>{{ app.user.friends|length }}Friends</li>
+				<li>4446 Followers</li>
+			</ul>
+			<div>
+				<ul>
+					<li>	
+					{% block profile %}
+					{% if app.user.firstname != null or app.user.lastname != null %}
+						<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
+					{% else %}
+						<p>Name: not specified ... </p>
+					{% endif %}
+					<p>Email : {{ app.user.email }}</p>
+					{% if app.user.nationality != null %}
+						<p>Nationality: {{ app.user.nationality }}</p>
+					{% else %}
+						<p>Nationality: not specified ... </p>
+					{% endif %}
+					{% if app.user.city != null %}
+						<p>City: {{ app.user.city }}</p>
+					{% else %}
+						<p>City: not specified ... </p>
+					{% endif %}
+					{% if app.user.country != null %}
+						<p>Country: {{ app.user.country }}</p>
+					{% else %}
+						<p>Country: not specified ... </p>
+					{% endif %}
+					</li>
+				</ul>
+			</div>
+			<div class="button">
+				<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}"><span class="btn-orange">Edit information</span></a>
+			</div>
+			{% endblock profile %}
+		</div>
+			
+		<div class="span6">
+			<div class="box">
+				<h3>Your groups</h3>
+				{% for member in app.user.members %}
+					<div>
+						<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+							<strong>{{ member.tgroup.name }}</strong>
+						</a>
+						<small>opened on {{ member.tgroup.date| date('d/m/y') }}</small>
+					</div>
+					<div class="row">
+						<div class="span2">
+							<p>Total paid: {{ member.tgroup.totalPaid }} {{member.tgroup.currency.symbol}}</p>
+							<p>Your balance: {{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</p>
+						</div>
+						<div class="span2">
+							<p>To-do(s): {{ member.tgroup.todos|length }}</p>
+							<p>Pending: {{ member.tgroup.activeTodos|length }}</p>
+						</div>
+						<div class="span2">
+							<p>Shopping list: {{ member.tgroup.shoppingitems|length }} item(s)</p>
+							<p>Still missing: {{ member.tgroup.activeShoppingItems|length }}</p>
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
-		<div class="row">
-			<div class="span4 offset1">
-				<div id="twitter-widget">
-					<div class="user">
-						<div class="avatar">
-							<a href="#uploadPictureModal" role="button"	 data-toggle="modal"><img src="{{ asset(app.user.picture.path) }}" width="70px" alt="profile picture"/></a>
-						</div>
-						{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
-						<div class="data">
-							<span class="username">{{app.user}}</span>
-							<span class="name">{{app.user.firstname}} {{app.user.lastname}}</span>
-						</div>
-					</div>
-					<div class="details">
-						<ul>
-							<li>
-								<span class="number">{{ app.user.members|length }}</span>
-								Groups
-							</li>
-							<li>
-								<span class="number">{{ app.user.friends|length }}</span>
-								Friends
-							</li>
-							<li>
-								<span class="number">4446</span>
-								Followers
-							</li>
-						</ul>
-					</div>
-					<div class="details">
-						<ul>
-						<li style="width: 100%; font-size: 14px;">	
-						{% block profile %}
-						{% if app.user.firstname != null or app.user.lastname != null %}
-							<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
-						{% else %}
-							<p>Name: not specified ... </p>
-						{% endif %}
-						<p>Email : {{ app.user.email }}</p>
-						{% if app.user.nationality != null %}
-							<p>Nationality: {{ app.user.nationality }}</p>
-						{% else %}
-							<p>Nationality: not specified ... </p>
-						{% endif %}
-						{% if app.user.city != null %}
-							<p>City: {{ app.user.city }}</p>
-						{% else %}
-							<p>City: not specified ... </p>
-						{% endif %}
-						{% if app.user.country != null %}
-							<p>Country: {{ app.user.country }}</p>
-						{% else %}
-							<p>Country: not specified ... </p>
-						{% endif %}
-						</li>
-						</ul>
-					</div>
-					<div class="button">
-						<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}"><span class="btn-orange">Edit information</span></a>
-					</div>
-						{% endblock profile %}
-				</div>
-			</div>
-				
-			<div class="span6">
-				<div class="box">
-					<h2>Summary of your groups</h2>
-					{% for member in app.user.members %}
-						<div>
-							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-								<strong>{{ member.tgroup.name }}</strong>
-							</a>
-							<small>opened on {{ member.tgroup.date| date('d/m/y') }}</small>
-						</div>
-						<div class="row">
-							<div class="span2">
-								<p>Total paid: {{ member.tgroup.totalPaid }} {{member.tgroup.currency.symbol}}</p>
-								<p>Your balance: {{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</p>
-							</div>
-							<div class="span2">
-								<p>To-do(s): {{ member.tgroup.todos|length }}</p>
-								<p>Pending: {{ member.tgroup.activeTodos|length }}</p>
-							</div>
-							<div class="span2">
-								<p>Shopping list: {{ member.tgroup.shoppingitems|length }} item(s)</p>
-								<p>Still missing: {{ member.tgroup.activeShoppingItems|length }}</p>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
+
 	</div>
 {% endblock %}

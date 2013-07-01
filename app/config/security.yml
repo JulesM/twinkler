@@ -30,7 +30,7 @@ security:
             pattern: ^/
             anonymous:    false
             form_login:
-                login_path: fos_user_security_login
+                login_path: tk_welcome_homepage
                 check_path: fos_user_security_check
                 default_target_path: tk_user_homepage
                 provider: fos_userbundle

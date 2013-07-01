@@ -4,7 +4,7 @@ body{
 }
 
 .frame{	
-	background-image: url('../img/Frame/Background.jpg');
+	background-color: white;
 	min-height: 655px;		
 	margin-top: -20px;
 	margin-right: -20px;

@@ -4,9 +4,6 @@
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" media="screen">
-
-	<script src="http://code.jquery.com/jquery.js"></script>
-    <script type='text/javascript' src="{{ asset('js/landing-page.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -22,9 +19,9 @@
 					<li class="header-collapse"><a href="{{ path('tk_welcome_homepage') }}#section4">More</a></li>
 					<li class="header-collapse"><a>|</a></li>
 					<li>
-						<a href="{{ path('fos_user_security_login') }}">Login</a> 
+						<a href="#subscribeModal" role="button" data-toggle="modal">Login</a> 
 						or
-						<a href="{{ path('fos_user_registration_register') }}">Register</a>
+						<a href="#subscribeModal" role="button" data-toggle="modal">Register</a>
 					</li>
 				</ul>	
 			</div>
@@ -56,7 +53,7 @@
 					    <p>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</p>
 					    <p><strong>Share more with the people you love</strong></p>
 					    <br>
-					    <a id="signup-button" class="btn btn-large btn-primary" href="{{ path('fos_user_registration_register') }}">Sign up and start sharing</a>
+					    <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 					</div>
 				</div>
 				<div id="section1-small">
@@ -75,7 +72,7 @@
 					    
 					    <p>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</p>
 					    <p><strong>Share more with the people you love</strong></p>
-					    <a id="signup-button" class="btn btn-primary" href="{{ path('fos_user_registration_register') }}">Sign up and start sharing</a>
+					    <a href="#subscribeModal" role="button" class="btn btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 					</div>
 				</div>
 			</div>
@@ -86,7 +83,7 @@
 		<div class="container">
 			<div id="core-features" class="row">
 				<div class="span4">
-					<a href="#">
+					<a href="#feature1">
 						<div class="learn-more img-circle" style="background-image: url(' ../img/landing-page/bullet-point-planning.jpg');">
 							<div class="learn-more-hover img-circle">	
 								<img src="{{ asset('img/landing-page/learn-more-hover.png') }}" alt="twinkler app mockup">
@@ -97,10 +94,10 @@
 						<h3>Beautiful Planning</h3>
 						<p>Share thoughts, tasks and shopping lists with your friend to organize your events the easy way</p>
 					</div>
-					<button type="submit" class="btn btn-link">Learn more</button>
+					<a href="#feature1">Learn more</a>
 				</div>
 				<div class="span4">
-					<a>
+					<a href="#feature2">
 						<div class="learn-more img-circle" style="background-image: url(' ../img/landing-page/bullet-point-expense.jpg');">
 							<div class="learn-more-hover img-circle">
 								<img src="{{ asset('img/landing-page/learn-more-hover.png') }}" alt="twinkler app mockup">
@@ -111,10 +108,10 @@
 						<h3>Simple Sharing</h3>
 						<p>Don't worry about who pays what, share your expenses and Twinkler tells you who owes what</p>
 					</div>
-					<button type="submit" class="btn btn-link">Learn more</button>
+					<a href="#feature2">Learn more</a>
 				</div>
 				<div class="span4">
-					<a>
+					<a href="#feature3">
 						<div class="learn-more img-circle" style="background-image: url(' ../img/landing-page/bullet-point-payback.jpg');">
 							<div class="learn-more-hover img-circle">
 								<img src="{{ asset('img/landing-page/learn-more-hover.png') }}" alt="twinkler app mockup">
@@ -125,11 +122,11 @@
 						<h3>Free Payback</h3>
 						<p>Send money for free. Isn't it time to use your smartphone to actually pay your friends back ?</p>
 					</div>
-				    <button type="submit" class="btn btn-link">Learn more</button>
+				    <a href="#feature3">Learn more</a>
 				</div>
 			</div>
 			<div id="late-login" class="row">
-				  <button class="btn btn-large btn-primary" type="button">Sign up and start sharing</button>
+				  <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 				  <p>already registered? log in <a href="">here</a></p>
 			</div>
 		</div>
@@ -137,7 +134,7 @@
 
 	<section>
 		<div class="container" id="section2">
-	    	<div class="row feature">
+	    	<div id="feature1" class="row feature">
 	    		<div class="span4 offset1 feature-container">
 	    			<img src="{{ asset('img/landing-page/iphones-chats.png') }}" alt="twinkler app mockup" width="300px">
 	    		</div>
@@ -152,7 +149,7 @@
 	    			</div>
 	    		</div>
 	    	</div>
-		    <div class="row feature">
+		    <div id="feature2" class="row feature">
 	    		<div class="span7 feature-description offset1">
 	    			<div>
 		    			<h1>Simple Sharing of Expenses</h1>
@@ -166,13 +163,13 @@
 	    			<img src="{{ asset('img/landing-page/samsung-overview.png') }}" alt="twinkler app mockup" style="max-width: 200px;">
 	    		</div>
 		    </div>
-		    <div class="row feature">
+		    <div id="feature3" class="row feature">
 	    		<div class="span5 feature-container">
 	    			<img src="{{ asset('img/landing-page/iphone_payback.png') }}" alt="twinkler app mockup">
 	    		</div>				    		
 	    		<div class="span7 feature-description">
 	    			<div>
-		    			<h1>Instant and Free Payback</h1>
+		    			<h1>Free and Instant Payback</h1>
 	    				<h2>Reimburse the easy way</h2>
 	    				<p>Twinkler integrates state-of-the-art free peer-to-peer mobile payments to make sure you move your money in a secured and easy way</p>
 		    			<p>Advance money to your friends for tickets, diner, drinks: you will get your money back instantly and at no cost</p>
@@ -188,8 +185,12 @@
 			    <h5>Bring Twinkler with you all the time with our coming mobile apps</h5>
 			</div>
 			<div class="row">
-				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!">
-				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!">
+				<a href="#subscribeModal" role="button" data-toggle="modal">
+					<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!">
+				</a>
+				<a href="#subscribeModal" role="button" data-toggle="modal">
+					<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!">
+				</a>
 			</div>
 		</div>
 	</section>
@@ -199,7 +200,7 @@
 			<div id="login-mosaic">
 			    <img src="{{ asset('img/logo/twinkler_logo_mosaic.png') }}" width="600px" alt="twinkler logo">
 			    <br>
-		  		<button class="btn btn-large btn-primary" type="button">Sign up and start Sharing</button>
+		  		<a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 			</div>
 			<div id="row1" class="row mosa-row">
 				 <img id="pic1-1" src="{{ asset('img/landing-page/mosaic/thib_michou_kayak_200.jpg') }}" alt="twinkler logo">
@@ -232,20 +233,19 @@
 				<div class="row">
 					<div class="span4">
 						<div id="footer-left" class="footer-box">
-							<p>Get our Apps </p><br>
-							<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!" width="120px"><br>
-							<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!" width="120px">
+							<p>Get our Apps </p>
+							<a href="#subscribeModal" role="button" data-toggle="modal">
+								<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!" width="120px">
+							</a></br>
+							<a href="#subscribeModal" role="button" data-toggle="modal">
+								<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!" width="120px">
+							</a>
 						</div>
 					</div>
 					<div class="span4">
 						<div class="footer-box">
 							<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
-							<form>
-							  <fieldset>
-							    <input type="text" placeholder="Enter your e-mail address">
-							    <button type="submit" class="btn btn-success" style="vertical-align: top">Subscribe</button>
-							  </fieldset>
-							</form>
+							{% render(controller('TkWelcomeBundle:Default:subscribe')) %}
 						</div>
 					</div>
 					<div class="span4">
@@ -274,12 +274,13 @@
 		</div>
 	</footer>
 
-
+	<!-- Modal -->
+	{% include 'TkWelcomeBundle:Default:subscribeModal.html.twig' %}
 
 	{% endblock content %}
 
 {% endblock body %}
 
 {% block javascripts %}
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+	<script type='text/javascript' src="{{ asset('js/landing-page.js') }}"></script>
 {% endblock %}

@@ -188,7 +188,7 @@ header li{
 	color:#B7B7B7;	
 }
 
-#late-login button{
+#late-login a{
 	width: 300px;	
 }
 
@@ -261,11 +261,11 @@ header li{
 	width: 100%;
 }
 
-#login-mosaic button{
+#login-mosaic a{
 	margin-top: 40px;
 	width: 400px;
-	height: 60px;
-	font-size: 30px;
+	height: 40px;
+	padding-top: 30px;
 }
 
 .mosa-row{

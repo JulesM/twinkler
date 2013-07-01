@@ -147,7 +147,7 @@ header li{
 
 .learn-more{
 	width: 180px;
-	background-image: url(' ../img/landing-page/payback.png');
+	background-size: 100% auto;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;

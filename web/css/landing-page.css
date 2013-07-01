@@ -134,7 +134,6 @@ header li{
 }
 
 #core-features{
-	height: 400px;
 	text-align: center;
 	padding-top: 20px;
 }
@@ -148,7 +147,6 @@ header li{
 
 .learn-more{
 	width: 180px;
-	height: 180px;
 	background-image: url(' ../img/landing-page/payback.png');
 	margin-left: auto;
 	margin-right: auto;
@@ -170,22 +168,20 @@ header li{
 }
 
 .learn-more:hover .learn-more-hover{
-	opacity: 1;	
-	text-decoration: none;
+	opacity: 1;
 }
 
 .learn-more-hover > p{
 }
 
 .features-short{
-	height: 150px;
 }
 
 #late-login{
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 #late-login p{

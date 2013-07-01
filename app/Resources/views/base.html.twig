@@ -16,7 +16,7 @@
         {% block head %}
         {% endblock %}
     </head>
-    <body>
+    <body data-spy="scroll" data-target=".navbar">
         {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
         <script type="text/javascript" > // Script for FOSFacebookBundle
         function goLogIn(){

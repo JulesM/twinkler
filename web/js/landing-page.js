@@ -59,7 +59,7 @@ ScaleMosaic();
 
 $(document).scroll(function() {
 
-    if( $(this).scrollTop() > 2800 ) {	
+    if( $(this).scrollTop() > 2300 ) {	
     $('#login-mosaic').fadeIn(700);
       $('#login-mosaic').css({display:'block',  position: 'fixed', left:0, top:50});
     }else if( $(this).scrollTop() < 2400 ) {

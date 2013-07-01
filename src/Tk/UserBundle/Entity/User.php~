@@ -294,6 +294,29 @@ class User extends BaseUser
     }
 
     /**
+     * Get friends
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFriends()
+    {
+        $my_members = $this->members;
+        $groups = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach($my_members as $my_member){
+            $groups->add($my_member->getTGroup());
+        } 
+        $all_friends = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach($groups as $group){
+            foreach($group->getMembers() as $friend){
+                if($friend->getUser() != $this){
+                    $all_friends->add($friend);
+                }
+            }
+        }
+        return $all_friends;
+    }
+
+    /**
      * @param string $facebookId
      * @return void
      */

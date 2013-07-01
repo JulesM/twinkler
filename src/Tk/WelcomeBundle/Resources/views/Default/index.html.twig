@@ -240,12 +240,7 @@
 					<div class="span4">
 						<div class="footer-box">
 							<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
-							<form>
-							  <fieldset>
-							    <input type="text" placeholder="Enter your e-mail address">
-							    <button type="submit" class="btn btn-success" style="vertical-align: top">Subscribe</button>
-							  </fieldset>
-							</form>
+							{% render(controller('TkWelcomeBundle:Default:subscribe')) %}
 						</div>
 					</div>
 					<div class="span4">

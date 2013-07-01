@@ -15,9 +15,10 @@
 			</a>
 			<div class="pull-right" id="login-register">
 				<ul>
-					<li><a href="">Features</a>	</li>
-					<li><a href="#section3">Get the App</a></li>
-					<li><a href="">Don't click here</a></li>
+					<li class="header-collapse"><a href="">Features</a></li>
+					<li class="header-collapse"><a href="#section3">Get the App</a></li>
+					<li class="header-collapse"><a href="">More</a></li>
+					<li class="header-collapse"><a>|</a></li>
 					<li>
 						<a href="{{ path('fos_user_security_login') }}">Login</a> 
 						or
@@ -31,138 +32,155 @@
   	{% block content %}
 
   	<section>
-  		<div id="section1">
+  		<div class="container" id="section1">
   			<div class="row">
-  				<div class="span5 offset1" id="iphone-view">
-					<img src="{{ asset('img/landing-page/handiphone.png') }}" alt="twinkler app mockup">
+  				<div id="section1-big">
+	  				<div class="span5 offset1" id="iphone-view">
+						<img id="handiphone" src="{{ asset('img/landing-page/handiphone.png') }}" alt="twinkler app mockup">
+					</div>
+		  			<div class="span5" id="catchphrase">
+					    <h1>Sharing made easy</h1>
+						    <div id="myCarousel" class="carousel slide">
+						    <div class="carousel-inner">
+						    <div class="active item">#HOLIDAYS</div>
+						    <div class="item">#WEEK-ENDS</div>
+						    <div class="item">#TRIPS</div>
+						    <div class="item">#FLATSHARE</div>
+						    </div>
+						    </div>
+					    <h5>Twinkler is the most beautiful, simple and convenient place to <strong>enjoy moments with friends</strong></h5>
+					    
+					    <h5>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</h5>
+					    <h5>Share more with the people you love</h5>
+					    <br>
+					    <a id="signup-button" class="btn btn-large btn-primary" href="{{ path('fos_user_registration_register') }}">Sign up and start sharing</a>
+					</div>
 				</div>
-	  			<div class="span5" id="catchphrase">
-				    <h1>Sharing made easy</h1>
-					    <div id="myCarousel" class="carousel slide">
-					    <div class="carousel-inner">
-					    <div class="active item">#HOLIDAYS</div>
-					    <div class="item">#WEEK-ENDS</div>
-					    <div class="item">#TRIPS</div>
-					    <div class="item">#FLATSHARE</div>
-					    </div>
-					    </div>
-				    <h5>Twinkler is the most beautiful, simple and convenient place to <strong>enjoy moments with friends</strong></h5>
-				    
-				    <h5>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</h5>
-				    <h5>Share more with the people you love</h5>
-				    <br>
-				    <a id="signup-button" class="btn btn-large btn-primary" href="{{ path('fos_user_registration_register') }}">Start sharing with friends now</a>
+				<div id="section1-small">
+		  			<div class="span12" id="catchphrase">
+					    <h1>Sharing made easy</h1>
+						    <div id="myCarousel" class="carousel slide">
+						    <div class="carousel-inner">
+						    <div class="active item">#HOLIDAYS</div>
+						    <div class="item">#WEEK-ENDS</div>
+						    <div class="item">#TRIPS</div>
+						    <div class="item">#FLATSHARE</div>
+						    </div>
+						    </div>
+					    <h5>Twinkler is the most beautiful, simple and convenient place to <strong>enjoy moments with friends</strong></h5>
+					    
+					    <h5>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</h5>
+					    <h5>Share more with the people you love</h5>
+					    <br>
+					    <a id="signup-button" class="btn btn-large btn-primary" href="{{ path('fos_user_registration_register') }}">Sign up and start sharing</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section >
-		<div id="core-features" class="row">
-			<div class="span4">
-				<a href="#">
-					<div class="learn-more img-circle">
-						<div class="learn-more-hover img-circle">
-							<p>learn more</p>
-							<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+		<div class="container">
+			<div id="core-features" class="row">
+				<div class="span4">
+					<a href="#">
+						<div class="learn-more img-circle">
+							<div class="learn-more-hover img-circle">
+								<p>learn more</p>
+								<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+							</div>
 						</div>
+					</a>
+					<div class="features-short">
+						<h3>Communicate</h3>
+						<p>Organize your week-ends, holidays or even flatshare with Twinkler!</br>Use our shared lists and beautiful chat to talk to your friends!</p>
 					</div>
-				</a>
-				<div class="features-short">
-					<h3>Communicate</h3>
-					<p>Organize your week-ends, holidays or even flatshare with Twinkler!</br>Use our shared lists and beautiful chat to talk to your friends!</p>
+					<button type="submit" class="btn btn-success">Learn more</button>
 				</div>
-				<button type="submit" class="btn btn-success">Learn more</button>
-			</div>
-			<div class="span4">
-				<a>
-					<div class="learn-more img-circle">
-						<div class="learn-more-hover img-circle">
-							<p>learn more</p>
-							<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+				<div class="span4">
+					<a>
+						<div class="learn-more img-circle">
+							<div class="learn-more-hover img-circle">
+								<p>learn more</p>
+								<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+							</div>
 						</div>
+					</a>
+					<div class="features-short">
+						<h3>Split your Bills</h3>
+						<p>Don't worry about who pays what, Twinkler does it for you!<br> Just enjoy your moments with your friends</p>
 					</div>
-				</a>
-				<div class="features-short">
-					<h3>Split your Bills</h3>
-					<p>Don't worry about who pays what, Twinkler does it for you!<br> Just enjoy your moments with your friends</p>
+					<button type="submit" class="btn btn-success">Learn more</button>
 				</div>
-				<button type="submit" class="btn btn-success">Learn more</button>
-			</div>
-			<div class="span4">
-				<a>
-					<div class="learn-more img-circle">
-						<div class="learn-more-hover img-circle">
-							<p>learn more</p>
-							<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+				<div class="span4">
+					<a>
+						<div class="learn-more img-circle">
+							<div class="learn-more-hover img-circle">
+								<p>learn more</p>
+								<img src="{{ asset('img/landing-page/arrow.png') }}" alt="twinkler app mockup">
+							</div>
 						</div>
+					</a>
+					<div class="features-short">
+						<h3>Payback your friends</h3>
+						<p>Stop chasing your friends for money! <br> Don't you think in 2013 it's time to use your smartphone to get your money back?</p>
 					</div>
-				</a>
-				<div class="features-short">
-					<h3>Payback your friends</h3>
-					<p>Stop chasing your friends for money! <br> Don't you think in 2013 it's time to use your smartphone to get your money back?</p>
+				    <button type="submit" class="btn btn-success">Learn more</button>
 				</div>
-			    <button type="submit" class="btn btn-success">Learn more</button>
 			</div>
-		</div>
-		<div id="late-login" class="row">
-			  <button class="btn btn-large btn-primary" type="button">Start using Twinkler</button>
-			  <p>already registered? log in here</p>
+			<div id="late-login" class="row">
+				  <button class="btn btn-large btn-primary" type="button">Sign up and start sharing</button>
+				  <p>already registered? log in <a href="">here</a></p>
+			</div>
 		</div>
 	</section>
 
 	<section>
-		<div id="section2">
-			<div class="row feature">
-		    	<div class="span12 feature-container">
-			    	<div class="row feature-container">
-			    		<div class="span5 offset1 feature-container" style="position:relative">
-			    			<img src="{{ asset('img/landing-page/iphones-chats.png') }}" alt="twinkler app mockup">
-			    		</div>
-			    		<div class="span6 feature-description">
-			    			<h1>Friendly Notifications</h1>
-		    				<h2>Share more than moments</h2>
-			    			<p>Send e-mail notification to payback your friends in a twinkling!</p>
-			    			<p>Include Pictures of your event with dropbox in your reminders!</p>
-			    		</div>
-			    	</div>
-		    	</div>
-		    </div>
-		    <div id="samsung-expenses"class="row feature">
-		    	<div class="span12 feature-container">
-			    	<div class="row feature-container">
-			    		<div class="span6 feature-description offset1">
-			    			<h1>Friendly Notifications</h1>
-		    				<h2>Share more than moments</h2>
-			    			<p>Send e-mail notification to payback your friends in a twinkling!</p>
-			    			<p>Include Pictures of your event with dropbox in your reminders!</p>
-			    		</div>
-			       		<div class="span3 feature-container " style="position:relative">
-			    			<img src="{{ asset('img/landing-page/samsung-overview.png') }}" alt="twinkler app mockup">
-			    		</div>
-			    	</div>
-		    	</div>
+		<div class="container" id="section2">
+	    	<div class="row feature">
+	    		<div class="span4 offset1 feature-container">
+	    			<img src="{{ asset('img/landing-page/iphones-chats.png') }}" alt="twinkler app mockup">
+	    		</div>
+	    		<div class="span7 feature-description">
+	    			<div>
+		    			<h1>Collaborate with friends</h1>
+	    				<h2>Share more than moments</h2>
+		    			<p>Send e-mail notification to payback your friends in a twinkling!</p>
+		    			<p>Include Pictures of your event with dropbox in your reminders!</p>
+	    			</div>
+	    		</div>
+	    	</div>
+		    <div class="row feature">
+	    		<div class="span7 feature-description offset1">
+	    			<div>
+		    			<h1>Track expenses</h1>
+	    				<h2>Share more than moments</h2>
+		    			<p>Send e-mail notification to payback your friends in a twinkling!</p>
+		    			<p>Include Pictures of your event with dropbox in your reminders!</p>
+		    		</div>
+	    		</div>
+	       		<div class="span4 feature-container">
+	    			<img src="{{ asset('img/landing-page/samsung-overview.png') }}" alt="twinkler app mockup" style="max-width: 200px;">
+	    		</div>
 		    </div>
 		    <div class="row feature">
-		    	<div class="span12 feature-container">
-			    	<div class="row feature-container">
-			    		<div class="span6 feature-container" style="position:relative">
-			    			<img src="{{ asset('img/landing-page/iphone_payback.png') }}" alt="twinkler app mockup">
-			    		</div>				    		
-			    		<div id="iphone-payback"  class="span5 offset1 feature-description">
-			    			<h1>Payback your friends!</h1>
-		    				<h2>Don't chase your friends</h2>
-			    			<p>Twinkler integrates Google Wallet features so you can move your money for free</p>
-			    			<p>Unlimited payback so you stop worrying about who pays the bill!</p>
-			    		</div>
-			    	</div>
-		    	</div>
+	    		<div class="span5 feature-container">
+	    			<img src="{{ asset('img/landing-page/iphone_payback.png') }}" alt="twinkler app mockup">
+	    		</div>				    		
+	    		<div class="span7 feature-description">
+	    			<div>
+		    			<h1>Payback your friends!</h1>
+	    				<h2>Don't chase your friends</h2>
+		    			<p>Twinkler integrates Google Wallet features so you can move your money for free</p>
+		    			<p>Unlimited payback so you stop worrying about who pays the bill!</p>
+	    			</div>
+	    		</div>
 		    </div>
 		</div>
 	</section>
 
 	<section>
-		<div id="section3">
+		<div class="container" id="section3">
 			<div  id="section-transition" class="row">
 			    <h5>Bring Twinkler with you all the time with our coming mobile apps</h5>
 			</div>
@@ -207,32 +225,42 @@
 		</div>
 	</section>
 
-	<section id="pre-footer">
-		<div class="row repeat-bck">
-			<div class="span4 footer-box footer-box-right">
-				<p>Get our Apps </p><br>
-				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!" width="120px"><br>
-				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!" width="120px">
-			</div>
-			<div class="span4 footer-box">
-				<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
-				<form>
-				  <fieldset>
-				    <input type="text" placeholder="Enter your e-mail address">
-				    <button type="submit" class="btn btn-success">Subscribe</button>
-				  </fieldset>
-				</form>
-			</div>
-			<div class="span4 footer-box footer-box-left">
-				<p>Thanks for your help!<br>
-				Keep following us here:</p>
-
-				<i class="icon-facebook-sign icon-3x"></i>
-				<i class="icon-twitter-sign icon-3x"></i>
-				<i class="icon-rss-sign icon-3x"></i>
+	<section class="repeat-bck">
+		<div id="pre-footer">
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<div id="footer-left" class="footer-box">
+							<p>Get our Apps </p><br>
+							<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!" width="120px"><br>
+							<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!" width="120px">
+						</div>
+					</div>
+					<div class="span4">
+						<div class="footer-box">
+							<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
+							<form>
+							  <fieldset>
+							    <input type="text" placeholder="Enter your e-mail address">
+							    <button type="submit" class="btn btn-success" style="vertical-align: top">Subscribe</button>
+							  </fieldset>
+							</form>
+						</div>
+					</div>
+					<div class="span4">
+						<div id="footer-right" class="footer-box">
+							<p style="margin-bottom: 12px;">Thanks for your help!<br>
+							Keep following us here:</p>
+							<i class="icon-facebook-sign icon-3x"></i>
+							<i class="icon-twitter-sign icon-3x"></i>
+							<i class="icon-rss-sign icon-3x"></i>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
+
 	<footer>
 		<div>
 			<p>Copyright © 2013 Twinkler, Inc. All rights reserved.</p>

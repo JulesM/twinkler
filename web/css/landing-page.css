@@ -1,9 +1,12 @@
 /* --- CSS of landing page only--- */
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 780px) {
 	body{
 		margin-left: -20px;
 		width: 105%;
+	}
+	.header-collapse{
+		display: none;
 	}
 }
 
@@ -73,6 +76,20 @@ header li{
 #section1 .row{
 	height: 100%;
 	min-height: 660px;
+}
+
+#handiphone{
+	min-width: 350px;
+}
+
+@media only screen and (max-width: 780px) {
+	#section1-big{display: none;
+	}
+}
+
+@media only screen and (min-width: 780px) {
+	#section1-small{display: none;
+	}
 }
 
 #catchphrase{
@@ -147,6 +164,9 @@ header li{
 	text-decoration: none;
 }
 
+.learn-more-hover > p{
+}
+
 .features-short{
 	height: 150px;
 }
@@ -155,8 +175,8 @@ header li{
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top:80px;
-	height:150px;
+	margin-top: 80px;
+	height: 150px;
 	margin-bottom: 50px;
 }
 
@@ -172,7 +192,6 @@ header li{
 	background-image: url(' ../img/landing-page/feature-gradient-bck.png');
 	background-position:50% 100%;
   	background-repeat:no-repeat no-repeat;
-  	height: 400px;
   	border-bottom: solid 1px #E7E7E7;
 }
 
@@ -185,27 +204,21 @@ header li{
 	height:100%;
 }
 
-.feature-container img{
-	vertical-align: bottom;
-	display: block;
-	position: absolute;
-	bottom: 0;
+.feature-container > img{
+	margin-top: 20%;
+	max-width: 400px;
 }
 
 .feature-description{
-	padding-top: 80px;
+	vertical-align: top;
+}
+
+.feature-description div{
+	margin-top: 10%;
 }
 
 .feature-description p{
 	color:#B7B7B7;
-}
-
-#iphone-payback{
-	padding-top: 100px;
-}
-
-#samsung-expenses{
-	height: 350px;
 }
 
 #section-transition{
@@ -276,35 +289,35 @@ header li{
 	height:200px;
 }
 
+#made-with-love{
+	text-align: center;
+	color: #B7B7B7;
+	margin-bottom: 5px;
+}
+
+.repeat-bck{
+	background-image: url(' ../img/landing-page/footer_bckgd_repeat.gif');
+	background-repeat: repeat;
+}
+
 #pre-footer{
-	background-image: url(' ../img/landing-page/footer_bckgd_repeat.gif');  
-  	background-position:50% 50%;
-  	background-repeat:np-repeat;
-  	width:100%;
-  	height: 150px;
+	background-image: url(' ../img/landing-page/footer_bckgd_top.gif');
+	background-repeat: repeat-x;
   	text-align: center;
+  	padding-top: 20px;
+  	padding-bottom: 20px;
 }
 
 .footer-box{
 	height: 122px;
-}
-
-.repeat-bck{
-	background-image: url(' ../img/landing-page/footer_bckgd_top.gif');   
-	background-position:50% 0;
-  	background-repeat:repeat-x;
-  	padding-top: 10px;
+	text-align: center;
 }
 
 #pre-footer p{
-color:#777777;
-font-family:ProximaNovaBold, Arial, Helvetica, sans-serif;
-font-size:14px;
-font-style:normal;
-font-variant:normal;
-font-weight:normal;
-line-height:normal;
-margin-bottom: 0px;
+	color:#777777;
+	font-family:ProximaNovaBold, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	margin-bottom: 0px;
 }
 
 #pre-footer img{
@@ -319,18 +332,10 @@ margin-bottom: 0px;
 	text-shadow:#FFFFFF 1px 0.5px 0px, rgba(0, 0, 0, 0.14902) 1.5px 2px 0;
 }
 
-.footer-box-right{
-	border-right:  solid 1px white;
-}
-
 .footer-box-left{
-	border-left:  solid 1px white;
 }
 
-#made-with-love{
-	text-align: center;
-	color: #B7B7B7;
-	margin-bottom: 5px;
+.footer-box-right{
 }
 
 footer{

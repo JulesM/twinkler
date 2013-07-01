@@ -51,6 +51,8 @@ $(document).ready(function() {
 
 window.onload = function () {
 ScaleMosaic();
+       
+
 }
 
 window.onresize = function() {

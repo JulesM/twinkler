@@ -4,6 +4,8 @@
     <title>Twinkler - Manage social events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" media="screen">
+
+	<script src="http://code.jquery.com/jquery.js"></script>
     <script type='text/javascript' src="{{ asset('js/landing-page.js') }}"></script>
 {% endblock %}
 
@@ -186,9 +188,7 @@
 			    <h5>Bring Twinkler with you all the time with our coming mobile apps</h5>
 			</div>
 			<div class="row">
-				<a id="go" rel="leanModal" name="test" href="#test">
 				<img src="{{ asset('img/landing-page/google-play-large.png') }}" alt="Get our Android App!">
-				</a>
 				<img src="{{ asset('img/landing-page/app-store-large.png') }}" alt="get our iPhone App!">
 			</div>
 		</div>
@@ -240,7 +240,12 @@
 					<div class="span4">
 						<div class="footer-box">
 							<p>Want to be a beta-testers? <br> Subscribe to our Newsletter!</p><br>
-							{% render(controller('TkWelcomeBundle:Default:subscribe')) %}
+							<form>
+							  <fieldset>
+							    <input type="text" placeholder="Enter your e-mail address">
+							    <button type="submit" class="btn btn-success" style="vertical-align: top">Subscribe</button>
+							  </fieldset>
+							</form>
 						</div>
 					</div>
 					<div class="span4">
@@ -269,12 +274,12 @@
 		</div>
 	</footer>
 
+
+
 	{% endblock content %}
 
 {% endblock body %}
 
 {% block javascripts %}
-	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="path_to/jquery.leanModal.min.js"></script>
 {% endblock %}

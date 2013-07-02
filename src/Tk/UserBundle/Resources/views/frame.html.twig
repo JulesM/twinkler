@@ -14,14 +14,23 @@
         <div class="container">
             <div class="row">
                 <div class="span2">
-                    <a class="brand" href="{{ path('tk_user_homepage') }}"><img src="{{ asset('img/logo/twinkler_logo.png') }}" width="50px" alt="twinkler logo"></a>
-                    <a href="{{ path('tk_group_new') }}">Start a new group</a>
+                    <a class="brand" href="{{ path('tk_user_homepage') }}"><img src="{{ asset('img/logo/logo_white_transparent.png') }}" width="150px" style="margin: 10px;"  alt="twinkler logo"></a>
                 </div>
-                <div class="span8">
+                <div class="span9">
                 </div>
-                <div class="span2">
-                    <a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="20px" style="margin-right: 10px;" alt="profile picture">{{ app.user.username }}</a>
-                    <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                <div class="account-settings span1">
+                    <div class="profile-pic">
+                        <a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="30px" style="margin: 10px;" alt="profile picture">
+                        </a>
+                    </div>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">                      
+                        <li><a tabindex="-1" href="#">Account Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>                        
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

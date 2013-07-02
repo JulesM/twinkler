@@ -59,6 +59,10 @@ header li{
 	padding-right: 30px;
 }
 
+strong{
+	font-weight: bold;
+}
+
 #login-register{
 	padding-top: 5px;
 	margin-right: 40px;
@@ -221,7 +225,13 @@ header li{
 }
 
 .feature-description p{
-	color:#B7B7B7;
+	color:#242728;
+	line-height: 18px;
+}
+
+
+.feature-description p strong{
+	font-weight: bold;
 }
 
 #section-transition{
@@ -254,8 +264,6 @@ header li{
 }
 
 #showcase h1{
-	font-size: "Georgia";
-	font-style: italic;
 	font-size: 30px;
 	color:#B7B7B7;
 	margin-top: 30px;
@@ -278,7 +286,12 @@ header li{
 	margin-top: 40px;
 	width: 400px;
 	height: 40px;
-	padding-top: 30px;
+
+}
+
+#login-mosaic .btn{
+	height: 36px;
+	font-size: 30px;
 }
 
 .mosa-row{
@@ -372,4 +385,38 @@ footer li{
 #user-layout{
 	margin-top: 100px;
 }
+
+
+/*---Newsletter Modal---*/
+#subscribe-modal{
+	height: 290px;
+	width: 400px;
+	background-size: 100% auto;
+	text-align: center;
+	margin-top: 100px;
+	padding: 0px;
+}
+
+#subscribe-modal{}
+
+.modal{
+	height: 290px;
+	width: 400px;
+	background-image: url(' ../img/landing-page/modal-bck.jpg');
+	background-size: 100% auto;
+	color:#242728;
+  	text-shadow:#FFFFFF 0 1px 5px;
+  	padding-top: 10px;
+}
+
+.modal-backdrop{
+	background-color: #333333;
+	opacity: 1;
+	
+}
+
+.modal-backdrop fade in{
+	opacity: 1;
+}
+
 

@@ -1,0 +1,82 @@
+/* --- CSS of expense part of GroupBundle only--- */
+.expense-header div{
+	display: inline-block;
+}
+
+#expense-dropdown{
+	min-width: 30px;
+}
+
+
+.add-expense-btn{
+	min-width: 30px;
+	float:right;
+}
+
+
+.well{
+}
+
+.details
+{
+	display: table;
+	width: 100%;
+	background-color: #fff;
+	padding: 15px;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+.details > ul
+{
+	margin: 0 auto;
+}
+
+ .details > ul li
+{
+	list-style: none;
+	width: 33%;
+	border-right: 1px solid #fff;
+	background-color: #f8f3f0;
+	float: left;
+	font-size: 8px;
+	padding: 13px;
+	text-align: center;
+	color: #8d8070;
+	text-transform: uppercase;
+	overflow: hidden;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
+.details > ul li:first-child
+{
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.details > ul li:last-child
+{
+	border: 0;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+ .details > ul li > span.number
+{
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}

@@ -9,14 +9,12 @@
 
 {% block content %}
 
-	<div class="row">	
+	<div class="row" style="margin-top:30px; margin-bottom: 30px;">	
 		<div class="span8">
 			<div class="box">
 				{% block expenses %}
-					<h2>Expenses - all
-						<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
-					</h2>
-					<div class="dropdown">
+				<div class="expense-header">
+					<div id="expense-dropdown" class="dropdown">
 						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
 							<i class="icon-th-list"></i>
 						</a>
@@ -28,14 +26,40 @@
 							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
 						</ul>
 					</div>
+
+					<div class="expense-title">
+					<h2>Expenses - all</h2>
+					</div>
+					<div class="add-expense-btn">
+					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+					</div>
+				</div>
 					
 
 					<!-- Modal -->
 					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 
 					<div class="well well-small">
-						In total {{ total_paid }} {{ currency }} was expensed / You paid {{ total_paid_by_me }} {{ currency }} / You should have paid {{ total_paid_supposed }} {{ currency }}
+						 
 					</div>
+				<div class="details">
+					<ul>
+						<li>
+							Total expenses:
+							<span class="number">{{ total_paid }} {{ currency }}</span>
+							
+						</li>
+						<li>
+							Total you paid:
+							<span class="number">{{ total_paid_by_me }} {{ currency }} </span>
+							
+						</li>
+						<li>
+							Your due share:
+							<span class="number">{{ total_paid_supposed }} {{ currency }}</span>
+						</li>
+					</ul>
+				</div>
 
 					<div class="box-body">
 
@@ -44,10 +68,10 @@
 						<thead>
 							<tr>
 								<th style="width:10%">Who</th>
-								<th style="width:10%">How much</th>
 								<th style="width:20%">What</th>
 								<th style="width:10%">When</th>
 								<th style="width:30%">For who</th>
+								<th style="width:10%">How much</th>
 								<th style="width:10%">For you</th>
 								<th style="width:10%">Edit</th>
 							</tr>
@@ -56,10 +80,10 @@
 						{% for expense in all_expenses %}
 							<tr>
 							<td>{{ expense[0].owner.name }}</td>
-							<td>{{ expense[0].amount }} {{ currency }}</td>
 							<td>{{ expense[0].name }}</td>
 							<td>{{ expense[0].date|date("d/m") }}</td>
-							<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>
+							<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>							
+							<td>{{ expense[0].amount }} {{ currency }}</td>
 							<td>{{ expense[1] }} {{ currency }}
 							<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
 							<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>

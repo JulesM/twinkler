@@ -1,1 +1,20 @@
 /* --- CSS of expense part of GroupBundle only--- */
+.expense-header div{
+	display: inline-block;
+}
+
+#expense-dropdown{
+	min-width: 30px;
+	float: left;
+}
+
+.expense-title{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.add-expense-btn{
+	min-width: 30px;
+	float:right;
+	position: relative;
+}

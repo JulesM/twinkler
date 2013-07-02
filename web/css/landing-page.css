@@ -77,7 +77,7 @@ strong{
 	min-height: 660px;
 	width: 100%;
 	background-image: url(' ../img/landing-page/cafe_bg.png');
-	background-size: cover;
+	background-size: 100% auto;
 	padding-top: 10px;
 	border-bottom: solid 1px #B7B7B7;
 }

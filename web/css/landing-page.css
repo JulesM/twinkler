@@ -385,19 +385,18 @@ footer li{
 
 /*---Newsletter Modal---*/
 #subscribe-modal{
-	height: 290px;
-	width: 400px;
-	background-size: 100% auto;
+	padding-top: 80px;
 	text-align: center;
-	margin-top: 100px;
-	padding: 0px;
+	padding-bottom: 40px;
+	font-size: 16px;
 }
 
-#subscribe-modal{}
+#subscribe-modal form{
+	margin-top: 40px;
+}
 
 .modal{
-	height: 290px;
-	width: 400px;
+	margin-top: 60px;
 	background-image: url(' ../img/landing-page/modal-bck.jpg');
 	background-size: 100% auto;
 	color:#242728;

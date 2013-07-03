@@ -66,6 +66,12 @@ strong{
 	margin-right: 40px;
 }
 
+@media only screen and (max-width: 780px) {
+	#login-register{
+		margin-right: 10px;
+	}
+}
+
 .brand{
 	padding: 0px;
 }
@@ -385,14 +391,16 @@ footer li{
 
 /*---Newsletter Modal---*/
 #subscribe-modal{
-	padding-top: 80px;
+	width: 80%;
+	margin-left:10%;
+	padding-top: 15%;
 	text-align: center;
-	padding-bottom: 40px;
+	padding-bottom: 10%;
 	font-size: 16px;
 }
 
 #subscribe-modal form{
-	margin-top: 40px;
+	margin-top: 5%;
 }
 
 .modal{

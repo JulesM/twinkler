@@ -11,13 +11,14 @@
 
 {% block body %}
     <header>
-  
+        <div class="container">
             <div class="row">
                 <div class="span2">
                     <a class="brand" href="{{ path('tk_user_homepage') }}"><img src="{{ asset('img/logo/logo_white_transparent.png') }}" width="150px" style="margin: 10px;"  alt="twinkler logo"></a>
                 </div>
                 <div id="group-name" class="span8">
-                                <h1>{{ group.name }}</h1>
+                    {% block navbartitle %}
+                    {% endblock %}
                 </div>
                 <div class="account-settings span1 offset1">
                     <div class="profile-pic">
@@ -34,9 +35,9 @@
                     </div>
                 </div>
             </div>
-
+        </div>    
         {% block header %}
-        {% endblock %}
+        {% endblock %}     
     </header>
 
     <section class="frame">

@@ -66,7 +66,6 @@ strong{
 #login-register{
 	padding-top: 5px;
 	margin-right: 40px;
-
 }
 
 .brand{
@@ -242,7 +241,7 @@ strong{
 	text-align: center;
 }
 
-#section3{
+#gettheapp{
 	background-image: url(' ../img/landing-page/get-the-app.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -252,7 +251,7 @@ strong{
 	text-align: center;
 }
 
-#section3 img{
+#gettheapp img{
 	margin-bottom: auto;
 	margin-top: 150px;
 	margin-right: 10px;
@@ -269,7 +268,7 @@ strong{
 	margin-top: 30px;
 }
 
-#section4{
+#mosaic{
 	height: 700px;
 	padding-top: 30px;
 	padding-left: 30px;

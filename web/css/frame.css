@@ -116,7 +116,8 @@ header{
 .selection-menu a{
 	 -webkit-transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
 	  transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
-	color:#555555;
+	font-weight: bold;	
+	color:#f97e76;
 	vertical-align: middle;
 	font-family: 'Proxima-regular';
 	font-size: 16px;
@@ -124,19 +125,15 @@ header{
 
 .selection-menu a:hover{
 	text-decoration: none;
-	color:#767676;
+	color:#f6a79f;
 }
 
-.selection-menu a{
-	font-weight: bold;
-	color:rgb(150, 150,150);
-}
 
 /*-----FRAME-----*/
 
 .frame{
 	background-image: url(' ../img/frame/LinenBackgroundPattern.png');
-	opacity: 0.6;
+	opacity: 1;
 }
 
 .frame .row{

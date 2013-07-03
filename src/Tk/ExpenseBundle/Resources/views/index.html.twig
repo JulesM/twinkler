@@ -10,16 +10,11 @@
 {% block content %}
 
 	<div class="row">	
-		<div class="span8">
+		<div id="expense-timeline" class="span8">
 			{% block expenses %}
-			<div class="expense-header">
-				<div class="expense-title">
-					<h2>Expenses - all</h2>
-				</div>
-				<div class="add-expense-btn">
-					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
+				<div class="expense-header">										
 					<div id="expense-dropdown" class="dropdown">
-						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							<i class="icon-th-list"></i>
 						</a>
 						<!-- Link or button to toggle dropdown -->
@@ -30,34 +25,42 @@
 							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
 						</ul>
 					</div>
+
+					<div id="expense-title">
+						<h2>Your Expense Timeline</h2>
+					</div>
+
+					<a href="#addExpenseModal" role="button" data-toggle="modal">
+					<div id="add-expense-btn">
+						<i class="icon-plus"></i>
+					</div>	</a>
 				</div>
-			</div>
 
 			<!-- Modal -->
 			{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 			<table class="table">
 			<!-- <caption>Caption</caption> -->
 				<thead>
-					<tr>
+					<tr id="column-label">
+						<th style="width:5%; text-align:center;"><i class="icon-time"></i></th>
 						<th style="width:10%">Who</th>
-						<th style="width:20%">What</th>
-						<th style="width:10%">When</th>
+						<th style="width:27%">What</th>
 						<th style="width:30%">For who</th>
-						<th style="width:10%">How much</th>
+						<th style="width:10%">Total</th>
 						<th style="width:10%">For you</th>
-						<th style="width:10%">Edit</th>
+						<th style="width:9%; text-align:center;"><i class="icon-caret-down"></i></th>
 					</tr>
 				</thead>
 				<tbody>
 				{% for expense in all_expenses %}
 					<tr>
+					<td id="expense-date">{{ expense[0].date|date("d/m") }}</td>
 					<td>{{ expense[0].owner.name }}</td>
-					<td>{{ expense[0].name }}</td>
-					<td>{{ expense[0].date|date("d/m") }}</td>
-					<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>							
-					<td>{{ expense[0].amount }} {{ currency }}</td>
-					<td>{{ expense[1] }} {{ currency }}
-					<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
+					<td id="expense-name">{{ expense[0].name }}</td>
+					<td>{% for member in expense[0].users %}{{ member.name }},  {% endfor %}</td>							
+					<td id="expense-total">{{ expense[0].amount }} {{ currency }}</td>
+					<td id="expense-for-you">{{ expense[1] }} {{ currency }}
+					<td id="expense-edit"><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
 					<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
 					</tr>
 
@@ -66,12 +69,16 @@
 			</table>
 			{% endblock expenses %}
 		</div>
-		<div class="span4">
-			<div class="box">
-				<h2>Balances & Debts</h2>
-				<div class="well well-small">
-					You paid: {{ total_paid_by_me }} {{ currency }}</br>
-					Your balance is: {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
+		<div id="balance" class="span4">
+			<div class="balance-box">
+				<div class="expense-header"><div id="expense-title">
+				<h2>Balance</h2>
+				</div></div>
+				<div>
+					<div class="progress">
+					  <div class="bar" style="width: 60%;">{{ total_paid_by_me - total_paid_supposed }} {{ currency }} </div>
+					{{ total_paid_by_me }} {{ currency }}
+					</div>
 				</div>
 				<div>
 					{% for balance in balances %}
@@ -86,5 +93,6 @@
 			</div>
 		</div>
 	</div>
+
 
 {% endblock %}

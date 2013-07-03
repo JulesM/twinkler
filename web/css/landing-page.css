@@ -68,7 +68,7 @@ strong{
 
 @media only screen and (max-width: 780px) {
 	#login-register{
-		margin-right: 10px;
+		margin-right: 0px;
 	}
 }
 

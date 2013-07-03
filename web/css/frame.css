@@ -1,5 +1,9 @@
 /* --- CSS applyable for all website when user is connected--- */
 
+body{
+	height: 100%;
+}
+
 header{
 	background-image: url(' ../img/frame/navbar-bck.jpg');
 	background-size:cover;

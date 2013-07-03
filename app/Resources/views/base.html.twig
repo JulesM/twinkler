@@ -15,7 +15,7 @@
         {% block head %}
         {% endblock %}
     </head>
-    <body>
+    <body id="page-body">
         {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
         <script type="text/javascript" > // Script for FOSFacebookBundle
         function goLogIn(){
@@ -39,6 +39,13 @@
         {% endblock %}
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
         {% block javascripts %}
         {% endblock %}
         

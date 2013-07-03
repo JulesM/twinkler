@@ -405,7 +405,7 @@ footer li{
 .modal{
 	margin-top: 60px;
 	background-image: url(' ../img/landing-page/modal-bck.jpg');
-	background-size: 100% auto;
+	background-size: cover;
 	color:#242728;
   	text-shadow:#FFFFFF 0 1px 5px;
   	padding-top: 10px;

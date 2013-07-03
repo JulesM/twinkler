@@ -62,13 +62,24 @@ strong{
 }
 
 #login-register{
-	padding-top: 5px;
+	padding-top: 10px;
+	height:20px;
 	margin-right: 40px;
 }
 
 @media only screen and (max-width: 780px) {
 	#login-register{
 		margin-right: 0px;
+		padding-left: 0;
+	}
+	header img{
+		margin-left: 3%;
+	}
+	header ul{
+		margin-left: 1%;
+	}
+	header li{
+		paddin-right: 5px;
 	}
 }
 
@@ -239,7 +250,7 @@ strong{
 #section-transition{
 	background-color: rgba(255, 255, 255, 0.9);
   	box-shadow:rgba(0, 0, 0, 0.15) 0 1px 2px, rgba(0, 0, 0, 0.0470588) 0 0 8px inset;
-	height: 40px;
+	min-height: 40px;
 	color: black;
 	text-align: center;
 }
@@ -380,6 +391,17 @@ footer li{
 	display: inline;
 	list-style-type: none;
 	padding-right: 30px;
+}
+
+/* --- responsiveness --- */
+
+@media only screen and (max-width: 780px) {
+	#features,
+	#showcase,
+	#mosaic,
+	.learn-more-link{
+		display: none;
+	}
 }
 
 /* --- Login and register parts --- */

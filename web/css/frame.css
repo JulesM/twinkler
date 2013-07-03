@@ -124,6 +124,11 @@ header{
 	color:#767676;
 }
 
+.selection-menu a{
+	font-weight: bold;
+	color:rgb(150, 150,150);
+}
+
 /*-----FRAME-----*/
 
 .frame{

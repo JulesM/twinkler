@@ -1,4 +1,10 @@
 /* --- CSS of expense part of GroupBundle only--- */
+
+#expense-block{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .expense-header div{
 	display: inline-block;
 }
@@ -7,14 +13,9 @@
 	min-width: 30px;
 }
 
-
 .add-expense-btn{
 	min-width: 30px;
 	float:right;
-}
-
-
-.well{
 }
 
 .details

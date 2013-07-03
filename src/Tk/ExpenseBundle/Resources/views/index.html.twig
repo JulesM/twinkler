@@ -9,11 +9,15 @@
 
 {% block content %}
 
-	<div class="row">	
+	<div class="row" id="expense-block">	
 		<div class="span8">
-			<div class="box">
-				{% block expenses %}
-				<div class="expense-header">
+			{% block expenses %}
+			<div class="expense-header">
+				<div class="expense-title">
+					<h2>Expenses - all</h2>
+				</div>
+				<div class="add-expense-btn">
+					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
 					<div id="expense-dropdown" class="dropdown">
 						<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
 							<i class="icon-th-list"></i>
@@ -26,60 +30,48 @@
 							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
 						</ul>
 					</div>
-
-					<div class="expense-title">
-					<h2>Expenses - all</h2>
-					</div>
-					<div class="add-expense-btn">
-					<a href="#addExpenseModal" role="button" class="btn pull-right" data-toggle="modal">+</a>
-					</div>
 				</div>
-					
-
-					<!-- Modal -->
-					{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
-
-					<div class="box-body">
-
-						<table class="table">
-						<!-- <caption>Caption</caption> -->
-						<thead>
-							<tr>
-								<th style="width:10%">Who</th>
-								<th style="width:20%">What</th>
-								<th style="width:10%">When</th>
-								<th style="width:30%">For who</th>
-								<th style="width:10%">How much</th>
-								<th style="width:10%">For you</th>
-								<th style="width:10%">Edit</th>
-							</tr>
-						</thead>
-						<tbody>
-						{% for expense in all_expenses %}
-							<tr>
-							<td>{{ expense[0].owner.name }}</td>
-							<td>{{ expense[0].name }}</td>
-							<td>{{ expense[0].date|date("d/m") }}</td>
-							<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>							
-							<td>{{ expense[0].amount }} {{ currency }}</td>
-							<td>{{ expense[1] }} {{ currency }}
-							<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
-							<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
-							</tr>
-
-						{% endfor %}
-						</tbody>
-						</table>
-						
-					</div>
-				{% endblock expenses %}
 			</div>
+
+			<!-- Modal -->
+			{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
+			<table class="table">
+			<!-- <caption>Caption</caption> -->
+				<thead>
+					<tr>
+						<th style="width:10%">Who</th>
+						<th style="width:20%">What</th>
+						<th style="width:10%">When</th>
+						<th style="width:30%">For who</th>
+						<th style="width:10%">How much</th>
+						<th style="width:10%">For you</th>
+						<th style="width:10%">Edit</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for expense in all_expenses %}
+					<tr>
+					<td>{{ expense[0].owner.name }}</td>
+					<td>{{ expense[0].name }}</td>
+					<td>{{ expense[0].date|date("d/m") }}</td>
+					<td>{% for member in expense[0].users %}{{ member.name }}, {% endfor %}</td>							
+					<td>{{ expense[0].amount }} {{ currency }}</td>
+					<td>{{ expense[1] }} {{ currency }}
+					<td><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
+					<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
+					</tr>
+
+				{% endfor %}
+				</tbody>
+			</table>
+			{% endblock expenses %}
 		</div>
 		<div class="span4">
 			<div class="box">
 				<h2>Balances & Debts</h2>
 				<div class="well well-small">
-					Your balance is at {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
+					You paid: {{ total_paid_by_me }} {{ currency }}</br>
+					Your balance is: {{ total_paid_by_me - total_paid_supposed }} {{ currency }} 
 				</div>
 				<div>
 					{% for balance in balances %}

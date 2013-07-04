@@ -1,38 +1,32 @@
-<div class="well">
+<div class="add-item">
 	{% render(controller('TkListBundle:Shopping:new')) %}
 </div>
 
 <table class="table">
-	<thead>
-		<tr>
-			<th style="width:50%">Item</th>
-			<th style="width:20%">Added by</th>
-			<th style="width:20%">When</th>
-			<th style="width:10%">Check/Delete</th>
-		</tr>
-	</thead>
 	
 	<tbody>
 
 		{% for item in app.user.currentMember.tgroup.activeShoppingItems  %}
 			<tr>
-				<td>{{ item.name }}</td>
+				<td id="task-name">{{ item.name }}</td>
 				<td>{{ item.author.name }}</td>
-				<td>{{ item.addedDate|date('d/m') }}</td>
-				<td style="text-align: center;">
-					<a href="{{ path('tk_list_shopping_check', { 'id' : item.id }) }}"><i class="icon-ok"></i></a>
-					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash"></i></a>
-				</td>
+				<td id="task-date">added on {{ item.addedDate|date('d/m') }}</td>
+				<td style="text-align: right; width: 80px">	
+
+					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
+					<a href="{{ path('tk_list_shopping_check', { 'id' : item.id }) }}"><div style="text-align: center;display: inline-block; width: 50px; height: 22px; background-color:#a8bd44; margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
+				</td>	
+
 			</tr>
 		{% endfor %}
 
 		{% for item in app.user.currentMember.tgroup.inactiveShoppingItems %}
-			<tr style="background-color: rgb(126,248,255); color: grey;">
-				<td>{{ item.name }}</td>
-				<td>{{ item.author.name }}</td>
-				<td>{{ item.addedDate|date('d/m') }}</td>
-				<td style="text-align: center;">
-					<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}"><small>re-add</small></a>
+			<tr style="background-color: white; color: #e4ebf0;">
+				<td  style="text-decoration: line-through;">{{ item.name }}</td>
+				<td  style="text-decoration: line-through;">{{ item.author.name }}</td>
+				<td  style="text-decoration: line-through;">{{ item.addedDate|date('d/m') }}</td>
+				<td  style="text-align: right; padding-right: 10px">
+					<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}" style:"color: #e4ebf0;" ><small >List back</small></a>
 				</td>
 			</tr>
 		{% endfor %}

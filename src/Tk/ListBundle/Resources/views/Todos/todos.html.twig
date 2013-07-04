@@ -1,37 +1,29 @@
-<div class="well">
+<div class="add-item">
 	{% render(controller('TkListBundle:Todos:new')) %}
 </div>
 
 <table class="table">
-	<thead>
-		<tr>
-			<th style="width:50%">Pending Task</th>
-			<th style="width:20%">Assigned</th>
-			<th style="width:20%">Since</th>
-			<th style="width:10%">Action</th>
-		</tr>
-	</thead>
-
 	<tbody>
 		{% for todo in app.user.currentMember.tgroup.activeTodos %}
 			<tr>
-				<td>{{ todo.name }}{{todo.active}}</td>
-				<td>{% if todo.owner == null %} <span style="color: grey;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
-				<td>{{ todo.date|date('d/m')}}</td>
-				<td style="text-align: center">
-					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><i class="icon-ok"></i></a>
-					<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash"></i></a>
+				<td id="task-name">{{ todo.name }}{{todo.active}}</td>
+				<td>{% if todo.owner == null %} <span style="color: #9eb2c0;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
+				<td id="task-date">added on {{ todo.date|date('d/m')}}</td>
+				<td style="text-align: right; width: 80px">	
+
+					<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
+					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><div style="text-align: center;display: inline-block; width: 50px; height: 22px; background-color:#a8bd44; margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
 				</td>	
 			</tr>
 		{% endfor %}
 	
 		{% for todo in app.user.currentMember.tgroup.inactiveTodos %}
-			<tr style="background-color: rgb(126,248,255); color: grey;">
+			<tr style="background-color: white; color: #e4ebf0;text-decoration: line-through;">
 				<td>{{ todo.name }}{{todo.active}}</td>
-				<td>{% if todo.owner == null %} <span style="color: grey;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
-				<td>{{ todo.date|date('d/m')}}</td>
+				<td>{% if todo.owner == null %} <span style="color: #e4ebf0;text-decoration: line-through;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
+				<td>added on {{ todo.date|date('d/m')}}</td>
 				<td style="text-align: center">
-					<i class="icon-star"></i>
+					<i class="icon-star" style="text-decoration: line-through;"></i>
 				</td>	
 			</tr>
 		{% endfor %}

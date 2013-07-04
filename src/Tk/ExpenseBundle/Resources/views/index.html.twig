@@ -75,19 +75,14 @@
 				<h2>Balance</h2>
 				</div></div>
 				<div>
-					<div class="progress">
-					  <div class="bar" style="width: 60%;">{{ total_paid_by_me - total_paid_supposed }} {{ currency }} </div>
-					{{ total_paid_by_me }} {{ currency }}
+					<div style="text-align:center;">
+						<canvas id="balanceChart" width="300" height="150"></canvas>
 					</div>
 				</div>
-				<div>
-					{% for balance in balances %}
-						<p>{{ balance[0].name }} has a balance of {{ balance[1] }} {{ currency }}</p>
-					{% endfor %}
-				</div>
-				<div>
+
+				<div id="settlement">
 					{% for debt in debts %}
-						<p>{{ debt[0] }} owes {{ debt[1] }} {{ currency }} to {{debt[2] }}</p>
+						<p>{{ debt[0] }} gives {{ debt[1] }}{{ currency }} to {{debt[2] }}</p>
 					{% endfor %}
 				</div>
 			</div>

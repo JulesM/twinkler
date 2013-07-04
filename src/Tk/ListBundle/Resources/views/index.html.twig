@@ -10,13 +10,22 @@
 	<div class="row" style="margin-top:30px; margin-bottom: 30px;">
 		<div class="span6">
 			<div class="box" id="to-dos">
-				<h2>To-dos</h2>
+				<div class="list-header">
+					<div id="list-title">
+						<h2>To-dos</h2>
+					</div>
+				</div>
+
 				{% include 'TkListBundle:Todos:todos.html.twig' %}
 			</div>
 		</div>
 		<div class="span6">
 			<div class="box" id="shopping-list">
-				<h2>Shopping list</h2>
+				<div class="list-header">
+					<div id="list-title">
+						<h2>Shopping-lists</h2>
+					</div>
+				</div>
 				{% include 'TkListBundle:Shopping:shopping.html.twig' %}
 			</div>
 		</div>

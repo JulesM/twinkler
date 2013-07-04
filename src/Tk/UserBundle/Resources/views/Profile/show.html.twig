@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			
-			<div>	
+			<div style="padding-top:0px; border-top: solid 1px #eaedf2;">	
 				{% block profile %}
 				{% if app.user.firstname != null or app.user.lastname != null %}
 
@@ -169,9 +169,9 @@
 							<div class="span2" style="text-align: left">
 								<p>Your balance: 
 									{% if balances[member.tgroup.id] >= 0 %}
-										<span style="color: green;"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+										<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
 									{% else %}
-										<span style="color: red"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+										<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
 									{% endif %}
 								</p>
 							</div>

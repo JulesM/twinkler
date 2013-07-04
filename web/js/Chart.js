@@ -340,7 +340,7 @@ window.Chart = function(context){
 			scaleXAxisPoint: 0,
 			barShowStroke : true,
 			barStrokeWidth : 2,
-			barValueSpacing : 20,
+			barValueSpacing : 10,
 			barDatasetSpacing : 1,
 			animation : true,
 			animationSteps : 60,

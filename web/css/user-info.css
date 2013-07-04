@@ -1,25 +1,61 @@
-/*--------USER INFO CSS----------*/
+/* --- --- USER INFO CSS --- --- */
 
+
+/* --- User information --- */
 #user-info{
 	background-color: white;
 	font-family: "Asap-regular";
 	position: relative;
+	text-align: center;
 }
 
-.user-info-header{
+.user-header{
 	background-color: #2e3641;
 	color: #e9f0f4;
 	height: 50px;
 	border-top: 1px solid #2e3641;
-	text-align: center;
 }
 
-.user-info-header > h3{
-	margin-top: 5px;
+.user-header > h3{
+	line-height: 50px;
+	margin: 0;
+}
+
+#profile-stats{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 92%;
+	border-bottom: solid 1px;
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+#profile-stats div{
+	display: inline-block;
+	height: 30px;
+	background-color: #eaedf2;
+	color: #5e6d82;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 8px;
+}
+
+#profile-stats > .info-icon{
+	width: 20%;
+}
+
+#profile-stats > .info-text{
+	width: 27%;
+	overflow: hidden;
 }
 
 .profile-info{
-	padding: 5px 20px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 92%;
+	text-align: left;
 }
 
 .profile-info div{
@@ -33,12 +69,12 @@
 }
 
 .profile-info > .info-icon{
-	width: 40px;
-	margin-right: 1px;
+	width: 20%;
 }
 
 .profile-info > .info-text{
-	width: 250px;
+	width: 78%;
+	overflow: hidden;
 }
 
 .edit-info{
@@ -70,3 +106,38 @@
 	text-decoration: none;
 }
 
+/* --- Group summary --- */
+
+#group-summary{
+	background-color: white;
+	font-family: "Asap-regular";
+	position: relative;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+#group-box{
+	padding-top: 1px;
+	padding-bottom: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+	background-color: #eaedf2;
+	color: #5e6d82;
+}
+
+.user-group-btn{
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+.user-group-btn:hover{
+	text-decoration: none;
+	opacity: 1;
+}
+
+.user-group-btn div{
+	min-height: 30px;
+	line-height: 30px;
+	background-color: #f97e76;
+	color: white;
+}

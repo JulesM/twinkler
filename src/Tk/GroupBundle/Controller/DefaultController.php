@@ -31,6 +31,20 @@ class DefaultController extends Controller
         return $this->indexAction();
     }
 
+    public function goToExpensesAction($id)
+    {
+        $this->changeCurrentMemberAction($id);
+
+        return $this->redirect($this->generateUrl('tk_expense_homepage'));
+    }
+
+    public function goToListsAction($id)
+    {
+        $this->changeCurrentMemberAction($id);
+
+        return $this->redirect($this->generateUrl('tk_list_homepage'));
+    }
+
     private function changeCurrentMemberAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();

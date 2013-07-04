@@ -29,18 +29,16 @@
 {% block content %}
 	<div class="row">
 		<div id="user-info" class="span4 offset1">
-			<div class="user-info-header">
+			<div class="user-header">
 				<h3>Your information</h3>
 			</div>
-			<div class="profile-info">
+			<div id="profile-stats">
 				<div class="info-icon">
 					<i class="icon-thumbs-up-alt"></i>
 				</div>
-				<div class="info-text">
+				<div class="info-text" style="margin-right: 2%;">
 					{{ app.user.members|length }} Groups
 				</div>
-			</div>
-			<div class="profile-info">
 				<div class="info-icon">
 					<i class="icon-smile"></i>
 				</div>
@@ -144,30 +142,44 @@
 		</div>
 
 		<div class="span6">
-			<div class="box">
-				<h3>Your groups</h3>
+			<div id="group-summary">
+				<div class="user-header">
+					<h3>Your groups</h3>
+				</div>
 				{% for member in app.user.members %}
-					<div>
-						<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-							<strong>{{ member.tgroup.name }}</strong>
-						</a>
-						<small>opened on {{ member.tgroup.date| date('d/m/y') }}</small>
-					</div>
-					<div class="row">
-						<div class="span2">
-							<p>Total paid: {{ member.tgroup.totalPaid }} {{member.tgroup.currency.symbol}}</p>
-							<p>Your balance: {{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</p>
-						</div>
-						<div class="span2">
-							<p>To-do(s): {{ member.tgroup.todos|length }}</p>
-							<p>Pending: {{ member.tgroup.activeTodos|length }}</p>
-						</div>
-						<div class="span2">
-							<p>Shopping list: {{ member.tgroup.shoppingitems|length }} item(s)</p>
-							<p>Still missing: {{ member.tgroup.activeShoppingItems|length }}</p>
+					<div id="group-box">
+						<div class="row">
+							<div class="span2">
+								<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+									<strong>{{ member.tgroup.name }}</strong>
+								</a>
+								<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
+							</div>
+							<div class="span1">
+								<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
+									<div>Expenses</div>
+								</a>
+							</div>
+							<div class="span1">
+								<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
+									<div>Lists</div>
+								</a>
+							</div>
+							<div class="span2" style="text-align: left">
+								<p>Your balance: 
+									{% if balances[member.tgroup.id] >= 0 %}
+										<span style="color: green;"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+									{% else %}
+										<span style="color: red"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+									{% endif %}
+								</p>
+							</div>
 						</div>
 					</div>
 				{% endfor %}
+				<div>
+					<a href="">See closed groups (0)</a>
+				</div>
 			</div>
 		</div>
 

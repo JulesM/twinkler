@@ -2,12 +2,12 @@
 
 body{
 	width: 100%;
-	min-width: 320px;
+	min-width: 200px;
 	margin:0;
 	padding: 0;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 767px) {
 	.header-collapse{
 		display: none;
 	}
@@ -24,7 +24,6 @@ header{
 	position: fixed;
 	top: 0;
 	width: 100%;
-	min-width: 320px;
   	box-shadow:rgba(0, 0, 0, 0.15) 0 1px 2px, rgba(0, 0, 0, 0.0470588) 0 0 8px inset;
 	z-index: 9999;
 	padding-top: 5px;
@@ -67,7 +66,7 @@ strong{
 	margin-right: 40px;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 767px) {
 	#login-register{
 		margin-right: 0px;
 		padding-left: 0;
@@ -88,37 +87,33 @@ strong{
 }
 
 #section1{
-	min-height: 660px;
 	width: 100%;
+	min-height: 520px;
 	background-image: url(' ../img/landing-page/cafe_bg.png');
 	background-size: cover;
 	padding-top: 10px;
 	border-bottom: solid 1px #B7B7B7;
 }
 
-#section1 .row{
-	height: 100%;
-	min-height: 660px;
-}
-
 #handiphone{
 	min-width: 350px;
 }
 
-@media only screen and (max-width: 780px) {
-	#section1-big{display: none;
+@media only screen and (max-width: 767px) {
+	#section1-big,
+	.section1-collapse{display: none;
 	}
+	#section1{ padding-bottom: 80px;}
 }
 
-@media only screen and (min-width: 780px) {
-	#section1-small{display: none;
-	}
+@media only screen and (min-width: 768px) {
+	#section1-small{display: none;}
 }
 
 #catchphrase{
 	margin-top: 140px;
-	padding-left: 60px;
-	padding-right: 50px;
+	margin-bottom: 20px;
+	padding-left: 50px;
 }
 
 #catchphrase > p{
@@ -127,21 +122,17 @@ strong{
   	text-shadow:#FFFFFF 0 1px 10px;
 }
 
-#catchphrase #signup-button{
-	width: 300px;
-}
-
 #myCarousel{
 	font-family: "Proxima-bold";
 	font-size: 38.5px;
 }
 
 #iphone-view{
-	height: 100%;
-	min-height: 660px;
+	min-height: 560px;
 	display: block;
 	vertical-align: bottom;
 	position: relative;
+	padding-top: 30px;
 }
 
 #iphone-view img{
@@ -205,8 +196,7 @@ strong{
 	color:#B7B7B7;	
 }
 
-#late-login a{
-	width: 300px;	
+#late-login a{	
 }
 
 .feature{
@@ -247,12 +237,15 @@ strong{
 	font-weight: bold;
 }
 
-#section-transition{
-	background-color: rgba(255, 255, 255, 0.9);
-  	box-shadow:rgba(0, 0, 0, 0.15) 0 1px 2px, rgba(0, 0, 0, 0.0470588) 0 0 8px inset;
-	min-height: 40px;
-	color: black;
-	text-align: center;
+#showcase img{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#showcase h1{
+	font-size: 30px;
+	color:#B7B7B7;
+	margin-top: 30px;
 }
 
 #gettheapp{
@@ -265,21 +258,17 @@ strong{
 	text-align: center;
 }
 
+#section-transition{
+	background-color: rgba(255, 255, 255, 0.9);
+  	box-shadow:rgba(0, 0, 0, 0.15) 0 1px 2px, rgba(0, 0, 0, 0.0470588) 0 0 8px inset;
+	min-height: 40px;
+	color: black;
+	text-align: center;
+}
+
 #gettheapp img{
-	margin-bottom: auto;
 	margin-top: 150px;
 	margin-right: 10px;
-}
-
-#showcase img{
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-
-#showcase h1{
-	font-size: 30px;
-	color:#B7B7B7;
-	margin-top: 30px;
 }
 
 #mosaic{
@@ -298,13 +287,9 @@ strong{
 #login-mosaic a{
 	margin-top: 40px;
 	width: 400px;
-	height: 40px;
-
 }
 
 #login-mosaic .btn{
-	height: 36px;
-	font-size: 30px;
 }
 
 .mosa-row{
@@ -395,13 +380,19 @@ footer li{
 
 /* --- responsiveness --- */
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 767px) {
 	#features,
 	#showcase,
 	#mosaic,
 	.learn-more-link{
 		display: none;
 	}
+
+	#gettheapp img{
+	margin-top: 50px;
+	margin-right: 10px;
+}
+
 }
 
 /* --- Login and register parts --- */

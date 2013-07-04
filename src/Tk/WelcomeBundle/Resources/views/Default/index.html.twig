@@ -33,11 +33,13 @@
   	<section>
   		<div class="container" id="section1">
   			<div class="row">
+
+  				<!-- BIG screens only (>767px) -->
   				<div id="section1-big">
 	  				<div class="span5 offset1" id="iphone-view">
 						<img id="handiphone" src="{{ asset('img/landing-page/handiphone.png') }}" alt="twinkler app mockup">
 					</div>
-		  			<div class="span5" id="catchphrase">
+		  			<div class="span4" id="catchphrase">
 					    <h1>Sharing made easy</h1>
 					    <div id="myCarousel" class="carousel slide">
 						    <div class="carousel-inner">
@@ -56,6 +58,8 @@
 					    <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 					</div>
 				</div>
+
+				<!-- SAMLL screens only (<768px) -->
 				<div id="section1-small">
 		  			<div class="span12" id="catchphrase">
 					    <h1>Sharing made easy</h1>
@@ -70,11 +74,13 @@
 					    <p>Twinkler is the most beautiful, simple and convenient place to</br> 
 					    <strong>enjoy moments with friends</strong></p>
 					    
-					    <p>Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</p>
-					    <p><strong>Share more with the people you love</strong></p>
-					    <a href="#subscribeModal" role="button" class="btn btn-primary" data-toggle="modal">Sign up and start Sharing</a>
+					    <p class="section1-collapse">Stop worrying about organizing your events, Twinkler manages everything from planning to expenses</p>
+					    <p class="section1-collapse"><strong>Share more with the people you love</strong></p>
+					    <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
 					</div>
 				</div>
+				<!-- end of screen discrimination -->
+
 			</div>
 		</div>
 	</section>

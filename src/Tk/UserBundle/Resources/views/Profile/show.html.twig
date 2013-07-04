@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
  {{ parent() }}
- <link href="{{ asset('css/twitter-widget.css') }}" rel="stylesheet" type="text/css">
+ <link href="{{ asset('css/user-info.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block header %}
@@ -28,47 +28,125 @@
 
 {% block content %}
 	<div class="row">
-		<div class="span4 offset1">
-			<h3>Your information</h3>
-			<ul>
-				<li>{{ app.user.members|length }}Groups</li>
-				<li>{{ app.user.friends|length }}Friends</li>
-				<li>4446 Followers</li>
-			</ul>
-			<div>
-				<ul>
-					<li>	
+		<div id="user-info" class="span4 offset1">
+			<div class="user-info-header">
+				<h3>Your information</h3>
+			</div>
+						<div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-thumbs-up-alt"></i>
+						 	</div>
+						 	<div class="info-text">
+								{{ app.user.members|length }} Groups
+						 	</div>
+						 </div>
+
+
+						 <div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-smile"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		{{ app.user.friends|length }} Friends
+						 	</div>
+						 </div>
+						 <br>
+			
+			<div>	
 					{% block profile %}
 					{% if app.user.firstname != null or app.user.lastname != null %}
-						<p>Name: {{ app.user.firstname }} {{ app.user.lastname }} </p>
+
+						 <div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-user"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		<p>{{ app.user.firstname }} {{ app.user.lastname }} </p>
+						 	</div>
+						 </div>
+
 					{% else %}
-						<p>Name: not specified ... </p>
+						<div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-user"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		<p> Edit your Name </p>
+						 	</div>
+						 </div>
 					{% endif %}
-					<p>Email : {{ app.user.email }}</p>
+						<div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-envelope"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		<p> {{ app.user.email }}</p>
+						 	</div>
+						 </div>
+
+						<div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-mobile-phone"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		<p> +33 (0) 6 98 90 78 51</p>
+						 	</div>
+						</div>
+
 					{% if app.user.nationality != null %}
-						<p>Nationality: {{ app.user.nationality }}</p>
+						<div class="profile-info">
+						 	<div class="info-icon">
+						 		<i class="icon-flag"></i>
+						 	</div>
+						 	<div class="info-text">
+						 		<p> {{ app.user.nationality }} </p>
+						 	</div>
+						 </div>
 					{% else %}
-						<p>Nationality: not specified ... </p>
+						<div class="profile-info">
+							<div class="info-icon">
+						 		<i class="icon-flag"></i>
+						 	</div>
+						 	<div class="info-text"> 
+						 		<p>Add your Nationality </p>
+						 	</div>
+						</div>
 					{% endif %}
 					{% if app.user.city != null %}
-						<p>City: {{ app.user.city }}</p>
+						<div class="profile-info">
+							<div class="info-icon">
+						 		<i class="icon-map-marker"></i>
+						 	</div>
+						 	<div class="info-text"> 
+						 		<p>{{ app.user.city }}</p>
+						 	</div>
+						</div>						 		
 					{% else %}
-						<p>City: not specified ... </p>
+						<div class="profile-info">
+							<div class="info-icon">
+						 		<i class="icon-map-marker"></i>
+						 	</div>
+						 	<div class="info-text"> 
+								<p>Add your current city</p>
+						 	</div>
+						</div>	
 					{% endif %}
-					{% if app.user.country != null %}
-						<p>Country: {{ app.user.country }}</p>
-					{% else %}
-						<p>Country: not specified ... </p>
-					{% endif %}
-					</li>
-				</ul>
+				
 			</div>
-			<div class="button">
-				<a href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}"><span class="btn-orange">Edit information</span></a>
-			</div>
+			
+			
+				<div class="edit-info">	
+				<a class="edit-info-a" href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">	
+				<div>
+					<i class="icon-edit"></i>
+					Edit information
+				</div>		
+				</a>				
+				</div>
+			
 			{% endblock profile %}
 		</div>
-			
+
 		<div class="span6">
 			<div class="box">
 				<h3>Your groups</h3>

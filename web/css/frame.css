@@ -82,7 +82,7 @@ header{
 }
 
 #toolbar{
-	tex-align: right;
+	text-align: right;
 	height: 100%;
     min-height: 100%;
     opacity: 0.6;

@@ -1,0 +1,69 @@
+/*--------USER INFO CSS----------*/
+
+#user-info{
+	background-color: white;
+	margin: 20px 10px;
+	font-family: "Asap-regular";
+	position: relative;
+}
+
+.user-info-header{
+	background-color: #2e3641;
+	color: #e9f0f4;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #2e3641;
+}
+
+.profile-info{
+	padding: 5px 20px;
+}
+
+.profile-info div{
+	display: inline-block;
+	height: 30px;
+	background-color: #eaedf2;
+	color: #5e6d82;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 8px;
+}
+
+.profile-info > .info-icon{
+	width: 40px;
+	margin-right: 1px;
+}
+
+.profile-info > .info-text{
+	width: 250px;
+}
+
+.edit-info{
+	width: 150px;
+	height: 30px;
+	margin: 10px auto;
+	padding-top: 8px;
+	background-color: #f97e76;
+	color: white;
+	text-align: center;
+}
+
+.edit-info a div{
+	width: 100%;
+	height: 100%;
+}
+
+.edit-info a{
+	color:white;
+	width: 100%;
+	height: 100%;
+}
+
+.edit-info:hover{
+	background-color: #C0392B;
+}
+
+.edit-info-a:hover{
+	text-decoration: none;
+}
+

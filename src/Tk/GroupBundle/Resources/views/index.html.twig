@@ -23,13 +23,12 @@
 					{% if member.user %}
 						<div class="member">
 							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-							<img src="{{ asset('img/Frame/pic-overlay.png') }}" class="img-circle pic-overlay" width="60px" 	alt="{{ member.name }}">
 							<p>{{ member.name }}</p>
 						</div> 
 					{% else %}
 						<div class="member">
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-							<img src="{{ asset('img/Frame/pic-overlay.png') }}" class="img-circle pic-overlay" width="60px" 	alt="{{ member.name }}">
+
 							<p>{{ member.name }}</p>
 						</div>
 					{% endif %}

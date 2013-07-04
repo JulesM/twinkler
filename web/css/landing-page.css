@@ -365,6 +365,10 @@ strong{
 .footer-box-right{
 }
 
+#footer-left a:hover{
+	text-decoration: none;
+}
+
 footer{
 	border-top: solid 1px #d2d2d2;
 	text-align: center;

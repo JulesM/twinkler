@@ -1,42 +1,84 @@
 {% extends 'TkGroupBundle::index.html.twig' %}
 
+{% block stylesheets %}
+ {{ parent() }}
+ <link href="{{ asset('css/group-settings.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block content %}
 
 <div class="span6 offset3">
-	<div class="box">
-		<h2>Settings</h2>
-		<div>
-			<h5>Group information</h5>
 			{% block groupinformation %}
-			<div>
-				<p>Name of the group : {{ group.name }}</p>
-				{% if group.city == null %} <p>No city specified</p>
-				{% else %} <p>City : {{ group.city }}</p> {% endif %}
-				{% if group.country == null %} <p>No country specified</p>
-				{% else %} <p>Country : {{ group.country }}</p> {% endif %}
-			</div>
-			<a href="{{ path('tk_group_edit') }}">Edit information</a>
+	<div class="group-info">
+		<div class="group-header">	
+			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><a href="{{ path('tk_group_edit') }}"><i class="icon-edit" style="color:#c1cfd9"></i></a>  {{ group.name }}</h2><span>
+		</div>
+		<div class="group-mgt-button">
+				<div class="edit-group">	
+					<a class="edit-group-a" href="#">	
+						<div>
+							<i class="icon-plus-sign"></i>   
+							Add Member
+						</div>		
+					</a>				
+				</div>
+				<div class="edit-group">	
+					<a class="edit-group-a" href="#">	
+						<div>
+							<i class="icon-minus-sign"></i>   
+							Remove Member
+						</div>		
+					</a>				
+				</div>
+				<div class="edit-group">	
+					<a class="edit-group-a" href="#">	
+						<div>
+							<i class="icon-signout"></i>   
+							Leave Group
+						</div>		
+					</a>				
+				</div>
 			{% endblock %}
 		</div>
-		<div>
-			<h5>Historic</h5>
-			<p>
-				<a href="{{path('tk_expense_homepage') }}">{{ group.expenses|length }} expenses</a> //
-				<a href="{{path('tk_list_homepage') }}">{{ group.todos|length }} to-dos</a> 	// 
-				<a href="{{path('tk_list_homepage') }}">{{ group.shoppingItems|length }} shopping items</a>
-			</p>
+		<div class="subheader">	
+			<span style="display: block; height:30px; vertical-align: middle; padding-left: 10px">
+				<h3>Balance</h3>
+			<span>
 		</div>
-		<div>
-			<h5>Manage balances</h5>
-			<a class="btn" href="#"><i class="icon-envelope"></i> Send reminder to all members</a>
-			<a class="btn" href="#"><i class="icon-flag"></i> Clear expenses and settle debts</a>
+		<div style="text-align:center;">
+			<canvas id="balanceChart" width="500" height="200"></canvas>
 		</div>
-		<div>
-			<h5>Preferences</h5>
+		<div class="group-mgt-button">
+				<div class="edit-group balance-btn">	
+					<a class="edit-group-a" href="#">	
+						<div>
+							<i class="icon-money"></i>   
+							Settle Debts
+						</div>		
+					</a>				
+				</div>
+
+				<div class="edit-group balance-btn">	
+					<a class="edit-group-a" href="#">	
+						<div>
+							<i class="icon-envelope"></i>   
+							Send Reminders
+						</div>		
+					</a>				
+				</div>
+		</div>
+		<div class="subheader">	
+			<span style="display: block; height:30px; vertical-align: middle; padding-left: 10px">
+				<h3>Preferences</h3>
+			<span>
+		</div>
+		<div class="preferences">
+			<br>
 			<p>Send push notifications to the app each time an item is added [yes/no]</p>
 			<p>Send email notifications each time an item is added [yes/no]</p>
 			<p>Send monthly reminders with group summary [yes/no]</p>
-			<a href="#">Edit preferences</a>
+			<br>
+
 		</div>
 	</div>
 </div>	

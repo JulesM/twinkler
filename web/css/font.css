@@ -37,3 +37,13 @@
     font-family: "Asap-regular";
     src: url('font/asap/Asap-Regular.otf') format("opentype");
 }
+
+@font-face {
+    font-family: "Asap-bold";
+    src: url('font/asap/Asap-Bold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: "Asap-italic";
+    src: url('font/asap/Asap-Italic.otf') format("opentype");
+}

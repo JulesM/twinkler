@@ -61,10 +61,10 @@ ScaleMosaic();
 
 $(document).scroll(function() {
 
-    if( $(this).scrollTop() > 2800 ) {	
+    if( $(this).scrollTop() > jQuery('#mosaic').offset().top -100) {	
     $('#login-mosaic').fadeIn(700);
       $('#login-mosaic').css({display:'block',  position: 'fixed', left:0, top:50});
-    }else if( $(this).scrollTop() < 2400 ) {
+    }else if( $(this).scrollTop() < jQuery('#mosaic').offset().top -100) {
     $('#login-mosaic').css({display:'none',  position: 'fixed', left:0, top:50});
     }
     else{
@@ -74,15 +74,37 @@ $(document).scroll(function() {
 });
 
 
+// When the Document Object Model is ready
 $(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
-        var target = this.hash,
-        $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
+    // 'catTopPosition' is the amount of pixels #cat
+    // is from the top of the document
+    var catTopPosition1 = jQuery('#features').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#feature').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition1}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+        var catTopPosition2 = jQuery('#gettheapp').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#getappstandapp').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition2}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+        var catTopPosition3 = jQuery('#gimmemore').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#mosaic').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition3}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
     });
 });

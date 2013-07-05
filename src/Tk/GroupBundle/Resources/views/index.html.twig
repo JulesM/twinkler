@@ -15,7 +15,7 @@
 <div class="container">
 	<div class="row" style="height: 95px;">
 		<div id="add-group" class="span3">
-		  <a href="{{ path('tk_group_new') }}"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
+		  <a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
 		</div>
 		<div id="group" class="span6">
 
@@ -37,16 +37,16 @@
 		</div>
 		<div id="toolbar" class="span3">
 			<div style="position: absolute; bottom: 0;">
-				<a href="{{ path('tk_group_add_members') }}"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
+				<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
 				<div class="btn-group" style="display: inline-block">
-					<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
+					<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
 					<ul class="dropdown-menu">
 						<!-- dropdown menu links -->
 						{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
 						<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
 					</ul>
 				</div>
-				<a href="{{ path('tk_group_homepage') }}"><img src="{{ asset('img/Frame/settings.png') }}" class="img-circle img-shadow"></a>
+				<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings"><img src="{{ asset('img/Frame/settings.png') }}" class="img-circle img-shadow"></a>
 			</div>
 		</div>		
 	</div>

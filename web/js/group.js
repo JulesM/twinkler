@@ -54,7 +54,9 @@ var max=Math.max($("#balance").height(),$("#expense-timeline").height());
 
 
 
-
-
+/*-------TOOLTIPS--------*/
+    $(function () {
+        $("[rel='tooltip']").tooltip({placement: 'bottom'});
+    });
 
 

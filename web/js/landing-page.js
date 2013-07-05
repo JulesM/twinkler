@@ -64,11 +64,11 @@ $(document).scroll(function() {
     if( $(this).scrollTop() > jQuery('#mosaic').offset().top -100) {	
     $('#login-mosaic').fadeIn(700);
       $('#login-mosaic').css({display:'block',  position: 'fixed', left:0, top:50});
-    }else if( $(this).scrollTop() < jQuery('#mosaic').offset().top -100) {
-    $('#login-mosaic').css({display:'none',  position: 'fixed', left:0, top:50});
+    }else if( $(this).scrollTop() < jQuery('#mosaic').offset().top -80) {
+    $('#login-mosaic').fadeOut(400);
     }
     else{
-    $('#login-mosaic').fadeOut(400);
+    $('#login-mosaic').css({display:'none',  position: 'fixed', left:0, top:50});
     }
 
 });
@@ -98,13 +98,74 @@ $(document).ready(function(){
         return false;
     });
 
-        var catTopPosition3 = jQuery('#gimmemore').offset().top;
+        var catTopPosition3 = jQuery('#mosaic').offset().top;
     
     // When #scroll is clicked
-    jQuery('#mosaic').click(function(){
+    jQuery('#gimmemore').click(function(){
         // Scroll down to 'catTopPosition'
         jQuery('html, body').animate({scrollTop:catTopPosition3}, 'slow');
         // Stop the link from acting like a normal anchor link
         return false;
     });
+
+
+        var catTopPosition4 = jQuery('#planning').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#learn-more-planning').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition4}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+    // When #scroll is clicked
+    jQuery('#learn-more-planning-link').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition4}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+        var catTopPosition5 = jQuery('#expense').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#learn-more-expense').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition5}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+    // When #scroll is clicked
+    jQuery('#learn-more-expense-link').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition5}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+
+        var catTopPosition6 = jQuery('#payback').offset().top;
+    
+    // When #scroll is clicked
+    jQuery('#learn-more-payback').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition6}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
+    // When #scroll is clicked
+    jQuery('#learn-more-payback-link').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:catTopPosition6}, 'slow');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
 });
+
+
+
+

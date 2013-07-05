@@ -88,7 +88,7 @@ $(document).ready(function(){
         return false;
     });
 
-        var catTopPosition2 = jQuery('#gettheapp').offset().top;
+        var catTopPosition2 = jQuery('#gettheapp').offset().top-40;
     
     // When #scroll is clicked
     jQuery('#getappstandapp').click(function(){

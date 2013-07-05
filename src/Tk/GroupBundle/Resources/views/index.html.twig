@@ -1,23 +1,26 @@
 {% extends 'TkUserBundle::frame.html.twig' %}
 
-{% block stylesheets %}
- {{ parent() }}
- <link href="{{ asset('css/navbar.css') }}" rel="stylesheet" type="text/css">
-{% endblock %}
-
 {% set group = app.user.currentMember.tgroup %}
 
 {% block navbartitle %}
-	<h1>{{ group.name }}</h1>
+	<h1 style="display: inline-block">{{ group.name }}</h1>
+	<div class="dropdown" style="display: inline-block">
+	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
+		    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">                      
+			    {% for member in app.user.members %}
+			    <li><a href="{{ path('tk_group_switch_member', { 'id' : member.id, 'route' : app.request.attributes.get('_route') }) }}">{{ member.tgroup.name }}</a></li>
+			    {% endfor %}
+			</ul>
+	</div>
 {% endblock %}
 
 {% block header %}
 <div class="container">
 	<div class="row" style="height: 95px;">
-		<div id="add-group" class="span3">
+		<div id="add-group" class="span2">
 		  <a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
 		</div>
-		<div id="group" class="span6">
+		<div id="group" class="span8">
 
 				{% for member in group.members %}
 					{% if member.user %}
@@ -35,8 +38,8 @@
 				{% endfor %}
 
 		</div>
-		<div id="toolbar" class="span3">
-			<div style="position: absolute; bottom: 0;">
+		<div id="toolbar" class="span2">
+			<div style="position: absolute; bottom: 0; text-align: center; min-width: 150px;">
 				<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
 				<div class="btn-group" style="display: inline-block">
 					<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
@@ -57,7 +60,7 @@
 		<div class="row">
 			<div class="span12">
 				<div class="span2 offset4" style="text-align: center">
-					<a href="{{ path('tk_expense_homepage') }}"> <img src="{{ asset('img/Frame/wallet.png') }}" width="18px">   Expenses</a>
+					<a href="{{ path('tk_expense_homepage') }}"> <img src="{{ asset('img/Frame/wallet.png') }}" width="18px">Expenses</a>
 				</div>
 				<div class="span2" style="text-align: center">
 					<a href="{{ path('tk_list_homepage') }}"><img src="{{ asset('img/Frame/lists.png') }}" width="18px">   Lists </a>
@@ -70,7 +73,5 @@
 {% endblock %}
 
 {% block javascripts %}
-
- <script type='text/javascript' src="{{ asset('js/group.js') }}"></script>
-
+ 	<script type='text/javascript' src="{{ asset('js/group.js') }}"></script>
 {% endblock %}

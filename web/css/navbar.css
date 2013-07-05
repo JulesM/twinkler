@@ -1,3 +1,5 @@
+/* --- Group part --- */
+
 #group h1{
 	color: rgba(250,250,250,0.8);;
 }
@@ -6,8 +8,38 @@
 	border: solid 4px rgba(250,250,250,0.6);
 }
 
-#group-name h1{
+#group-name{
 	text-align: center;
 	font-weight: bold;
 	color: rgba(250,250,250,0.6);
+}
+
+/* --- Account settings --- */
+
+.account-settings{
+	text-align: right;
+}
+
+.account-settings .dropdown-menu{
+	text-align: center;
+	left: -150px;
+}
+
+@media only screen and (max-width: 767px) {
+	#group,
+	#toolbar,
+	#account-settings-big{display:none;}
+}
+@media only screen and (min-width: 768px) {
+	#account-settings-small{display: none;}
+}
+
+#account-settings-small{
+	margin-right: 10px;
+}
+
+/* --- toolbar --- */
+
+#toolbar .dropdown-menu{
+	left: -200px;
 }

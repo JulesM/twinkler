@@ -392,9 +392,9 @@ footer li{
 	}
 
 	#gettheapp img{
-	margin-top: 50px;
-	margin-right: 10px;
-}
+		margin-top: 50px;
+		margin-right: 10px;
+	}
 
 }
 
@@ -406,35 +406,7 @@ footer li{
 
 
 /*---Newsletter Modal---*/
-#subscribe-modal{
-	width: 80%;
-	margin-left:10%;
-	padding-top: 15%;
-	text-align: center;
-	font-size: 16px;
-}
 
-#subscribe-modal form{
-	margin-top: 5%;
-}
 
-.modal{
-	margin-top: 60px;
-	background-image: url(' ../img/landing-page/modal-bck.jpg');
-	background-size: cover;
-	color:#242728;
-  	text-shadow:#FFFFFF 0 1px 5px;
-  	padding-top: 10px;
-}
-
-.modal-backdrop{
-	background-color: #333333;
-	opacity: 1;
-	
-}
-
-.modal-backdrop fade in{
-	opacity: 1;
-}
 
 

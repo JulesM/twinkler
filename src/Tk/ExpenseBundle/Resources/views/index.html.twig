@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
  {{ parent() }}
+ <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
  <link href="{{ asset('css/expenses.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
@@ -10,9 +11,9 @@
 {% block content %}
 
 	<div class="row">	
-		<div id="expense-timeline" class="span8">
+		<div id="expense-timeline" class="span8 flat-container">
 			{% block expenses %}
-				<div class="expense-header">										
+				<div class="expense-header flat-header">										
 					<div id="expense-dropdown" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							<i class="icon-th-list"></i>
@@ -69,9 +70,8 @@
 			</table>
 			{% endblock expenses %}
 		</div>
-		<div id="balance" class="span4">
-			<div class="balance-box">
-				<div class="expense-header"><div id="expense-title">
+		<div id="balance" class="span4 flat-container">
+				<div class="expense-header flat-header"><div id="expense-title">
 				<h2>Balance</h2>
 				</div></div>
 				<div>
@@ -85,7 +85,6 @@
 						<p>{{ debt[0] }} gives {{ debt[1] }}{{ currency }} to {{debt[2] }}</p>
 					{% endfor %}
 				</div>
-			</div>
 		</div>
 	</div>
 

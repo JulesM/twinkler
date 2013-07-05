@@ -2,8 +2,8 @@
 
 {% block stylesheets %}
  {{ parent() }}
+ <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
  <link href="{{ asset('css/user-info.css') }}" rel="stylesheet" type="text/css">
- <link href="{{ asset('css/switch.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block header %}
@@ -38,19 +38,19 @@
 
 {% block content %}
 	<div class="row">
-		<div id="user-info" class="span4 offset1">
-			<div class="user-header">
+		<div id="user-info" class="span4 offset1 flat-container">
+			<div class="flat-header">
 				<h3>Your information</h3>
 			</div>
 			<div id="profile-stats">
 				<div class="info-icon">
-					<i class="icon-thumbs-up-alt"></i>
+					<i class="icon-thumbs-up-alt icon-large"></i>
 				</div>
 				<div class="info-text" style="margin-right: 2%;">
 					{{ app.user.members|length }} Groups
 				</div>
 				<div class="info-icon">
-					<i class="icon-smile"></i>
+					<i class="icon-smile icon-large"></i>
 				</div>
 				<div class="info-text">
 					{{ app.user.friends|length }} Friends
@@ -63,7 +63,7 @@
 
 					 <div class="profile-info">
 					 	<div class="info-icon">
-					 		<i class="icon-user"></i>
+					 		<i class="icon-user icon-large"></i>
 					 	</div>
 					 	<div class="info-text">
 					 		<p>{{ app.user.firstname }} {{ app.user.lastname }} </p>
@@ -73,7 +73,7 @@
 				{% else %}
 					<div class="profile-info">
 					 	<div class="info-icon">
-					 		<i class="icon-user"></i>
+					 		<i class="icon-user icon-large"></i>
 					 	</div>
 					 	<div class="info-text">
 					 		<p> Edit your Name </p>
@@ -82,7 +82,7 @@
 				{% endif %}
 					<div class="profile-info">
 					 	<div class="info-icon">
-					 		<i class="icon-envelope"></i>
+					 		<i class="icon-envelope icon-large"></i>
 					 	</div>
 					 	<div class="info-text">
 					 		<p> {{ app.user.email }}</p>
@@ -91,7 +91,7 @@
 
 					<div class="profile-info">
 					 	<div class="info-icon">
-					 		<i class="icon-mobile-phone"></i>
+					 		<i class="icon-mobile-phone icon-large"></i>
 					 	</div>
 					 	<div class="info-text">
 					 		<p> +33 (0) 6 98 90 78 51</p>
@@ -101,7 +101,7 @@
 				{% if app.user.nationality != null %}
 					<div class="profile-info">
 					 	<div class="info-icon">
-					 		<i class="icon-flag"></i>
+					 		<i class="icon-flag icon-large"></i>
 					 	</div>
 					 	<div class="info-text">
 					 		<p> {{ app.user.nationality }} </p>
@@ -110,7 +110,7 @@
 				{% else %}
 					<div class="profile-info">
 						<div class="info-icon">
-					 		<i class="icon-flag"></i>
+					 		<i class="icon-flag icon-large"></i>
 					 	</div>
 					 	<div class="info-text"> 
 					 		<p>Add your Nationality </p>
@@ -120,7 +120,7 @@
 				{% if app.user.city != null %}
 					<div class="profile-info">
 						<div class="info-icon">
-					 		<i class="icon-map-marker"></i>
+					 		<i class="icon-map-marker icon-large"></i>
 					 	</div>
 					 	<div class="info-text"> 
 					 		<p>{{ app.user.city }}</p>
@@ -129,7 +129,7 @@
 				{% else %}
 					<div class="profile-info">
 						<div class="info-icon">
-					 		<i class="icon-map-marker"></i>
+					 		<i class="icon-map-marker icon-large"></i>
 					 	</div>
 					 	<div class="info-text"> 
 							<p>Add your current city</p>
@@ -139,10 +139,10 @@
 			</div>
 			
 			
-			<div class="edit-info">	
+			<div class="edit-info flat-btn flat-pk flat-large">	
 				<a class="edit-info-a" href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">	
 					<div>
-						<i class="icon-edit"></i>
+						<i class="icon-edit icon-large"></i>
 						Edit information
 					</div>		
 				</a>				
@@ -152,39 +152,57 @@
 		</div>
 
 		<div class="span6">
-			<div id="group-summary">
-				<div class="user-header">
-					<h3>Your groups</h3>
+			<div id="group-summary" class="flat-container">
+				<div class="flat-header">
+					<h3>Your Groups</h3>
 				</div>
 				{% for member in app.user.members %}
 					<div id="group-box">
-						<div class="row">
-							<div class="span2">
-								<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-									<strong>{{ member.tgroup.name }}</strong>
-								</a>
-								<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
-							</div>
-							<div class="span1">
-								<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
-									<div>Expenses</div>
-								</a>
-							</div>
-							<div class="span1">
-								<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
-									<div>Lists</div>
-								</a>
-							</div>
-							<div class="span2" style="text-align: left">
-								<p>Your balance: 
-									{% if balances[member.tgroup.id] >= 0 %}
-										<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
-									{% else %}
-										<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
-									{% endif %}
-								</p>
-							</div>
-						</div>
+						<div class="accordion" id="accordion2">
+						  <div class="accordion-group">
+						    <div class="accordion-heading">
+								      	<div class="row">
+												<div class="span2">
+													<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block">
+														<img id="accordion-arrow" src="{{ asset('img/Frame/arrow.png') }}" ></a>
+									    			</a>
+
+									    			<div class="accordion-group-title" style="display: inline-block">
+														<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+															<strong>{{ member.tgroup.name }}</strong>
+														</a>
+														<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
+									    			</div>				
+												</div>
+												<div class="span1">
+													<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
+														<div class="flat-btn flat-pk flat-small">Expenses</div>
+													</a>
+												</div>
+												<div class="span1">
+													<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
+														<div class="flat-btn flat-pk flat-small">Lists</div>
+													</a>
+												</div>
+												<div class="span2" style="text-align: left">
+													<p>Your balance: 
+														{% if balances[member.tgroup.id] >= 0 %}
+															<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+														{% else %}
+															<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+														{% endif %}
+													</p>
+												</div>
+								      	</div>
+
+						    </div>
+						    <div id="accordion-{{ member.id }}" class="accordion-body collapse in">
+						      <div class="accordion-inner">
+						        Anim pariatur cliche...
+						      </div>
+						    </div>
+						  </div>
+						</div>														
 					</div>
 				{% endfor %}
 				<div>
@@ -192,6 +210,12 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+ <script type='text/javascript' src="{{ asset('js/user.js') }}"></script>
+
+
 {% endblock %}

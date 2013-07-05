@@ -12,7 +12,7 @@
 				<td style="text-align: right; width: 80px">	
 
 					<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
-					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><div style="text-align: center;display: inline-block; width: 50px; height: 22px; background-color:#a8bd44; margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
+					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><div class="flat-btn flat-gn flat-tiny" style="margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
 				</td>	
 			</tr>
 		{% endfor %}

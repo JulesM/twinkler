@@ -2,15 +2,16 @@
 
 {% block stylesheets %}
  {{ parent() }}
+ <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
  <link href="{{ asset('css/lists.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}
 
 	<div class="row" style="margin-top:30px; margin-bottom: 30px;">
-		<div class="span6">
+		<div class="span6 flat-container">
 			<div class="box" id="to-dos">
-				<div class="list-header">
+				<div class="flat-header">
 					<div id="list-title">
 						<h2>To-dos</h2>
 					</div>
@@ -19,9 +20,9 @@
 				{% include 'TkListBundle:Todos:todos.html.twig' %}
 			</div>
 		</div>
-		<div class="span6">
+		<div class="span6 flat-container">
 			<div class="box" id="shopping-list">
-				<div class="list-header">
+				<div class="flat-header">
 					<div id="list-title">
 						<h2>Shopping-lists</h2>
 					</div>

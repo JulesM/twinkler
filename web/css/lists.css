@@ -2,20 +2,15 @@
 
 /* To-dos */
 #to-dos, #shopping-list{
-	background-color: white;
-	font-family: "Asap-regular";
 	position: relative;
 }
 
 .list-header{
-	background-color: #2e3641;
-	color: #e9f0f4;
 	width: 100%;
 	height: 50px;
 }
 
 .list-header a{
-	color: #e9f0f4;
 	vertical-align: middle;
 }
 
@@ -28,7 +23,6 @@
 	display: inline-block;
 	height: 100%;
 	vertical-align: middle;
-	border-left: 1px solid #3a414d;
 	padding-left: 12px;
 }
 

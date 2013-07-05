@@ -2,6 +2,7 @@
 
 {% block stylesheets %}
  {{ parent() }}
+ <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
  <link href="{{ asset('css/group-settings.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
@@ -9,12 +10,12 @@
 
 <div class="span6 offset3">
 			{% block groupinformation %}
-	<div class="group-info">
-		<div class="group-header">	
+	<div class="group-info flat-container">
+		<div class="group-header flat-header">	
 			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><a href="{{ path('tk_group_edit') }}"><i class="icon-edit" style="color:#c1cfd9"></i></a>  {{ group.name }}</h2><span>
 		</div>
 		<div class="group-mgt-button">
-				<div class="edit-group">	
+				<div class="edit-group flat-btn flat-pk flat-large">	
 					<a class="edit-group-a" href="#">	
 						<div>
 							<i class="icon-plus-sign"></i>   
@@ -22,7 +23,7 @@
 						</div>		
 					</a>				
 				</div>
-				<div class="edit-group">	
+				<div class="edit-group flat-btn flat-pk flat-large">	
 					<a class="edit-group-a" href="#">	
 						<div>
 							<i class="icon-minus-sign"></i>   
@@ -30,7 +31,7 @@
 						</div>		
 					</a>				
 				</div>
-				<div class="edit-group">	
+				<div class="edit-group flat-btn flat-pk flat-large">	
 					<a class="edit-group-a" href="#">	
 						<div>
 							<i class="icon-signout"></i>   
@@ -49,7 +50,7 @@
 			<canvas id="balanceChart" width="500" height="200"></canvas>
 		</div>
 		<div class="group-mgt-button">
-				<div class="edit-group balance-btn">	
+				<div class="edit-group flat-btn flat-gn flat-large">	
 					<a class="edit-group-a" href="#">	
 						<div>
 							<i class="icon-money"></i>   
@@ -58,7 +59,7 @@
 					</a>				
 				</div>
 
-				<div class="edit-group balance-btn">	
+				<div class="edit-group flat-btn flat-gn flat-large">	
 					<a class="edit-group-a" href="#">	
 						<div>
 							<i class="icon-envelope"></i>   

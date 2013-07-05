@@ -1,25 +1,16 @@
 /* --- CSS of expense part of GroupBundle only--- */
 #expense-timeline{
-	background-color: white;
 	margin: 20px 10px;
 	width: 60%;
-	font-family: "Asap-regular";
 	position: relative;
 }
 
-.expense-header{
-	background-color: #2e3641;
-	color: #e9f0f4;
-	width: 100%;
-	height: 50px;
-}
-
-.expense-header a{
+.flat-header a{
 	color: #e9f0f4;
 	vertical-align: middle;
 }
 
-.expense-header a:hover{
+.flat-header a:hover{
 	color: #c1cfd9;
 	text-decoration: none;
 }
@@ -40,7 +31,6 @@
 	display: inline-block;
 	height: 100%;
 	vertical-align: middle;
-	border-left: 1px solid #3a414d;
 	padding-left: 12px;
 }
 
@@ -96,12 +86,10 @@
 /*---------BALANCE----------*/
 #balance{
 	margin: 20px 0px;
-	background-color: white;
 }
 
 
 .balance-box h2{
-	font-family: "Asap-regular";
 	font-size: 22px;
 	margin: 0px;
 	vertical-align: middle;

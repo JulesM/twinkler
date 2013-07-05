@@ -100,9 +100,7 @@ strong{
 }
 
 @media only screen and (max-width: 767px) {
-	#section1-big,
-	.section1-collapse{display: none;
-	}
+	#section1-big{display: none;}
 	#section1{ padding-bottom: 80px;}
 }
 
@@ -147,7 +145,7 @@ strong{
 }
 
 #core-features p{
-	width: 250px;
+	max-width: 250px;
 	margin-left: auto;
 	margin-right: auto;
 	color:#B7B7B7;

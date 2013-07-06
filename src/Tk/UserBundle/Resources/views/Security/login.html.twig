@@ -30,4 +30,21 @@
 </form>
 
 <p>Not yet a user ? <a href="{{ path('fos_user_registration_register') }}">Register here</a></p>
+<a href="#forgotPasswordModal" data-toggle="modal">Forgot your password ?</a>
+
+<!-- change password modal -->
+<div id="forgotPasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Enter your email to get a new password</h3>
+    </div>
+    <div>
+
+        {% render(controller('FOSUserBundle:Resetting:request')) %}
+
+    </div>
+</div>
+
+
+
 {% endblock fos_user_content %}

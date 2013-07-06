@@ -459,7 +459,7 @@ class TGroup
     /**
      * Get array_members
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return array
      */
     public function getArrayMembers()
     {
@@ -471,6 +471,23 @@ class TGroup
         }
 
         return $array_members;
+    }
+
+    /**
+     * Get array_balances
+     *
+     * @return array
+     */
+    public function getArrayBalances()
+    {
+        $collection_members = $this->members;
+
+        $array_balances = array();
+        foreach ($collection_members as $member) {
+            $array_balances[] = $member->getBalance();
+        }
+
+        return $array_balances;
     }
 
     /**

@@ -1,2 +1,5 @@
-<div di="balanceChart-data" style="display: none;">
-</div>
+<script>
+	var members={{ app.user.currentMember.tgroup.arrayMembers|json_encode|raw }};
+	var balances={{ app.user.currentMember.tgroup.arrayBalances|json_encode|raw }};		
+</script>
+

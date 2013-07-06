@@ -9,7 +9,11 @@
 {% set currency = app.user.currentMember.tgroup.currency.symbol %}
 
 {% block content %}
-
+			<script>
+				var members={{ app.user.currentMember.tgroup.arrayMembers|json_encode|raw }};
+				var balances={{ app.user.currentMember.tgroup.arrayBalances|json_encode|raw }};		
+			</script>
+			
 	<div class="row">	
 		<div id="expense-timeline" class="span8 flat-container">
 			{% block expenses %}

@@ -8,6 +8,12 @@
 
 {% block content %}
 
+			<script>
+				var members={{ app.user.currentMember.tgroup.arrayMembers|json_encode|raw }};
+				var balances={{ app.user.currentMember.tgroup.arrayBalances|json_encode|raw }};		
+			</script>
+
+
 <div class="span6 offset3">
 			{% block groupinformation %}
 	<div class="group-info flat-container">
@@ -47,6 +53,8 @@
 			<span>
 		</div>
 		<div style="text-align:center;">
+
+
 			<canvas id="balanceChart" width="500" height="200"></canvas>
 		</div>
 		<div class="group-mgt-button">

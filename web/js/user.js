@@ -3,7 +3,7 @@
 var tracker = 1
 $("#accordion-arrow").click(function(){ 
 
-            if(tracker==2){
+            if(tracker===2){
                 $(this).rotate({animateTo:90});
                 tracker =1;
             }else{
@@ -13,3 +13,5 @@ $("#accordion-arrow").click(function(){
     
    
 });
+
+$(".accordion-group-title").accordion({collapsible: true, active:false});

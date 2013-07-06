@@ -2,9 +2,14 @@
 
 {% block body %}
 
+<div>
+    <a href="{{ path('tk_welcome_homepage') }}">
+        <img src="{{ asset('img/logo/twinkler_logo.png') }}" width="200px" alt="twinkler logo">
+    </a>
+</div>
 
 <div id="user-layout" class="row">
-    <div class="span6 offset3">
+    <div class="span8 offset2" style="text-align: center">
         <h5>
             {% if app.session.get('invitation_id') != null %} Hello {{ app.session.get('invitation_member') }},</br> in order to join the group you need to login/register to Twinkler {% endif %}
         </h5>

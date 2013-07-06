@@ -8,6 +8,8 @@
     <div>{{ error|trans }}</div>
 {% endif %}
 
+<div>
+
 <h1>Login to Twinkler</h1>
 <p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
 <p>or using your email</p>
@@ -15,15 +17,15 @@
 <form action="{{ path("fos_user_security_check") }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
     <div>
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+        <input type="text" id="username" placeholder="username or email" name="_username" value="{{ last_username }}" required="required" />
+    </div>
+    <div>
+        <input type="password" id="password" placeholder="password" name="_password" required="required" />
+    </div>
+    <div>
+        <input style="display:inline-block; vertical-align: top " type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label  style="display:inline-block" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
     </div>
     
     <input type="submit" class="btn" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
@@ -32,9 +34,11 @@
 <p>Not yet a user ? <a href="{{ path('fos_user_registration_register') }}">Register here</a></p>
 <a href="#forgotPasswordModal" data-toggle="modal">Forgot your password ?</a>
 
+</div>
+
 <!-- change password modal -->
 <div id="forgotPasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
+    <div>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Enter your email to get a new password</h3>
     </div>

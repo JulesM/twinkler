@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="span12">
 				<div class="user-name">
-					{{app.user}}
+					{{ app.user|upper}}
 				</div>
 			</div>
 		</div>
@@ -80,62 +80,14 @@
 					 	</div>
 					 </div>
 				{% endif %}
-					<div class="profile-info">
-					 	<div class="info-icon">
-					 		<i class="icon-envelope icon-large"></i>
-					 	</div>
-					 	<div class="info-text">
-					 		<p> {{ app.user.email }}</p>
-					 	</div>
-					 </div>
-
-					<div class="profile-info">
-					 	<div class="info-icon">
-					 		<i class="icon-mobile-phone icon-large"></i>
-					 	</div>
-					 	<div class="info-text">
-					 		<p> +33 (0) 6 98 90 78 51</p>
-					 	</div>
-					</div>
-
-				{% if app.user.nationality != null %}
-					<div class="profile-info">
-					 	<div class="info-icon">
-					 		<i class="icon-flag icon-large"></i>
-					 	</div>
-					 	<div class="info-text">
-					 		<p> {{ app.user.nationality }} </p>
-					 	</div>
-					 </div>
-				{% else %}
-					<div class="profile-info">
-						<div class="info-icon">
-					 		<i class="icon-flag icon-large"></i>
-					 	</div>
-					 	<div class="info-text"> 
-					 		<p>Add your Nationality </p>
-					 	</div>
-					</div>
-				{% endif %}
-				{% if app.user.city != null %}
-					<div class="profile-info">
-						<div class="info-icon">
-					 		<i class="icon-map-marker icon-large"></i>
-					 	</div>
-					 	<div class="info-text"> 
-					 		<p>{{ app.user.city }}</p>
-					 	</div>
-					</div>						 		
-				{% else %}
-					<div class="profile-info">
-						<div class="info-icon">
-					 		<i class="icon-map-marker icon-large"></i>
-					 	</div>
-					 	<div class="info-text"> 
-							<p>Add your current city</p>
-					 	</div>
-					</div>	
-				{% endif %}
+				<div class="profile-info">
+				 	<div class="info-icon">
+				 		<i class="icon-envelope icon-large"></i>
+				 	</div>
+				 	<div class="info-text">
+				 		<p> {{ app.user.email }}</p>
+				 	</div>
+				 </div>
 			</div>
 			
 			
@@ -169,7 +121,7 @@
 
 						    			<div class="accordion-group-title" style="display: inline-block">
 											<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-												<strong>{{ member.tgroup.name }}</strong>
+												<strong>{{ member.tgroup.name|capitalize }}</strong>
 											</a>
 											<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
 						    			</div>				

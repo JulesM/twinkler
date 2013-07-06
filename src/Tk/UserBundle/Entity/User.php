@@ -51,27 +51,6 @@ class User extends BaseUser
     protected $lastname;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nationality", type="string", length=255, nullable=true)
-     */
-    protected $nationality;
-
-        /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     */
-    protected $city;
-
-        /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255, nullable=true)
-     */
-    protected $country;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\ProfilePicture", cascade={"all"})
      */
     protected $picture;
@@ -166,75 +145,6 @@ class User extends BaseUser
         }else{
             return 'no information';
         }
-    }
-
-    /**
-     * Set nationality
-     *
-     * @param string $nationality
-     * @return User
-     */
-    public function setNationality($nationality)
-    {
-        $this->nationality = $nationality;
-
-        return $this;
-    }
-
-    /**
-     * Get nationality
-     *
-     * @return string 
-     */
-    public function getNationality()
-    {
-        return $this->nationality;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return User
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     * @return User
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string 
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 
     /**

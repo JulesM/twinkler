@@ -139,6 +139,7 @@
 
 
 /*----------ACCORDION----------*/
+
 .accordion-group{
   border:none;
   margin-bottom:2px;
@@ -151,6 +152,7 @@
 
 .accordion-toggle{
 	color: rgba(245,103,99,1);
+	vertical-align: top;
 }
 
 .accordion-toggle:hover{	
@@ -158,14 +160,21 @@
 	text-decoration: none;
 }
 
+.accordion-heading  .span1,.span2{
+	margin-top: 30px;
+}
+
+.accordion-group-title{
+	width: 120px;
+}
 
 .accordion-group-title  a{
 	color: rgba(245,103,99,1);
 	font-size: 16px;
-	
 }
 
 .accordion-group-title a:hover{	
 	color: #f07971;
 	text-decoration: none;
 }
+

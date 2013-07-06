@@ -161,44 +161,60 @@
 						<div class="accordion" id="accordion2">
 						  <div class="accordion-group">
 						    <div class="accordion-heading">
-								      	<div class="row">
-												<div class="span2">
-													<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block">
-														<img id="accordion-arrow" src="{{ asset('img/Frame/arrow.png') }}" ></a>
-									    			</a>
+						      	<div class="row">
+									<div class="span2">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block">
+											<img id="accordion-arrow" src="{{ asset('img/Frame/arrow.png') }}" ></a>
+						    			</a>
 
-									    			<div class="accordion-group-title" style="display: inline-block">
-														<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-															<strong>{{ member.tgroup.name }}</strong>
-														</a>
-														<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
-									    			</div>				
-												</div>
-												<div class="span1">
-													<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
-														<div class="flat-btn flat-pk flat-small">Expenses</div>
-													</a>
-												</div>
-												<div class="span1">
-													<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
-														<div class="flat-btn flat-pk flat-small">Lists</div>
-													</a>
-												</div>
-												<div class="span2" style="text-align: left">
-													<p>Your balance: 
-														{% if balances[member.tgroup.id] >= 0 %}
-															<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
-														{% else %}
-															<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
-														{% endif %}
-													</p>
-												</div>
-								      	</div>
-
+						    			<div class="accordion-group-title" style="display: inline-block">
+											<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+												<strong>{{ member.tgroup.name }}</strong>
+											</a>
+											<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
+						    			</div>				
+									</div>
+									<div class="span1">
+										<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
+											<div class="flat-btn flat-pk flat-small">Expenses</div>
+										</a>
+									</div>
+									<div class="span1">
+										<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
+											<div class="flat-btn flat-pk flat-small">Lists</div>
+										</a>
+									</div>
+									<div class="span2" style="text-align: left">
+										<p>Your balance: 
+											{% if balances[member.tgroup.id] >= 0 %}
+												<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+											{% else %}
+												<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+											{% endif %}
+										</p>
+									</div>
+								</div>
 						    </div>
 						    <div id="accordion-{{ member.id }}" class="accordion-body collapse out">
 						      <div class="accordion-inner">
-						        Anim pariatur cliche...
+						        <div>
+								{% for m in member.tgroup.members %}
+									<div style="display: inline-block">
+										{% if m.user %}
+											<div class="member">
+												<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+												<p>{{ m.name }}</p>
+											</div> 
+										{% else %}
+											<div class="member">
+												<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+
+												<p>{{ m.name }}</p>
+											</div>
+										{% endif %}
+									</div>
+								{% endfor %}
+								</div>
 						      </div>
 						    </div>
 						  </div>

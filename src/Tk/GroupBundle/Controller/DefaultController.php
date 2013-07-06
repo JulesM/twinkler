@@ -143,7 +143,7 @@ class DefaultController extends Controller
             $em->persist($member);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tk_group_add_members'));
+            return $this->redirect($this->generateUrl('tk_group_homepage'));
         }}
 
         return $this->render('TkGroupBundle:Default:addMembers.html.twig', array(
@@ -183,7 +183,7 @@ class DefaultController extends Controller
                     ;
             $this->get('mailer')->send($message);
 
-            return $this->redirect($this->generateUrl('tk_group_add_members_success'));
+            return $this->redirect($this->generateUrl('tk_group_homepage'));
         }}
 
         return $this->render('TkGroupBundle:Default:sendEmailForm.html.twig', array(

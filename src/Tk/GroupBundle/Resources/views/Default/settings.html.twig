@@ -11,38 +11,57 @@
 {% include 'TkGroupBundle:Default:graph.html.twig' %}
 
 <div class="span6 offset3">
-			{% block groupinformation %}
 	<div class="group-info flat-container">
 		<div class="group-header flat-header">	
 			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><a href="{{ path('tk_group_edit') }}"><i class="icon-edit" style="color:#c1cfd9"></i></a>  {{ group.name }}</h2><span>
 		</div>
 		<div class="group-mgt-button">
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a" href="#">	
-						<div>
-							<i class="icon-plus-sign"></i>   
-							Add Member
-						</div>		
-					</a>				
-				</div>
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a" href="#">	
-						<div>
-							<i class="icon-minus-sign"></i>   
-							Remove Member
-						</div>		
-					</a>				
-				</div>
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a" href="#">	
-						<div>
-							<i class="icon-signout"></i>   
-							Leave Group
-						</div>		
-					</a>				
-				</div>
-			{% endblock %}
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a" href="#">	
+					<div>
+						<i class="icon-plus-sign"></i>   
+						Add Member
+					</div>		
+				</a>				
+			</div>
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a" href="#">	
+					<div>
+						<i class="icon-plus-sign"></i>   
+						Send invitations
+					</div>		
+				</a>				
+			</div>
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a" href="#">	
+					<div>
+						<i class="icon-minus-sign"></i>   
+						Remove Member
+					</div>		
+				</a>				
+			</div>
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a" href="#">	
+					<div>
+						<i class="icon-signout"></i>   
+						Leave Group
+					</div>		
+				</a>				
+			</div>
 		</div>
+
+		<div>
+			{% render(controller('TkGroupBundle:Default:addMembers')) %}
+		</div>
+
+		<div>
+			{% include 'TkGroupBundle:Default:inviteUser.html.twig' %}
+		</div>
+
+		<div>
+			{% include 'TkGroupBundle:Default:removeMembers.html.twig' %}
+		</div>
+
 		<div class="subheader">	
 			<span style="display: block; height:30px; vertical-align: middle; padding-left: 10px">
 				<h3>Balance</h3>

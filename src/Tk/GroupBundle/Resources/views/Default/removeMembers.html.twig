@@ -1,0 +1,28 @@
+<div class="well">
+<h5>Remove members</h5>
+
+<div>
+	{% for member in app.user.currentMember.tgroup.members %}
+
+	<div style="display: inline-block">
+		{% if member.user %}
+			<div class="member">
+				<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+				<p>{{ member.name }}</p>
+			</div> 
+		{% else %}
+			<div class="member">
+				<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+
+				<p>{{ member.name }}</p>
+			</div>
+		{% endif %}
+		<p><a href="">remove</a></p>
+	</div>
+	{% endfor %}
+
+</div>
+
+<a class="btn pull-right" href="{{ path('tk_group_homepage') }}">Hide</a>
+
+</div>

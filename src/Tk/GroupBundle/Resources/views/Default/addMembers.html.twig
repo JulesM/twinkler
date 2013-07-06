@@ -1,37 +1,18 @@
-{% extends 'TkGroupBundle::index.html.twig' %}
+<div class="well">
+	<h5 style="display: inline-block; margin-right: 20px;">Add a member</h5>
+	<div style="display: inline-block;">
+		<form action="{{ path('tk_group_add_members') }}" method="post" {{ form_enctype(form) }}>
+		    {{ form_errors(form) }}
 
-{% block content %}
+		    {{ form_errors(form.name) }}
+		    {{ form_widget(form.name, 
+	            { 'attr': { 'placeholder' : 'Enter his name'}}) 
+	        }}
 
-	<div class="span6 offset3">
-		<div class="box">
-			<h3>Add Members to your Group <small>{{ app.user.currentMember.tgroup.name }}</small></h3>
-
-			<h5>Current Members</h5>
-			{% for member in app.user.currentMember.tgroup.members %}
-				<p>{{ member.name }} 
-					{% if member.user != null %} ( {{ member.user.fullname }} )
-					{% else %} ( virtual member )
-					{% endif %}
-				</p>
-			{% endfor %}
-			
-			<div class="well">
-				{% block invite %}
-					<h5>Add a member</h5>
-					<form action="{{ path('tk_group_add_members') }}" method="post" {{ form_enctype(form) }}>
-					    {{ form_errors(form) }}
-
-					    {{ form_row(form.name) }}
-
-					    {{ form_rest(form) }}
-
-				    	<input type="submit" />
-					</form>
-					<a href="{{ path('tk_group_add_members_success') }}">Validate and continue</a>
-				{% endblock %}
-			</div>
-
-		</div>
+		    {{ form_rest(form) }}
+	    	<input type="submit" value="Add" class="btn btn-success" style="vertical-align: top"/>
+	    	<a class="btn" style="vertical-align: top" href="{{ path('tk_group_homepage') }}">Done</a>
+		</form>
 	</div>
+</div>
 
-{% endblock %}

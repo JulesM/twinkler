@@ -1,14 +1,9 @@
-{% extends 'TkGroupBundle:Default:addMembers.html.twig' %}
-
-{% block invite %}
 {% set group = app.user.currentMember.tgroup %}
 	
-	<h5>Do you want to invite friends to join your group on Twinkler ?</h5>
-	<p>Send and email or an inbox</p>
+<div class="well">
+	<h5>Invite your friends to join your group on Twinkler !</h5>
 	{% render controller('TkGroupBundle:Default:sendInvitationEmail') %}	
-	<p>or</p>
-	<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
-	<p>or</p>
-	<a class="btn" href="{{ path('tk_group_homepage') }}">Skip or done</a><small> you can do it later</small>
-
-{% endblock %}
+	<span>or</span>
+	<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Inbox</a>
+	<a class="btn pull-right" href="{{ path('tk_group_homepage') }}">Hide</a>
+</div>	

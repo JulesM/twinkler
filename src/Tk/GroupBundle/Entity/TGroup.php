@@ -457,6 +457,23 @@ class TGroup
     }
 
     /**
+     * Get array_members
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArrayMembers()
+    {
+        $collection_members = $this->members;
+
+        $array_members = array();
+        foreach ($collection_members as $member) {
+            $array_members[] = $member->getName();
+        }
+
+        return $array_members;
+    }
+
+    /**
      * Set currency
      *
      * @param \Tk\GroupBundle\Entity\Currency $currency

@@ -19,9 +19,9 @@
 					<li id="gimmemore" class="header-collapse"><a href="{{ path('tk_welcome_homepage') }}#mosaic">More</a></li>
 					<li class="header-collapse"><a>|</a></li>
 					<li>
-						<a href="#loginModal" role="button" data-toggle="modal">Login</a> 
+						<a href="{{ path('fos_user_security_login')}}" role="button" data-toggle="modal">Login</a> 
 						or
-						<a href="#registerModal" role="button" data-toggle="modal">Register</a>
+						<a href="{{ path('fos_user_registration_register')}}" role="button" data-toggle="modal">Register</a>
 					</li>
 				</ul>	
 			</div>
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 
-				<!-- SAMLL screens only (<768px) -->
+				<!-- SMALL screens only (<768px) -->
 				<div id="section1-small">
 		  			<div class="span12" id="catchphrase">
 					    <h1>Sharing made easy</h1>
@@ -298,8 +298,6 @@
 
 	<!-- Modal -->
 	{% include 'TkWelcomeBundle:Subscribe:subscribeModal.html.twig' %}
-	{% include 'TkWelcomeBundle:Login:loginModal.html.twig' %}
-	{% include 'TkWelcomeBundle:Login:registerModal.html.twig' %}
 
 	{% endblock content %}
 

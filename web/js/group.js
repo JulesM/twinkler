@@ -74,3 +74,7 @@ var max=Math.max($("#balance").height(),$("#expense-timeline").height());
     });
 
 
+/*-------Accordion--------*/
+
+
+

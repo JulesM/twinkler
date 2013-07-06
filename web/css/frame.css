@@ -143,9 +143,8 @@ header{
 
 /*-----FRAME-----*/
 
-.frame{
+.frame{	
 	background-image: url(' ../img/frame/LinenBackgroundPattern.png');
-	opacity: 1;
 }
 
 .frame .row{

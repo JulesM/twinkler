@@ -6,7 +6,7 @@
 	<tbody>
 		{% for todo in app.user.currentMember.tgroup.activeTodos %}
 			<tr>
-				<td id="task-name">{{ todo.name }}{{todo.active}}</td>
+				<td id="task-name">{{ todo.name }}</td>
 				<td>{% if todo.owner == null %} <span style="color: #9eb2c0;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
 				<td id="task-date">added on {{ todo.date|date('d/m')}}</td>
 				<td style="text-align: right; width: 80px">	
@@ -19,7 +19,7 @@
 	
 		{% for todo in app.user.currentMember.tgroup.inactiveTodos %}
 			<tr style="background-color: white; color: #e4ebf0;text-decoration: line-through;">
-				<td>{{ todo.name }}{{todo.active}}</td>
+				<td>{{ todo.name }}</td>
 				<td>{% if todo.owner == null %} <span style="color: #e4ebf0;text-decoration: line-through;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
 				<td>added on {{ todo.date|date('d/m')}}</td>
 				<td style="text-align: center">

@@ -12,9 +12,9 @@ class Expenses {
 		$this->em = $em;
 	}
 
-	public function getAllExpenses($member, $group)
+	public function getAllExpenses($member)
     {
-    	$all_expenses_col = $group->getExpenses();
+    	$all_expenses_col = $member->getTGroup()->getExpenses();
         $all_expenses = array();
 
     	foreach($all_expenses_col as $expense){
@@ -24,9 +24,9 @@ class Expenses {
     	return $all_expenses;
     }
 
-    public function getMyExpenses($member, $group)
+    public function getMyExpenses($member)
     {
-        $all_expenses = $group->getExpenses();
+        $all_expenses = $member->getTGroup()->getExpenses();
         $my_expenses = array();
 
         foreach($all_expenses as $expense){
@@ -38,9 +38,9 @@ class Expenses {
         return $my_expenses;
     }
     
-    public function getOtherExpenses($member, $group)
+    public function getOtherExpenses($member)
     {
-    	$all_expenses = $group->getExpenses();
+    	$all_expenses = $member->getTGroup()->getExpenses();
 
     	$other_expenses = array();
     	foreach($all_expenses as $expense){
@@ -75,19 +75,19 @@ class Expenses {
     	return $sum;
     }
 
-    public function getTotalPaidByMe($member, $group)
+    public function getTotalPaidByMe($member)
     {
         $sum = 0;
-        foreach($this->getMyExpenses($member, $group) as $expense){
+        foreach($this->getMyExpenses($member) as $expense){
             $sum += $expense[0]->getAmount();
         }
 
         return $sum;
     }
 
-    public function getTotalSupposedPaid($member, $group)
+    public function getTotalSupposedPaid($member)
     {
-        $all_expenses = $group->getExpenses();
+        $all_expenses = $member->getTGroup()->getExpenses();
 
         $sum = 0;
         foreach($all_expenses as $expense){
@@ -97,31 +97,15 @@ class Expenses {
         return $sum;
     }
 
-    public function getTotalPaidForMe($member, $group)
+    public function getTotalPaidForMe($member)
     {
     	$sum = 0;
-    	$other_expenses = $this->getOtherExpenses($member, $group);
+    	$other_expenses = $this->getOtherExpenses($member);
     	foreach($other_expenses as $expense){
     		$sum += $expense[1];
     	}
 
     	return $sum;
-    }
-
-    public function getBalances($group)
-    {
-        $all_members = $group->getMembers();
-
-        $balances = array();
-        foreach($all_members as $member){
-            $balances[] = array($member, $this->getBalance($member, $group));
-        }
-        return $balances;
-    }
-
-    private function getBalance($member, $group)
-    {
-        return $balance = $this->getTotalPaidByMe($member, $group) - $this->getTotalSupposedPaid($member, $group);
     }
 
     public function getCurrentDebts($group)
@@ -186,5 +170,16 @@ class Expenses {
         }
 
         return $payments;
+    }
+
+    private function getBalances($group)
+    {
+        $all_members = $group->getMembers();
+
+        $balances = array();
+        foreach($all_members as $member){
+            $balances[] = array($member, $member->getBalance());
+        }
+        return $balances;
     }
 }

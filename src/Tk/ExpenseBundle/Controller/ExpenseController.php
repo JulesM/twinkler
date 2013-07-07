@@ -97,7 +97,7 @@ class ExpenseController extends Controller
         $em->remove($expense);
         $em->flush();
 
-        return $this->indexAction();
+        return $this->redirect($this->generateUrl('tk_expense_homepage'));
     }
 
     private function getAllExpensesAction()

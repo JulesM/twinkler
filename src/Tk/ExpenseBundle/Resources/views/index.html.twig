@@ -61,14 +61,23 @@
 					<td>{{ expense[0].owner.name }}</td>
 					<td id="expense-name">{{ expense[0].name }}</td>
 					<td>{% for member in expense[0].users %}{{ member.name }},  {% endfor %}</td>							
-					<td id="expense-total">{{ expense[0].amount }} {{ currency }}</td>
-					<td id="expense-for-you">{{ expense[1] }} {{ currency }}
+					<td id="expense-total">{{ expense[0].amount|number_format(0) }} {{ currency }}</td>
+					<td id="expense-for-you">{{ expense[1]|number_format(0) }} {{ currency }}
 					<td id="expense-edit"><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
 					<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
 					</tr>
 
 				{% endfor %}
 				</tbody>
+				<tfooter>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>{{ total_paid|number_format(0) }}{{ currency }}</td>
+					<td>{{ total_paid_supposed|number_format(0) }}{{ currency }}</td>
+					<td></td>
+				</tfooter>
 			</table>
 			{% endblock expenses %}
 		</div>
@@ -84,7 +93,7 @@
 
 				<div id="settlement">
 					{% for debt in debts %}
-						<p>{{ debt[0] }} gives {{ debt[1] }}{{ currency }} to {{debt[2] }}</p>
+						<p>{{ debt[0] }} gives {{ debt[1]|number_format(0) }}{{ currency }} to {{debt[2] }}</p>
 					{% endfor %}
 				</div>
 		</div>

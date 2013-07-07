@@ -164,6 +164,15 @@ $(document).ready(function(){
         return false;
     });
 
+
+    // When #scroll is clicked
+    jQuery('#tk-logo-hp').click(function(){
+        // Scroll down to 'catTopPosition'
+        jQuery('html, body').animate({scrollTop:0}, 'fast');
+        // Stop the link from acting like a normal anchor link
+        return false;
+    });
+
 });
 
 

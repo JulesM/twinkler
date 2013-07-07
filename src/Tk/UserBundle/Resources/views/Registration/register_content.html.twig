@@ -1,13 +1,52 @@
+{% block head %}
+    {% block stylesheets %} 
+    <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
+    {% endblock stylesheets %}
+{% endblock %}
+
+
+
 {% trans_default_domain 'FOSUserBundle' %}
-<h1>Register to Twinkler</h1>
-<p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
-<p>or using your email</p>
+<div class="flat-container span4 offset2">
 
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input class="btn" type="submit" value="{{ 'registration.submit'|trans }}" />
+	<div class="flat-header">
+		<h1>Sign up</h1>	
+	</div>
+
+	<p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
+
+
+
+
+    <div style="display: inline-block; width:100%">
+
+        <div style="display: inline-block; width:40%">
+            <div style="min-height:50%; border-bottom: 1px solid rgb(245,103,99); margin-top:-5px;"></div>
+        </div>
+
+        <div style="display: inline-block;width:10%; color:rgb(245,103,99)">
+        Or
+        </div>
+
+        <div style="display: inline-block;width:40%">
+            <div style="min-height:50%; border-bottom: 1px solid rgb(245,103,99); margin-top:-5px;"></div>
+        </div>
     </div>
-</form>
 
-<p>Already a user ? <a href="{{ path('fos_user_security_login') }}">Login here</a></p>
+    <br>
+    <br>
+
+	<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+	    {{ form_widget(form) }}
+	    <div>
+	        <input class="btn btn-success" type="submit" value="{{ 'registration.submit'|trans }}" style="width: 120px" />
+	    </div>
+	</form>
+
+    <div class="flat-footer">
+	<p>Have an account ? <a href="{{ path('fos_user_security_login') }}">Log in</a></p>
+    </div>
+
+</div>

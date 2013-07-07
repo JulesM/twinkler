@@ -2,37 +2,68 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block head %}
+    {% block stylesheets %} 
+    <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
+    {% endblock stylesheets %}
+{% endblock %}
+
+
 {% block fos_user_content %}
 
 {% if error %}
     <div>{{ error|trans }}</div>
 {% endif %}
 
-<div>
+<div class="flat-container span4 offset2">
 
-<h1>Login to Twinkler</h1>
-<p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
-<p>or using your email</p>
+    <div class="flat-header">
+    <h1>Log in</h1></div>
+    <p>{{ facebook_login_button({'autologoutlink': false, 'label': 'Connect with Facebook'}) }}</p>
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <div style="display: inline-block; width:100%">
 
-    <div>
-        <input type="text" id="username" placeholder="username or email" name="_username" value="{{ last_username }}" required="required" />
+        <div style="display: inline-block; width:40%">
+            <div style="min-height:50%; border-bottom: 1px solid rgb(245,103,99); margin-top:-5px;"></div>
+        </div>
+
+        <div style="display: inline-block;width:10%; color:rgb(245,103,99)">
+        Or
+        </div>
+
+        <div style="display: inline-block;width:40%">
+            <div style="min-height:50%; border-bottom: 1px solid rgb(245,103,99); margin-top:-5px;"></div>
+        </div>
     </div>
-    <div>
-        <input type="password" id="password" placeholder="password" name="_password" required="required" />
-    </div>
-    <div>
-        <input style="display:inline-block; vertical-align: top " type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label  style="display:inline-block" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-    </div>
-    
-    <input type="submit" class="btn" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
 
-<p>Not yet a user ? <a href="{{ path('fos_user_registration_register') }}">Register here</a></p>
-<a href="#forgotPasswordModal" data-toggle="modal">Forgot your password ?</a>
+    <br>
+    <br>
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <div>
+            <input type="text" id="username" placeholder="username or email" name="_username" value="{{ last_username }}" required="required" />
+        </div>
+        <div>
+            <input type="password" id="password" placeholder="Password" name="_password" required="required" />
+        </div>
+        <div>
+            <input style="display:inline-block; vertical-align: top " type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label  style="display:inline-block" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+        </div>
+        
+        <input type="submit" class="btn btn-success" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" style="width:130px; margin-top: 20px;" />
+        <br>
+        <a href="#forgotPasswordModal" data-toggle="modal" style="font-size:11px">Forgot your password ?</a>
+    </form>
+
+
+    <div class="flat-footer">
+    <p>Not registered yet ? <a href="{{ path('fos_user_registration_register') }}">Sign up for free!</a></p>
+    </div>
 
 </div>
 

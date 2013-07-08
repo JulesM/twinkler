@@ -58,15 +58,6 @@ new Chart(ctx).Bar(data,{
 
 
 /*--------DIV HEIGHTS----------*/
-var max=Math.max($("#balance").height(),$("#expense-timeline").height());
-$('#balance').css('height',max);
-$('#expense-timeline').css('height',max);
-
-
-
-var max=Math.max($("#balance").height(),$("#expense-timeline").height());
-
-
 
 /*-------TOOLTIPS--------*/
     $(function () {

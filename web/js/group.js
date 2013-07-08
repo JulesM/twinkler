@@ -61,7 +61,7 @@ new Chart(ctx).Bar(data,{
 
 /*-------TOOLTIPS--------*/
     $(function () {
-        $("[rel='tooltip']").tooltip({placement: 'bottom'});
+        $("[rel='tooltip']").tooltip({placement: 'top'});
     });
 
 

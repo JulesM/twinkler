@@ -13,80 +13,14 @@
 {% include 'TkGroupBundle:Default:graph.html.twig' %}
 			
 	<div class="row">	
-		<div id="expense-timeline" class="span8 flat-container">
-			{% block expenses %}
-				<div class="expense-header flat-header">										
-					<div id="expense-dropdown" class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<i class="icon-th-list"></i>
-						</a>
-						<!-- Link or button to toggle dropdown -->
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<li><a tabindex="-1" href="#">All expenses</a></li>
-							<li><a tabindex="-1" href="#">Expenses where I am tagged</a></li>
-							<li><a tabindex="-1" href="#">Expenses I paid</a></li>
-							<li><a tabindex="-1" href="#">Expenses paid for me</a></li>
-						</ul>
-					</div>
 
-					<div id="expense-title">
-						<h2>Your Expense Timeline</h2>
-					</div>
-
-					<a href="#addExpenseModal" role="button" data-toggle="modal">
-					<div id="add-expense-btn">
-						<i class="icon-plus"></i>
-					</div>	</a>
-				</div>
-
-			<!-- Modal -->
-			{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
-			<table class="table">
-			<!-- <caption>Caption</caption> -->
-				<thead>
-					<tr id="column-label">
-						<th style="width:5%; text-align:center;"><i class="icon-time"></i></th>
-						<th style="width:10%">Who</th>
-						<th style="width:27%">What</th>
-						<th style="width:30%">For who</th>
-						<th style="width:10%">Total</th>
-						<th style="width:10%">For you</th>
-						<th style="width:9%; text-align:center;"><i class="icon-caret-down"></i></th>
-					</tr>
-				</thead>
-				<tbody>
-				{% for expense in all_expenses %}
-					<tr>
-					<td id="expense-date">{{ expense[0].date|date("d/m") }}</td>
-					<td>{{ expense[0].owner.name }}</td>
-					<td id="expense-name">{{ expense[0].name }}</td>
-					<td>{% for member in expense[0].users %}{{ member.name }},  {% endfor %}</td>							
-					<td id="expense-total">{{ expense[0].amount|number_format(0) }} {{ currency }}</td>
-					<td id="expense-for-you">{{ expense[1]|number_format(0) }} {{ currency }}
-					<td id="expense-edit"><a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
-					<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a></td>
-					</tr>
-
-				{% endfor %}
-				</tbody>
-				<tfooter>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>{{ total_paid|number_format(0) }}{{ currency }}</td>
-					<td>{{ total_paid_supposed|number_format(0) }}{{ currency }}</td>
-					<td></td>
-				</tfooter>
-			</table>
-			{% endblock expenses %}
-		</div>
-		<div id="balance" class="span4 flat-container">
+		<div>
+			<div id="balance" class="span4 flat-container">
 				<div class="expense-header flat-header"><div id="expense-title">
 				<h2>Balance</h2>
 				</div></div>
 				<div>
-					<div style="text-align:center;">
+					<div style="text-align:center; margin-top: 20px;">
 						<canvas id="balanceChart" width="300" height="150"></canvas>
 					</div>
 				</div>
@@ -96,8 +30,53 @@
 						<p>{{ debt[0] }} gives {{ debt[1]|number_format(0) }}{{ currency }} to {{debt[2] }}</p>
 					{% endfor %}
 				</div>
+			</div>
+
 		</div>
-	</div>
+
+		<div id="timeline" class="span1">
+			<img src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px" style="text-align: center; margin-top:10px;" alt="profile picture">
+
+		</div>
+
+			{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
+		<div class="expense-list span6 flat-container">
+				<div class="expense-header flat-header"><div id="expense-title">
+				<h2>Expense Timeline</h2>
+				</div></div>
+				<div id="expense-summary">
+
+					You paid in total: {{ total_paid|number_format(0) }}{{ currency }}
+					- You were supposed to pay: {{ total_paid_supposed|number_format(0) }}{{ currency }}				
+				</div>		
+		</div>
+
+		{% for expense in all_expenses %}
+		<div style="display:inline-block;">
+
+			<div class="pinpoint-tmln"><a href="#" data-toggle="tooltip" rel="tooltip" title="
+						{{ expense[0].date|date("d/m") }}"><img src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px"></a></div>
+
+
+				<div class="expense-list expense-list-detailed span6 flat-container">
+						<div style="float: left; color:rgb(140,140,140);">
+							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="" style="position: relative">
+							<font style="color:#fb786b; margin-left:5px;">{{ expense[0].owner.name }} </font>paid <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
+						</div>	
+						<div style="float: right;">
+
+							{% for member in expense[0].users %}{{ member.name }},  {% endfor %}
+							Your share: {{ expense[1]|number_format(0) }} {{ currency }}
+							<a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
+							<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
+						</div>
+				</div>
+		</div>
+		{% endfor %}
+
+
+
+
 
 
 {% endblock %}

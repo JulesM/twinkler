@@ -35,7 +35,8 @@
 }
 
 #expense-title > h2{
-	font-size: 22px;
+	font-size: 16px;
+	color: #fcd5d2;
 	margin: 0px;
 	vertical-align: middle;
 	margin-top: 3px;
@@ -60,6 +61,65 @@
 }
 
 /*------EXPENSE TABLE---------*/
+
+.expense-list{
+	margin-top: 20px;
+	padding:5px;
+	position:relative;
+	word-wrap:break-word;
+	-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-bottom:2em;
+	margin-left: 10px;
+}
+
+.expense-list:after{ /*arrow added to leftarrowdiv DIV*/
+	content:'';
+	display:block;
+	position:absolute;
+	top:10px;
+	left:-20px; /*should be set to -border-width x 2 */
+	width:0;
+	height:0;
+	border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;
+}
+
+.expense-list-detailed{
+	display: inline-block;
+	min-height: 30px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+.pinpoint-tmln{
+	display: inline-block;
+	float: left;
+	margin-left: -35px;
+	margin-top: 10px;
+}
+
+#expense-summary{
+	float: right;
+	text-align: right;
+	margin-top: 5px;
+	padding: 0px 20px;
+	font-size: 12px;
+	background-color: rgb(242,242,242);
+	color: rgb(140,140,140);
+  	border-bottom-left-radius:4px;
+  	border-bottom-right-radius:4px;
+  	border-top-left-radius:4px;
+  	border-top-right-radius:4px;
+}
+
+
+
+
+
+/*---expense-old------*/
 
 .table a:hover{
 	text-decoration: none;
@@ -86,12 +146,40 @@
 /*---------BALANCE----------*/
 #balance{
 	margin: 20px 0px;
+	min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+	color:white;
+	padding:5px;
+	position:relative;
+	word-wrap:break-word;
+	-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-bottom:2em;
+}
+
+#balance:after{ /*arrow added to rightarrowdiv DIV*/
+	content:'';
+	display:block;
+	position:absolute;
+	top:10px;
+	left:100%; /*should be set to 100% */
+	width:0;
+	height:0;
+	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;	
+}
+
+.expense-header{
+  	border-bottom-left-radius:4px;
+  	border-bottom-right-radius:4px;
+  	height: 34px;
+
 }
 
 
 .balance-box h2{
 	font-size: 22px;
-	margin: 0px;
 	vertical-align: middle;
 
 }
@@ -101,5 +189,17 @@
 	margin-top: 10px;
 	text-align: center;
 	color:#f97e76;
+}
+
+
+/*--------timeline---------*/
+#timeline{
+	display: inline-block;
+	height: 100%;
+	min-height: 400px;
+	width: 50px;
+	background-image: url(' ../img/frame/timeline-bck.png') ;
+	margin-top: 20px;
+	text-align: center;
 }
 

@@ -1,8 +1,9 @@
 {% extends 'TkExpenseBundle::index.html.twig' %}
 
 {% block expenses %}
-	
-	<h2>Edit expense</h2>
+<div style="text-align:center">
+	<div class="flat-header">
+	<h2>Edit expense</h2></div>
 	<form action="{{ path('tk_expense_edit', { 'id' : id }) }}" method="post" {{ form_enctype(form) }}>
 	    {{ form_errors(form) }}
 
@@ -13,5 +14,5 @@
 	    <input type="submit" />
 	    <a href="{{ path('tk_expense_homepage') }}">Cancel</a>
 	</form>
-
+</div>
 {% endblock %}

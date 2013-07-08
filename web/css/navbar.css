@@ -1,7 +1,7 @@
 /* --- All the css of the NavBar --- */
 
 header{
-	background-image: url(' ../img/frame/navbar-bck.jpg');
+	background-image: url('../img/frame/navbar-bck.jpg');
 	background-size:cover;
 	min-width: 320px;
 }

@@ -2,7 +2,18 @@
 
 {% set group = app.user.currentMember.tgroup %}
 
-{% block navbartitle %}
+{% block bignavbartitle %}
+	<h1 style="display: inline-block">{{ group.name|capitalize }}</h1>
+	<div class="dropdown" style="display: inline-block">
+	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
+		    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">                      
+			    {% for member in app.user.members %}
+			    <li><a href="{{ path('tk_group_switch_member', { 'id' : member.id, 'route' : app.request.attributes.get('_route') }) }}">{{ member.tgroup.name }}</a></li>
+			    {% endfor %}
+			</ul>
+	</div>
+{% endblock %}
+{% block smallnavbartitle %}
 	<h1 style="display: inline-block">{{ group.name|capitalize }}</h1>
 	<div class="dropdown" style="display: inline-block">
 	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
@@ -15,22 +26,21 @@
 {% endblock %}
 
 {% block header %}
-<div class="container">
-	<div class="row" style="height: 95px;">
-		<div id="add-group" class="span2">
-		  <a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
-		</div>
-		<div id="group" class="span8">
+	<div id="second-row-big" class="row" style="position: relative">
+		<div id="add-group">
+	  		<a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
+	  	</div>
+		<div id="group" class="span8 offset2">
 
 				{% for member in group.members %}
 					{% if member.user %}
 						<div class="member">
-							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 							<p>{{ member.name }}</p>
 						</div> 
 					{% else %}
 						<div class="member">
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 
 							<p>{{ member.name }}</p>
 						</div>
@@ -38,38 +48,74 @@
 				{% endfor %}
 
 		</div>
-		<div id="toolbar" class="span2">
-			<div style="position: absolute; bottom: 0; text-align: center; min-width: 150px;">
-				<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
-				<div class="btn-group" style="display: inline-block">
-					<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
-					<ul class="dropdown-menu">
-						<!-- dropdown menu links -->
-						{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
-						<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
-					</ul>
-				</div>
-				<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings"><img src="{{ asset('img/Frame/settings.png') }}" class="img-circle img-shadow"></a>
+		<div id="toolbar">
+			<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
+			<div class="btn-group" style="display: inline-block">
+				<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
+				<ul class="dropdown-menu">
+					<!-- dropdown menu links -->
+					{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
+					<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
+				</ul>
 			</div>
+			<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings"><img src="{{ asset('img/Frame/settings.png') }}" class="img-circle img-shadow"></a>
 		</div>		
 	</div>
-</div>
+	<div id="second-row-small" class="row" style="position: relative">
+		<div id="group" class="span12">
 
-<div class="selection-menu">
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<div class="span2 offset4" style="text-align: center">
-					<a href="{{ path('tk_expense_homepage') }}"> <img src="{{ asset('img/Frame/wallet.png') }}" width="18px">Expenses</a>
-				</div>
-				<div class="span2" style="text-align: center">
-					<a href="{{ path('tk_list_homepage') }}"><img src="{{ asset('img/Frame/lists.png') }}" width="18px">   Lists </a>
+				{% for member in group.members %}
+					{% if member.user %}
+						<div class="member">
+							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
+							<p>{{ member.name }}</p>
+						</div> 
+					{% else %}
+						<div class="member">
+							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
+
+							<p>{{ member.name }}</p>
+						</div>
+					{% endif %}
+				{% endfor %}
+
+		</div>
+		<div class="span12" style="height: 60px; position: relative">
+		<div id="add-group">
+	  		<a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><img src="{{ asset('img/Frame/add-group.png') }}" class="img-circle img-shadow"></a>
+	  	</div>
+		<div id="toolbar">
+			<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><img src="{{ asset('img/Frame/add-member.png') }}" class="img-circle img-shadow"></a>
+			<div class="btn-group" style="display: inline-block">
+				<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><img src="{{ asset('img/Frame/add-invite.png') }}" class="img-circle img-shadow"></a>
+				<ul class="dropdown-menu">
+					<!-- dropdown menu links -->
+					{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
+					<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
+				</ul>
+			</div>
+			<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings"><img src="{{ asset('img/Frame/settings.png') }}" class="img-circle img-shadow"></a>
+		</div>
+		</div>		
+	</div>
+{% endblock %}
+
+
+{% block selectionmenu %}
+	<div class="selection-menu">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<div class="span2 offset4" style="text-align: center">
+						<a href="{{ path('tk_expense_homepage') }}"> <img src="{{ asset('img/Frame/wallet.png') }}" width="18px">Expenses</a>
+					</div>
+					<div class="span2" style="text-align: center">
+						<a href="{{ path('tk_list_homepage') }}"><img src="{{ asset('img/Frame/lists.png') }}" width="18px">   Lists </a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
 {% endblock %}
 
 {% block javascripts %}

@@ -138,10 +138,10 @@
 									</div>
 									<div class="span2" style="text-align: left">
 										<p>Your balance: 
-											{% if balances[member.tgroup.id] >= 0 %}
-												<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+											{% if member.balance >= 0 %}
+												<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
 											{% else %}
-												<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ balances[member.tgroup.id] }} {{member.tgroup.currency.symbol}}</b></span>
+												<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
 											{% endif %}
 										</p>
 									</div>

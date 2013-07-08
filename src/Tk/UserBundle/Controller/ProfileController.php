@@ -12,9 +12,7 @@ class ProfileController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkUserBundle:Profile:show.html.twig', array(
-            'balances' => $this->getBalancesAction(),
-            ));
+        return $this->render('TkUserBundle:Profile:show.html.twig');
     }
 
     private function getBalancesAction()

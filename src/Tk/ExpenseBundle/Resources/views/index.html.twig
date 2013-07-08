@@ -16,9 +16,11 @@
 
 		<div>
 			<div id="balance" class="span4 flat-container">
-				<div class="expense-header flat-header"><div id="expense-title">
-				<h2>Balance</h2>
-				</div></div>
+				<div class="expense-header flat-header">
+					<div id="expense-title">
+						<h2>Balance</h2>
+					</div>
+				</div>
 				<div>
 					<div style="text-align:center; margin-top: 20px;">
 						<canvas id="balanceChart" width="300" height="150"></canvas>
@@ -31,19 +33,21 @@
 					{% endfor %}
 				</div>
 			</div>
-
 		</div>
 
 		<div id="timeline" class="span1">
-			<img src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px" style="text-align: center; margin-top:10px;" alt="profile picture">
-
+			<a  id="today-pinpoint" href="#" data-toggle="tooltip" rel="tooltip" title="#">
+				<img class="pinpoint-button" src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px" style="text-align: center; margin-top:10px;" alt="profile picture">
+			</a>
 		</div>
 
 			{% include "TkExpenseBundle::addExpenseModal.html.twig" %}
 		<div class="expense-list span6 flat-container">
-				<div class="expense-header flat-header"><div id="expense-title">
-				<h2>Expense Timeline</h2>
-				</div></div>
+				<div class="expense-header flat-header">
+					<div id="expense-title">
+						<h2>Expense Timeline</h2>
+					</div>
+				</div>
 				<div id="expense-summary">
 
 					You paid in total: {{ total_paid|number_format(0) }}{{ currency }}
@@ -54,29 +58,49 @@
 		{% for expense in all_expenses %}
 		<div style="display:inline-block;">
 
-			<div class="pinpoint-tmln"><a href="#" data-toggle="tooltip" rel="tooltip" title="
-						{{ expense[0].date|date("d/m") }}"><img src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px"></a></div>
+			<div class="pinpoint-tmln">
+				<a  href="#" data-toggle="tooltip" rel="tooltip" title="
+						{{ expense[0].date|date("d/m") }}">
+						<img class="pinpoint-button" src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px">
+				</a>
+			</div>
 
 
-				<div class="expense-list expense-list-detailed span6 flat-container">
-						<div style="float: left; color:rgb(140,140,140);">
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="" style="position: relative">
-							<font style="color:#fb786b; margin-left:5px;">{{ expense[0].owner.name }} </font>paid <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
-						</div>	
-						<div style="float: right;">
+			<div class="expense-list expense-list-detailed span6 flat-container">
 
-							{% for member in expense[0].users %}{{ member.name }},  {% endfor %}
-							Your share: {{ expense[1]|number_format(0) }} {{ currency }}
-							<a href="{{ path('tk_expense_edit', {'id' : expense[0].id } ) }}"><i class="icon-edit"></i></a>
-							<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
-						</div>
+				<div style:"display:block">
+					<div style="float: left; color:rgb(140,140,140);">
+						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="" style="position: relative">
+						<font style="color:#fb786b; margin-left:5px;">{{ expense[0].owner.name }} </font>added <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
+					</div>	
+					<div style="float: right;">
+
+						Your share: <font style="color:#fb786b;">{{ expense[1]|number_format(0) }} {{ currency }}</font>
+						<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-edit-expense{{ expense[0].name }}"><i class="icon-edit"></i></a>
+						<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
+					</div>
 				</div>
+				<br>
+				<div style:"display:block; float: left">
+						{% for member in expense[0].users %}{{ member.name }},  {% endfor %}
+				</div>
+
+				<div id="collapse-edit-expense{{ expense[0].name }}" class="accordion-body collapse" style="display:block;">
+				  <div class="accordion-inner">
+						<div class="well">
+							<h5 style="display: inline-block; margin-right: 20px;">Edit test</h5>
+							<div style="display: inline-block;">
+								<p>test test test</p>
+							</div>
+						</div>
+				  </div>
+				</div>			
+
+			</div>
 		</div>
 		{% endfor %}
 
-
-
-
+	</div>
 
 
 {% endblock %}

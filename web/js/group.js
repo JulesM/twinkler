@@ -65,7 +65,20 @@ new Chart(ctx).Bar(data,{
     });
 
 
-/*-------Accordion--------*/
+/*-------Pinpoint buttons on timeline (date)--------*/
 
+     $('.pinpoint-button').hover(function () {
+        this.src = 'http://localhost:8888/Twinkler/img/frame/tmln-btn-hover.png';
+    }, function () {
+        this.src = 'http://localhost:8888/Twinkler/img/frame/tmln-btn.png';
+    });
 
+var today=new Date();
+var dd=today.getDate();
+var mm=today.getMonth()+1;
+
+if(dd<10){dd='0'+dd};
+ if(mm<10){mm='0'+mm};
+
+$('#today-pinpoint').attr('title', dd +"/"+mm);
 

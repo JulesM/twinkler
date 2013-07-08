@@ -2,9 +2,6 @@ parameters:
 #    tk_user.example.class: Tk\UserBundle\Example
 
 services:
-    tk_expense.expenses:
-        class: Tk\ExpenseBundle\Services\Expenses
-        arguments: [@doctrine.orm.entity_manager]
 
     login_listener:
         class: 'Tk\UserBundle\Listener\LoginListener'

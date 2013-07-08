@@ -15,23 +15,6 @@ class ProfileController extends Controller
         return $this->render('TkUserBundle:Profile:show.html.twig');
     }
 
-    private function getBalancesAction()
-    {
-        $expenses_service = $this->container->get('tk_expense.expenses');
-
-        $balances = array();
-        foreach($this->getUser()->getMembers() as $member){
-            $all_balances = $expenses_service->getBalances($member->getTGroup());
-            foreach($all_balances as $balance){
-                if($balance[0]->getUser() == $this->getUser()){
-                    $balances[$member->getTGroup()->getId()] = $balance[1];
-                }
-            } 
-        }
-
-        return $balances;
-    }
-
     public function editAction($id)
     {
         $user = $this->getUser();

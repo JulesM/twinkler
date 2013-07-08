@@ -110,75 +110,76 @@
 				<div class="flat-header">
 					<h3>Your Groups</h3>
 				</div>
+
+				{% if app.user.members|length == 0 %}
+					</p>You do not have participated in any Twinkler group yet</p>
+				{% else %}
 				{% for member in app.user.members %}
-					<div id="group-box">
-						<div class="accordion" id="accordion2">
-						  <div class="accordion-group">
-						    <div class="accordion-heading">
-						      	<div class="row">
-									<div class="span2">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block">
-											<img id="accordion-arrow" src="{{ asset('img/Frame/arrow.png') }}" ></a>
-						    			</a>
+				<div id="group-box">
+					<div class="accordion" id="accordion2">
+					  <div class="accordion-group">
+					    <div class="accordion-heading">
+							<div class="accordion-heading-left">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block">
+									<img id="accordion-arrow" src="{{ asset('img/Frame/arrow.png') }}" ></a>
+				    			</a>
+				    			<div class="accordion-group-title" style="display: inline-block">
+									<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
+										<strong>{{ member.tgroup.name|capitalize }}</strong>
+									</a>
+									<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
+				    			</div>				
+							</div>
+							<div  class="accordion-heading-middle">
+								<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
+									<div class="flat-btn flat-pk flat-small">Expenses</div>
+								</a>
+								<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
+									<div class="flat-btn flat-pk flat-small">Lists</div>
+								</a>
+							</div>
+							<div class="accordion-heading-right">
+								<p>Your balance: 
+									{% if member.balance >= 0 %}
+										<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
+									{% else %}
+										<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
+									{% endif %}
+								</p>
+							</div>
+					    </div>
+					    <div id="accordion-{{ member.id }}" class="accordion-body collapse out">
+					      <div class="accordion-inner">
+					        <div>
+							{% for m in member.tgroup.members %}
+								<div style="display: inline-block">
+									{% if m.user %}
+										<div class="member">
+											<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+											<p>{{ m.name }}</p>
+										</div> 
+									{% else %}
+										<div class="member">
+											<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
 
-						    			<div class="accordion-group-title" style="display: inline-block">
-											<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}">
-												<strong>{{ member.tgroup.name|capitalize }}</strong>
-											</a>
-											<p><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
-						    			</div>				
-									</div>
-									<div class="span1">
-										<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}" class="user-group-btn">
-											<div class="flat-btn flat-pk flat-small">Expenses</div>
-										</a>
-									</div>
-									<div class="span1">
-										<a href="{{ path('tk_group_goto_lists', { 'id' : member.id }) }}" class="user-group-btn">
-											<div class="flat-btn flat-pk flat-small">Lists</div>
-										</a>
-									</div>
-									<div class="span2" style="text-align: left">
-										<p>Your balance: 
-											{% if member.balance >= 0 %}
-												<span style="color: #a8bd44; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
-											{% else %}
-												<span style="color: #f97e76; font-family:'Asap-bold'"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
-											{% endif %}
-										</p>
-									</div>
+											<p>{{ m.name }}</p>
+										</div>
+									{% endif %}
 								</div>
-						    </div>
-						    <div id="accordion-{{ member.id }}" class="accordion-body collapse out">
-						      <div class="accordion-inner">
-						        <div>
-								{% for m in member.tgroup.members %}
-									<div style="display: inline-block">
-										{% if m.user %}
-											<div class="member">
-												<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-												<p>{{ m.name }}</p>
-											</div> 
-										{% else %}
-											<div class="member">
-												<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-
-												<p>{{ m.name }}</p>
-											</div>
-										{% endif %}
-									</div>
-								{% endfor %}
-								</div>
-						      </div>
-						    </div>
-						  </div>
-						</div>														
-					</div>
+							{% endfor %}
+							</div>
+					      </div>
+					    </div>
+					  </div>
+					</div>														
+				</div>
 				{% endfor %}
 				<div>
 					<a href="">See closed groups (0)</a>
 				</div>
+				{% endif %}
 			</div>
+			<div><a href="" class="flat-btn flat-pk" style="height: 60px; width: 100%; margin-top: 10px; line-height: 60px;">START A NEW GROUP</a></div>
 		</div>
 	</div>
 {% endblock %}

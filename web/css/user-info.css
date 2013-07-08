@@ -1,6 +1,5 @@
 /* --- --- USER INFO CSS --- --- */
 
-
 /* --- User information --- */
 #user-info{
 	position: relative;
@@ -120,6 +119,60 @@
 	color: #5e6d82;
 }
 
+.accordion-group{
+  border:none;
+  margin-bottom:2px;
+  background-color:#EAEDF2;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+
+.accordion-heading > div{
+	display: inline-block;
+	min-height: 60px;
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+.accordion-heading-left{
+	min-width: 30%;
+}
+
+.accordion-heading-middle{
+	width: 38%;
+	min-width: 200px;
+}
+
+.accordion-heading-right{
+	min-width: 30%;
+}
+
+.accordion-toggle{
+	color: rgba(245,103,99,1);
+	vertical-align: top;
+}
+
+.accordion-toggle:hover{	
+	color: #f07971;
+	text-decoration: none;
+}
+
+.accordion-group-title{
+	width: 120px;
+}
+
+.accordion-group-title  a{
+	color: rgba(245,103,99,1);
+	font-size: 16px;
+}
+
+.accordion-group-title a:hover{	
+	color: #f07971;
+	text-decoration: none;
+}
+
 .user-group-btn{
 	text-decoration: none;
 	opacity: 0.8;
@@ -135,46 +188,5 @@
 	line-height: 30px;
 	background-color: #f97e76;
 	color: white;
-}
-
-
-/*----------ACCORDION----------*/
-
-.accordion-group{
-  border:none;
-  margin-bottom:2px;
-  background-color:#EAEDF2;
-  border-bottom-left-radius:0px;
-  border-bottom-right-radius:0px;
-  border-top-left-radius:0px;
-  border-top-right-radius:0px;
-}
-
-.accordion-toggle{
-	color: rgba(245,103,99,1);
-	vertical-align: top;
-}
-
-.accordion-toggle:hover{	
-	color: #f07971;
-	text-decoration: none;
-}
-
-.accordion-heading  .span1,.span2{
-	margin-top: 30px;
-}
-
-.accordion-group-title{
-	width: 120px;
-}
-
-.accordion-group-title  a{
-	color: rgba(245,103,99,1);
-	font-size: 16px;
-}
-
-.accordion-group-title a:hover{	
-	color: #f07971;
-	text-decoration: none;
 }
 

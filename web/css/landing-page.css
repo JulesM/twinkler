@@ -402,8 +402,33 @@ footer li{
 
 #user-layout{
 	margin-top: 100px;
+	background-image: url(' ../img/landing-page/cafe_bg.png');
+	background-size: 100% auto;
 }
 
+
+.flat-container{
+	color: rgb(61,61,61);
+}
+
+.flat-header{
+	font-family: "Proxima-regular";
+	background-color: rgb(245,103,99);
+	color: white;
+	height:50px;
+	padding-top: 10px;
+}
+
+.flat-header h1{
+	padding: 0;
+	line-height: 40px;
+	margin: 0px;
+}
+
+.flat-footer p{
+	margin-top: 10px;
+	padding-top: 15px;
+}
 
 /*---Newsletter Modal---*/
 

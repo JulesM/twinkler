@@ -1,0 +1,31 @@
+{% extends 'TkUserBundle:Profile:show.html.twig' %}
+
+{% block content %}
+<div class="row">
+	<div class="span6 offset3" style="text-align: center">
+		<div class="flat-container">
+			<div class="flat-header">
+				<h1>Create a new group</h1>
+			</div>
+			<div>
+				<form action="{{ path('tk_group_new') }}" method="post" {{ form_enctype(form) }}>
+				    {{ form_errors(form) }}
+
+				    {{ form_errors(form.name) }}
+				    {{ form_widget(form.name) }}
+
+				    {{ form_label(form.currency) }}
+				    {{ form_errors(form.currency) }}
+				    {{ form_widget(form.currency) }}
+
+				    {{ form_rest(form) }}
+
+				    <div class="flat-footer">
+				    	<input type="submit" class="flat-btn flat-pk"/>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

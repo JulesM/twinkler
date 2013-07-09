@@ -51,7 +51,13 @@
 		</div>
 
 		<div>
-			{% render(controller('TkGroupBundle:Default:addMembers')) %}
+			<div id="collapse-add-members" class="accordion-body collapse">
+			  	<div class="accordion-inner">
+					<div class="well">
+					{% render(controller('TkGroupBundle:Default:addMember')) %}
+					</div>
+				</div>
+  			</div>
 		</div>
 
 		<div>

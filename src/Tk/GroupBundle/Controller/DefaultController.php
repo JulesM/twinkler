@@ -86,7 +86,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('TkGroupBundle:Default:new.html.twig', array(
+        return $this->render('TkGroupBundle:Creation:new.html.twig', array(
             'form' => $form->createView(),
             ));        
     }
@@ -118,7 +118,7 @@ class DefaultController extends Controller
             ));        
     }
 
-    public function addMembersAction()
+    public function addMemberAction()
     {   
         $defaultData = array('name' => '');
         $form = $this->createFormBuilder($defaultData)
@@ -143,12 +143,18 @@ class DefaultController extends Controller
             $em->persist($member);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tk_group_homepage'));
+            $url = $this->getRequest()->headers->get("referer");
+            return $this->redirect($url);
         }}
 
-        return $this->render('TkGroupBundle:Default:addMembers.html.twig', array(
+        return $this->render('TkGroupBundle:Default:addMember.html.twig', array(
             'form' => $form->createView(),
             ));        
+    }
+
+    public function addMembersAction()
+    {   
+        return $this->render('TkGroupBundle:Creation:addMembers.html.twig');      
     }
 
     public function inviteUserAction()

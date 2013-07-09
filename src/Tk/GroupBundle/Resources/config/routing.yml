@@ -24,6 +24,10 @@ tk_group_edit:
     pattern:  /edit
     defaults: { _controller: TkGroupBundle:Default:edit }
 
+tk_group_add_member:
+    pattern:  /add/member
+    defaults: { _controller: TkGroupBundle:Default:addMember }
+
 tk_group_add_members:
     pattern:  /add
     defaults: { _controller: TkGroupBundle:Default:addMembers }

@@ -11,9 +11,11 @@ class TGroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('city')
-            ->add('country')
+            ->add('name', null, array(
+                'attr' => array(
+                    'placeholder' => 'Name of the group',
+                ),
+            ))
             ->add('currency','entity', array(
                             'class'         => 'TkGroupBundle:Currency',
                             'property'      => 'name',

@@ -2,7 +2,6 @@
 
 {% block stylesheets %}
  {{ parent() }}
- <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
  <link href="{{ asset('css/user-info.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
@@ -179,7 +178,7 @@
 				</div>
 				{% endif %}
 			</div>
-			<div><a href="" class="flat-btn flat-pk" style="height: 60px; width: 100%; margin-top: 10px; line-height: 60px;">START A NEW GROUP</a></div>
+			<div><a href="{{ path('tk_group_new') }}" class="flat-btn flat-pk" style="height: 60px; width: 100%; margin-top: 10px; line-height: 60px;">START A NEW GROUP</a></div>
 		</div>
 	</div>
 {% endblock %}
@@ -187,6 +186,4 @@
 {% block javascripts %}
 <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
  <script type='text/javascript' src="{{ asset('js/user.js') }}"></script>
-
-
 {% endblock %}

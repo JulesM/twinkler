@@ -1,0 +1,16 @@
+{% extends 'TkUserBundle:Profile:show.html.twig' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="span6 offset3">
+		<p>Add members to your group {{ app.user.currentMember.tgroup.name }}</p>
+		<p>Current members</p>
+		{% for member in app.user.currentMember.tgroup.members %}
+			<p>{{ member.name }}</p>
+		{% endfor %}
+		{% render(controller('TkGroupBundle:Default:addMember')) %}
+	</div>
+</div>
+
+{% endblock %}

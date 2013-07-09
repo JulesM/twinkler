@@ -6,11 +6,11 @@
 	text-align: center;
 }
 
-.flat-header{
+#user-info .flat-header{
 	height: 50px;
 }
 
-.flat-header > h3{
+#user-info  .flat-header > h3{
 	line-height: 50px;
 	margin: 0;
 }

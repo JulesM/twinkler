@@ -1,10 +1,11 @@
-/* --- CSS of expense part of GroupBundle only--- */
-#expense-timeline{
-	margin: 20px 10px;
-	width: 60%;
-	position: relative;
-}
+/* ------ CSS of expense part of GroupBundle only ------ */
 
+.expense-header{
+  	border-bottom-left-radius:4px;
+  	border-bottom-right-radius:4px;
+  	min-height: 34px;
+
+}
 
 .flat-header a{
 	color: #e9f0f4;
@@ -16,17 +17,75 @@
 	text-decoration: none;
 }
 
-#expense-dropdown{
-	display: inline-block;
-	width: 50px;
+/*--- BALANCE (left) --- */
+
+#balance{
+	margin: 20px 0px;
+	min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+	width:100%;
+	color:white;
+	padding:5px;
+	position:relative;
+	word-wrap:break-word;
+	-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-bottom:2em;
+}
+
+.balance-box h2{
+	font-size: 22px;
+	vertical-align: middle;
+
+}
+
+#settlement{
+	width: 100%;
+	padding:5px;
 	text-align: center;
-
+	color:#f97e76;
 }
 
-#expense-dropdown > a{
-	-webkit-transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
+#settlement:after{ /*arrow added to rightarrowdiv DIV*/
+	content:'';
+	display:block;
+	position:absolute;
+	top:10px;
+	left:100%; /*should be set to 100% */
+	width:0;
+	height:0;
+	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;	
 }
 
+
+/*-------- Timeline ---------*/
+
+#timeline{
+	display: inline-block;
+	width: 8%;
+	vertical-align: top;
+	background-image: url(' ../img/frame/timeline-bck.png') ;
+	background-repeat: repeat-y;
+}
+
+#timeline #today-pinpoint{
+	margin-left: 15px;
+}
+
+/*------ EXPENSE TABLE ---------*/
+
+#timeline-expense-container{
+	display: inline-block;
+	width: 85%;
+}
+
+#expense-timeline{
+	margin: 20px 10px;
+	width: 60%;
+	position: relative;
+}
 
 #expense-title{
 	display: inline-block;
@@ -41,6 +100,17 @@
 	margin: 0px;
 	vertical-align: middle;
 	margin-top: 3px;
+}
+
+#expense-dropdown{
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+
+}
+
+#expense-dropdown > a{
+	-webkit-transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 #add-expense-btn{
@@ -61,9 +131,22 @@
 	vertical-align: middle;
 }
 
-/*------EXPENSE TABLE---------*/
+#expense-summary{
+	float: right;
+	text-align: right;
+	margin-top: 5px;
+	padding: 0px 20px;
+	font-size: 12px;
+	background-color: rgb(242,242,242);
+	color: rgb(140,140,140);
+  	border-bottom-left-radius:4px;
+  	border-bottom-right-radius:4px;
+  	border-top-left-radius:4px;
+  	border-top-right-radius:4px;
+}
 
 .expense-list{
+	width: 100%;
 	padding:5px;
 	position:relative;
 	word-wrap:break-word;
@@ -87,100 +170,43 @@
 	border-width: 10px;
 }
 
+.pinpoint-tmln{
+	display: inline-block;
+	float: left;
+	margin-left: -10%;
+	margin-top: 5px;
+}
+
 .expense-list-detailed{
 	display: inline-block;
 	min-height: 30px;
 	margin-top: 0px;
 	margin-bottom: 5px;
-}
-
-.pinpoint-tmln{
-	display: inline-block;
-	float: left;
-	margin-left: -35px;
-	margin-top: 10px;
-}
-
-#expense-summary{
-	float: right;
-	text-align: right;
-	margin-top: 5px;
-	padding: 0px 20px;
-	font-size: 12px;
-	background-color: rgb(242,242,242);
-	color: rgb(140,140,140);
-  	border-bottom-left-radius:4px;
-  	border-bottom-right-radius:4px;
-  	border-top-left-radius:4px;
-  	border-top-right-radius:4px;
-}
-
-
-
-
-
-/*---------BALANCE----------*/
-#balance{
-	margin: 20px 0px;
-	min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
-	width:100%;
-	color:white;
-	padding:5px;
-	position:relative;
-	word-wrap:break-word;
-	-moz-border-radius:5px; /*add some nice CSS3 round corners*/
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	margin-bottom:2em;
-}
-
-.expense-header{
-  	border-bottom-left-radius:4px;
-  	border-bottom-right-radius:4px;
-  	height: 34px;
-
-}
-
-
-.balance-box h2{
-	font-size: 22px;
-	vertical-align: middle;
-
-}
-
-#settlement{
 	width: 100%;
-	margin-top: 20px;
-	padding:5px;
-	text-align: center;
-	color:#f97e76;
+	position: relative;
 }
 
-#settlement:after{ /*arrow added to rightarrowdiv DIV*/
-	content:'';
-	display:block;
-	position:absolute;
-	top:10px;
-	left:100%; /*should be set to 100% */
-	width:0;
-	height:0;
-	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
-	border-style: solid;
-	border-width: 10px;	
-}
-
-
-/*--------timeline---------*/
-#timeline{
+.expense-list-detailed > img{
 	display: inline-block;
-	height: 100%;
-	min-height: 100%;
-	width: 50px;
-	background-image: url(' ../img/frame/timeline-bck.png') ;
-	text-align: center;
+	vertical-align: top;
+	margin-right: 2px;
 }
 
-#timeline-expense-container{
-	margin-left: 0px;
+.expense-list-detailed .expense-details{
+	display: inline-block;
+	max-width: 500px;
 }
 
+
+.expense-list-detailed .your-share{
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.expense-list-detailed .edit-remove-buttons{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}

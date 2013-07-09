@@ -189,3 +189,38 @@
 	color: white;
 }
 
+/*-------GROUP CREATION-----*/
+.new-group h1{
+	font-size: 26px;
+	margin: 0px 30px;
+}
+
+.new-group-content{
+	padding: 20px 0px;
+}
+
+.new-group .currency{
+	margin: 15px 0px;
+}
+
+.new-group .currency > label,select{
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+#tk_groupbundle_tgrouptype_currency{
+	width: 80px;
+}
+
+.new-group .flat-footer{
+	padding: 20px 0px;
+}
+
+.new-group .flat-footer input{
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+}
+
+
+

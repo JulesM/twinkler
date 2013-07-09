@@ -1,30 +1,31 @@
 {% extends 'TkUserBundle:Profile:show.html.twig' %}
 
 {% block content %}
-<div class="row">
+<div class="new-group row">
 	<div class="span6 offset3" style="text-align: center">
 		<div class="flat-container">
 			<div class="flat-header">
-				<h1>Create a new group</h1>
+				<h1>Create a New Event (1/2)</h1>
 			</div>
-			<div>
-				<form action="{{ path('tk_group_new') }}" method="post" {{ form_enctype(form) }}>
-				    {{ form_errors(form) }}
+			<form action="{{ path('tk_group_new') }}" method="post" {{ form_enctype(form) }} style="margin:0">
+				<div class="new-group-content">
+					    {{ form_errors(form) }}
 
-				    {{ form_errors(form.name) }}
-				    {{ form_widget(form.name) }}
+					    {{ form_errors(form.name) }}
+					    {{ form_widget(form.name) }}
+					<div class="currency">
+					    {{ form_label(form.currency) }}
+					    {{ form_errors(form.currency) }}
+					    {{ form_widget(form.currency) }}
+					</div>
+					    {{ form_rest(form) }}
+				</div>
 
-				    {{ form_label(form.currency) }}
-				    {{ form_errors(form.currency) }}
-				    {{ form_widget(form.currency) }}
-
-				    {{ form_rest(form) }}
-
-				    <div class="flat-footer">
-				    	<input type="submit" class="flat-btn flat-pk"/>
-				    </div>
-				</form>
-			</div>
+			    <div class="flat-footer">
+			    	<input type="submit" value="Create Event" class="flat-btn flat-pk" style="border:none;"/>
+			    </div>
+			</form>
+			
 		</div>
 	</div>
 </div>

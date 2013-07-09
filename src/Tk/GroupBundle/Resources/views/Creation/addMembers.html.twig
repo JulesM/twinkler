@@ -2,14 +2,26 @@
 
 {% block content %}
 
-<div class="row">
-	<div class="span6 offset3">
-		<p>Add members to your group {{ app.user.currentMember.tgroup.name }}</p>
-		<p>Current members</p>
-		{% for member in app.user.currentMember.tgroup.members %}
-			<p>{{ member.name }}</p>
-		{% endfor %}
-		{% render(controller('TkGroupBundle:Default:addMember')) %}
+<div class="new-group row" style="text-align: center">
+	<div class="span6 offset3 flat-container">
+		<div class="flat-header" style="margin-bottom: 20px;">
+				<h1>Create a New Event (2/2)</h1>
+		</div>
+
+		<div>
+
+			<p>Add Members to {{ app.user.currentMember.tgroup.name }}</p>
+			<p>Current members</p>
+			{% for member in app.user.currentMember.tgroup.members %}
+				<p>{{ member.name }}</p>
+			{% endfor %}
+			{% render(controller('TkGroupBundle:Default:addMember')) %}
+
+		</div>
+		<div class="flat-footer">
+
+		</div>
+
 	</div>
 </div>
 

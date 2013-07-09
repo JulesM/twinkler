@@ -1,5 +1,5 @@
 tk_welcome_homepage:
-    pattern:  /welcome
+    pattern:  /
     defaults: { _controller: TkWelcomeBundle:Default:index }
 
 tk_welcome_choose_member:

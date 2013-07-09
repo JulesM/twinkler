@@ -9,7 +9,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkWelcomeBundle:Default:index.html.twig');
+        if ($this->getUser()){
+            return $this->redirect($this->generateUrl('tk_user_homepage'));
+        }else{
+            return $this->render('TkWelcomeBundle:Default:index.html.twig');
+        }
     }
 
     public function registerAction()

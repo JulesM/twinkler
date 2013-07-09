@@ -75,7 +75,7 @@
 					</div>	
 					<div style="float: right;">
 
-						Your share: <font style="color:#fb786b;">{{ expense[1]|number_format(0) }} {{ currency }}</font>
+						Your share: <font style="color:rgb(153,179,53);">{{ expense[1]|number_format(0) }} {{ currency }}</font>
 						<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-edit-expense{{ expense[0].name }}"><i class="icon-edit"></i></a>
 						<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
 					</div>

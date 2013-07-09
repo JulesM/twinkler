@@ -4,7 +4,7 @@
 
 {% block navbartitle %}
 	<div  id="group-name-title">
-		<div style="height: 100%; border-right: 1px solid rgba(255,255,255,0.7); display: inline-block; padding-right: 10px"><a href="#" ><h1 style="display: inline-block">{{ group.name|capitalize }}</h1></a></div>
+		<div style="height: 100%; border-right: 1px solid rgba(255,255,255,0.7); display: inline-block; padding-right: 10px"><a href="{{ path('tk_group_homepage') }}" ><h1 style="display: inline-block">{{ group.name|capitalize }}</h1></a></div>
 			
 		<div class="dropdown" style="display: inline-block">
 		    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
@@ -29,13 +29,13 @@
 					{% if member.user %}
 						<div class="member">
 							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-							<p>{{ member.name }}</p>
+							<p style="color: rgb(121,136,151);text-shadow:  white 0px 1px 0px;">{{ member.name }}</p>
 						</div> 
 					{% else %}
 						<div class="member">
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 
-							<p>{{ member.name }}</p>
+							<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
 						</div>
 					{% endif %}
 				{% endfor %}

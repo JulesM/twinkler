@@ -29,12 +29,12 @@
                         <a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="30px" style="margin: 10px;" alt="profile picture">
                         </a>
                     </div>
-                    <div class="dropdown">
+                    <div class="dropdown" >
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <li><a tabindex="-1" href="#">Account Settings</a></li>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
+                            <li><a tabindex="-1" href="#" style="color: rgb(60,60,60)">Account Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}" style="color: rgb(60,60,60)">Logout</a></li>
                         </ul>
                     </div>
                 </div>

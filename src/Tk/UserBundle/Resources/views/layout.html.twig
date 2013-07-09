@@ -22,7 +22,7 @@
     <div class="container">
         {% block layoutcontent %}
         <div id="user-layout" class="row">
-            <div class="span8 offset2" style="text-align: center">
+            <div class="span4 offset4" style="text-align: center">
                 {% if app.session.get('invitation_id') != null %}
                 <h5>Hello {{ app.session.get('invitation_member') }},</br> you need to login or register to join the group </h5>
                 {% endif %}

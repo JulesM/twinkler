@@ -1,6 +1,12 @@
 {% extends '::base.html.twig' %}
 
+{% block head %}
+    <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block body %}
+<div id="user-layout-body">
     <header>
         <div>
             <a href="{{ path('tk_welcome_homepage') }}">
@@ -13,25 +19,29 @@
         </div>
     </header>
 
+    <div class="container">
+        {% block layoutcontent %}
+        <div id="user-layout" class="row">
+            <div class="span8 offset2" style="text-align: center">
+                {% if app.session.get('invitation_id') != null %}
+                <h5>Hello {{ app.session.get('invitation_member') }},</br> you need to login or register to join the group </h5>
+                {% endif %}
 
-<div id="user-layout" class="row">
-    <div class="span8 offset2" style="text-align: center">
-        {% if app.session.get('invitation_id') != null %}
-        <h5>Hello {{ app.session.get('invitation_member') }},</br> you need to login or register to join the group </h5>
-        {% endif %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
 
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message }}
+                <div>
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
                 </div>
-            {% endfor %}
-        {% endfor %}
-
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+            </div>
         </div>
+        {% endblock %}
     </div>
 </div>
 {% endblock %}

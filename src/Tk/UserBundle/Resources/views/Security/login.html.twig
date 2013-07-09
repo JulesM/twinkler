@@ -2,13 +2,6 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block head %}
-    {% block stylesheets %} 
-    <link href="{{ asset('css/flat-design.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet" type="text/css">
-    {% endblock stylesheets %}
-{% endblock %}
-
 {% block signuplogin %}
     <a href="{{ path('fos_user_registration_register') }}">Sign up</a>
 {% endblock %}

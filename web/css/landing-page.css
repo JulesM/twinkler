@@ -400,32 +400,26 @@ footer li{
 
 /* --- Login and register parts --- */
 
-#user-layout{
-	margin-top: 100px;
+#user-layout-body{
 	background-image: url(' ../img/landing-page/cafe_bg.png');
 	background-size: 100% auto;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
-
-.flat-container{
-	color: rgb(61,61,61);
+#user-layout-body .flat-container{
+	text-align: center;
 }
 
-.flat-header{
-	font-family: "Proxima-regular";
-	background-color: rgb(245,103,99);
-	color: white;
-	height:50px;
+#user-layout-body .flat-header{
 	padding-top: 10px;
 }
 
-.flat-header h1{
-	padding: 0;
-	line-height: 40px;
-	margin: 0px;
+#user-layout-body .flat-header h1{
+	line-height: 24px;
 }
 
-.flat-footer p{
+#user-layout-body .flat-footer p{
 	margin-top: 10px;
 	padding-top: 15px;
 }
@@ -445,5 +439,3 @@ footer li{
 	margin-right: 10%;
 	margin-top: 100px;
 }
-
-

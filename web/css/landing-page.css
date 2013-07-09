@@ -249,7 +249,6 @@ strong{
 #gettheapp{
 	background-image: url(' ../img/landing-page/get-the-app.jpg');
 	background-repeat:no-repeat;
-	background-attachment:fixed;
 	background-size: cover; 
 	height: 400px;
 	width: 100%;
@@ -384,7 +383,7 @@ footer li{
 /* --- responsiveness --- */
 
 @media only screen and (max-width: 767px) {
-	#features,
+	.feature,
 	#showcase,
 	#mosaic,
 	.learn-more-link{

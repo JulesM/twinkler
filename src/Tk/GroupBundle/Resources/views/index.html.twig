@@ -2,18 +2,7 @@
 
 {% set group = app.user.currentMember.tgroup %}
 
-{% block bignavbartitle %}
-	<h1 style="display: inline-block">{{ group.name|capitalize }}</h1>
-	<div class="dropdown" style="display: inline-block">
-	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>
-		    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">                      
-			    {% for member in app.user.members %}
-			    <li><a href="{{ path('tk_group_switch_member', { 'id' : member.id, 'route' : app.request.attributes.get('_route') }) }}">{{ member.tgroup.name }}</a></li>
-			    {% endfor %}
-			</ul>
-	</div>
-{% endblock %}
-{% block smallnavbartitle %}
+{% block navbartitle %}
 	<h1 style="display: inline-block">{{ group.name|capitalize }}</h1>
 	<div class="dropdown" style="display: inline-block">
 	    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>

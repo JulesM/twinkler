@@ -13,8 +13,8 @@ header{
 
 .brand{
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 10px;
+	top: 10px;
 }
 
 /* --- group name (top) --- */
@@ -163,29 +163,19 @@ header{
 /* --- Responsiveness --- */
 
 @media only screen and (max-width: 767px) {
-	#first-row-big,
+	#group-name > h1{
+		font-size: 22px;
+	}
+	#logo-big,
 	#second-row-big{display: none;}
 }
 
 @media only screen and (min-width: 768px) {
-	#first-row-small,
+	#logo-small,
 	#second-row-small{display: none;}
 }
 
 /* --- Specific small design --- */
-
-#first-row-small{
-	text-align: center
-}
-
-#first-row-small > div > div {
-	display: inline-block;
-	vertical-align: top;
-}
-
-#first-row-small > div > #group-name > h1{
-	font-size: 22px;
-}
 
 #second-row-small #group > .member > p{
 	font-weight: normal;

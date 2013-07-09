@@ -63,7 +63,6 @@
 /*------EXPENSE TABLE---------*/
 
 .expense-list{
-	margin-top: 20px;
 	padding:5px;
 	position:relative;
 	word-wrap:break-word;
@@ -119,34 +118,11 @@
 
 
 
-/*---expense-old------*/
-
-.table a:hover{
-	text-decoration: none;
-}
-#column-label{
-	background-color: #c1cfd9;
-	color: white;
-}
-
-#expense-date{
-	color:#b8c7d1;
-	text-align: center;
-}
-
-#expense-name,  #expense-total, #expense-for-you{
-	color:#f97e76;
-}
-
-#expense-edit{
-	text-align: center;
-}
-
-
 /*---------BALANCE----------*/
 #balance{
 	margin: 20px 0px;
 	min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+	width:100%;
 	color:white;
 	padding:5px;
 	position:relative;
@@ -155,19 +131,6 @@
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	margin-bottom:2em;
-}
-
-#balance:after{ /*arrow added to rightarrowdiv DIV*/
-	content:'';
-	display:block;
-	position:absolute;
-	top:10px;
-	left:100%; /*should be set to 100% */
-	width:0;
-	height:0;
-	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
-	border-style: solid;
-	border-width: 10px;	
 }
 
 .expense-header{
@@ -186,9 +149,23 @@
 
 #settlement{
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 20px;
+	padding:5px;
 	text-align: center;
 	color:#f97e76;
+}
+
+#settlement:after{ /*arrow added to rightarrowdiv DIV*/
+	content:'';
+	display:block;
+	position:absolute;
+	top:10px;
+	left:100%; /*should be set to 100% */
+	width:0;
+	height:0;
+	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;	
 }
 
 
@@ -196,10 +173,13 @@
 #timeline{
 	display: inline-block;
 	height: 100%;
-	min-height: 400px;
+	min-height: 100%;
 	width: 50px;
 	background-image: url(' ../img/frame/timeline-bck.png') ;
-	margin-top: 20px;
 	text-align: center;
+}
+
+#timeline-expense-container{
+	margin-left: 0px;
 }
 

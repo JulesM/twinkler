@@ -6,12 +6,14 @@ body{
 	padding: 0;
 }
 
+#page-body{
+	background-image: url(' ../img/frame/bck.png');
+
+}
+
 
 /*-----FRAME-----*/
 
-.frame{	
-	background-image: url(' ../img/frame/bck.png');
-}
 
 .frame .row{
 	margin-top: 20px;

@@ -213,3 +213,33 @@
 	bottom: 0;
 	right: 0;
 }
+
+/* --- Expense Modal --- */
+
+#add-expense-form{
+	text-align: center;
+	padding-top: 20px;
+}
+
+#tk_expensebundle_expensetype_date > select{
+	width: 80px;
+}
+
+#users-row{
+	text-align: center;
+}
+
+#users-row > #users-label{
+	background-color: grey;
+}
+
+#users-row > div > .user-box{
+	display: inline-block;
+	margin: 10px;
+}
+
+#users-row > div > input,label{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+}

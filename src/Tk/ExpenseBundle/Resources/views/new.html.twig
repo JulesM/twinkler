@@ -1,13 +1,63 @@
-<form action="{{ path('tk_expense_new') }}" method="post" {{ form_enctype(form) }}>
+<form id="add-expense-form" action="{{ path('tk_expense_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
 
-    {{ form_row(form.owner) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.amount) }}
-    {{ form_row(form.date) }}
-    {{ form_row(form.users) }}
+    <div>
+		<span>Who paid ?</span>
+		{{ form_errors(form.owner) }}
+		{{ form_widget(form.owner, 
+	        { 'attr': { 'style' : 'width : 150px;'}}) 
+	    }}
+    </div>
+
+    <div>
+	    {{ form_errors(form.name) }}
+	    {{ form_widget(form.name, 
+	        { 'attr': { 'placeholder' : 'What ?'}}) 
+	    }}
+    </div>
+
+    <div>
+	    {{ form_errors(form.amount) }}
+	    {{ form_widget(form.amount, 
+	        { 'attr': { 'placeholder' : 'How much ?'}}) 
+	    }}
+    </div>
+
+    <div>
+    	<span>When was it paid ?</span>
+    	{{ form_errors(form.date) }}
+    	{{ form_widget(form.date) }}
+    </div>
+
+    <div id="users-row">
+    	<div id="users-label">
+			<label class="required">Select your friends involved in this expense</label>
+		</div>
+		<div id="tk_expensebundle_expensetype_users">
+		{% for member in app.user.currentMember.tgroup.members %}
+			<div class="user-box">
+				<div>
+					{% if member.user %}
+						<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" width="50px">
+					{% else %}
+						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" width="50px">
+					{% endif %}
+				</div>
+				<input id="tk_expensebundle_expensetype_users_{{member.id}}" type="checkbox" value="{{member.id}}" name="tk_expensebundle_expensetype[users][]">
+				<label for="tk_expensebundle_expensetype_users_{{member.id}}">{{member.name}}</label>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+
+	<div style="display:none">
+	{{ form_row(form.users) }}
+	</div>
 
     {{ form_rest(form) }}
 
-    <input type="submit" />
+    <div class="flat-footer">
+    	<input type="submit" class="btn btn-success"/>
+    	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
 </form>

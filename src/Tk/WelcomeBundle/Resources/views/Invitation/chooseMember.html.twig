@@ -3,23 +3,25 @@
 {% block layoutcontent %}
 
 <div id="user-layout" class="row">
-	<div class="span6 offset3 flat-container">
-		<div class="flat-header">
-		<h3>You have been invited to join the group <br>"{{ group.name }}"</h3>
-		</div>
-		<div>
-			<p>Click on your name in the list below</p>
-			{% for member in group.members %}
-				{% if member.user != null %}
-				{% else %}
-					<div class="box">
-						<p><a href="{{ path('tk_welcome_chosen_member', { 'id' : member.id, 'token' : member.invitationToken }) }}">{{ member.name }}</a></p>
-					</div>
-				{% endif %}
-			{% endfor %}
-		</div>
-		<div class="flat-footer">
-			<p>You are not in the list ? <a href="">Join the group here</a></p>
+	<div class="span6 offset3"> 
+		<div class="flat-container">
+			<div class="flat-header">
+			<h3>You have been invited to join the group <br>"{{ group.name }}"</h3>
+			</div>
+			<div>
+				<p>Click on your name in the list below</p>
+				{% for member in group.members %}
+					{% if member.user != null %}
+					{% else %}
+						<div class="box">
+							<p><a href="{{ path('tk_welcome_chosen_member', { 'id' : member.id, 'token' : member.invitationToken }) }}">{{ member.name }}</a></p>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="flat-footer">
+				<p>You are not in the list ? <a href="">Join the group here</a></p>
+			</div>
 		</div>
 	</div>
 </div>

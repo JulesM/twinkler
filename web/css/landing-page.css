@@ -399,11 +399,13 @@ footer li{
 
 /* --- Login and register parts --- */
 
+body{
+    background-image: url(' ../img/landing-page/cafe_bg.png') ;
+    background-size: cover;
+}
 #user-layout-body{
 	padding-top: 100px;
-	padding-bottom: 100px;
 }
-
 #user-layout-body .flat-container{
 	text-align: center;
 	width: 100%;

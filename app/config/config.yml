@@ -77,6 +77,8 @@ fos_user:
     from_email:
         address:        jules@twinkler.com
         sender_name:    Jules for Twinkler
+    service:
+        mailer: fos_user.mailer.twig_swift
     profile:
         form:
             type:               fos_user_profile
@@ -93,7 +95,7 @@ fos_user:
                 address:        jules@twinkler.co
                 sender_name:    Jules for Twinkler
             enabled:    true # change to true for required email confirmation
-            template:   FOSUserBundle:Registration:email.txt.twig
+            template:   TkUserBundle:Registration:confirmation.email.twig
         form:
             type:               tk_user_registration
             name:               fos_user_registration_form

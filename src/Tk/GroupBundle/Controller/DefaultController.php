@@ -185,7 +185,8 @@ class DefaultController extends Controller
                         ->setSubject('You received an invitation to join Twinkler !')
                         ->setFrom('jules@twinkler.co')
                         ->setTo($data['email'])
-                        ->setBody($this->renderView('TkGroupBundle:Default:invitationEmail.html.twig', array('member' => $member, 'email' => $data['email'])))
+                        ->setContentType('text/html')
+                        ->setBody($this->renderView('TkGroupBundle:Default:invitationEmail.email.twig', array('member' => $member, 'email' => $data['email'])))
                     ;
             $this->get('mailer')->send($message);
 

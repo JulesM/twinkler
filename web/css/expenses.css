@@ -215,10 +215,24 @@
 }
 
 /* --- Expense Modal --- */
+#addExpenseModal > .flat-container{
+	width:100%;
+	text-align: center;
+}
+
+#addExpenseModal > .flat-container > .flat-header{
+	padding-top:10px;
+}
+
+#addExpenseModal > .flat-container > .flat-header h3{
+	margin-top:0;
+}
+
 
 #add-expense-form{
 	text-align: center;
 	padding-top: 20px;
+	margin: 0;
 }
 
 #tk_expensebundle_expensetype_date > select{
@@ -242,4 +256,8 @@
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0;
+}
+
+#addExpenseModal .flat-footer{
+	padding-top: 20px
 }

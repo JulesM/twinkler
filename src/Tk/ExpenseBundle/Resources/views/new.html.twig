@@ -30,12 +30,14 @@
     </div>
 
     <div id="users-row">
-    	<div id="users-label">
-			<label class="required">Select your friends involved in this expense</label>
+    	<div id="users-label" style="margin:10px 0px">
+			<label class="required">How do we split this expense?</label>
 		</div>
 		<div id="tk_expensebundle_expensetype_users">
 		{% for member in app.user.currentMember.tgroup.members %}
 			<div class="user-box">
+				<label for="tk_expensebundle_expensetype_users_{{member.id}}">
+					<div>
 				<div>
 					{% if member.user %}
 						<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" width="50px">
@@ -43,8 +45,8 @@
 						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" width="50px">
 					{% endif %}
 				</div>
+				{{member.name}}</label></div>
 				<input id="tk_expensebundle_expensetype_users_{{member.id}}" type="checkbox" value="{{member.id}}" name="tk_expensebundle_expensetype[users][]">
-				<label for="tk_expensebundle_expensetype_users_{{member.id}}">{{member.name}}</label>
 			</div>
 		{% endfor %}
 		</div>
@@ -57,7 +59,7 @@
     {{ form_rest(form) }}
 
     <div class="flat-footer">
-    	<input type="submit" class="btn btn-success"/>
+    	<input type="submit" class="btn btn-success" value="Add Expense"/>
     	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </form>

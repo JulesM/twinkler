@@ -13,7 +13,7 @@
 <div class="span8 offset2">
 	<div class="group-info flat-container">
 		<div class="group-header flat-header">	
-			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><a href="{{ path('tk_group_edit') }}"><i class="icon-edit" style="color:#c1cfd9"></i></a>  {{ group.name }}</h2><span>
+			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><i class="icon-gear" style="color:#ffffff"></i> {{ group.name }}</h2><span>
 		</div>
 		<div class="group-mgt-button">
 			<div class="edit-group flat-btn flat-pk flat-large">	
@@ -80,7 +80,27 @@
 			<canvas id="balanceChart" width="700px;"height="200"></canvas>
 		</div>
 		<div class="group-mgt-button">
+
+		<div id="collapse-edit-expense" class="accordion-body collapse" style="display:block;">
+			<div class="accordion-inner">
+				<div class="well" style="text-align: center; margin: 10px 20px;">
+					<div style="display: inline-block">
+						<a href="" class="btn btn-success" style="width: 85px">Via email</a>
+					</div>
+					<div style="display: inline-block">
+
+					</div>
+					<div style="display: inline-block">
+						<a href="" class="btn btn-primary" style="width: 85px">Via Facebook</a>
+					</div>
+					<div style="margin-top: 20px">
+						<a class="edit-group-a accordion-toggle btn" data-toggle="collapse" href="#collapse-edit-expense">Hide</a>
+					</div>
+				</div>
+			</div>
+		</div>
 			<div class="edit-group flat-btn flat-gn flat-large">	
+
 				<a class="edit-group-a" href="#">	
 					<div>
 						<i class="icon-money"></i>   
@@ -90,7 +110,7 @@
 			</div>
 
 			<div class="edit-group flat-btn flat-gn flat-large">	
-				<a class="edit-group-a" href="#">	
+				<a class="edit-group-a accordion-toggle edit-group-a" data-toggle="collapse" href="#collapse-edit-expense">
 					<div>
 						<i class="icon-envelope"></i>   
 						Send a Reminder
@@ -98,20 +118,7 @@
 				</a>				
 			</div>
 		</div>
-		<div class="well" style="text-align: center; margin: 10px 20px;">
-			<div>
-				<a href="" class="btn btn-success">Via email</a>
-			</div>
-			<div>
 
-			</div>
-			<div>
-				<a href="" class="btn btn-primary">Via Facebook</a>
-			</div>
-			<div>
-				<a href="" class="btn">Hide</a>
-			</div>
-		</div>
 		<!--
 		<div class="subheader">	
 			<span style="display: block; height:30px; vertical-align: middle; padding-left: 10px">

@@ -21,7 +21,7 @@
 {% block header %}
 	<div id="second-row-big" class="row" style="position: relative">
 		<div id="add-group">
-	  		<a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><div class="btn-navbar"><i class="icon-group icon-2x"></i></div></a>
+	  		<a class="btn-quick-add" href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><div class="btn-navbar"><i class="icon-group icon-2x"></i></div></a>
 	  	</div>
 		<div id="group" class="span8 offset2">
 
@@ -42,7 +42,7 @@
 
 		</div>
 		<div id="toolbar">
-			<div style="display: inline-block; position:absolute; bottom:0;right:100px"><a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><div class="btn-navbar"><i class="icon-user icon-2x" style="left: 9px;"></i></div></a>
+			<div style="display: inline-block; position:absolute; bottom:0;right:100px"><a class="btn-quick-add" href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member"><div class="btn-navbar"><i class="icon-user icon-2x" style="left: 9px;"></i></div></a>
 
 
 			</div>
@@ -56,7 +56,7 @@
 				</ul>
 			</div>
 			<div style="display: inline-block;  position:absolute; bottom:0; right: 0px">
-				<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings">
+				<a href="{{ path('tk_group_homepage') }}" class="btn-quick-add" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings">
 					<div class="btn-navbar">
 						<i class="icon-gear icon-2x" style="left: 8px;"></i>
 					</div>

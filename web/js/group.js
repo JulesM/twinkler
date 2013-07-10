@@ -49,22 +49,24 @@ new Chart(ctx).Bar(data,{
 	scaleShowLabels : false
 });
 
-if($('#balance').width()<300){
+if($('#balance').width()<members_nb*100+100){
 
 $('#balanceChart').width('100%');
 }else{
 
-$('#balanceChart').width(300);
+$('#balanceChart').width(Math.min(members_nb*100+100,300));
 }
+/*----CAHRT SIZE----*/ 
+
+var members_nb= members.length;
+ window.onload =function() {
+	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
+};
+
+
 
  window.onresize =function() {
-if($('#balance').width()<400){
-
-$('#balanceChart').width('100%');
-}else{
-
-$('#balanceChart').width(400);
-}
+	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
 };
 
 /*--------DIV HEIGHTS----------*/

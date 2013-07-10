@@ -49,6 +49,23 @@ new Chart(ctx).Bar(data,{
 	scaleShowLabels : false
 });
 
+if($('#balance').width()<300){
+
+$('#balanceChart').width('100%');
+}else{
+
+$('#balanceChart').width(300);
+}
+
+ window.onresize =function() {
+if($('#balance').width()<400){
+
+$('#balanceChart').width('100%');
+}else{
+
+$('#balanceChart').width(400);
+}
+};
 
 /*--------DIV HEIGHTS----------*/
 

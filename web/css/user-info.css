@@ -110,6 +110,16 @@
 	padding-bottom: 5px;
 }
 
+#group-summary .flat-header{
+	text-align: left;
+}
+
+#group-summary .flat-header h3{
+	margin: 0px 15px;
+	color:#FCD5D2;
+	font-size:16px;
+}
+
 #group-box{
 	padding-top: 1px;
 	padding-bottom: 0px;
@@ -121,11 +131,12 @@
 .accordion-group{
   border:none;
   margin-bottom:2px;
-  background-color:#EAEDF2;
+  background-color:#ffffff;
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
   border-top-left-radius:0px;
   border-top-right-radius:0px;
+  border-bottom: 1px solid rgb(200,200,200)
 }
 
 .accordion-heading > div{
@@ -137,15 +148,17 @@
 
 .accordion-heading-left{
 	min-width: 30%;
+	float: left;
 }
 
 .accordion-heading-middle{
-	width: 38%;
+	width: 30%;
 	min-width: 200px;
 }
 
 .accordion-heading-right{
 	min-width: 30%;
+	float: right;
 }
 
 .accordion-toggle{

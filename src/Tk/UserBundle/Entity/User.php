@@ -254,6 +254,9 @@ class User extends BaseUser
             $this->setFacebookId($fbdata['id']);
             $this->addRole('ROLE_FACEBOOK');
         }
+        if (isset($fbdata['first_name']) or isset($fbdata['last_name'])) {
+            $this->setUsername($fbdata['first_name'].' '.$fbdata['last_name']);
+        }
         if (isset($fbdata['first_name'])) {
             $this->setFirstname($fbdata['first_name']);
         }

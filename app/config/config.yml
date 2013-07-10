@@ -76,7 +76,7 @@ fos_user:
     model_manager_name:     null  # change it to the name of your entity/document manager if you don't want to use the default one.
     from_email:
         address:        jules@twinkler.com
-        sender_name:    Jules for Twinkler
+        sender_name:    Jules from Twinkler
     service:
         mailer: fos_user.mailer.twig_swift
     profile:
@@ -93,7 +93,7 @@ fos_user:
         confirmation:
             from_email: # Use this node only if you don't want the global email address for the confirmation email
                 address:        jules@twinkler.co
-                sender_name:    Jules for Twinkler
+                sender_name:    Jules from Twinkler
             enabled:    true # change to true for required email confirmation
             template:   TkUserBundle:Registration:confirmation.email.twig
         form:

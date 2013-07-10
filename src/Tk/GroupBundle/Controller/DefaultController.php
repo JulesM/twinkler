@@ -197,4 +197,9 @@ class DefaultController extends Controller
             'form' => $form->createView(),
             ));
     }
+
+    public function sendReminderEmailAction()
+    {
+
+    }
 }

@@ -42,7 +42,6 @@ class ProfileController extends Controller
 
         return $this->render('TkUserBundle:Profile:edit.html.twig', array(
             'form' => $form->createView(),
-            'balances' => $this->getBalancesAction(),
             )); 
     }
 

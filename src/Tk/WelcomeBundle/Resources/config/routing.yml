@@ -2,6 +2,10 @@ tk_welcome_homepage:
     pattern:  /
     defaults: { _controller: TkWelcomeBundle:Default:index }
 
+tk_welcome_summary:
+    pattern: /summary/{id}/{token}
+    defaults: { _controller: TkWelcomeBundle:Summary:summary }
+
 tk_welcome_choose_member:
     pattern: /invitation/{id}/{token}
     defaults: { _controller: TkWelcomeBundle:Invitation:chooseMember }

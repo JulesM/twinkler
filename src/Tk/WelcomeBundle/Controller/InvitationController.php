@@ -14,7 +14,6 @@ class InvitationController extends Controller
         if ($token != $group->getInvitationToken()){
             throw new AccessDeniedException('You try to access a wrong Url');
         }else{
-
             return $this->render('TkWelcomeBundle:Invitation:chooseMember.html.twig', array(
                 'group'   => $group,
                 ));

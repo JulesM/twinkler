@@ -35,12 +35,18 @@
         }
         </script>
 
+
         {% block body %}
         {% endblock %}
         
         <script src="{{ asset('js/jquery-1.10.1.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>      
         <script src="{{ asset('js/chart.js') }}"></script>
+        <script type="text/javascript" > // Script for FOSFacebookBundle
+            if ($(document).height()<$(window).height()){
+                $(document).height($(window).height());
+            }
+        </script>
 
         {% block javascripts %}
         {% endblock %}

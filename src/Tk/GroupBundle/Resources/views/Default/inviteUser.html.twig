@@ -1,12 +1,14 @@
 {% set group = app.user.currentMember.tgroup %}
 <div id="collapse-send-invites" class="accordion-body collapse">
   	<div class="accordion-inner">	
-		<div class="well">
+		<div class="well" style="postion: relative">
 			<h5>Invite your friends to join your group on Twinkler !</h5>
 			{% render controller('TkGroupBundle:Default:sendInvitationEmail') %}	
-			<span>or</span>
-			<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Inbox</a>
-			<a class="btn pull-right" href="{{ path('tk_group_homepage') }}">Hide</a>
+			<p>or</p>
+			<div>
+				<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Inbox</a>
+			</div>
+			<a class="btn" href="{{ path('tk_group_homepage') }}" style="position: absolute; bottom: 35px; right: 20px;">Hide</a>
 		</div>	
 	</div>
 </div>

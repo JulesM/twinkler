@@ -4,6 +4,10 @@
 	margin: 30px auto;
 }
 
+.group-info .well{
+	text-align: center;
+}
+
 .group-header{
 	width: 100%;
 	height: 50px;

@@ -90,8 +90,8 @@ fos_user:
     registration:
         confirmation:
             from_email: # Use this node only if you don't want the global email address for the confirmation email
-                address:        ...
-                sender_name:    ...
+                address:        jules@twinkler.co
+                sender_name:    Jules for Twinkler
             enabled:    true # change to true for required email confirmation
             template:   FOSUserBundle:Registration:email.txt.twig
         form:

@@ -21,7 +21,7 @@
 						</div>
 					</div>
 					{% if debts|length == 0 %}
-					<p>No debts at all, lucky you !</p>
+					<p style="margin-top: 10px; color:rgb(67,113,191)">No debts at all, lucky you !</p>
 					{% else %}
 					{% for debt in debts %}
 						<p>{{ debt[0] }} gives {{ debt[1]|number_format(0) }}{{ currency }} to {{debt[2] }}</p>
@@ -69,9 +69,15 @@
 
 					<div>
 					{% if all_expenses|length == 0 %}
+						<div class="pinpoint-tmln" style="margin-left: -7.55%">
+							<a  href="#" data-toggle="tooltip" rel="tooltip" title="" >
+								<img class="pinpoint-button" src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px">
+							</a>
+						</div>
 					<div class="expense-list flat-container" style="text-align: center">
-						<p>There is no expense for this group ...</p>
-						<a href="#addExpenseModal" role="button" data-toggle="modal" class="flat-btn flat-pk flat-large">Add an expense</a>
+						<div class="no-expense">
+						<p>There is no expense here yet</p></div>
+						<a href="#addExpenseModal" role="button" data-toggle="modal" class="flat-btn flat-pk flat-large" style="background-color: rgb(229,240,255); color:rgb(67,113,191); height:25px; padding-top: 5px">Add an expense</a>
 					</div>
 					{% else %}
 					{% for expense in all_expenses %}

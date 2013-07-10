@@ -1,14 +1,17 @@
 
+/*--------CHARTS & TIMLINE SIZE--------*/
 
+var members_nb= members.length;
  window.onload =function() {
 
-	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-15+'px');
+	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
+	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
 };
 
  window.onresize =function() {
 
-	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-15+'px');
-
+	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
+	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
 };
 
 /*--------CHARTS--------*/
@@ -56,20 +59,8 @@ $('#balanceChart').width('100%');
 
 $('#balanceChart').width(Math.min(members_nb*100+100,300));
 }
-/*----CAHRT SIZE----*/ 
-
-var members_nb= members.length;
- window.onload =function() {
-	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
-};
 
 
-
- window.onresize =function() {
-	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
-};
-
-/*--------DIV HEIGHTS----------*/
 
 /*-------TOOLTIPS--------*/
     $(function () {

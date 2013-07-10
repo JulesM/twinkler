@@ -401,6 +401,9 @@ footer li{
 
 #user-layout-body{
 	padding-top: 100px;
+	height: 100%;
+	background-image: url(' ../img/landing-page/cafe_bg.png');
+	background-size: cover;
 }
 #user-layout-body .flat-container{
 	text-align: center;

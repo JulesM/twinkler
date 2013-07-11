@@ -10,16 +10,28 @@
 
 		<div>
 
-			<p>Add Members to {{ app.user.currentMember.tgroup.name }}</p>
-			<p>Current members</p>
+			<p><b>Current members</b></p>
 			{% for member in app.user.currentMember.tgroup.members %}
-				<p>{{ member.name }}</p>
+			{% if member.user %}
+				<div class="member">
+					<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
+					<p style="color: rgb(121,136,151);text-shadow:  white 0px 1px 0px;">{{ member.name }}</p>
+				</div> 
+			{% else %}
+				<div class="member">
+					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
+
+					<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
+				</div>
+			{% endif %}
+			<p>{{ member.name }}</p>
 			{% endfor %}
+			<p><b>Add Members to {{ app.user.currentMember.tgroup.name }}</b></p>
 			{% render(controller('TkGroupBundle:Default:addMember')) %}
 
 		</div>
-		<div class="flat-footer">
-
+		<div class="flat-footer"s style="padding-top: 20px;">
+			<a href="{{ path('tk_group_homepage') }}">Validate and continue</a>
 		</div>
 
 	</div>

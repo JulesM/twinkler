@@ -71,9 +71,9 @@ $('#balanceChart').width(Math.min(members_nb*100+100,300));
 /*-------Pinpoint buttons on timeline (date)--------*/
 
      $('.pinpoint-button').hover(function () {
-        this.src = 'http://localhost:8888/Twinkler/img/frame/tmln-btn-hover.png';
+        this.src = 'http://twinkler.co/img/frame/tmln-btn-hover.png';
     }, function () {
-        this.src = 'http://localhost:8888/Twinkler/img/frame/tmln-btn.png';
+        this.src = 'http://twinkler.co/img/frame/tmln-btn.png';
     });
 
 var today=new Date();

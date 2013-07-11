@@ -52,21 +52,17 @@
 
     </body>
 
-            <script type="text/javascript" > // Script for FOSFacebookBundle
+    <script type="text/javascript" > // Script for FOSFacebookBundle
+    $( document ).ready(function() { 
+        if ($('body').height()<$(window).height()){
+            $('body').height($(window).height());
+    }
+    })
 
-        $( document ).ready(function() { 
-            if ($('body').height()<$(window).height()){
-                $('body').height($(window).height());
-}
-});
-
- window.onresize =function() {
-            if ($('body').height()<$(window).height()){
-                $(document).height($(window).height());
-}
-};
-
-
-
-        </script>
+     window.onresize =function() {
+        if ($('body').height()<$(window).height()){
+            $('body').height($(window).height());
+    }
+    };
+    </script>
 </html>

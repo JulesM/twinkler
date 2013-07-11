@@ -27,7 +27,7 @@
     	<div class="row">
     		<div class="span12" style="text-align: center">
     			<h3>Here is the expense summary for the group <b>{{ group.name }}</b></h3>
-    			<p><a href="http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}" >Click here</a> to edit group expenses</p>
+    			<p><a href="{{ path('tk_welcome_choose_member', { 'id' : group.id, 'token' : group.invitationToken }) }}">Click here</a> to edit group expenses</p>
     		</div>
     	</div>
     </div>

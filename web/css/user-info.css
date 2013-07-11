@@ -221,6 +221,13 @@
 	text-decoration: none;
 }
 
+.accordion-inner{
+	border-top: none;
+	border-bottom-color:#E5E5E5;
+  	border-bottom-style:solid;
+  	border-bottom-width:1px;
+}
+
 .user-group-btn{
 	text-decoration: none;
 	opacity: 0.8;

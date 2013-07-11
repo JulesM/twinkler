@@ -111,7 +111,7 @@
 				</div>
 
 				{% if app.user.members|length == 0 %}
-					</p>You do not have participated in any Twinkler group yet</p>
+					</p>You do not have any group yet</p>
 				{% else %}
 				{% for member in app.user.members %}
 				<div id="group-box">
@@ -119,14 +119,14 @@
 						<div class="accordion-group-icon">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion-{{ member.id }}" style="display: inline-block"><img src="{{ asset('img/frame/group.png') }}"	alt="{{ member.name }}" ></a>
 						</div>
-					  <div class="accordion-group">
-					    <div class="accordion-heading">
-							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}"  style="display: inline-block; margin-left: 40px; color:#F97E76">
-								<strong>{{ member.tgroup.name|capitalize }}</strong>
-							</a>
-							<p style="display: inline-block; color:#8C8C8C;font-size:12px; text-align: right; float: right; margin-right: 30px"><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>			
-					    </div>
-						<div class="accordion-body">
+					  	<div class="accordion-group">
+						    <div class="accordion-heading">
+								<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}"  style="display: inline-block; margin-left: 40px; color:#F97E76">
+									<strong>{{ member.tgroup.name|capitalize }}</strong>
+								</a>
+								<p style="display: inline-block; color:#8C8C8C;font-size:12px; text-align: right; float: right; margin-right: 30px"><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>
+						    </div>
+							<div class="accordion-body">
 								<div  class="accordion-heading-middle" style="display: inline-block; float: left; margin-left: 10px">
 									<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}">
 										Expenses
@@ -145,32 +145,32 @@
 										{% endif %}
 									</p>
 								</div>
+							</div>
 						</div>
 
-
 					    <div id="accordion-{{ member.id }}" class="accordion-body collapse out">
-					      <div class="accordion-inner">
-					        <div>
-							{% for m in member.tgroup.members %}
-								<div style="display: inline-block">
-									{% if m.user %}
-										<div class="member">
-											<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-											<p>{{ m.name }}</p>
-										</div> 
-									{% else %}
-										<div class="member">
-											<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+					      	<div class="accordion-inner">
+						        <div>
+									{% for m in member.tgroup.members %}
+										<div style="display: inline-block">
+											{% if m.user %}
+												<div class="member">
+													<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+													<p>{{ m.name }}</p>
+												</div> 
+											{% else %}
+												<div class="member">
+													<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
 
-											<p>{{ m.name }}</p>
+													<p>{{ m.name }}</p>
+												</div>
+											{% endif %}
 										</div>
-									{% endif %}
+									{% endfor %}
 								</div>
-							{% endfor %}
-							</div>
-					      </div>
+					      	</div>
 					    </div>
-					  </div>
+					 
 					</div>														
 				</div>
 				{% endfor %}

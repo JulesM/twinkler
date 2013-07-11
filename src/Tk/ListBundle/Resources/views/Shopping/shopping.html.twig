@@ -1,35 +1,34 @@
 <div class="add-item">
-	{% render(controller('TkListBundle:Shopping:new')) %}
+{% render(controller('TkListBundle:Shopping:new')) %}
 </div>
 
 <table class="table">
-	
 	<tbody>
-
+		{% if app.user.currentMember.tgroup.activeShoppingItems|length == 0 %}
+		<tr><td style="text-align:center">There is <b>no missing item</b> in this shopping list, lucky you!</td></tr>
+		{% endif %}
 		{% for item in app.user.currentMember.tgroup.activeShoppingItems  %}
-			<tr>
-				<td id="task-name">{{ item.name }}</td>
-				<td>{{ item.author.name }}</td>
-				<td id="task-date">added on {{ item.addedDate|date('d/m') }}</td>
-				<td style="text-align: right; width: 80px">	
+		<tr>
+			<td id="task-name">{{ item.name }}</td>
+			<td>{{ item.author.name }}</td>
+			<td id="task-date">added on {{ item.addedDate|date('d/m') }}</td>
+			<td style="text-align: right; width: 80px">	
 
-					<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
-					<a href="{{ path('tk_list_shopping_check', { 'id' : item.id }) }}"><div class="flat-btn flat-gn flat-tiny" style="margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
-				</td>	
+				<a href="{{ path('tk_list_shopping_remove', { 'id' : item.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
+				<a href="{{ path('tk_list_shopping_check', { 'id' : item.id }) }}"><div class="flat-btn flat-gn flat-tiny" style="margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
+			</td>	
 
-			</tr>
+		</tr>
 		{% endfor %}
-
 		{% for item in app.user.currentMember.tgroup.inactiveShoppingItems %}
-			<tr style="background-color: white; color: #e4ebf0;">
-				<td  style="text-decoration: line-through;">{{ item.name }}</td>
-				<td  style="text-decoration: line-through;">{{ item.author.name }}</td>
-				<td  style="text-decoration: line-through;">{{ item.addedDate|date('d/m') }}</td>
-				<td  style="text-align: right; padding-right: 10px">
-					<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}" style:"color: #e4ebf0;" ><small >List back</small></a>
-				</td>
-			</tr>
+		<tr style="background-color: white; color: #e4ebf0;">
+			<td  style="text-decoration: line-through;">{{ item.name }}</td>
+			<td  style="text-decoration: line-through;">{{ item.author.name }}</td>
+			<td  style="text-decoration: line-through;">{{ item.addedDate|date('d/m') }}</td>
+			<td  style="text-align: right; padding-right: 10px">
+				<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}" style:"color: #e4ebf0;" ><small >List back</small></a>
+			</td>
+		</tr>
 		{% endfor %}
-
 	</tbody>
 </table>

@@ -1,22 +1,24 @@
 <div class="add-item">
-	{% render(controller('TkListBundle:Todos:new')) %}
+{% render(controller('TkListBundle:Todos:new')) %}
 </div>
 
 <table class="table">
 	<tbody>
+		{% if app.user.currentMember.tgroup.activeTodos|length == 0 %}
+		<tr><td style="text-align:center">There is <b>no pending to-do</b> for this group, lucky you!</td></tr>
+		{% endif %}
 		{% for todo in app.user.currentMember.tgroup.activeTodos %}
-			<tr>
-				<td id="task-name">{{ todo.name }}</td>
-				<td>{% if todo.owner == null %} <span style="color: #9eb2c0;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
-				<td id="task-date">added on {{ todo.date|date('d/m')}}</td>
-				<td style="text-align: right; width: 80px">	
+		<tr>
+			<td id="task-name">{{ todo.name }}</td>
+			<td>{% if todo.owner == null %} <span style="color: #9eb2c0;">Anyone</span> {% else %} {{ todo.owner.name }} {% endif %}</td>
+			<td id="task-date">added on {{ todo.date|date('d/m')}}</td>
+			<td style="text-align: right; width: 80px">	
 
-					<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
-					<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><div class="flat-btn flat-gn flat-tiny" style="margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
-				</td>	
-			</tr>
+				<a href="{{ path('tk_list_todos_remove', {'id' : todo.id }) }}"><i class="icon-trash" style="color: #9eb2c0"></i></a>
+				<a href="{{ path('tk_list_todos_check', {'id' : todo.id }) }}"><div class="flat-btn flat-gn flat-tiny" style="margin-left: 15px;"><i class="icon-ok" style="color: white;"></i></div></a>
+			</td>	
+		</tr>
 		{% endfor %}
-	
 		{% for todo in app.user.currentMember.tgroup.inactiveTodos %}
 			<tr style="background-color: white; color: #e4ebf0;text-decoration: line-through;">
 				<td>{{ todo.name }}</td>

@@ -7,28 +7,27 @@
 
 {% block content %}
 
-	<div class="row" style="margin-top:30px; margin-bottom: 30px;">
-		<div class="span6 flat-container">
-			<div class="box" id="to-dos">
-				<div class="flat-header">
-					<div id="list-title">
-						<h2>To-dos</h2>
-					</div>
+<div class="row" style="margin-top:30px; margin-bottom: 30px;">
+	<div class="span6 flat-container">
+		<div id="to-dos">
+			<div class="flat-header">
+				<div id="list-title">
+					<h2>To-dos</h2>
 				</div>
-
-				{% include 'TkListBundle:Todos:todos.html.twig' %}
 			</div>
-		</div>
-		<div class="span6 flat-container">
-			<div class="box" id="shopping-list">
-				<div class="flat-header">
-					<div id="list-title">
-						<h2>Shopping-lists</h2>
-					</div>
-				</div>
-				{% include 'TkListBundle:Shopping:shopping.html.twig' %}
-			</div>
+			{% include 'TkListBundle:Todos:todos.html.twig' %}
 		</div>
 	</div>
+	<div class="span6 flat-container">
+		<div id="shopping-list">
+			<div class="flat-header">
+				<div id="list-title">
+					<h2>Shopping-lists</h2>
+				</div>
+			</div>
+			{% include 'TkListBundle:Shopping:shopping.html.twig' %}
+		</div>
+	</div>
+</div>
 
 {% endblock %}

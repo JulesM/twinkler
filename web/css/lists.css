@@ -1,6 +1,19 @@
 /* --- CSS of list part of GroupBundle only--- */
+	
+.add-item{
+	text-align: center;
+	padding-left: 10px;
+	padding-top: 10px;
+	background-color: #c1cfd9;
+	color: white;
+}
+
+.add-item form{
+	margin-bottom: 0;
+}
 
 /* To-dos */
+
 #to-dos, #shopping-list{
 	position: relative;
 }
@@ -26,7 +39,7 @@
 	padding-left: 12px;
 }
 
-#list-title > h2{
+#list-title h2{
 	font-size: 22px;
 	margin: 0px;
 	vertical-align: middle;
@@ -38,23 +51,13 @@
 	color: white;
 }
 
-.add-item{
-	padding-left: 10px;
-	padding-top: 10px;
-	background-color: #c1cfd9;
-	color: white;
-}
-
-#to-dos > .add-item > form {
-	margin-bottom: 0;
-}
-
-#to-dos  > .add-item> form > div {
+#to-dos .add-item  form div {
 	display: inline-block;
+	vertical-align: top;
 	width: 35%;
 }
 
-#to-dos > .add-item > form > input {
+#to-dos .add-item form input {
 	display: inline-block;
 	vertical-align: top;
 }
@@ -70,16 +73,16 @@
 
 /* Shopping-list */
 
-#shopping-list  > .well > form {
+#shopping-list .well form {
 	margin-bottom: 0;
 }
 
-#shopping-list  > .well > form > div {
+#shopping-list .well form div {
 	display: inline-block;
+	vertical-align: top;
 	width: 70%;
 }
 
-#shopping-list > .well > form > input {
-	display: inline-block;
+#shopping-list form input {
 	vertical-align: top;
 }

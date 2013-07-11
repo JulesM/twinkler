@@ -1,12 +1,11 @@
 <form action="{{ path('tk_list_shopping_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
 
-    <div>
-        {{ form_errors(form.name) }}
-        {{ form_widget(form.name, 
-            { 'attr': { 'style' : 'width: 90%',  'placeholder' : 'What is missing ?'}}) 
-        }}
-    </div>
+
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name, 
+        { 'attr': { 'style' : 'width: 50%',  'placeholder' : 'What is missing ?'}}) 
+    }}
 
     {{ form_rest(form) }}
 

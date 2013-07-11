@@ -1,26 +1,31 @@
-<div id="collapse-remove-member" class="accordion-body collapse">
-	<div class="accordion-inner">	
-		<div class="well">
-			<h5>Remove members</h5>
-			<div>
-				{% for member in app.user.currentMember.tgroup.members %}
-				<div style="display: inline-block">
-					{% if member.user %}
-					<div class="member">
-						<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-						<p>{{ member.name }}</p>
-					</div> 
-					{% else %}
-					<div class="member">
-						<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-						<p>{{ member.name }}</p>
-					</div>
-					{% endif %}
-					<p><a href="">remove</a></p>
-				</div>
-				{% endfor %}
-			</div>
-			<a class="btn" href="{{ path('tk_group_homepage') }}" style="position: absolute; bottom: 35px; right: 20px;">Hide</a>
+<h5>Remove members for the group "{{ app.user.currentMember.tgroup.name }}"</h5>
+<div style="padding-bottom: 100px">
+	{% for member in app.user.currentMember.tgroup.members %}
+	<div style="display: inline-block">
+		<div style="margin: 5px;">	
+			{% if member.user %}
+			<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+			{% else %}
+			<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+			{% endif %}
+			<p>{{ member.name }}</p>
 		</div>
 	</div>
+	{% endfor %}
+	{% for member in app.user.currentMember.tgroup.members %}
+	{% if member.balance == 0 %}
+	<div class="well well-alert">         
+	   <p>Do you confirm <b>{{ member.name}}</b> is leaving the group ?</p>
+	   <p><a href="" class="btn btn-danger">yes</a> <a href="" class="btn">no</a></p>
+	</div>
+	{% else %}
+	<div class="well well-alert">         
+	   <p><b>{{ member.name}}</b> cannot leave the group, his <b>balance is not null !</b></p>
+	   <p><a href="" class="btn">ok</a></p>
+	</div>
+	{% endif %}
+	{% endfor %}
 </div>
+
+<a class="btn" href="{{ path('tk_group_homepage') }}" style="position: absolute; bottom: 35px; right: 20px;">Hide</a>
+		

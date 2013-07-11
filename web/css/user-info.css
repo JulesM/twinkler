@@ -5,6 +5,9 @@
 	position: relative;
 	text-align: center;
 }
+#user-info .flat-container{
+	width:100%;
+}
 
 #user-info .flat-header{
 	text-align: left;

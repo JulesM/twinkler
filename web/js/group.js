@@ -6,13 +6,13 @@ var members_nb= members.length;
 
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
 	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
-};
+}
 
  window.onresize =function() {
 
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
 	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
-};
+}
 
 /*--------CHARTS--------*/
 

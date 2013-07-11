@@ -102,20 +102,9 @@
 								Your share: <font style="color:rgb(153,179,53);">{{ expense[1]|number_format(0) }} {{ currency }}</font>
 							</div>
 							<div class="edit-remove-buttons">
-								<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-edit-expense{{ expense[0].name }}" style="margin-left: 15px"><i class="icon-edit"></i></a>
 								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
 							</div>
-							<div id="collapse-edit-expense{{ expense[0].name }}" class="accordion-body collapse" style="display:block;">
-								<div class="accordion-inner">
-									<div class="well">
-										<h5 style="display: inline-block; margin-right: 20px;">Edit test</h5>
-										<div style="display: inline-block;">
-											<p>test test test</p>
-										</div>
-									</div>
-							  	</div>
-							</div>			
-						</div>
+						</div>	
 					</div>
 					{% endfor %}
 					{% endif %}

@@ -17,6 +17,7 @@ var members_nb= members.length;
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
 }
 
+
 /*--------CHARTS--------*/
 
 var graphColor=function(graphData){

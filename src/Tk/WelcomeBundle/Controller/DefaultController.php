@@ -9,7 +9,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        if ($this->getUser()){
+        $securityContext = $this->container->get('security.context');
+        if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
             return $this->redirect($this->generateUrl('tk_user_homepage'));
         }else{
             return $this->render('TkWelcomeBundle:Default:index.html.twig');

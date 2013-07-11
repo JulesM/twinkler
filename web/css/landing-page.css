@@ -249,7 +249,9 @@ strong{
 #gettheapp{
 	background-image: url(' ../img/landing-page/get-the-app.jpg');
 	background-repeat:no-repeat;
-	background-size: cover; 
+	background-size: auto 100%; 
+	background-attachment:fixed;
+	background-position: 40%;
 	height: 400px;
 	width: 100%;
 	text-align: center;
@@ -389,7 +391,9 @@ footer li{
 	.learn-more-link{
 		display: none;
 	}
-
+	#gettheapp{
+		height: 300px;
+	}
 	#gettheapp img{
 		margin-top: 50px;
 		margin-right: 10px;
@@ -438,6 +442,3 @@ footer li{
 	margin-right: 10%;
 	margin-top: 100px;
 }
-
-
-

@@ -125,11 +125,10 @@
 }
 
 #group-box{
-	padding-top: 1px;
-	padding-bottom: 0px;
-	margin-top: 10px;
-	margin-bottom: 10px;	
+	padding-top: 10px;
+	padding-bottom: 0px;	
 	color: #5e6d82;
+  	border-bottom: 1px solid rgb(200,200,200);
 }
 
 .accordion{
@@ -146,14 +145,12 @@
 .accordion-group{
   border:none;
   width: 100%;
-  height: 60px;
   margin-bottom:2px;
   background-color:#ffffff;
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
   border-top-left-radius:0px;
   border-top-right-radius:0px;
-  border-bottom: 1px solid rgb(200,200,200);
   display:inline-block;
 }
 
@@ -200,30 +197,6 @@
 .accordion-toggle:hover{	
 	color: #f07971;
 	text-decoration: none;
-}
-
-.accordion-group-title{
-	width: 120px;
-	margin-top: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.accordion-group-title  a{
-	color: rgba(245,103,99,1);
-	font-size: 16px;
-}
-
-.accordion-group-title a:hover{	
-	color: #f07971;
-	text-decoration: none;
-}
-
-.accordion-inner{
-	border-top: none;
-	border-bottom-color:#E5E5E5;
-  	border-bottom-style:solid;
-  	border-bottom-width:1px;
 }
 
 .user-group-btn{

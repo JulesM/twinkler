@@ -9,7 +9,12 @@
 
 {% block body %}
 
-<div id="summary-layout">
+<script>
+	var members={{ group.arrayMembers|json_encode|raw }};
+	var balances={{ group.arrayBalances|json_encode|raw }};		
+</script>
+
+<div id="user-body-layout">
     <header>
         <div>
             <a href="{{ path('tk_welcome_homepage') }}">
@@ -76,10 +81,6 @@
 									<i class="icon-plus" style="color:#fcd5d2;"></i>
 								</div>
 							</a>
-						</div>
-						<div id="expense-summary">
-							You paid: {{ total_paid_by_me|number_format(0) }}{{ currency }}
-							- Your due share: {{ total_paid_supposed|number_format(0) }}{{ currency }}				
 						</div>		
 					</div>
 
@@ -87,7 +88,6 @@
 					{% if all_expenses|length == 0 %}
 					<div class="expense-list flat-container" style="text-align: center">
 						<p>There is no expense for this group ...</p>
-						<a href="#addExpenseModal" role="button" data-toggle="modal" class="flat-btn flat-pk flat-large">Add an expense</a>
 					</div>
 					{% else %}
 					{% for expense in all_expenses %}
@@ -102,15 +102,12 @@
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="" style="position: relative">
 							<div class="expense-details">								
 								<div style="color:rgb(140,140,140);">
-									<font style="color:#fb786b;">{{ expense[0].owner.name }} </font>added <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
+									<font style="color:#fb786b;">{{ expense.owner.name }} </font>added <font style="color:#0088CC;">{{ expense.amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense.name }}</font> 
 								</div>
 								<div style"text-align: middle;">
-									<p style="margin-bottom:0px;"><font style="color:rgb(140,140,140)">Friends involved: </font> {% for member in expense[0].users %}{{ member.name }},  {% endfor %}</p>
+									<p style="margin-bottom:0px;"><font style="color:rgb(140,140,140)">Friends involved: </font> {% for member in expense.users %}{{ member.name }},  {% endfor %}</p>
 								</div>
-							</div>
-							<div class="your-share">
-								Your share: <font style="color:rgb(153,179,53);">{{ expense[1]|number_format(0) }} {{ currency }}</font>
-							</div>			
+							</div>		
 						</div>
 					</div>
 					{% endfor %}
@@ -121,4 +118,8 @@
 		</div>
 	</div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/group.js')}}"></script>
 {% endblock %}

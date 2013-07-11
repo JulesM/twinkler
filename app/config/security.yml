@@ -23,7 +23,7 @@ security:
             security: false
 
         login_firewall: 
-            pattern: ^/(welcome|login$|register|resetting|invitation|subscribe|$)
+            pattern: ^/(welcome|login$|register|resetting|invitation|summary|subscribe|$)
             anonymous: ~
 
         secured_area:

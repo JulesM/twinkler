@@ -5,13 +5,16 @@ var members_nb= members.length;
  window.onload =function() {
 
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
-	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
+
+	if($('#balanceChart').width()>$('#balance').width()){
+		$('#balanceChart').width($('#balance').width());
+		}else{
+		$('#balanceChart').width(members_nb*100 + 'px');}
 }
 
  window.onresize =function() {
 
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
-	$('#balanceChart').width(Math.min($('#balance').width(),members_nb*100+100));
 }
 
 /*--------CHARTS--------*/
@@ -51,15 +54,6 @@ new Chart(ctx).Bar(data,{
 
 	scaleShowLabels : false
 });
-
-if($('#balance').width()<members_nb*100+100){
-
-$('#balanceChart').width('100%');
-}else{
-
-$('#balanceChart').width(Math.min(members_nb*100+100,300));
-}
-
 
 
 /*-------TOOLTIPS--------*/

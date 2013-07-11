@@ -40,6 +40,9 @@
 {% block content %}
 	<div class="row">
 		<div id="user-info" class="span4 offset1 flat-container">
+			<div class="flat-header">
+					<h3>Your Information</h3>
+				</div>
 			<div id="profile-stats">
 				<div class="info-icon">
 					<i class="icon-thumbs-up-alt icon-large"></i>
@@ -103,7 +106,7 @@
 
 		<div class="span6">
 			<div id="group-summary" class="flat-container">
-				<div class="flat-header">
+				<div class="flat-header" style="height:34px;min-height:34px;">
 					<h3>Your Groups</h3>
 				</div>
 
@@ -118,7 +121,7 @@
 						</div>
 					  <div class="accordion-group">
 					    <div class="accordion-heading">
-							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}"  style="display: inline-block; margin-left: 40px">
+							<a href="{{ path('tk_group_goto_member', { 'id' : member.id }) }}"  style="display: inline-block; margin-left: 40px; color:#F97E76">
 								<strong>{{ member.tgroup.name|capitalize }}</strong>
 							</a>
 							<p style="display: inline-block; color:#8C8C8C;font-size:12px; text-align: right; float: right; margin-right: 30px"><small>opened on {{ member.tgroup.date| date('d/m/y') }}</small></p>			

@@ -7,12 +7,15 @@
 }
 
 #user-info .flat-header{
-	height: 50px;
+	text-align: left;
+	height:34px;
+	min-height:34px;
 }
 
 #user-info  .flat-header > h3{
-	line-height: 50px;
-	margin: 0;
+	margin: 0px 15px;
+	color:#FCD5D2;
+	font-size:16px;
 }
 
 #profile-stats{
@@ -134,7 +137,7 @@
 
 .accordion-group-icon{
 	position: absolute;
-	top: 20px;
+	top: 5px;
 	left:-19px;
 	display:inline-block;
 }
@@ -142,6 +145,7 @@
 .accordion-group{
   border:none;
   width: 100%;
+  height: 60px;
   margin-bottom:2px;
   background-color:#ffffff;
   border-bottom-left-radius:0px;

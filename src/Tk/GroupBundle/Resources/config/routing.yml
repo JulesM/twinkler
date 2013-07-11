@@ -32,7 +32,11 @@ tk_group_add_members:
     pattern:  /add
     defaults: { _controller: TkGroupBundle:Default:addMembers }
 
-tk_group_add_members_success:
+tk_group_send_invitation:
+    pattern:  /send_invitation/
+    defaults: { _controller: TkGroupBundle:Default:sendInvitation }
+
+tk_group_invite_user:
     pattern:  /add/invite/
     defaults: { _controller: TkGroupBundle:Default:inviteUser }
 

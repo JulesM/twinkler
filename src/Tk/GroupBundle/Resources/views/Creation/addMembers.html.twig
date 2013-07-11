@@ -5,33 +5,27 @@
 <div class="new-group row" style="text-align: center">
 	<div class="span6 offset3 flat-container">
 		<div class="flat-header" style="margin-bottom: 20px;">
-				<h1>Create a New Event (2/2)</h1>
+			<h1>Create a New Event (2/3)</h1>
 		</div>
-
 		<div>
-
 			<p><b>Current members</b></p>
 			{% for member in app.user.currentMember.tgroup.members %}
+			<div style="text-align: left; display: inline-block;">
 			{% if member.user %}
-				<div class="member">
-					<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-					<p style="color: rgb(121,136,151);text-shadow:  white 0px 1px 0px;">{{ member.name }}</p>
-				</div> 
+				<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative; margin-right: 20px;" width="30px">
 			{% else %}
-				<div class="member">
-					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-
-					<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
-				</div>
+				<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative; margin-right: 20px;" width="30px">
 			{% endif %}
-			<p>{{ member.name }}</p>
+				<span>{{ member.name }}</span>
+			</div>
+			<br><br>
 			{% endfor %}
-			<p><b>Add Members to {{ app.user.currentMember.tgroup.name }}</b></p>
+			<p><b>Add Members to the group "{{ app.user.currentMember.tgroup.name }}"</b></p>
 			{% render(controller('TkGroupBundle:Default:addMember')) %}
 
 		</div>
 		<div class="flat-footer"s style="padding-top: 20px;">
-			<a href="{{ path('tk_group_homepage') }}">Validate and continue</a>
+			<a href="{{ path('tk_group_send_invitation') }}">Validate and continue</a>
 		</div>
 
 	</div>

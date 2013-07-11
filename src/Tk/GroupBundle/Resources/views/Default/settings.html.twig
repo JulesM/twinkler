@@ -68,7 +68,15 @@
 		</div>
 
 		<div>
-			{% include 'TkGroupBundle:Default:inviteUser.html.twig' %}
+			<div id="collapse-send-invites" class="accordion-body collapse">
+			  	<div class="accordion-inner">	
+					<div class="well" style="postion: relative">
+					<h5>Send invitations to your friends to join your group "{{ app.user.currentMember.tgroup.name }}" on Twinkler</h5>
+					{% include 'TkGroupBundle:Default:inviteUser.html.twig' %}
+					<a class="btn" href="#" style="position: absolute; bottom: 35px; right: 20px;">Hide</a>
+					</div>	
+				</div>
+			</div>			
 		</div>
 
 		<div>

@@ -1,0 +1,19 @@
+{% extends 'TkUserBundle:Profile:show.html.twig' %}
+
+{% block content %}
+
+<div class="new-group row" style="text-align: center">
+	<div class="span6 offset3 flat-container">
+		<div class="flat-header" style="margin-bottom: 20px;">
+			<h1>Create a New Event (3/3)</h1>
+		</div>
+		<div>
+			<p><b>Send invitations to your friends to join "{{ app.user.currentMember.tgroup.name }}"</b></p>
+			{% render(controller('TkGroupBundle:Default:inviteUser')) %}
+		</div>
+		<div class="flat-footer"s style="padding-top: 20px;">
+			<a href="{{ path('tk_group_homepage') }}">Validate and continue</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -157,6 +157,11 @@ class DefaultController extends Controller
         return $this->render('TkGroupBundle:Creation:addMembers.html.twig');      
     }
 
+    public function sendInvitationAction()
+    {
+        return $this->render('TkGroupBundle:Creation:sendInvitations.html.twig');
+    }
+
     public function inviteUserAction()
     {
         return $this->render('TkGroupBundle:Default:inviteUser.html.twig');

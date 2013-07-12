@@ -31,6 +31,13 @@ class Member
     /**
      * @var string
      *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="invitationToken", type="string", length=255, nullable=true)
      */
     private $invitationToken;
@@ -276,5 +283,28 @@ class Member
         }else{
             return 0;
         }
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Member
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

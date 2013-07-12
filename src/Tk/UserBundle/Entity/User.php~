@@ -66,13 +66,6 @@ class User extends BaseUser
     protected $currentMember;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fbusername", type="string", length=255, nullable=true)
-     */
-    protected $fbusername;
-
-    /**
      * Get id
      *
      * @return integer 

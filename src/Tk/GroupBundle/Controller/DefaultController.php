@@ -120,9 +120,12 @@ class DefaultController extends Controller
 
     public function addMemberAction()
     {   
-        $defaultData = array('name' => '');
+        $defaultData = array('name' => '', 'email' => '');
         $form = $this->createFormBuilder($defaultData)
             ->add('name', 'text')
+            ->add('email', 'email', array(
+                'required' => false
+                ))
             ->getForm();
 
         $request = $this->get('request');
@@ -136,6 +139,7 @@ class DefaultController extends Controller
             $data = $form->getData();
             $member = new Member();
             $member->setName($data['name']);
+            $member->setEmail($data['email']);
             $member->setInvitationToken($member->generateInvitationToken());
             $member->setTGroup($this->getUser()->getCurrentMember()->getTGroup());
 

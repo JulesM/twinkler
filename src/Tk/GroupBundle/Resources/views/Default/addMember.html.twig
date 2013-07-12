@@ -7,6 +7,11 @@
             { 'attr': { 'placeholder' : 'Enter his name'}}) 
         }}
 
+        {{ form_errors(form.email) }}
+	    {{ form_widget(form.email, 
+            { 'attr': { 'placeholder' : 'Email (optional)'}}) 
+        }}
+
 	    {{ form_rest(form) }}
     	<input type="submit" value="Add" class="btn btn-success" style="vertical-align: top"/>
 	</form>

@@ -28,7 +28,7 @@ class DefaultController extends Controller
     {
         $this->changeCurrentMemberAction($id);
 
-        return $this->indexAction();
+        return $this->redirect($this->generateUrl('tk_group_homepage'));
     }
 
     public function goToExpensesAction($id)

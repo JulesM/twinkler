@@ -61,7 +61,8 @@ class User extends BaseUser
     protected $members;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
+     * @ORM\Column(nullable=true)
+     * @ORM\OneToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
      */
     protected $currentMember;
 
@@ -177,7 +178,14 @@ class User extends BaseUser
      */
     public function getMembers()
     {
-        return $this->members;
+        $all_members = $this->members;
+        $active_members = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach($all_members as $member){
+            if($member->getActive() == true){
+                $active_members->add($member);
+            }
+        }
+        return $active_members;
     }
 
     /**

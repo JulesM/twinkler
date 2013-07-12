@@ -12,7 +12,13 @@
 		</div>
 		<div class="span4" style="text-align: center">
 			<div class="member">
-				<a href="#uploadPictureModal" role="button"	 data-toggle="modal"><img class="img-circle" src="{{ asset(app.user.picture.path) }}" width="70px" style="border: solid 3px rgba(250,250,250,0.6); margin-bottom:30px" alt="profile picture"/></a>
+				{% if app.user.facebookId %}
+				<img class="img-circle" src="http://graph.facebook.com/{{app.user.facebookId}}/picture?width=200&height=200" width="70px" style="border: solid 3px rgba(250,250,250,0.6); margin-bottom:30px" alt="profile picture"/>
+				{% else %}
+				<a href="#uploadPictureModal" role="button"	 data-toggle="modal">
+					<img class="img-circle" src="{{ asset(app.user.picture.path) }}" width="70px" style="border: solid 3px rgba(250,250,250,0.6); margin-bottom:30px" alt="profile picture"/>
+				</a>
+				{% endif %}
 			</div>
 			{% include 'TkUserBundle:Profile:uploadPictureModal.html.twig' %}
 
@@ -154,17 +160,15 @@
 									{% for m in member.tgroup.members %}
 										<div style="display: inline-block">
 											{% if m.user %}
-												<div class="member">
-													<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-													<p>{{ m.name }}</p>
-												</div> 
+											{% if m.user.facebookId %}
+											<img src="http://graph.facebook.com/{{app.user.facebookId}}/picture?width=120&height=120" class="img-circle" width="60px" 	alt="{{ m.name }}" style="position: relative">
 											{% else %}
-												<div class="member">
-													<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
-
-													<p>{{ m.name }}</p>
-												</div>
+											<img src="{{ asset(m.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ m.name }}" style="position: relative">
 											{% endif %}
+											{% else %}
+											<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="60px" 	alt="{{ m.name }}" style="position: relative">
+											{% endif %}
+											<p>{{m.name}}</p>
 										</div>
 									{% endfor %}
 								</div>

@@ -89,7 +89,15 @@
 						</div>
 
 						<div class="expense-list-detailed">
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="" style="position: relative">
+							{% if expense[0].owner.user %}
+								{% if expense[0].owner.user.facebookId %}
+								<img src="http://graph.facebook.com/{{expense[0].owner.user.facebookId}}/picture?width=60&height=60" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+								{% else %}
+								<img src="{{ asset(expense[0].owner.user.picture.path) }}" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+								{% endif %}
+							{% else %}
+								<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="Payer picture" style="position: relative">
+							{% endif %}
 							<div class="expense-details">								
 								<div style="color:rgb(140,140,140);">
 									<font style="color:#fb786b;">{{ expense[0].owner.name }} </font>added <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 

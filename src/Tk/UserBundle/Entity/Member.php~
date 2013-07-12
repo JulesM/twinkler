@@ -53,7 +53,7 @@ class Member
     /**
      * @ORM\ManyToMany(targetEntity="Tk\ExpenseBundle\Entity\Expense", mappedBy="users", cascade={"persist"})
      */
-    protected $ForMeExpenses;
+    protected $forMeExpenses;
 
     /**
      * Get id
@@ -116,7 +116,7 @@ class Member
     public function __construct()
     {
         $this->myExpenses = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->ForMeExpenses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->forMeExpenses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -216,35 +216,65 @@ class Member
     }
 
     /**
-     * Add ForMeExpenses
+     * Add forMeExpenses
      *
      * @param \Tk\ExpenseBundle\Entity\Expense $forMeExpenses
      * @return Member
      */
     public function addForMeExpense(\Tk\ExpenseBundle\Entity\Expense $forMeExpenses)
     {
-        $this->ForMeExpenses[] = $forMeExpenses;
+        $this->forMeExpenses[] = $forMeExpenses;
 
         return $this;
     }
 
     /**
-     * Remove ForMeExpenses
+     * Remove forMeExpenses
      *
      * @param \Tk\ExpenseBundle\Entity\Expense $forMeExpenses
      */
     public function removeForMeExpense(\Tk\ExpenseBundle\Entity\Expense $forMeExpenses)
     {
-        $this->ForMeExpenses->removeElement($forMeExpenses);
+        $this->forMeExpenses->removeElement($forMeExpenses);
     }
 
     /**
-     * Get ForMeExpenses
+     * Get forMeExpenses
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
     public function getForMeExpenses()
     {
-        return $this->ForMeExpenses;
+        return $this->forMeExpenses;
+    }
+
+    /**
+     * Get Balance
+     *
+     * @return integer
+     */
+    public function getBalance()
+    {   
+        $supposed_paid = 0;
+        foreach($this->forMeExpenses as $expense){
+            $supposed_paid += $this->forMe($expense);
+        }
+
+        $paid = 0;
+        foreach($this->myExpenses as $expense){
+            $paid += $expense->getAmount();
+        }
+
+        return $paid - $supposed_paid;
+    }
+
+    private function forMe($expense)
+    {
+        $members = $expense->getUsers()->toArray();
+        if(in_array($this, $members)){
+            return round(($expense->getAmount())/(sizeof($members)),2);
+        }else{
+            return 0;
+        }
     }
 }

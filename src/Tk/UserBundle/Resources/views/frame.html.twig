@@ -26,7 +26,12 @@
                 </div>
                 <div id="account-settings">
                     <div class="profile-pic">
-                        <a href="{{ path('tk_user_homepage') }}"><img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="30px" style="margin: 10px;" alt="profile picture">
+                        <a href="{{ path('tk_user_homepage') }}">
+                            {% if app.user.facebookId %}
+                            <img src="http://graph.facebook.com/{{app.user.facebookId}}/picture?width=60&height=60" class="img-circle" width="30px" style="margin: 10px;" alt="profile picture">
+                            {% else %}
+                            <img src="{{ asset(app.user.picture.path) }}" class="img-circle" width="30px" style="margin: 10px;" alt="profile picture">
+                            {% endif %}
                         </a>
                     </div>
                     <div class="dropdown" >

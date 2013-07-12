@@ -29,7 +29,7 @@
 					{% if member.user %}
 						<div class="member">
 							{% if member.user.facebookId %}
-							<img src="http://graph.facebook.com/{{app.user.facebookId}}/picture?width=100&height=100" class="img-circle" alt="{{ member.name }}" style="position: relative">
+							<img src="http://graph.facebook.com/{{member.user.facebookId}}/picture?width=100&height=100" class="img-circle" alt="{{ member.name }}" style="position: relative">
 							{% else %}
 							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 							{% endif %}
@@ -38,7 +38,6 @@
 					{% else %}
 						<div class="member">
 							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-
 							<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
 						</div>
 					{% endif %}
@@ -73,20 +72,20 @@
 	<div id="second-row-small" class="row" style="position: relative">
 		<div id="group" class="span12">
 
-				{% for member in group.members %}
-					{% if member.user %}
-						<div class="member">
-							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-							<p>{{ member.name }}</p>
-						</div> 
+			{% for member in group.members %}
+				<div class="member">
+				{% if member.user %}
+					{% if member.user.facebookId %}
+					<img src="http://graph.facebook.com/{{member.user.facebookId}}/picture?width=100&height=100" class="img-circle" alt="{{ member.name }}" style="position: relative">
 					{% else %}
-						<div class="member">
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-
-							<p>{{ member.name }}</p>
-						</div>
+					<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 					{% endif %}
-				{% endfor %}
+				{% else %}
+					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
+				{% endif %}
+					<p>{{ member.name }}</p>
+				</div>
+			{% endfor %}
 
 		</div>
 		<div class="span12" style="height: 60px; position: relative">

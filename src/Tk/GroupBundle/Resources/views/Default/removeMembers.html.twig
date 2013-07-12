@@ -6,7 +6,7 @@
 			<a href="#accordion-{{ member.id}}" data-toggle="collapse" data-parent="#accordion2">
 			{% if member.user %}
 				{% if member.user.facebookId %}
-				<img src="http://graph.facebook.com/{{app.user.facebookId}}/picture?width=120&height=120" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
+				<img src="http://graph.facebook.com/{{member.user.facebookId}}/picture?width=120&height=120" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
 				{% else %}
 				<img src="{{ asset(member.user.picture.path) }}" class="img-circle" width="60px" 	alt="{{ member.name }}" style="position: relative">
 				{% endif %}

@@ -30,8 +30,8 @@
 #profile-stats div{
 	display: inline-block;
 	height: 30px;
-	background-color: #eaedf2;
-	color: #5e6d82;
+	background-color: rgb(234, 243, 255);
+	color: rgb(84, 134, 198);
 	text-align: center;
 	vertical-align: middle;
 	padding-top: 8px;
@@ -69,8 +69,8 @@
 .profile-info div{
 	display: inline-block;
 	height: 30px;
-	background-color: #eaedf2;
-	color: #5e6d82;
+	background-color: rgb(234, 243, 255);
+	color: rgb(84, 134, 198);
 	text-align: center;
 	vertical-align: middle;
 	padding-top: 8px;

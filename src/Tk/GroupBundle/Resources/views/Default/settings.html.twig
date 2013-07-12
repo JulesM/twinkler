@@ -127,7 +127,7 @@
 				</a>				
 			</div>
 			<div class="edit-group flat-btn flat-pk flat-large">	
-				<a class="edit-group-a" href="#">	
+				<a class="edit-group-a" data-toggle="collapse" href="#collapse-close-group">	
 					<div>
 						<i class="icon-signout"></i>   
 						Close Group
@@ -147,7 +147,7 @@
 		</div>
 
 		<div>
-			<div id="collapse-close-group" class="accordion-body ">
+			<div id="collapse-close-group" class="accordion-body collapse">
 				<div class="accordion-inner">	
 					<div class="well">
 						<p>Are you sure you want to close the group <b>{{ app.user.currentMember.tgroup.name }}</b> ?</p>

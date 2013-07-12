@@ -453,7 +453,14 @@ class TGroup
      */
     public function getMembers()
     {
-        return $this->members;
+        $all_members = $this->members;
+        $active_members = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach($all_members as $member){
+            if($member->getActive() == true){
+                $active_members->add($member);
+            }
+        }
+        return $active_members;
     }
 
     /**
@@ -463,7 +470,7 @@ class TGroup
      */
     public function getArrayMembers()
     {
-        $collection_members = $this->members;
+        $collection_members = $this->getMembers();
 
         $array_members = array();
         foreach ($collection_members as $member) {
@@ -480,7 +487,7 @@ class TGroup
      */
     public function getArrayBalances()
     {
-        $collection_members = $this->members;
+        $collection_members = $this->getMembers();
 
         $array_balances = array();
         foreach ($collection_members as $member) {

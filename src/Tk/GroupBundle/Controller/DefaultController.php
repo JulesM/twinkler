@@ -161,6 +161,52 @@ class DefaultController extends Controller
         return $this->render('TkGroupBundle:Creation:addMembers.html.twig');      
     }
 
+    public function removeMemberAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $member = $em->getRepository('TkUserBundle:Member')->find($id);
+
+        if ($this->getUser()->getCurrentMember()->getTGroup() != $member->getTGroup()){
+            throw new AccessDeniedException('You are not allowed to do this');
+        }
+
+        $all_todos = $member->getTGroup()->getTodos();
+        $todos_number = 0;
+        foreach($all_todos as $todo){
+            if($todo->getOwner() == $member or $todo->getAuthor() == $member){
+                $todos_number = 1;
+                break;
+            }
+            foreach($todo->getUsers() as $m){
+                if($m == $member){
+                    $todos_number = 1;
+                    break;
+                }
+            }
+            if($todos_number == 1){
+                break;
+            }
+        }
+
+        $all_items = $member->getTGroup()->getShoppingItems();
+        $items_number = 0;
+        foreach($all_items as $item){
+            if($item->getAuthor() == $member or $todo->getValidator() == $member){
+                $items_number = 1;
+                break;
+            }
+        }
+        $n = sizeof($member->getMyExpenses()) + sizeof($member->getForMeExpenses()) + $todos_number + $items_number;
+        if ($n == 0){
+            $em->remove($member);
+        }else{
+            $member->setActive(false);
+        }
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('tk_group_homepage'));
+    }
+
     public function sendInvitationAction()
     {
         return $this->render('TkGroupBundle:Creation:sendInvitations.html.twig');

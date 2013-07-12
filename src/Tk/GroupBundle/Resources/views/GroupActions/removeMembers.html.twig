@@ -23,7 +23,10 @@
     <div id="accordion-{{ member.id}}" class="collapse out">  
 		<div class="well well-alert"> 
 			   <p>Do you confirm <b>{{ member.name}}</b> is leaving the group ?</p>
-			   <p><a href="" class="btn btn-danger" href="#accordion-{{ member.id}}" data-toggle="collapse">Yes</a> <a class="btn" href="#accordion-{{ member.id}}" data-toggle="collapse">Cancel</a></p>
+			   <p>
+			   		<a href="{{ path('tk_group_remove_member', { 'id' : member.id }) }}" class="btn btn-danger">Yes</a> 
+			   		<a class="btn" href="#accordion-{{ member.id}}" data-toggle="collapse">Cancel</a>
+			   </p>
 		</div>
 	</div>
 	{% else %}

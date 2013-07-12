@@ -177,7 +177,14 @@ class User extends BaseUser
      */
     public function getMembers()
     {
-        return $this->members;
+        $all_members = $this->members;
+        $active_members = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach($all_members as $member){
+            if($member->getActive() == true){
+                $active_members->add($member);
+            }
+        }
+        return $active_members;
     }
 
     /**

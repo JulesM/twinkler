@@ -32,6 +32,10 @@ tk_group_add_members:
     pattern:  /add
     defaults: { _controller: TkGroupBundle:Default:addMembers }
 
+tk_group_remove_member:
+    pattern:  /remove/member/{id}
+    defaults: { _controller: TkGroupBundle:Default:removeMember }
+
 tk_group_send_invitation:
     pattern:  /send_invitation/
     defaults: { _controller: TkGroupBundle:Default:sendInvitation }

@@ -63,6 +63,13 @@ class Member
     protected $forMeExpenses;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active = true;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -306,5 +313,28 @@ class Member
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Member
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

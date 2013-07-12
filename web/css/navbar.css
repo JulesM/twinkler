@@ -43,33 +43,46 @@ header{
 	text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;
 }
 
+#group-name-title a{
+	color:white;
+}
+#group-name-title a:hover,
+#group-name-title a:active{
+	text-decoration: none;
+}
+
 #group-name-title > #title {
-	height: 100%; 
-	border-right: 1px solid rgba(255,255,255,0.7); 
+	height: 100%;
 	display: inline-block; 
 	padding-right: 10px
 }
 
-#group-name-title h1{
+#group-name-title > #title h1{
 	font-size: 26px;
 	color: white;
 	margin: 0px;
 }
 
-#group-name-title i{
+#group-name-title > #caret{
+	height: 40px;
+	vertical-align: top;
+	border-left: 1px solid rgba(255,255,255,0.7);
+	display: inline-block;
+	font-size: 22px;
+}
+
+#group-name-title > #caret .dropdown{
+	padding-top: 12px;
+}
+
+#group-name-title > #caret .dropdown-menu{
+	font-size: 14px;
+	position: absolute;
+	left: -130px;
+}
+
+#group-name-title > #caret i{
 	margin-left: 8px;
-}
-
-#group-name-title a{
-	color:white;
-}
-
-#group-name-title a:hover{
-	text-decoration: none;
-}
-
-#group-name-title a:active{
-	text-decoration: none;
 }
 
 /* --- Account settings (top right) --- */

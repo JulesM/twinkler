@@ -111,7 +111,7 @@ table[class~=more3] { width:282px !important; }
 			{{expense.amount}} {{member.tgroup.currency.symbol}}  for
 		</td>
 		<td style="padding: 0px 15px; margin-left: 15px">
-			{% for m in expense.users %}{{m.name}}.
+			{% for m in expense.users %}{{m.name}}. {% endfor %}
 		</td>
 		<td style="padding: 0px 15px">
 			Your Share: {{ expense.amount / expense.users|length }} {{member.tgroup.currency.symbol}}

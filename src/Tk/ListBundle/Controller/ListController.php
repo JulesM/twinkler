@@ -9,7 +9,11 @@ class ListController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkListBundle::index.html.twig');
+        if(!$this->getUser()->getCurrentMember()){
+            return $this->redirect($this->generateUrl('tk_user_homepage'));
+        }else{
+            return $this->render('TkListBundle::index.html.twig');
+        }
     }
 
     private function getAllTodosAction()

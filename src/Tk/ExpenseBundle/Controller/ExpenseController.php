@@ -10,19 +10,24 @@ class ExpenseController extends Controller
 {
     public function indexAction()
     {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
+        if(!$this->getUser()->getCurrentMember()){
+            return $this->redirect($this->generateUrl('tk_user_homepage'));
+        }else{
 
-        return $this->render('TkExpenseBundle::index.html.twig', array(
-            'all_expenses'        => $expenses_service->getAllExpenses($member),
-            'my_expenses'         => $expenses_service->getMyExpenses($member),
-            'other_expenses'      => $expenses_service->getOtherExpenses($member),
-            'total_paid'          => $expenses_service->getTotalPaid($member->getTGroup()),
-            'total_paid_by_me'    => $expenses_service->getTotalPaidByMe($member),
-            'total_paid_supposed' => $expenses_service->getTotalSupposedPaid($member),
-            'total_paid_for_me'   => $expenses_service->getTotalPaidForMe($member),
-            'debts'               => $expenses_service->getCurrentDebts($member->getTGroup()),
-            ));
+            $member = $this->getUser()->getCurrentMember();
+            $expenses_service = $this->container->get('tk_expense.expenses');
+
+            return $this->render('TkExpenseBundle::index.html.twig', array(
+                'all_expenses'        => $expenses_service->getAllExpenses($member),
+                'my_expenses'         => $expenses_service->getMyExpenses($member),
+                'other_expenses'      => $expenses_service->getOtherExpenses($member),
+                'total_paid'          => $expenses_service->getTotalPaid($member->getTGroup()),
+                'total_paid_by_me'    => $expenses_service->getTotalPaidByMe($member),
+                'total_paid_supposed' => $expenses_service->getTotalSupposedPaid($member),
+                'total_paid_for_me'   => $expenses_service->getTotalPaidForMe($member),
+                'debts'               => $expenses_service->getCurrentDebts($member->getTGroup()),
+                ));
+        }
     }
 
     public function newAction()

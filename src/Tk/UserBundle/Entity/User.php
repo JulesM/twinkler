@@ -61,7 +61,8 @@ class User extends BaseUser
     protected $members;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Tk\UserBundle\Entity\Member", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $currentMember;
 

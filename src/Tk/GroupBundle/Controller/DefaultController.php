@@ -13,7 +13,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkGroupBundle:Default:settings.html.twig');
+        if(!$this->getUser()->getCurrentMember()){
+            return $this->redirect($this->generateUrl('tk_user_homepage'));
+        }else{
+            return $this->render('TkGroupBundle:Default:settings.html.twig');
+        }
     }
 
     public function switchAction($id)
@@ -161,15 +165,21 @@ class DefaultController extends Controller
         return $this->render('TkGroupBundle:Creation:addMembers.html.twig');      
     }
 
-    public function removeMemberAction($id)
+    public function removeMemberRequestAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $member = $em->getRepository('TkUserBundle:Member')->find($id);
 
         if ($this->getUser()->getCurrentMember()->getTGroup() != $member->getTGroup()){
             throw new AccessDeniedException('You are not allowed to do this');
+        }else{
+            $this->removeMemberAction($member, $em);
+            return $this->redirect($this->generateUrl('tk_group_homepage'));
         }
+    }
 
+    private function removeMemberAction($member, $em)
+    {
         $all_todos = $member->getTGroup()->getTodos();
         $todos_number = 0;
         foreach($all_todos as $todo){
@@ -196,6 +206,9 @@ class DefaultController extends Controller
                 break;
             }
         }
+        if($member->getUser()){
+            $member->getUser()->setCurrentMember(null);
+        }
         $n = sizeof($member->getMyExpenses()) + sizeof($member->getForMeExpenses()) + $todos_number + $items_number;
         if ($n == 0){
             $em->remove($member);
@@ -203,8 +216,22 @@ class DefaultController extends Controller
             $member->setActive(false);
         }
         $em->flush();
+    }
 
-        return $this->redirect($this->generateUrl('tk_group_homepage'));
+    public function closeGroupAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $group = $em->getRepository('TkGroupBundle:TGroup')->find($id);
+
+        if ($this->getUser()->getCurrentMember()->getTGroup() != $group){
+            throw new AccessDeniedException('You are not allowed to do this');
+        }
+        else{
+            foreach($group->getMembers() as $member){
+                $this->removeMemberAction($member, $em);
+            }               
+        }
+        return $this->redirect($this->generateUrl('tk_user_homepage')); 
     }
 
     public function sendInvitationAction()

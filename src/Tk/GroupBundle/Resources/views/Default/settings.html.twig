@@ -16,43 +16,21 @@
 			<span style="display: block; height:50px; vertical-align: middle; padding-top: 2px; padding-left: 10px"><h2><i class="icon-gear" style="color:#ffffff"></i> {{ group.name }}</h2><span>
 		</div>
 		<div class="group-mgt-button">
-			<div class="row">
-			<div class="span4">
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-add-members">	
-						<div>
-							<i class="icon-plus-sign"></i>   
-							Add Member
-						</div>		
-					</a>				
-				</div>
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-send-invites">	
-						<div>
-							<i class="icon-envelope"></i>   
-							Invite Friends
-						</div>		
-					</a>				
-				</div>	
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-add-members">	
+					<div>
+						<i class="icon-plus-sign"></i>   
+						Add Member
+					</div>		
+				</a>				
 			</div>
-			<div class="span4">
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-remove-member">	
-						<div>
-							<i class="icon-minus-sign"></i>   
-							Remove Member
-						</div>		
-					</a>				
-				</div>
-				<div class="edit-group flat-btn flat-pk flat-large">	
-					<a class="edit-group-a" href="#">	
-						<div>
-							<i class="icon-signout"></i>   
-							Leave Group
-						</div>		
-					</a>				
-				</div>
-			</div>
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-send-invites">	
+					<div>
+						<i class="icon-envelope"></i>   
+						Invite Friends
+					</div>		
+				</a>				
 			</div>
 		</div>
 
@@ -77,16 +55,6 @@
 					</div>	
 				</div>
 			</div>			
-		</div>
-
-		<div>
-			<div id="collapse-remove-member" class="accordion-body collapse">
-				<div class="accordion-inner">	
-					<div class="well">
-					{% include 'TkGroupBundle:GroupActions:removeMembers.html.twig' %}
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<div class="subheader">	
@@ -142,6 +110,54 @@
 
 		</div>
 		-->
+
+		<div class="subheader">	
+			<span style="display: block; height:30px; vertical-align: middle; padding-left: 10px">
+				<h3>Edit group members</h3>
+			<span>
+		</div>
+
+		<div class="group-mgt-button">
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a accordion-toggle" data-toggle="collapse" href="#collapse-remove-member">	
+					<div>
+						<i class="icon-minus-sign"></i>   
+						Remove Member
+					</div>		
+				</a>				
+			</div>
+			<div class="edit-group flat-btn flat-pk flat-large">	
+				<a class="edit-group-a" href="#">	
+					<div>
+						<i class="icon-signout"></i>   
+						Close Group
+					</div>		
+				</a>				
+			</div>
+		</div>
+
+		<div>
+			<div id="collapse-remove-member" class="accordion-body collapse">
+				<div class="accordion-inner">	
+					<div class="well">
+					{% include 'TkGroupBundle:GroupActions:removeMembers.html.twig' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div id="collapse-close-group" class="accordion-body ">
+				<div class="accordion-inner">	
+					<div class="well">
+						<p>Are you sure you want to close the group <b>{{ app.user.currentMember.tgroup.name }}</b> ?</p>
+						<small>You will not be able to access this group anymore</small>
+						<p><a href="{{ path('tk_group_close', { 'id' : app.user.currentMember.tgroup.id}) }}" class="btn btn-danger" style="margin: 20px;">Yes</a><a href="" class="btn">No</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </div>	
 

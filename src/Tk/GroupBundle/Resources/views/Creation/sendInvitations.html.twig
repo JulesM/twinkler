@@ -3,16 +3,17 @@
 {% block content %}
 
 <div class="new-group row" style="text-align: center">
+	<div><img class="pinpoint-button" src="{{ asset('img/frame/group-creation-process-3.png') }}" style="margin-bottom:10px"></div>
 	<div class="span6 offset3 flat-container">
 		<div class="flat-header" style="margin-bottom: 20px;">
 			<h1>Invite your friends to join your group</h1>
 		</div>
-		<div>
+		<div style="margin-bottom:20px">
 			<p><b>Send invitations to your friends to join "{{ app.user.currentMember.tgroup.name }}"</b></p>
 			{% render(controller('TkGroupBundle:Default:inviteUser')) %}
 		</div>
 		<div class="flat-footer"s style="padding-top: 20px;">
-			<a href="{{ path('tk_group_homepage') }}">Validate and continue</a>
+			<a href="{{ path('tk_group_homepage') }}" class="btn btn-success">Validate and continue</a>
 		</div>
 	</div>
 </div>

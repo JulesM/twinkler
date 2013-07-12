@@ -1,1 +1,7 @@
-<p>Hello World!</p>
+<p>Hello {{ member.name }},</p>
+<p>{{expense.author.name}} tagged you in the following expense</p>
+<p>{{expense.owner.name}} paid {{expense.amount}} {{member.tgroup.currency.symbol}} for {% for m in expense.users %}{{m.name}}, {% endfor %}</p>
+<p>Your share is {{ expense.amount / expense.users|length }} {{member.tgroup.currency.symbol}}</p>
+<p>To see the expense timeline of the group {{ member.tgroup.name}} <a href="http://www.twinkler.co">Log in</a> to Twinkler</p>
+<p>See you soon on Twinkler</p>
+<p>Jules</p>

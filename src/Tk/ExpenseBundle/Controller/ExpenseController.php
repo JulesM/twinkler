@@ -60,11 +60,11 @@ class ExpenseController extends Controller
                 }
                 if($email){
                     $message = \Swift_Message::newInstance()
-                        ->setSubject($expense->getowner()->getName().' tagged you in an expense on Twinkler')
+                        ->setSubject($expense->getAuthor()->getName().' tagged you in an expense on Twinkler')
                         ->setFrom('jules@twinkler.co')
                         ->setTo($email)
                         ->setContentType('text/html')
-                        ->setBody($this->renderView('TkExpenseBundle:Add:addExpense.email.twig'));
+                        ->setBody($this->renderView('TkExpenseBundle:Add:addExpense.email.twig', array('expense' => $expense, 'member' => $member)));
                     $this->get('mailer')->send($message);
                 }
             }

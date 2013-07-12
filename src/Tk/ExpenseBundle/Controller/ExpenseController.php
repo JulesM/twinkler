@@ -10,15 +10,18 @@ class ExpenseController extends Controller
 {
     public function indexAction()
     {
+        $member = $this->getUser()->getCurrentMember();
+        $expenses_service = $this->container->get('tk_expense.expenses');
+
         return $this->render('TkExpenseBundle::index.html.twig', array(
-            'all_expenses'        => $this->getAllExpensesAction(),
-            'my_expenses'         => $this->getMyExpensesAction(),
-            'other_expenses'      => $this->getOtherExpensesAction(),
-            'total_paid'          => $this->getTotalPaidAction(),
-            'total_paid_by_me'    => $this->getTotalPaidByMeAction(),
-            'total_paid_supposed' => $this->getTotalSupposedPaidAction(),
-            'total_paid_for_me'   => $this->getTotalPaidForMeAction(),
-            'debts'               => $this->getCurrentDebtsAction(),
+            'all_expenses'        => $expenses_service->getAllExpenses($member),
+            'my_expenses'         => $expenses_service->getMyExpenses($member),
+            'other_expenses'      => $expenses_service->getOtherExpenses($member),
+            'total_paid'          => $expenses_service->getTotalPaid($member->getTGroup()),
+            'total_paid_by_me'    => $expenses_service->getTotalPaidByMe($member),
+            'total_paid_supposed' => $expenses_service->getTotalSupposedPaid($member),
+            'total_paid_for_me'   => $expenses_service->getTotalPaidForMe($member),
+            'debts'               => $expenses_service->getCurrentDebts($member->getTGroup()),
             ));
     }
 
@@ -48,6 +51,23 @@ class ExpenseController extends Controller
     		$em = $this->getDoctrine()->getEntityManager();
     		$em->persist($expense);
     		$em->flush();
+
+            foreach($expense->getUsers() as $member){
+                if($member->getUser()){
+                    $email = $member->getUser()->getEmail();
+                }else if($member->getEmail()){
+                    $email = $member->getEmail();
+                }
+                if($email){
+                    $message = \Swift_Message::newInstance()
+                        ->setSubject($expense->getowner()->getName().' tagged you in an expense on Twinkler')
+                        ->setFrom('jules@twinkler.co')
+                        ->setTo($email)
+                        ->setContentType('text/html')
+                        ->setBody($this->renderView('TkExpenseBundle:Add:addExpense.email.twig'));
+                    $this->get('mailer')->send($message);
+                }
+            }
 
         	return $this->redirect($this->generateUrl('tk_expense_homepage'));
     	}}
@@ -98,61 +118,5 @@ class ExpenseController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('tk_expense_homepage'));
-    }
-
-    private function getAllExpensesAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getAllExpenses($member);
-    }
-
-    private function getMyExpensesAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getMyExpenses($member);
-    }
-
-    private function getOtherExpensesAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getOtherExpenses($member);
-    }
-
-    private function getTotalPaidAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaid($member->getTGroup());
-    }
-
-    private function getTotalPaidByMeAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaidByMe($member);
-    }
-
-    private function getTotalSupposedPaidAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalSupposedPaid($member);
-    }
-
-    private function getTotalPaidForMeAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getTotalPaidForMe($member);
-    }
-
-    private function getCurrentDebtsAction()
-    {
-        $member = $this->getUser()->getCurrentMember();
-        $expenses_service = $this->container->get('tk_expense.expenses');
-        return $expenses_service->getCurrentDebts($member->getTGroup());
     }
 }

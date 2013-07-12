@@ -72,7 +72,7 @@
 			  	<div class="accordion-inner">	
 					<div class="well" style="postion: relative">
 					<h5>Send invitations to your friends to join your group "{{ app.user.currentMember.tgroup.name }}" on Twinkler</h5>
-					{% include 'TkGroupBundle:Default:inviteUser.html.twig' %}
+					{% include 'TkGroupBundle:GroupActions:inviteUser.html.twig' %}
 					<a class="btn" href="#" style="position: absolute; bottom: 35px; right: 20px;">Hide</a>
 					</div>	
 				</div>
@@ -83,7 +83,7 @@
 			<div id="collapse-remove-member" class="accordion-body collapse">
 				<div class="accordion-inner">	
 					<div class="well">
-					{% include 'TkGroupBundle:Default:removeMembers.html.twig' %}
+					{% include 'TkGroupBundle:GroupActions:removeMembers.html.twig' %}
 					</div>
 				</div>
 			</div>

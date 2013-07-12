@@ -61,7 +61,7 @@ class ExpenseController extends Controller
                 if($email){
                     $message = \Swift_Message::newInstance()
                         ->setSubject($expense->getAuthor()->getName().' tagged you in an expense on Twinkler')
-                        ->setFrom('jules@twinkler.co')
+                        ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
                         ->setTo($email)
                         ->setContentType('text/html')
                         ->setBody($this->renderView('TkExpenseBundle:Add:addExpense.email.twig', array('expense' => $expense, 'member' => $member)));

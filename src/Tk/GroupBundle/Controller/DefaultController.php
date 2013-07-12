@@ -113,7 +113,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('TkGroupBundle:Default:edit.html.twig', array(
+        return $this->render('TkGroupBundle:GroupActions:edit.html.twig', array(
             'form' => $form->createView(),
             ));        
     }
@@ -151,7 +151,7 @@ class DefaultController extends Controller
             return $this->redirect($url);
         }}
 
-        return $this->render('TkGroupBundle:Default:addMember.html.twig', array(
+        return $this->render('TkGroupBundle:GroupActions:addMember.html.twig', array(
             'form' => $form->createView(),
             ));        
     }
@@ -168,7 +168,7 @@ class DefaultController extends Controller
 
     public function inviteUserAction()
     {
-        return $this->render('TkGroupBundle:Default:inviteUser.html.twig');
+        return $this->render('TkGroupBundle:GroupActions:inviteUser.html.twig');
     }
 
     public function sendInvitationEmailAction()
@@ -192,17 +192,17 @@ class DefaultController extends Controller
 
             $message = \Swift_Message::newInstance()
                         ->setSubject('You received an invitation to join Twinkler !')
-                        ->setFrom('jules@twinkler.co')
+                        ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
                         ->setTo($data['email'])
                         ->setContentType('text/html')
-                        ->setBody($this->renderView('TkGroupBundle:Default:invitationEmail.email.twig', array('member' => $member, 'email' => $data['email'])))
+                        ->setBody($this->renderView('TkGroupBundle:GroupActions:invitationEmail.email.twig', array('member' => $member, 'email' => $data['email'])))
                     ;
             $this->get('mailer')->send($message);
 
             return $this->redirect($this->generateUrl('tk_group_homepage'));
         }}
 
-        return $this->render('TkGroupBundle:Default:sendEmailForm.html.twig', array(
+        return $this->render('TkGroupBundle:GroupActions:sendEmailForm.html.twig', array(
             'form' => $form->createView(),
             ));
     }

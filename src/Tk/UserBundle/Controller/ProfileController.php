@@ -12,7 +12,12 @@ class ProfileController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TkUserBundle:Profile:show.html.twig');
+        $securityContext = $this->container->get('security.context');
+        if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+            return $this->render('TkUserBundle:Profile:show.html.twig');
+        }else{
+            return $this->render('TkWelcomeBundle:Default:index.html.twig');
+        }
     }
 
     public function editAction($id)

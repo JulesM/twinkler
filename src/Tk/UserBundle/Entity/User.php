@@ -84,6 +84,7 @@ class User extends BaseUser
         
         $this->myExpenses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ForMeExpenses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->roles = array('ROLE_USER');
     }
 
     /**

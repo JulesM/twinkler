@@ -7,27 +7,9 @@ use Tk\WelcomeBundle\Entity\Subscribe;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-        $securityContext = $this->container->get('security.context');
-        $user = $securityContext->getToken()->getUser();
-        if (is_object($user) && $user instanceof UserInterface ) {
-            return $this->redirect($this->generateUrl('tk_user_homepage'));
-        }else if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
-            return $this->redirect($this->generateUrl('tk_user_homepage'));
-        }else{
-            return $this->render('TkWelcomeBundle:Default:index.html.twig');
-        }
-    }
-
     public function registerAction()
     {
     	return $this->render('TkWelcomeBundle:Links:register.html.twig');
-    }
-
-    public function testAction()
-    {
-    	return $this->render('::test.html.twig');
     }
 
     public function subscribeAction(){
@@ -51,7 +33,7 @@ class DefaultController extends Controller
                 $em->persist($subscribe);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('tk_welcome_homepage'));
+                return $this->redirect($this->generateUrl('tk_user_homepage'));
             }
         }
 

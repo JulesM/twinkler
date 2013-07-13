@@ -22,13 +22,9 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login_firewall: 
-            pattern: ^/(welcome|login$|register|resetting|invitation|summary|subscribe|$)
-            anonymous: ~
-
         secured_area:
             pattern: ^/
-            anonymous:    false
+            anonymous: ~
             form_login:
                 login_path: /login
                 check_path: /login_check
@@ -38,9 +34,7 @@ security:
                 csrf_provider: form.csrf_provider
             remember_me:
                 key: %secret%
-                lifetime: 360000
-                path:     /
-                domain:   ~
+                lifetime: 31536000 # 365 days in seconds
             fos_facebook:
                 app_url: "%api_facebook_name%"
                 server_url: "%api_facebook_server%"
@@ -52,8 +46,12 @@ security:
                 target: fos_user_security_login
 
     access_control:
-        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/invitation, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/summary, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/subscribe, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_REMEMBERED }
         - { path: ^/admin/, role: ROLE_ADMIN }

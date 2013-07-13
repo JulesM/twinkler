@@ -73,5 +73,14 @@
 	padding-left: 10px;
 }
 
+/*------chart label table-----*/
+#chart-labels{
+	margin: 0px auto;
+	margin-top: -30px;
+	color:#F97E76;
+	vertical-align: top;
+}
 
-
+#chart-labels tr td{
+	width:100px;
+}

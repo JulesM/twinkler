@@ -6,10 +6,6 @@ var members_nb= members.length;
 
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
 
-	if($('#balanceChart').width()>$('#balance').width()){
-		$('#balanceChart').width($('#balance').width());
-		}else{
-		$('#balanceChart').width(members_nb*100 + 'px');}
 }
 
  window.onresize =function() {
@@ -32,29 +28,46 @@ var graphColor=function(graphData){
 	return chartColor
 }
 
+var members_chart=[];
+for (var i = 0; i < members.length; i++) {
+	members_chart[i]='';
+
+}
+
 
 var colorFill=graphColor(balances);
+var data = {
+			labels : members_chart,
+			datasets : [
+						{
+							fillColor : colorFill,
+							strokeColor : "rgba(220,220,220,1)",
+							data : balances
+						}
+						]
+					}
 
-
-
-				var data = {
-							labels : members,
-							datasets : [
-										{
-											fillColor : colorFill,
-											strokeColor : "rgba(220,220,220,1)",
-											data : balances
-										}
-										]
-									}
 
 
 var ctx = document.getElementById("balanceChart").getContext("2d");
 new Chart(ctx).Bar(data,{
     scaleOverlay : false,
-
 	scaleShowLabels : false
 });
+
+
+/*-------labels------*/
+$('#chart-labels').width($('#balanceChart').width());
+		for(var i=0; i<members.length;i++){
+			var column_member="<td style='width=100px'> "+ members[i]+" </td>	";			
+			var column_balance="<td style='width=100px'> "+ balances[i]+"€ </td>	";
+
+			$('#member-row').append(column_member);
+			$('#balance-row').append(column_balance);
+	};
+
+
+
 
 
 /*-------TOOLTIPS--------*/

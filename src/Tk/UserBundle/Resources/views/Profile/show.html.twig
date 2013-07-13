@@ -142,14 +142,15 @@
 									</a>
 								</div>
 								<div class="accordion-heading-right" style="display: inline-block; float: right; margin-right:30px;">
-									<p>Your balance: 
-										{% if member.balance >= 0 %}
-											<span style="color: #a8bd44; font-family:'Asap-regular'; display:inline-block"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
-										{% else %}
-
-											<span style="color: #f97e76; font-family:'Asap-regular';display:inline-block"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
-										{% endif %}
-									</p>
+									<a href="{{ path('tk_group_goto_expenses', { 'id' : member.id }) }}">
+										<p>Your balance: 
+											{% if member.balance >= 0 %}
+												<span style="color: #a8bd44; font-family:'Asap-regular'; display:inline-block"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
+											{% else %}
+												<span style="color: #f97e76; font-family:'Asap-regular';display:inline-block"><b>{{ member.balance }} {{member.tgroup.currency.symbol}}</b></span>
+											{% endif %}
+										</p>
+									</a>
 								</div>
 							</div>
 						</div>

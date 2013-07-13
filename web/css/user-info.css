@@ -184,6 +184,13 @@
 	display: inline-block;
 }
 
+.accordion-heading-right > a,
+.accordion-heading-right > a:hover,
+.accordion-heading-right > a:active{
+	text-decoration: none;
+	color: #5E6D82;
+}
+
 .accordion-body{
 	display: inline-block;
 	width: 100%;

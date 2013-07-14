@@ -107,10 +107,6 @@ header{
 	left: -150px;
 }
 
-#account-settings img{
-	border: solid 2px rgba(250,250,250,0.6);
-}
-
 #account-settings a{
 	color: white;
 	text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;
@@ -155,7 +151,6 @@ header{
 }
 
 #group > .member > img{
-	border: solid 4px rgba(250,250,250,0.6);
 	width: 60px;
 }
 
@@ -253,17 +248,14 @@ header{
 		padding-right:10px;
 		padding-left: 15px;
 	}
-
 	#group-name-title > #title {
 		height: 100%;
 		padding-right: 5px
 	}
-
 	#group-name-title h1{
-		font-size: 18px;
+		font-size: 12px;
 		margin: 0px;
 	}
-
 	#group-name-title i{
 		margin-left: 4px;
 	}
@@ -272,26 +264,5 @@ header{
 }
 
 @media only screen and (min-width: 768px) {
-	#logo-small,
-	#second-row-small{display: none;}
+	#logo-small{display: none;}
 }
-
-/* --- Specific small design for 2nd row --- */
-
-#second-row-small #group > .member > p{
-	font-weight: normal;
-	font-size: 12px;
-}
-
-#second-row-small #group > .member > img{
-	border: solid 1px rgba(250,250,250,0.6);
-	width: 30px;
-}
-
-
-
-
-
-
-
-

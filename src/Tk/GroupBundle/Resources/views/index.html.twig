@@ -28,100 +28,26 @@
 	  		<a class="btn-quick-add" href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><div class="btn-navbar"><i class="icon-group icon-2x"></i></div></a>
 	  	</div>
 		<div id="group" class="span8 offset2">
-
-				{% for member in group.members %}
-					{% if member.user %}
-						<div class="member">
-							{% if member.user.facebookId %}
-							<img src="http://graph.facebook.com/{{member.user.facebookId}}/picture?width=100&height=100" class="img-circle" alt="{{ member.name }}" style="position: relative">
-							{% else %}
-							<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-							{% endif %}
-							<p style="color: rgb(121,136,151);text-shadow:  white 0px 1px 0px;">{{ member.name }}</p>
-						</div> 
-					{% else %}
-						<div class="member">
-							<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-							<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
-						</div>
-					{% endif %}
-				{% endfor %}
-
-		</div>
-		<div id="toolbar">
-			<div style="display: inline-block; position:absolute; bottom:0;right:100px">
-				<a href="{{ path('tk_group_add_members') }}" class="btn-quick-add" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member">
-					<div class="btn-navbar">
-						<i class="icon-user icon-2x" style="left: 9px;"></i>
-					</div>
-				</a>
-			</div>
-			<div class="btn-group" style="display: inline-block; position:absolute; bottom:-5px; right: 36px">
-				<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><div class="btn-navbar"><i class="icon-envelope icon-2x" style="left: 6px;"></i></div></a>
-				<ul class="dropdown-menu">
-					<!-- dropdown menu links -->
-					{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
-					<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
-				</ul>
-			</div>
-			<div style="display: inline-block;  position:absolute; bottom:0; right: 0px">
-				<a href="{{ path('tk_group_homepage') }}" class="btn-quick-add" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings">
-					<div class="btn-navbar">
-						<i class="icon-gear icon-2x" style="left: 8px;"></i>
-					</div>
-				</a>
-			</div>
-		</div>		
-	</div>
-	<div id="second-row-small" class="row" style="position: relative">
-		<div id="group" class="span12">
-
 			{% for member in group.members %}
+			{% if member.user %}
 				<div class="member">
-				{% if member.user %}
 					{% if member.user.facebookId %}
 					<img src="http://graph.facebook.com/{{member.user.facebookId}}/picture?width=100&height=100" class="img-circle" alt="{{ member.name }}" style="position: relative">
 					{% else %}
 					<img src="{{ asset(member.user.picture.path) }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
 					{% endif %}
-				{% else %}
+					<p style="color: rgb(121,136,151);text-shadow:  white 0px 1px 0px;">{{ member.name }}</p>
+				</div> 
+			{% else %}
+				<div class="member">
 					<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" alt="{{ member.name }}" style="position: relative">
-				{% endif %}
-					<p>{{ member.name }}</p>
+					<p style="color: rgb(121,136,151);text-shadow: white 0px 1px 0px;">{{ member.name }}</p>
 				</div>
+			{% endif %}
 			{% endfor %}
-
-		</div>
-		<div class="span12" style="height: 60px; position: relative">
-			<div id="add-group">
-		  		<a href="{{ path('tk_group_new') }}"  rel="tooltip" data-toggle="tooltip" title="" data-original-title="Create a new Group"><div class="btn-navbar"><i class="icon-group icon-2x"></i></div></a>
-		  	</div>
-			<div id="toolbar">
-				<div style="display: inline-block; position:absolute; bottom:0;right:100px">
-					<a href="{{ path('tk_group_add_members') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Add a Member">
-						<div class="btn-navbar">
-							<i class="icon-user icon-2x" style="left: 9px;"></i>
-						</div>
-					</a>
-				</div>
-				<div class="btn-group" style="display: inline-block; position:absolute; bottom:-5px; right: 36px">
-					<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#" rel="tooltip" title="" data-original-title="Invite a friend"><div class="btn-navbar"><i class="icon-envelope icon-2x" style="left: 6px;"></i></div></a>
-					<ul class="dropdown-menu">
-						<!-- dropdown menu links -->
-						{% render(controller('TkGroupBundle:Default:sendInvitationEmail')) %}
-						<a class="btn btn-primary" href="https://www.facebook.com/dialog/send?app_id=130641483808717&name=Click%20here%20to%20join%20my%20group%20on%20Twinkler&link=http://www.twinkler.co/invitation/{{group.id}}/{{group.invitationToken}}&redirect_uri=http://www.twinkler.co/group/settings">Send Facebook Message</a>
-					</ul>
-				</div>
-				<div style="display: inline-block;  position:absolute; bottom:0; right: 0px">
-					<a href="{{ path('tk_group_homepage') }}" rel="tooltip" data-toggle="tooltip" title="" data-original-title="Edit your group settings">
-						<div class="btn-navbar">
-							<i class="icon-gear icon-2x" style="left: 8px;"></i>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>		
+		</div>	
 	</div>
+	
 {% endblock %}
 
 
@@ -129,11 +55,14 @@
 	<div class="selection-menu">
 		<div class="container">
 			<div class="row">
-				<div class="span4 offset4">
-					<div style="display: inline-block; float-left; width: 49%; text-align: center">
+				<div class="span4 offset4" style="text-align: center;">
+					<div style="display: inline-block; width: 32%; text-align: center">
+						<a href="{{ path('tk_expense_homepage') }}">Settings</a>
+					</div>
+					<div style="display: inline-block; width: 32%; text-align: center">
 						<a href="{{ path('tk_expense_homepage') }}">Expenses</a>
 					</div>
-					<div style="display: inline-block; float-right; width: 49%; text-align: center">
+					<div style="display: inline-block; width: 32%; text-align: center">
 						<a href="{{ path('tk_list_homepage') }}">Lists </a>
 					</div>
 				</div>

@@ -5,7 +5,7 @@
 {% block navbartitle %}
 	<div  id="group-name-title">
 		<div id="title">
-			<a href="{{ path('tk_group_homepage') }}" ><h1>{{ group.name|capitalize }}</h1></a>
+			<a href="{{ path('tk_group_homepage') }}" ><h3>{{ group.name|capitalize }}</h3></a>
 		</div>
 		{% if app.user.members|length > 1 %}
 		<div id="caret">	

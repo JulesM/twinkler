@@ -148,7 +148,7 @@ window.Chart = function(context){
 	};
 
 	//Variables global to the chart
-	var width = data.labels.length*100-3;
+	var width = data.labels.length*70;
 	var height = context.canvas.height;
 
 

@@ -13,10 +13,10 @@ class ProfileController extends Controller
     public function indexAction()
     {
         $securityContext = $this->container->get('security.context');
-        if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
-            return $this->render('TkUserBundle:Profile:show.html.twig');
-        }else{
+        if( !$securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
             return $this->render('TkWelcomeBundle:Default:index.html.twig');
+        }else{
+            return $this->render('TkUserBundle:Profile:show.html.twig');
         }
     }
 

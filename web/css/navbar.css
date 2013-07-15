@@ -240,25 +240,10 @@ header{
 .navbar-item{
 	position: relative;
 	display: none;
-	-webkit-filter:drop-shadow(rgba(0, 0, 0, 0.1) 0 1px 0px);
-}
+	border-top: 2px solid #fb786b;
+	border-bottom: 2px solid #fb786b;
 
-.navbar-item:after {
-	top: 100%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
 
-.navbar-item:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: rgb(247, 247, 246);
-	border-width: 10px;
-	left: 50%;
-	margin-left: -10px;
 }
 
 /* --- Responsiveness --- */

@@ -1,9 +1,14 @@
-/* ------ CSS of expense part of GroupBundle only ------ */
+/* ------ CSS of expense part of Expenses only ------ */
 
 .expense-header{
   	border-bottom-left-radius:4px;
   	border-bottom-right-radius:4px;
   	min-height: 34px;
+  	margin: 5px;
+}
+
+.expense-header{
+	width: auto;
 }
 
 .expense-header h2{
@@ -42,7 +47,6 @@
 	min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
 	width:100%;
 	color:white;
-	padding:5px;
 	position:relative;
 	word-wrap:break-word;
 	-moz-border-radius:5px; /*add some nice CSS3 round corners*/
@@ -54,27 +58,27 @@
 .balance-box h2{
 	font-size: 22px;
 	vertical-align: middle;
-
 }
 
 #settlement{
 	width: 100%;
-	padding:5px;
 	text-align: center;
 	color:#f97e76;
 }
 
-#settlement:after{ /*arrow added to rightarrowdiv DIV*/
-	content:'';
-	display:block;
-	position:absolute;
-	top:10px;
-	left:100%; /*should be set to 100% */
-	width:0;
-	height:0;
-	border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
-	border-style: solid;
-	border-width: 10px;	
+@media only screen and (min-width: 768px) {
+	#settlement:after{ /*arrow added to rightarrowdiv DIV*/
+		content:'';
+		display:block;
+		position:absolute;
+		top:10px;
+		left:100%; /*should be set to 100% */
+		width:0;
+		height:0;
+		border-color: transparent transparent transparent white; /*border color should be same as div div background color*/
+		border-style: solid;
+		border-width: 10px;	
+	}
 }
 
 

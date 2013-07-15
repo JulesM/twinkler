@@ -39,6 +39,10 @@ class ProfileController extends Controller
 
             if ($form->isValid()) {
 
+                foreach($user->getMembers() as $member){
+                    $member->setName($user->getUsername());
+                }
+
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($user);
                 $em->flush();

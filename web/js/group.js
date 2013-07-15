@@ -103,5 +103,14 @@ if(dd<10){dd='0'+dd};
 $('#today-pinpoint').attr('title', dd +"/"+mm);
 
 
+/*----chart scroll-----*/
+$(document).ready(
 
+  function() { 
+
+    $("#balance-slimscroll").niceScroll();
+
+  }
+
+);
 

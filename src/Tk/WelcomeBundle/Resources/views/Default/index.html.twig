@@ -19,9 +19,9 @@
 					<li id="gimmemore" class="header-collapse"><a href="{{ path('tk_user_homepage') }}#mosaic">More</a></li>
 					<li class="header-collapse"><a>|</a></li>
 					<li>
-						<a href="{{ path('fos_user_security_login')}}" role="button" data-toggle="modal">Login</a> 
+						<a href="{{ path('fos_user_security_login')}}">Login</a> 
 						<span>or</span>
-						<a href="{{ path('fos_user_registration_register')}}" role="button" data-toggle="modal">Register</a>
+						<a href="{{ path('fos_user_registration_register')}}">Register</a>
 					</li>
 				</ul>	
 			</div>
@@ -53,7 +53,7 @@
 					    
 					    <p>Twinkler manages everything from planning to expenses</p>
 					    <br>
-					    <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
+					    <a href="{{ path('fos_user_registration_register')}}" class="btn btn-large btn-primary">Sign up and start Sharing</a>
 					</div>
 				</div>
 
@@ -72,7 +72,7 @@
 					    <p>Twinkler is the most beautiful, simple and convenient place to</br> 
 					    <strong>enjoy moments with friends</strong></p>
 					    
-					    <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
+					    <a href="{{ path('fos_user_registration_register')}}" class="btn btn-large btn-primary">Sign up and start Sharing</a>
 					</div>
 				</div>
 				<!-- end of screen discrimination -->
@@ -128,7 +128,7 @@
 				</div>
 			</div>
 			<div id="late-login" class="row">
-				  <a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
+				  <a href="{{ path('fos_user_registration_register')}}" class="btn btn-large btn-primary">Sign up and start Sharing</a>
 				  <p>already registered? log in <a href="#subscribeModal" role="button" data-toggle="modal">here</a></p>
 			</div>
 		</div>
@@ -221,7 +221,7 @@
 			<div id="login-mosaic">
 			    <img src="{{ asset('img/logo/twinkler_logo_mosaic.png') }}" width="600px" alt="twinkler logo">
 			    <br>
-		  		<a href="#subscribeModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign up and start Sharing</a>
+		  		<a href="{{ path('fos_user_registration_register')}}" class="btn btn-large btn-primary">Sign up and start Sharing</a>
 			</div>
 			<div id="row1" class="row mosa-row">
 				 <img id="pic1-1" src="{{ asset('img/landing-page/mosaic/thib_michou_kayak_200.jpg') }}" alt="twinkler logo">

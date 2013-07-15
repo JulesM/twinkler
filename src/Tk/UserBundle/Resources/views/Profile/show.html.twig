@@ -99,12 +99,12 @@
 			</div>
 			
 			{% if not is_granted('ROLE_FACEBOOK') %}
-		<div id="setting-buttons" style="text-align: center; margin-top: 20px;">
-			<a data-toggle="collapse" data-target="#collapsePassword">
-				<i class="icon-lock icon-large"></i>
-				Change password
-			</a>		
-		</div>	
+			<div id="setting-buttons" style="text-align: center; margin-top: 20px;">
+				<a id="change-password" data-toggle="collapse" data-target="#collapsePassword" style="color:#5486C6; font-size:12px">
+					<i class="icon-lock icon-large"></i>
+					Change password
+				</a>		
+			</div>	
 			<div class="edit-info flat-btn flat-pk flat-large">	
 				<a class="edit-info-a" href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">	
 					<div>
@@ -114,13 +114,11 @@
 				</a>				
 			</div>
 			<div id="collapsePassword" class="collapse out">
-				<div class="accordion-inner">
-					<div class="well">
+				<div class="accordion-inner well" style="width: 80%; margin-left: auto; margin-right: auto">
 						{% render(controller('FOSUserBundle:ChangePassword:changePassword')) %}
-					</div>
 				</div>
 			</div>
-					{% endif %}
+			{% endif %}
 			{% endblock profile %}
 		</div>
 	</div>	

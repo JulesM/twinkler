@@ -1,5 +1,10 @@
 /* --- --- USER INFO CSS --- --- */
 
+a:hover{
+	text-decoration: none;
+}
+
+
 /* --- User information --- */
 #user-info{
 	position: relative;
@@ -87,7 +92,8 @@
 
 .edit-info{
 	height: 30px;
-	margin: 10px auto;
+	margin: 0px auto;
+	margin-bottom: 10px;
 	padding-top: 8px;
 	color: white;
 	text-align: center;
@@ -102,6 +108,11 @@
 	color:white;
 	width: 100%;
 	height: 100%;
+}
+
+#change-password:hover{
+	text-decoration: none;
+	cursor: pointer;
 }
 
 

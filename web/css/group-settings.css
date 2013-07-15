@@ -74,6 +74,12 @@
 }
 
 /*------chart label table-----*/
+#balance-slimscroll{
+	margin: 0px auto;
+	text-align: center;
+}
+
+
 #chart-labels{
 	margin: 0px auto;
 	margin-top: -30px;

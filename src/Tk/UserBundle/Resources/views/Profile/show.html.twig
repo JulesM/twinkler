@@ -98,7 +98,13 @@
 				 </div>
 			</div>
 			
-			
+			{% if not is_granted('ROLE_FACEBOOK') %}
+		<div id="setting-buttons" style="text-align: center; margin-top: 20px;">
+			<a data-toggle="collapse" data-target="#collapsePassword">
+				<i class="icon-lock icon-large"></i>
+				Change password
+			</a>		
+		</div>	
 			<div class="edit-info flat-btn flat-pk flat-large">	
 				<a class="edit-info-a" href="{{ path('tk_user_profile_edit', { 'id' : app.user.id }) }}">	
 					<div>
@@ -107,17 +113,6 @@
 					</div>		
 				</a>				
 			</div>
-			{% endblock profile %}
-		</div>
-		{% if not is_granted('ROLE_FACEBOOK') %}
-		<div id="setting-buttons" style="text-align: center; margin-top: 20px;">
-			<div style="border-bottom: solid 1px;margin-bottom: 20px;">
-				Settings
-			</div>
-			<a data-toggle="collapse" data-target="#collapsePassword">
-				<i class="icon-lock icon-large"></i>
-				Change password
-			</a>
 			<div id="collapsePassword" class="collapse out">
 				<div class="accordion-inner">
 					<div class="well">
@@ -125,9 +120,11 @@
 					</div>
 				</div>
 			</div>
+					{% endif %}
+			{% endblock profile %}
 		</div>
-		{% endif %}
-	</div>
+	</div>	
+
 
 	<div class="span6">
 		<div id="group-summary" class="flat-container">

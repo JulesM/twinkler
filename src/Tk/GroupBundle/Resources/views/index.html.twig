@@ -52,17 +52,17 @@
 
 
 {% block selectionmenu %}
-	<div class="selection-menu">
-		<div class="container">
-			<div class="row">
-				<div class="span4 offset4" style="text-align: center;">
-					<div style="display: inline-block; width: 32%; text-align: center">
+	<div id="navbar-row" class="selection-menu" style="padding-top:0">
+		<div class="container" style="height:100%;">
+			<div  class="row" style="height:100%;">
+				<div class="span4 offset4" style="height:100%; text-align: center;">
+					<div id="navbar-settings" style="height:100%; display: inline-block; width: 32%; text-align: center; padding-top: 5px; padding-bottom: 5px;">
 						<a href="{{ path('tk_group_homepage') }}">Settings</a>
 					</div>
-					<div style="display: inline-block; width: 32%; text-align: center">
+					<div id="navbar-expenses" style="height:100%; display: inline-block; width: 32%; text-align: center; padding-top: 5px; padding-bottom: 5px;">
 						<a href="{{ path('tk_expense_homepage') }}">Expenses</a>
 					</div>
-					<div style="display: inline-block; width: 32%; text-align: center">
+					<div id="navbar-lists" style="height:100%; display: inline-block; width: 32%; text-align: center; padding-top: 5px; padding-bottom: 5px;">
 						<a href="{{ path('tk_list_homepage') }}">Lists </a>
 					</div>
 				</div>

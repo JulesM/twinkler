@@ -1,15 +1,15 @@
 
 /*--------CHARTS & TIMLINE SIZE--------*/
-
+var activePage = document.URL.split("/").pop();
 var members_nb= members.length;
+var navbarHeight=$("#navbar-row").height();
+
  window.onload =function() {
-
+	$("#navbar-"+activePage).addClass("navbar-item");
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
-
 }
 
  window.onresize =function() {
-
 	$('#timeline').height(Math.max($('#balance-expense-container').height(),$('#timeline-expense-container').height())-65+'px');
 }
 
@@ -111,6 +111,8 @@ $(document).ready(
     $("#balance-slimscroll").niceScroll();
 
   }
+
+
 
 );
 

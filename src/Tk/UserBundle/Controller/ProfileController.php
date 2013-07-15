@@ -10,6 +10,7 @@ use Tk\UserBundle\Entity\ProfilePicture;
 
 class ProfileController extends Controller
 {
+    public function showAction(){ return $this->indexAction();}
     public function indexAction()
     {
         $securityContext = $this->container->get('security.context');

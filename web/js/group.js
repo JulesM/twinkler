@@ -59,14 +59,26 @@ new Chart(ctx).Bar(data,{
 /*-------labels------*/
 $('#chart-labels').width($('#balanceChart').width());
 		for(var i=0; i<members.length;i++){
+			if (activePage==="expenses"){
+				if (balances[i]>=0){
+				var column_member="<td style='width:70px; color:#A8BD44; vertical-align:top;'> "+ members[i]+" </td>	";			
+				var column_balance="<td style='width:70px; color:#A8BD44; vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				}else{
 
-			if (balances[i]>=0){
-			var column_member="<td style='width=100px; color:#A8BD44'> "+ members[i]+" </td>	";			
-			var column_balance="<td style='width=100px; color:#A8BD44'> "+ balances[i]+"€ </td>	";
+				var column_member="<td style='width:70px; color:#F97E76;vertical-align:top;'> "+ members[i]+" </td>	";			
+				var column_balance="<td style='width:70px; color:#F97E76;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+
+				}
 			}else{
+				if (balances[i]>=0){
+				var column_member="<td style='width:100px; color:#A8BD44;vertical-align:top;'> "+ members[i]+" </td>	";			
+				var column_balance="<td style='width:100px; color:#A8BD44;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				}else{
 
-			var column_member="<td style='width=100px; color:#F97E76'> "+ members[i]+" </td>	";			
-			var column_balance="<td style='width=100px; color:#F97E76'> "+ balances[i]+"€ </td>	";
+				var column_member="<td style='width:100px; color:#F97E76;vertical-align:top;'> "+ members[i]+" </td>	";			
+				var column_balance="<td style='width:100px; color:#F97E76;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+
+				}
 
 			}
 

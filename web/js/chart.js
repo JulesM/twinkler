@@ -148,7 +148,14 @@ window.Chart = function(context){
 	};
 
 	//Variables global to the chart
-	var width = data.labels.length*70;
+	var pageUrl= document.URL;
+	var lastPart = pageUrl.split("/").pop();
+
+	if(lastPart==="settings"){		
+		var width = data.labels.length*100;
+	}else{		
+		var width = data.labels.length*70;
+	}
 	var height = context.canvas.height;
 
 

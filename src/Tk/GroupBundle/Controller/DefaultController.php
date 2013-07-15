@@ -198,12 +198,6 @@ class DefaultController extends Controller
                 $todos_number = 1;
                 break;
             }
-            foreach($todo->getUsers() as $m){
-                if($m == $member){
-                    $todos_number = 1;
-                    break;
-                }
-            }
             if($todos_number == 1){
                 break;
             }
@@ -212,7 +206,7 @@ class DefaultController extends Controller
         $all_items = $member->getTGroup()->getShoppingItems();
         $items_number = 0;
         foreach($all_items as $item){
-            if($item->getAuthor() == $member or $todo->getValidator() == $member){
+            if($item->getAuthor() == $member or $item->getValidator() == $member){
                 $items_number = 1;
                 break;
             }

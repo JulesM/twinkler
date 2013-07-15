@@ -147,14 +147,16 @@ class DefaultController extends Controller
             $member->setInvitationToken($member->generateInvitationToken());
             $member->setTGroup($this->getUser()->getCurrentMember()->getTGroup());
 
-            $message = \Swift_Message::newInstance()
-                        ->setSubject('You received an invitation to join Twinkler !')
-                        ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
-                        ->setTo($data['email'])
-                        ->setContentType('text/html')
-                        ->setBody($this->renderView(':emails:invitationEmail.email.twig', array('member' => $this->getUser()->getCurrentMember(), 'email' => $data['email'])))
-                    ;
-            $this->get('mailer')->send($message);
+            if($data['email']){
+                $message = \Swift_Message::newInstance()
+                            ->setSubject('You received an invitation to join Twinkler !')
+                            ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
+                            ->setTo($data['email'])
+                            ->setContentType('text/html')
+                            ->setBody($this->renderView(':emails:invitationEmail.email.twig', array('member' => $this->getUser()->getCurrentMember(), 'email' => $data['email'])))
+                        ;
+                $this->get('mailer')->send($message);
+            }
 
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($member);

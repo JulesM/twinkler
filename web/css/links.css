@@ -87,6 +87,13 @@ strong{
 	font-family: 'Proxima-regular'
 }
 
+#about h3{
+	color:white;
+	margin-bottom:15px;
+	text-shadow:rgba(54, 54, 54, 0.6) 1px 1px 1px;
+	font-family: 'Proxima-regular'
+}
+
 #footer{
 	background-image: url(' ../img/landing-page/feature-gradient-bck.png');
 	background-position:50% 100%;
@@ -120,8 +127,8 @@ strong{
 	background-repeat:no-repeat;
 	background-size: cover; 
 	background-attachment:fixed;
-	background-position: 40%;
-	height: 400px;
+	background-position: 0px 0px;
+	height: 500px;
 	width: 100%;
 	text-align: center;
 }
@@ -132,4 +139,16 @@ strong{
 
 #bfm-desc strong{
 	font-weight: bold;
+}
+
+/*------Contact-----*/
+#contact{
+	background-image: url(' ../img/links/mines.jpg');
+	background-repeat:no-repeat;
+	background-size: cover; 
+	background-attachment:fixed;
+	background-position: 20%;
+	height: 600px;
+	width: 100%;
+	text-align: center;
 }

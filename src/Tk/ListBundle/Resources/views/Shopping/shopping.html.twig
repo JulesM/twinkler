@@ -21,7 +21,9 @@
 		{% for item in app.user.currentMember.tgroup.inactiveShoppingItems %}
 		<tr style="background-color: white; color: #e4ebf0;">
 			<td  class="item-name-checked">{{ item.name }}</td>
-			<td  class="item-date-checked" style="text-align:center;">added by {{ item.author.name }} on {{ item.addedDate|date('d/m') }}</td>
+			<td  class="item-date-checked" style="text-align:center;">
+				Validated{% if item.validator %} by {{item.validator.name }}{% endif %}
+			</td>
 			<td  style="text-align: right; padding-right: 10px">
 				<a href="{{ path('tk_list_shopping_readd', { 'id' : item.id }) }}" style:"color: #e4ebf0;" ><small >List back</small></a>
 			</td>

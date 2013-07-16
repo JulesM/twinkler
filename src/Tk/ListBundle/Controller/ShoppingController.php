@@ -45,6 +45,7 @@ class ShoppingController extends Controller
         $item = $em->getRepository('TkListBundle:ShoppingItem')->find($id);
 
         $item->setActive(false);
+        $item->setValidator($this->getUser()->getCurrentMember());
         $em->flush();
 
         return $this->redirect($this->generateUrl('tk_list_homepage'));

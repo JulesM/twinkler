@@ -75,7 +75,6 @@ strong{
 	background-attachment:fixed;
 	background-position: 40%;
 	height: 400px;
-	width: 100%;
 	text-align: center;
 }
 
@@ -88,11 +87,10 @@ strong{
 	font-family: 'Proxima-regular'
 }
 
-#about-us-pres{
+#footer{
 	background-image: url(' ../img/landing-page/feature-gradient-bck.png');
 	background-position:50% 100%;
   	background-repeat:no-repeat no-repeat;
-
 }
 
 #individual-pres{
@@ -114,4 +112,24 @@ strong{
 	line-height: 120%;
   	font-weight: lighter;
 
+}
+
+/*------PRESS-----*/
+#press{
+	background-image: url(' ../img/links/bonjour-paris.jpg');
+	background-repeat:no-repeat;
+	background-size: cover; 
+	background-attachment:fixed;
+	background-position: 40%;
+	height: 400px;
+	width: 100%;
+	text-align: center;
+}
+
+#bfm div{
+	display: inline-block;
+}
+
+#bfm-desc strong{
+	font-weight: bold;
 }

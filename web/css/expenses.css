@@ -281,3 +281,25 @@
 #addExpenseModal .flat-footer{
 	padding-top: 20px
 }
+
+/* --- edit accordion --- */
+
+.accordion-group {
+    border: none;
+    border-radius: none;
+    margin-bottom: none;
+}
+
+.edit-remove-buttons .accordion-toggle{
+	display: inline-block;
+	padding: 0;
+}
+
+.accordion-inner{
+	border: none;
+	padding: none;
+}
+
+.collapse {
+    overflow: hidden;
+}

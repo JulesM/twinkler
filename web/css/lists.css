@@ -86,3 +86,22 @@
 #shopping-list form input {
 	vertical-align: top;
 }
+
+.item-name{
+	color:#f97e76;
+}
+
+.item-date{
+	text-align: right;
+	color: #9eb2c0;
+	width: 200px;
+}
+
+.item-name-checked{
+	text-decoration: line-through;
+}
+
+.item-date-checked{
+	text-align: right;
+	text-decoration: line-through;
+}

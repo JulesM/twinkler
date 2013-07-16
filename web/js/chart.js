@@ -153,7 +153,8 @@ window.Chart = function(context){
 
 	if(lastPart==="settings"){		
 		var width = data.labels.length*100;
-	}else{		
+	}else if (lastPart==="expenses")
+	{		
 		var width = data.labels.length*70;
 	}
 	var height = context.canvas.height;

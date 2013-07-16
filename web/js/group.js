@@ -61,12 +61,12 @@ $('#chart-labels').width($('#balanceChart').width());
 		for(var i=0; i<members.length;i++){
 			if (activePage==="expenses"){
 				if (balances[i]>=0){
-				var column_member="<td style='width:70px; color:#A8BD44; vertical-align:top;'> "+ members[i]+" </td>	";			
-				var column_balance="<td style='width:70px; color:#A8BD44; vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				var column_member="<td style='width:70px; min-width:70px; color:#A8BD44; vertical-align:top;overflow: hidden; padding:0'> <div>"+ members[i]+" </td>	";			
+				var column_balance="<td style='width:70px; min-width:70px; color:#A8BD44; vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+"€ </td>	";
 				}else{
 
-				var column_member="<td style='width:70px; color:#F97E76;vertical-align:top;'> "+ members[i]+" </td>	";			
-				var column_balance="<td style='width:70px; color:#F97E76;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				var column_member="<td style='width:70px; min-width:70px; color:#F97E76;vertical-align:top;overflow: hidden; padding:0'> "+ members[i]+" </td>	";			
+				var column_balance="<td style='width:70px; min-width:70px; color:#F97E76;vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+"€ </td>	";
 
 				}
 			}else{
@@ -124,8 +124,4 @@ $(document).ready(
 
   }
 
-
-
 );
-
-

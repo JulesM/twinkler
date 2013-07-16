@@ -8,6 +8,25 @@
 	    {{ form_errors(form) }}
 
 	    {{ form_row(form.name) }}
+	    {{ form_row(form.owner) }}
+	    {{ form_row(form.amount) }}
+	    {{ form_row(form.date) }}
+
+	    <div>
+			<label class="required">Users</label>
+			<div id="tk_expensebundle_expensetype_users">
+			<input id="tk_expensebundle_expensetype_users_1" type="checkbox" checked="checked" value="1" name="tk_expensebundle_expensetype[users][]">
+			<label for="tk_expensebundle_expensetype_users_1">Julio</label>
+			<input id="tk_expensebundle_expensetype_users_2" type="checkbox" checked="checked" value="2" name="tk_expensebundle_expensetype[users][]">
+			<label for="tk_expensebundle_expensetype_users_2">Nono 1</label>
+			<input id="tk_expensebundle_expensetype_users_3" type="checkbox" checked="checked" value="3" name="tk_expensebundle_expensetype[users][]">
+			<label for="tk_expensebundle_expensetype_users_3">Tsonga</label>
+			<input id="tk_expensebundle_expensetype_users_54" type="checkbox" value="54" name="tk_expensebundle_expensetype[users][]">
+			<label for="tk_expensebundle_expensetype_users_54">Lola</label>
+			<input id="tk_expensebundle_expensetype_users_55" type="checkbox" value="55" name="tk_expensebundle_expensetype[users][]">
+			<label for="tk_expensebundle_expensetype_users_55">Lilian</label>
+			</div>
+		</div>
 
 	    {{ form_rest(form) }}
 

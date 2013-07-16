@@ -7,11 +7,6 @@ use Tk\WelcomeBundle\Entity\Subscribe;
 
 class DefaultController extends Controller
 {
-    public function registerAction()
-    {
-    	return $this->render('TkWelcomeBundle:Links:register.html.twig');
-    }
-
     public function subscribeAction(){
 
         $subscribe = new Subscribe();
@@ -40,5 +35,21 @@ class DefaultController extends Controller
         return $this->render('TkWelcomeBundle:Subscribe:new.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function aboutAction(){
+        return $this->render('TkWelcomeBundle:Links:about.html.twig');
+    }
+
+    public function blogAction(){
+        return $this->render('TkWelcomeBundle:Links:blog.html.twig');
+    }
+
+    public function pressAction(){
+        return $this->render('TkWelcomeBundle:Links:press.html.twig');
+    }
+
+    public function contactAction(){
+        return $this->render('TkWelcomeBundle:Links:contact.html.twig');
     }
 }

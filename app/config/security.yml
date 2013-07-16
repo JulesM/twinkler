@@ -52,6 +52,6 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/invitation, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/summary, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/subscribe, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(subscribe|about|blog|press|contact), role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: IS_AUTHENTICATED_REMEMBERED }
         - { path: ^/admin/, role: ROLE_ADMIN }

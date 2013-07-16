@@ -14,10 +14,22 @@ tk_welcome_invitation_login:
     pattern:  /login/{id}/{token}
     defaults: { _controller: TkWelcomeBundle:Invitation:invitationLogin }
 
-tk_welcome_register:
-    pattern: /register
-    defaults: { _controller: TkWelcomeBundle:Default:register }
-
 tk_welcome_subscribe:
     pattern: /subscribe
     defaults: { _controller: TkWelcomeBundle:Default:subscribe }
+
+tk_welcome_about:
+    pattern: /about
+    defaults: { _controller: TkWelcomeBundle:Default:about }
+
+tk_welcome_blog:
+    pattern: /blog
+    defaults: { _controller: TkWelcomeBundle:Default:blog }
+
+tk_welcome_press:
+    pattern: /press
+    defaults: { _controller: TkWelcomeBundle:Default:press }
+
+tk_welcome_contact:
+    pattern: /contact
+    defaults: { _controller: TkWelcomeBundle:Default:contact }

@@ -111,9 +111,6 @@ class ExpenseController extends Controller
         return $this->render('TkExpenseBundle::edit.html.twig', array(
             'id'                  => $id,
             'form'                => $form->createView(),
-            'total_paid_by_me'    => $this->getTotalPaidByMeAction(),
-            'total_paid_supposed' => $this->getTotalSupposedPaidAction(),
-            'debts'               => $this->getCurrentDebtsAction(),
         ));
     }
 

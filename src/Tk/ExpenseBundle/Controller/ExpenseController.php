@@ -53,24 +53,27 @@ class ExpenseController extends Controller
 
             if ($form->isValid()) {          
         
-    		$em = $this->getDoctrine()->getEntityManager();
-    		$em->persist($expense);
-    		$em->flush();
+            if (count($form->get('users')->getData()) > 0){
 
-            foreach($expense->getUsers() as $member){
-                if($member->getUser()){
-                    $email = $member->getUser()->getEmail();
-                }else if($member->getEmail()){
-                    $email = $member->getEmail();
-                }
-                if($email){
-                    $message = \Swift_Message::newInstance()
-                        ->setSubject($expense->getAuthor()->getName().' tagged you in an expense on Twinkler')
-                        ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
-                        ->setTo($email)
-                        ->setContentType('text/html')
-                        ->setBody($this->renderView(':emails:addExpense.email.twig', array('expense' => $expense, 'member' => $member)));
-                    $this->get('mailer')->send($message);
+                $em = $this->getDoctrine()->getEntityManager();
+        		$em->persist($expense);
+        		$em->flush();
+
+                foreach($expense->getUsers() as $member){
+                    if($member->getUser()){
+                        $email = $member->getUser()->getEmail();
+                    }else if($member->getEmail()){
+                        $email = $member->getEmail();
+                    }
+                    if($email){
+                        $message = \Swift_Message::newInstance()
+                            ->setSubject($expense->getAuthor()->getName().' tagged you in an expense on Twinkler')
+                            ->setFrom(array('jules@twinkler.co' => 'Jules from Twinkler'))
+                            ->setTo($email)
+                            ->setContentType('text/html')
+                            ->setBody($this->renderView(':emails:addExpense.email.twig', array('expense' => $expense, 'member' => $member)));
+                        $this->get('mailer')->send($message);
+                    }
                 }
             }
 

@@ -39,7 +39,7 @@ class ExpenseType extends AbstractType
                         'property'      => 'name',
                         'multiple'      => 'true',
                         'expanded'      => 'true',
-                        'required'      => 'true',
+                        'required'      => 'false',
                         'query_builder' => function(MemberRepository $member) use ($group) {
                             return $member->createQueryBuilder('m')
                                       ->where('m.tgroup = :group')

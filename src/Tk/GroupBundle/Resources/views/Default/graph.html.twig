@@ -1,5 +1,6 @@
 <script>
 	var members={{ app.user.currentMember.tgroup.arrayMembers|json_encode|raw }};
 	var balances={{ app.user.currentMember.tgroup.arrayBalances|json_encode|raw }};		
+	var currency={{ app.user.currentMember.tgroup.currency.symbol|json_encode|raw  }}
 </script>
 

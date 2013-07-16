@@ -62,21 +62,21 @@ $('#chart-labels').width($('#balanceChart').width());
 			if (activePage==="expenses"){
 				if (balances[i]>=0){
 				var column_member="<td style='width:70px; min-width:70px; color:#A8BD44; vertical-align:top;overflow: hidden; padding:0'> <div>"+ members[i]+" </td>	";			
-				var column_balance="<td style='width:70px; min-width:70px; color:#A8BD44; vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+"€ </td>	";
+				var column_balance="<td style='width:70px; min-width:70px; color:#A8BD44; vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+currency+" </td>	";
 				}else{
 
 				var column_member="<td style='width:70px; min-width:70px; color:#F97E76;vertical-align:top;overflow: hidden; padding:0'> "+ members[i]+" </td>	";			
-				var column_balance="<td style='width:70px; min-width:70px; color:#F97E76;vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+"€ </td>	";
+				var column_balance="<td style='width:70px; min-width:70px; color:#F97E76;vertical-align:top;overflow: hidden; padding:0'> "+ balances[i]+currency+" </td>	";
 
 				}
 			}else{
 				if (balances[i]>=0){
 				var column_member="<td style='width:100px; color:#A8BD44;vertical-align:top;'> "+ members[i]+" </td>	";			
-				var column_balance="<td style='width:100px; color:#A8BD44;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				var column_balance="<td style='width:100px; color:#A8BD44;vertical-align:top;'> "+ balances[i]+currency+" </td>	";
 				}else{
 
 				var column_member="<td style='width:100px; color:#F97E76;vertical-align:top;'> "+ members[i]+" </td>	";			
-				var column_balance="<td style='width:100px; color:#F97E76;vertical-align:top;'> "+ balances[i]+"€ </td>	";
+				var column_balance="<td style='width:100px; color:#F97E76;vertical-align:top;'> "+ balances[i]+currency+" </td>	";
 
 				}
 

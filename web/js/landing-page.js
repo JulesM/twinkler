@@ -1,7 +1,7 @@
 var h=10;
 
 function ScaleMosaic(){
-	h=$(document).width()/($('#pic1-1').width()+$('#pic1-2').width()+$('#pic1-3').width()+$('#pic1-4').width()+50);
+	h=$(document).width()/($('#pic1-1').width()+$('#pic1-2').width()+$('#pic1-3').width()+$('#pic1-4').width()+100);
 
 $('#row1').css('height',$('#row1').height()*h);
 
@@ -14,7 +14,7 @@ $('#pic1-3').css('height',$('#pic1-3').height()*h);
 $('#pic1-4').css('width',$('#pic1-4').width()*h);
 $('#pic1-4').css('height',$('#pic1-4').height()*h);
 
-h=$(document).width()/($('#pic2-1').width()+$('#pic2-2').width()+$('#pic2-3').width()+$('#pic2-4').width()+$('#pic2-5').width()+60);
+h=$(document).width()/($('#pic2-1').width()+$('#pic2-2').width()+$('#pic2-3').width()+$('#pic2-4').width()+$('#pic2-5').width()+110);
 
 $('#row2').css('height',$('#row2').height()*h);
 
@@ -29,7 +29,7 @@ $('#pic2-4').css('height',$('#pic2-4').height()*h);
 $('#pic2-5').css('width',$('#pic2-5').width()*h);
 $('#pic2-5').css('height',$('#pic2-5').height()*h);
 
-h=$(document).width()/($('#pic3-1').width()+$('#pic3-2').width()+$('#pic3-3').width()+$('#pic3-4').width()+50);
+h=$(document).width()/($('#pic3-1').width()+$('#pic3-2').width()+$('#pic3-3').width()+$('#pic3-4').width()+100);
 
 $('#row3').css('height',$('#row3').height()*h);
 
@@ -51,9 +51,15 @@ $(document).ready(function() {
 
 window.onload = function () {
 ScaleMosaic();
+  $('#mosaic').height($('#row1').height()+$('#row2').height()+$('#row3').height()+40);
 
 
 }
+
+$(window).resize(function() {
+  ScaleMosaic();
+  $('#mosaic').height($('#row1').height()+$('#row2').height()+$('#row3').height()+40);
+});
 
 window.onresize = function() {
 ScaleMosaic();

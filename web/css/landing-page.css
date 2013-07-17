@@ -272,8 +272,7 @@ strong{
 
 #mosaic{
 	height: 700px;
-	padding-top: 30px;
-	padding-left: 30px;
+	margin: 0px auto;
 }
 
 #login-mosaic{
@@ -365,7 +364,7 @@ strong{
 #footer-right a{
 	  -webkit-transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
 	  transition:color 175ms cubic-bezier(0.645, 0.045, 0.355, 1);
-	  
+
 	color:#fb887d;
 }
 

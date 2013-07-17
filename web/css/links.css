@@ -133,6 +133,19 @@ strong{
 	text-align: center;
 }
 
+#blog-title{
+	text-align: center; 
+	color:#d3d3d3;
+	padding-bottom:30px; 
+	margin-bottom:50px; 
+	border-bottom:1px solid #d3d3d3; 
+	font-family:'Proxima-regular'
+}
+
+#blog-title h2{
+	font-family:'Proxima-regular'
+}
+
 .blog-post{
 	font-family: "Proxima-regular", Helvetica, Arial, sans-serif;
 	padding-bottom: 30px;

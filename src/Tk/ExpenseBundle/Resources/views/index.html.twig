@@ -87,47 +87,47 @@
 					<div class="accordion" id="accordion2">
 					{% for expense in all_expenses %}
 					<div class="accordion-group">
-					<div class="expense-list flat-container accordion-heading">
-						<div class="pinpoint-tmln">
-							<a  href="#" data-toggle="tooltip" rel="tooltip" title="{{ expense[0].date|date("d/m") }}">
-								<img class="pinpoint-button" src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px">
-							</a>
-						</div>
+						<div class="expense-list flat-container accordion-heading">
+							<div class="pinpoint-tmln">
+								<a  href="#" data-toggle="tooltip" rel="tooltip" title="{{ expense[0].date|date("d/m") }}">
+									<img class="pinpoint-button" src="{{ asset('img/frame/tmln-btn.png') }}" class="img-circle" width="20px">
+								</a>
+							</div>
 
-						<div class="expense-list-detailed">
-							{% if expense[0].owner.user %}
-								{% if expense[0].owner.user.facebookId %}
-								<img src="http://graph.facebook.com/{{expense[0].owner.user.facebookId}}/picture?width=60&height=60" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+							<div class="expense-list-detailed">
+								{% if expense[0].owner.user %}
+									{% if expense[0].owner.user.facebookId %}
+									<img src="http://graph.facebook.com/{{expense[0].owner.user.facebookId}}/picture?width=60&height=60" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+									{% else %}
+									<img src="{{ asset(expense[0].owner.user.picture.path) }}" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+									{% endif %}
 								{% else %}
-								<img src="{{ asset(expense[0].owner.user.picture.path) }}" class="img-circle" width="30px" alt="Payer picture" style="position: relative">
+									<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="Payer picture" style="position: relative">
 								{% endif %}
-							{% else %}
-								<img src="{{ asset('uploads/profile-pictures/profile-pic.png') }}" class="img-circle" width="30px" 	alt="Payer picture" style="position: relative">
-							{% endif %}
-							<div class="expense-details">								
-								<div style="color:rgb(140,140,140);">
-									<font style="color:#fb786b;">{{ expense[0].owner.name }} </font>added <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
+								<div class="expense-details">								
+									<div style="color:rgb(140,140,140);">
+										<font style="color:#fb786b;">{{ expense[0].owner.name }} </font>added <font style="color:#0088CC;">{{ expense[0].amount|number_format(0) }} {{ currency }}</font> for <font style="color:#fb786b;">{{ expense[0].name }}</font> 
+									</div>
+									<div style"text-align: middle;">
+										<p style="margin-bottom:0px;"><font style="color:rgb(140,140,140)">Friends involved: </font> {% for member in expense[0].users %}{{ member.name }},  {% endfor %}</p>
+									</div>
 								</div>
-								<div style"text-align: middle;">
-									<p style="margin-bottom:0px;"><font style="color:rgb(140,140,140)">Friends involved: </font> {% for member in expense[0].users %}{{ member.name }},  {% endfor %}</p>
+								<div class="your-share">
+									Your share: <font style="color:rgb(153,179,53);">{{ expense[1]|number_format(0) }} {{ currency }}</font>
 								</div>
-							</div>
-							<div class="your-share">
-								Your share: <font style="color:rgb(153,179,53);">{{ expense[1]|number_format(0) }} {{ currency }}</font>
-							</div>
-							<div class="edit-remove-buttons">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{expense[0].id}}"><i class="icon-edit"></i></a>
-								<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
-							</div>
-						</div>	
-					</div>
-					<div id="collapse{{expense[0].id}}" class="accordion-body collapse out">
-     			 		<div class="accordion-inner">
-							<div class="expense-list flat-container">
-								{% render controller('TkExpenseBundle:Expense:edit', {'id': expense[0].id } ) %}
+								<div class="edit-remove-buttons">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{expense[0].id}}"><i class="icon-edit"></i></a>
+									<a href="{{ path('tk_expense_remove', {'id' : expense[0].id } ) }}"><i class="icon-trash"></i></a>
+								</div>
+							</div>	
+						</div>
+						<div id="collapse{{expense[0].id}}" class="accordion-body collapse out">
+	     			 		<div class="accordion-inner">
+								<div class="expense-list flat-container">
+									{% render controller('TkExpenseBundle:Expense:edit', {'id': expense[0].id } ) %}
+								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 					{% endfor %}
 					</div>

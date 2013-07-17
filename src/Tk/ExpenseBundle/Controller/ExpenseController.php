@@ -109,7 +109,7 @@ class ExpenseController extends Controller
         }}
 
         return $this->render('TkExpenseBundle::edit.html.twig', array(
-            'id'                  => $id,
+            'expense'             => $expense,
             'form'                => $form->createView(),
         ));
     }

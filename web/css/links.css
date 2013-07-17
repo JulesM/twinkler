@@ -121,6 +121,33 @@ strong{
 
 }
 
+/*------BLOG-----*/
+#blog{
+	background-image: url(' ../img/links/blog.jpg');
+	background-repeat:no-repeat;
+	background-size: cover; 
+	background-attachment:fixed;
+	background-position: 0px -60px;
+	height: 500px;
+	width: 100%;
+	text-align: center;
+}
+
+.blog-post{
+	font-family: "Proxima-regular", Helvetica, Arial, sans-serif;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.blog-post p{
+	color: #4f4f4f;
+	font-size: 16px;
+	line-height: 1.6;
+	margin-top: 40px;
+	margin-bottom: 1.3em;
+	text-align: justify;
+}
+
 /*------PRESS-----*/
 #press{
 	background-image: url(' ../img/links/bonjour-paris.jpg');

@@ -172,9 +172,9 @@ strong{
 #contact{
 	background-image: url(' ../img/links/mines.jpg');
 	background-repeat:no-repeat;
-	background-size: cover; 
+	background-size: 100% auto; 
 	background-attachment:fixed;
-	background-position: 0px -130px;
+	background-position: 0px -200px;
 	height: 400px;
 	width: 100%;
 	text-align: center;

@@ -127,8 +127,8 @@ strong{
 	background-repeat:no-repeat;
 	background-size: cover; 
 	background-attachment:fixed;
-	background-position: 0px -60px;
-	height: 500px;
+	background-position: 0px -80px;
+	height: 450px;
 	width: 100%;
 	text-align: center;
 }
@@ -174,8 +174,8 @@ strong{
 	background-repeat:no-repeat;
 	background-size: cover; 
 	background-attachment:fixed;
-	background-position: 20%;
-	height: 600px;
+	background-position: 0px -130px;
+	height: 400px;
 	width: 100%;
 	text-align: center;
 }
